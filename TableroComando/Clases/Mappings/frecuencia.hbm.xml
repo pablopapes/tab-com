@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                  assembly="TableroComando"
+                  namespace="TableroComando.Clases.Models">
+  <class name="Frecuencia" table="frecuencias">
+    <id name="Id">
+      <generator class="increment" />
+    </id>
+
+    <property name="Periodo" />
+    <property name="CantidadDias" />
+
+    <bag name="Indicadores">
+      <key column="frecuencia_id" />
+      <one-to-many class="Indicador" />
+    </bag>
+
+  </class>
+</hibernate-mapping>

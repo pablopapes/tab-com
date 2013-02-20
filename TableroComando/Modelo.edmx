@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="intiModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="intiModelStoreContainer">
+          <EntitySet Name="empresas" EntityType="intiModel.Store.empresas" store:Type="Tables" Schema="inti" />
+          <EntitySet Name="flechasobjetivos" EntityType="intiModel.Store.flechasobjetivos" store:Type="Tables" Schema="inti" />
+          <EntitySet Name="objetivos" EntityType="intiModel.Store.objetivos" store:Type="Tables" Schema="inti" />
+          <EntitySet Name="tipoobjetivo" EntityType="intiModel.Store.tipoobjetivo" store:Type="Tables" Schema="inti" />
+          <EntitySet Name="usuarios" EntityType="intiModel.Store.usuarios" store:Type="Tables" Schema="inti" />
+          <AssociationSet Name="fk_Obj_Empresas" Association="intiModel.Store.fk_Obj_Empresas">
+            <End Role="empresas" EntitySet="empresas" />
+            <End Role="objetivos" EntitySet="objetivos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Obj_Obj_destino" Association="intiModel.Store.fk_Obj_Obj_destino">
+            <End Role="objetivos" EntitySet="objetivos" />
+            <End Role="flechasobjetivos" EntitySet="flechasobjetivos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Obj_Obj_origen" Association="intiModel.Store.fk_Obj_Obj_origen">
+            <End Role="objetivos" EntitySet="objetivos" />
+            <End Role="flechasobjetivos" EntitySet="flechasobjetivos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Obj_tipoObj" Association="intiModel.Store.fk_Obj_tipoObj">
+            <End Role="tipoobjetivo" EntitySet="tipoobjetivo" />
+            <End Role="objetivos" EntitySet="objetivos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usuarios_empresa" Association="intiModel.Store.fk_usuarios_empresa">
+            <End Role="empresas" EntitySet="empresas" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="empresas">
+          <Key>
+            <PropertyRef Name="idempresa" />
+          </Key>
+          <Property Name="idempresa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombreEmpresa" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="cuit" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="mision" Type="varchar" MaxLength="300" />
+          <Property Name="vision" Type="varchar" MaxLength="300" />
+          <Property Name="valores" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="flechasobjetivos">
+          <Key>
+            <PropertyRef Name="idFlecha" />
+          </Key>
+          <Property Name="idFlecha" Type="int" Nullable="false" />
+          <Property Name="objOrigen" Type="int" Nullable="false" />
+          <Property Name="objDestino" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="objetivos">
+          <Key>
+            <PropertyRef Name="idobjetivo" />
+          </Key>
+          <Property Name="idobjetivo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="empresa" Type="int" Nullable="false" />
+          <Property Name="tipoObj" Type="int" Nullable="false" />
+          <Property Name="titulo" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="numero" Type="varchar" MaxLength="5" />
+          <Property Name="descripcion" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="tipoobjetivo">
+          <Key>
+            <PropertyRef Name="idTipoObjetivo" />
+          </Key>
+          <Property Name="idTipoObjetivo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombreTipoObjetivo" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="descripcion" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="idusuario" />
+          </Key>
+          <Property Name="idusuario" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="45" />
+          <Property Name="pass" Type="varchar" MaxLength="45" />
+          <Property Name="nombrereal" Type="varchar" MaxLength="45" />
+          <Property Name="empresa" Type="int" />
+        </EntityType>
+        <Association Name="fk_Obj_Empresas">
+          <End Role="empresas" Type="intiModel.Store.empresas" Multiplicity="1" />
+          <End Role="objetivos" Type="intiModel.Store.objetivos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresas">
+              <PropertyRef Name="idempresa" />
+            </Principal>
+            <Dependent Role="objetivos">
+              <PropertyRef Name="empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Obj_Obj_destino">
+          <End Role="objetivos" Type="intiModel.Store.objetivos" Multiplicity="1" />
+          <End Role="flechasobjetivos" Type="intiModel.Store.flechasobjetivos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="objetivos">
+              <PropertyRef Name="idobjetivo" />
+            </Principal>
+            <Dependent Role="flechasobjetivos">
+              <PropertyRef Name="objDestino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Obj_Obj_origen">
+          <End Role="objetivos" Type="intiModel.Store.objetivos" Multiplicity="1" />
+          <End Role="flechasobjetivos" Type="intiModel.Store.flechasobjetivos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="objetivos">
+              <PropertyRef Name="idobjetivo" />
+            </Principal>
+            <Dependent Role="flechasobjetivos">
+              <PropertyRef Name="objOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Obj_tipoObj">
+          <End Role="tipoobjetivo" Type="intiModel.Store.tipoobjetivo" Multiplicity="1" />
+          <End Role="objetivos" Type="intiModel.Store.objetivos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoobjetivo">
+              <PropertyRef Name="idTipoObjetivo" />
+            </Principal>
+            <Dependent Role="objetivos">
+              <PropertyRef Name="tipoObj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usuarios_empresa">
+          <End Role="empresas" Type="intiModel.Store.empresas" Multiplicity="0..1" />
+          <End Role="usuarios" Type="intiModel.Store.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresas">
+              <PropertyRef Name="idempresa" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="intiModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="intiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="empresas" EntityType="intiModel.empresas" />
+          <EntitySet Name="flechasobjetivos" EntityType="intiModel.flechasobjetivos" />
+          <EntitySet Name="objetivos" EntityType="intiModel.objetivos" />
+          <EntitySet Name="tipoobjetivo" EntityType="intiModel.tipoobjetivo" />
+          <EntitySet Name="usuarios" EntityType="intiModel.usuarios" />
+          <AssociationSet Name="fk_Obj_Empresas" Association="intiModel.fk_Obj_Empresas">
+            <End Role="empresas" EntitySet="empresas" />
+            <End Role="objetivos" EntitySet="objetivos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usuarios_empresa" Association="intiModel.fk_usuarios_empresa">
+            <End Role="empresas" EntitySet="empresas" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Obj_Obj_destino" Association="intiModel.fk_Obj_Obj_destino">
+            <End Role="objetivos" EntitySet="objetivos" />
+            <End Role="flechasobjetivos" EntitySet="flechasobjetivos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Obj_Obj_origen" Association="intiModel.fk_Obj_Obj_origen">
+            <End Role="objetivos" EntitySet="objetivos" />
+            <End Role="flechasobjetivos" EntitySet="flechasobjetivos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Obj_tipoObj" Association="intiModel.fk_Obj_tipoObj">
+            <End Role="tipoobjetivo" EntitySet="tipoobjetivo" />
+            <End Role="objetivos" EntitySet="objetivos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="empresas">
+          <Key>
+            <PropertyRef Name="idempresa" />
+          </Key>
+          <Property Name="idempresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreEmpresa" Type="String" Nullable="false" />
+          <Property Name="cuit" Type="String" Nullable="false" />
+          <Property Name="mision" Type="String" />
+          <Property Name="vision" Type="String" />
+          <Property Name="valores" Type="String" />
+          <NavigationProperty Name="objetivos" Relationship="intiModel.fk_Obj_Empresas" FromRole="empresas" ToRole="objetivos" />
+          <NavigationProperty Name="usuarios" Relationship="intiModel.fk_usuarios_empresa" FromRole="empresas" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="flechasobjetivos">
+          <Key>
+            <PropertyRef Name="idFlecha" />
+          </Key>
+          <Property Name="idFlecha" Type="Int32" Nullable="false" />
+          <Property Name="objOrigen" Type="Int32" Nullable="false" />
+          <Property Name="objDestino" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="objetivos" Relationship="intiModel.fk_Obj_Obj_destino" FromRole="flechasobjetivos" ToRole="objetivos" />
+          <NavigationProperty Name="objetivos1" Relationship="intiModel.fk_Obj_Obj_origen" FromRole="flechasobjetivos" ToRole="objetivos" />
+        </EntityType>
+        <EntityType Name="objetivos">
+          <Key>
+            <PropertyRef Name="idobjetivo" />
+          </Key>
+          <Property Name="idobjetivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empresa" Type="Int32" Nullable="false" />
+          <Property Name="tipoObj" Type="Int32" Nullable="false" />
+          <Property Name="titulo" Type="String" Nullable="false" />
+          <Property Name="numero" Type="String" />
+          <Property Name="descripcion" Type="String" />
+          <NavigationProperty Name="empresas" Relationship="intiModel.fk_Obj_Empresas" FromRole="objetivos" ToRole="empresas" />
+          <NavigationProperty Name="flechasobjetivos" Relationship="intiModel.fk_Obj_Obj_destino" FromRole="objetivos" ToRole="flechasobjetivos" />
+          <NavigationProperty Name="flechasobjetivos1" Relationship="intiModel.fk_Obj_Obj_origen" FromRole="objetivos" ToRole="flechasobjetivos" />
+          <NavigationProperty Name="tipoobjetivo" Relationship="intiModel.fk_Obj_tipoObj" FromRole="objetivos" ToRole="tipoobjetivo" />
+        </EntityType>
+        <EntityType Name="tipoobjetivo">
+          <Key>
+            <PropertyRef Name="idTipoObjetivo" />
+          </Key>
+          <Property Name="idTipoObjetivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreTipoObjetivo" Type="String" Nullable="false" />
+          <Property Name="descripcion" Type="String" />
+          <NavigationProperty Name="objetivos" Relationship="intiModel.fk_Obj_tipoObj" FromRole="tipoobjetivo" ToRole="objetivos" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="idusuario" />
+          </Key>
+          <Property Name="idusuario" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" />
+          <Property Name="pass" Type="String" />
+          <Property Name="nombrereal" Type="String" />
+          <Property Name="empresa" Type="Int32" />
+          <NavigationProperty Name="empresas" Relationship="intiModel.fk_usuarios_empresa" FromRole="usuarios" ToRole="empresas" />
+        </EntityType>
+        <Association Name="fk_Obj_Empresas">
+          <End Role="empresas" Type="intiModel.empresas" Multiplicity="1" />
+          <End Role="objetivos" Type="intiModel.objetivos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresas">
+              <PropertyRef Name="idempresa" />
+            </Principal>
+            <Dependent Role="objetivos">
+              <PropertyRef Name="empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usuarios_empresa">
+          <End Role="empresas" Type="intiModel.empresas" Multiplicity="0..1" />
+          <End Role="usuarios" Type="intiModel.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresas">
+              <PropertyRef Name="idempresa" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Obj_Obj_destino">
+          <End Role="objetivos" Type="intiModel.objetivos" Multiplicity="1" />
+          <End Role="flechasobjetivos" Type="intiModel.flechasobjetivos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="objetivos">
+              <PropertyRef Name="idobjetivo" />
+            </Principal>
+            <Dependent Role="flechasobjetivos">
+              <PropertyRef Name="objDestino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Obj_Obj_origen">
+          <End Role="objetivos" Type="intiModel.objetivos" Multiplicity="1" />
+          <End Role="flechasobjetivos" Type="intiModel.flechasobjetivos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="objetivos">
+              <PropertyRef Name="idobjetivo" />
+            </Principal>
+            <Dependent Role="flechasobjetivos">
+              <PropertyRef Name="objOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Obj_tipoObj">
+          <End Role="tipoobjetivo" Type="intiModel.tipoobjetivo" Multiplicity="1" />
+          <End Role="objetivos" Type="intiModel.objetivos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoobjetivo">
+              <PropertyRef Name="idTipoObjetivo" />
+            </Principal>
+            <Dependent Role="objetivos">
+              <PropertyRef Name="tipoObj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="intiModelStoreContainer" CdmEntityContainer="intiEntities">
+          <EntitySetMapping Name="empresas"><EntityTypeMapping TypeName="intiModel.empresas"><MappingFragment StoreEntitySet="empresas">
+            <ScalarProperty Name="idempresa" ColumnName="idempresa" />
+            <ScalarProperty Name="nombreEmpresa" ColumnName="nombreEmpresa" />
+            <ScalarProperty Name="cuit" ColumnName="cuit" />
+            <ScalarProperty Name="mision" ColumnName="mision" />
+            <ScalarProperty Name="vision" ColumnName="vision" />
+            <ScalarProperty Name="valores" ColumnName="valores" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="flechasobjetivos"><EntityTypeMapping TypeName="intiModel.flechasobjetivos"><MappingFragment StoreEntitySet="flechasobjetivos">
+            <ScalarProperty Name="idFlecha" ColumnName="idFlecha" />
+            <ScalarProperty Name="objOrigen" ColumnName="objOrigen" />
+            <ScalarProperty Name="objDestino" ColumnName="objDestino" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="objetivos"><EntityTypeMapping TypeName="intiModel.objetivos"><MappingFragment StoreEntitySet="objetivos">
+            <ScalarProperty Name="idobjetivo" ColumnName="idobjetivo" />
+            <ScalarProperty Name="empresa" ColumnName="empresa" />
+            <ScalarProperty Name="tipoObj" ColumnName="tipoObj" />
+            <ScalarProperty Name="titulo" ColumnName="titulo" />
+            <ScalarProperty Name="numero" ColumnName="numero" />
+            <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tipoobjetivo"><EntityTypeMapping TypeName="intiModel.tipoobjetivo"><MappingFragment StoreEntitySet="tipoobjetivo">
+            <ScalarProperty Name="idTipoObjetivo" ColumnName="idTipoObjetivo" />
+            <ScalarProperty Name="nombreTipoObjetivo" ColumnName="nombreTipoObjetivo" />
+            <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="usuarios"><EntityTypeMapping TypeName="intiModel.usuarios"><MappingFragment StoreEntitySet="usuarios">
+            <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+            <ScalarProperty Name="nombre" ColumnName="nombre" />
+            <ScalarProperty Name="pass" ColumnName="pass" />
+            <ScalarProperty Name="nombrereal" ColumnName="nombrereal" />
+            <ScalarProperty Name="empresa" ColumnName="empresa" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Modelo">
+        <EntityTypeShape EntityType="intiModel.empresas" Width="1.5" PointX="0.75" PointY="3.375" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="intiModel.flechasobjetivos" Width="1.5" PointX="5.25" PointY="3.625" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="intiModel.objetivos" Width="1.5" PointX="3" PointY="3.125" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="intiModel.tipoobjetivo" Width="1.5" PointX="0.75" PointY="0.75" Height="1.7879850260416657" IsExpanded="true" />
+        <EntityTypeShape EntityType="intiModel.usuarios" Width="1.5" PointX="3" PointY="7.25" Height="2.1725878906249987" IsExpanded="true" />
+        <AssociationConnector Association="intiModel.fk_Obj_Empresas" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.6535953776041667" />
+          <ConnectorPoint PointX="3" PointY="4.6535953776041667" />
+        </AssociationConnector>
+        <AssociationConnector Association="intiModel.fk_usuarios_empresa" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="5.9321907552083335" />
+          <ConnectorPoint PointX="1.5" PointY="8.3362939453125" />
+          <ConnectorPoint PointX="3" PointY="8.3362939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="intiModel.fk_Obj_Obj_destino" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.6151432291666667" />
+          <ConnectorPoint PointX="5.25" PointY="4.6151432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="intiModel.fk_Obj_Obj_origen" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.0575716145833329" />
+          <ConnectorPoint PointX="5.25" PointY="4.0575716145833329" />
+        </AssociationConnector>
+        <AssociationConnector Association="intiModel.fk_Obj_tipoObj" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.6439925130208328" />
+          <ConnectorPoint PointX="3.75" PointY="1.6439925130208328" />
+          <ConnectorPoint PointX="3.75" PointY="3.125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

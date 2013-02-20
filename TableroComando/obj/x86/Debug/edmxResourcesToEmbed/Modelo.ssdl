@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="intiModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="intiModelStoreContainer">
+    <EntitySet Name="empresas" EntityType="intiModel.Store.empresas" store:Type="Tables" Schema="inti" />
+    <EntitySet Name="flechasobjetivos" EntityType="intiModel.Store.flechasobjetivos" store:Type="Tables" Schema="inti" />
+    <EntitySet Name="objetivos" EntityType="intiModel.Store.objetivos" store:Type="Tables" Schema="inti" />
+    <EntitySet Name="tipoobjetivo" EntityType="intiModel.Store.tipoobjetivo" store:Type="Tables" Schema="inti" />
+    <EntitySet Name="usuarios" EntityType="intiModel.Store.usuarios" store:Type="Tables" Schema="inti" />
+    <AssociationSet Name="fk_Obj_Empresas" Association="intiModel.Store.fk_Obj_Empresas">
+      <End Role="empresas" EntitySet="empresas" />
+      <End Role="objetivos" EntitySet="objetivos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Obj_Obj_destino" Association="intiModel.Store.fk_Obj_Obj_destino">
+      <End Role="objetivos" EntitySet="objetivos" />
+      <End Role="flechasobjetivos" EntitySet="flechasobjetivos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Obj_Obj_origen" Association="intiModel.Store.fk_Obj_Obj_origen">
+      <End Role="objetivos" EntitySet="objetivos" />
+      <End Role="flechasobjetivos" EntitySet="flechasobjetivos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Obj_tipoObj" Association="intiModel.Store.fk_Obj_tipoObj">
+      <End Role="tipoobjetivo" EntitySet="tipoobjetivo" />
+      <End Role="objetivos" EntitySet="objetivos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuarios_empresa" Association="intiModel.Store.fk_usuarios_empresa">
+      <End Role="empresas" EntitySet="empresas" />
+      <End Role="usuarios" EntitySet="usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="empresas">
+    <Key>
+      <PropertyRef Name="idempresa" />
+    </Key>
+    <Property Name="idempresa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombreEmpresa" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="cuit" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="mision" Type="varchar" MaxLength="300" />
+    <Property Name="vision" Type="varchar" MaxLength="300" />
+    <Property Name="valores" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="flechasobjetivos">
+    <Key>
+      <PropertyRef Name="idFlecha" />
+    </Key>
+    <Property Name="idFlecha" Type="int" Nullable="false" />
+    <Property Name="objOrigen" Type="int" Nullable="false" />
+    <Property Name="objDestino" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="objetivos">
+    <Key>
+      <PropertyRef Name="idobjetivo" />
+    </Key>
+    <Property Name="idobjetivo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="empresa" Type="int" Nullable="false" />
+    <Property Name="tipoObj" Type="int" Nullable="false" />
+    <Property Name="titulo" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="numero" Type="varchar" MaxLength="5" />
+    <Property Name="descripcion" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="tipoobjetivo">
+    <Key>
+      <PropertyRef Name="idTipoObjetivo" />
+    </Key>
+    <Property Name="idTipoObjetivo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombreTipoObjetivo" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="descripcion" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="45" />
+    <Property Name="pass" Type="varchar" MaxLength="45" />
+    <Property Name="nombrereal" Type="varchar" MaxLength="45" />
+    <Property Name="empresa" Type="int" />
+  </EntityType>
+  <Association Name="fk_Obj_Empresas">
+    <End Role="empresas" Type="intiModel.Store.empresas" Multiplicity="1" />
+    <End Role="objetivos" Type="intiModel.Store.objetivos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empresas">
+        <PropertyRef Name="idempresa" />
+      </Principal>
+      <Dependent Role="objetivos">
+        <PropertyRef Name="empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Obj_Obj_destino">
+    <End Role="objetivos" Type="intiModel.Store.objetivos" Multiplicity="1" />
+    <End Role="flechasobjetivos" Type="intiModel.Store.flechasobjetivos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="objetivos">
+        <PropertyRef Name="idobjetivo" />
+      </Principal>
+      <Dependent Role="flechasobjetivos">
+        <PropertyRef Name="objDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Obj_Obj_origen">
+    <End Role="objetivos" Type="intiModel.Store.objetivos" Multiplicity="1" />
+    <End Role="flechasobjetivos" Type="intiModel.Store.flechasobjetivos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="objetivos">
+        <PropertyRef Name="idobjetivo" />
+      </Principal>
+      <Dependent Role="flechasobjetivos">
+        <PropertyRef Name="objOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Obj_tipoObj">
+    <End Role="tipoobjetivo" Type="intiModel.Store.tipoobjetivo" Multiplicity="1" />
+    <End Role="objetivos" Type="intiModel.Store.objetivos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoobjetivo">
+        <PropertyRef Name="idTipoObjetivo" />
+      </Principal>
+      <Dependent Role="objetivos">
+        <PropertyRef Name="tipoObj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuarios_empresa">
+    <End Role="empresas" Type="intiModel.Store.empresas" Multiplicity="0..1" />
+    <End Role="usuarios" Type="intiModel.Store.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empresas">
+        <PropertyRef Name="idempresa" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
