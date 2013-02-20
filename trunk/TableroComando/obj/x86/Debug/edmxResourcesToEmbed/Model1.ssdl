@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cdcolModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="cdcolModelStoreContainer">
+    <EntitySet Name="cds" EntityType="cdcolModel.Store.cds" store:Type="Tables" Schema="cdcol" />
+  </EntityContainer>
+  <EntityType Name="cds">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="titel" Type="varchar" MaxLength="200" />
+    <Property Name="interpret" Type="varchar" MaxLength="200" />
+    <Property Name="jahr" Type="int" />
+    <Property Name="id" Type="ubigint" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

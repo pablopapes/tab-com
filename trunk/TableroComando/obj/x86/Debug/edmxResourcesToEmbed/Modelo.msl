@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="intiModelStoreContainer" CdmEntityContainer="intiEntities">
+    <EntitySetMapping Name="empresas">
+      <EntityTypeMapping TypeName="intiModel.empresas">
+        <MappingFragment StoreEntitySet="empresas">
+          <ScalarProperty Name="idempresa" ColumnName="idempresa" />
+          <ScalarProperty Name="nombreEmpresa" ColumnName="nombreEmpresa" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="mision" ColumnName="mision" />
+          <ScalarProperty Name="vision" ColumnName="vision" />
+          <ScalarProperty Name="valores" ColumnName="valores" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="flechasobjetivos">
+      <EntityTypeMapping TypeName="intiModel.flechasobjetivos">
+        <MappingFragment StoreEntitySet="flechasobjetivos">
+          <ScalarProperty Name="idFlecha" ColumnName="idFlecha" />
+          <ScalarProperty Name="objOrigen" ColumnName="objOrigen" />
+          <ScalarProperty Name="objDestino" ColumnName="objDestino" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="objetivos">
+      <EntityTypeMapping TypeName="intiModel.objetivos">
+        <MappingFragment StoreEntitySet="objetivos">
+          <ScalarProperty Name="idobjetivo" ColumnName="idobjetivo" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="tipoObj" ColumnName="tipoObj" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoobjetivo">
+      <EntityTypeMapping TypeName="intiModel.tipoobjetivo">
+        <MappingFragment StoreEntitySet="tipoobjetivo">
+          <ScalarProperty Name="idTipoObjetivo" ColumnName="idTipoObjetivo" />
+          <ScalarProperty Name="nombreTipoObjetivo" ColumnName="nombreTipoObjetivo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="intiModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="nombrereal" ColumnName="nombrereal" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cdcolModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="cdcolEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cds" EntityType="cdcolModel.cds" />
+  </EntityContainer>
+  <EntityType Name="cds">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="titel" Type="String" />
+    <Property Name="interpret" Type="String" />
+    <Property Name="jahr" Type="Int32" />
+    <Property Name="id" Type="Decimal" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

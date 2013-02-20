@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cdcolModelStoreContainer" CdmEntityContainer="cdcolEntities">
+    <EntitySetMapping Name="cds">
+      <EntityTypeMapping TypeName="cdcolModel.cds">
+        <MappingFragment StoreEntitySet="cds">
+          <ScalarProperty Name="titel" ColumnName="titel" />
+          <ScalarProperty Name="interpret" ColumnName="interpret" />
+          <ScalarProperty Name="jahr" ColumnName="jahr" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
