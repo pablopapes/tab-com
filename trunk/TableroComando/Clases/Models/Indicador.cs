@@ -21,9 +21,8 @@ namespace TableroComando.Clases.Models
         public virtual Objetivo Objetivo { get; set; }
         public virtual Frecuencia Frecuencia { get; set; }
         
-        private List<Medicion> mediciones;
-        public virtual List<Medicion> Mediciones { get; protected set; }
+        private IList<Medicion> mediciones = new List<Medicion>();
+        public virtual IList<Medicion> Mediciones { get { return mediciones; } protected set { mediciones = value; } }
 
-        // Frecuencias: diarias, semanal, mensual, trimestral, anual
     }
-}
+} 

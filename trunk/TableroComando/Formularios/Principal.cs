@@ -78,15 +78,15 @@ namespace TableroComando
 */
         private void agregarIndicadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_AgregarIndicador ventana = new Formularios.Form_AgregarIndicador();
-            ventana.ObjetivoFachada = ObjetivoFachada;
-            ventana.IndicadorFachada = IndicadorFachada;
+            Form_Indicador ventana = new Formularios.Form_Indicador();
+           // ventana.ObjetivoFachada = ObjetivoFachada;
+           // ventana.IndicadorFachada = IndicadorFachada;
             ventana.Show();
         }
 
         private void monitoreoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_Indicadores ventana = new Formularios.Form_Indicadores();
+            Form_Monitoreo ventana = new Formularios.Form_Monitoreo();
             ventana.ObjetivoFachada = ObjetivoFachada;
             ventana.Show();
         }
