@@ -11,12 +11,12 @@ namespace TableroComando.Clases.Models
 
         public override bool Equals(object obj)
         {
-            Modelo<T> specificOject = (Modelo<T>)obj; 
-            if (obj == null)
+            if (obj == null || obj.GetType() != this.GetType())
             {
                 return false;
             }
 
+            Modelo<T> specificOject = (Modelo<T>)obj;
             return (this == obj || this.Id == specificOject.Id);
         }
 
