@@ -111,11 +111,6 @@ D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.pdb
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\x64\SQLite.Interop.dll
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\x86\SQLite.Interop.dll
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\hibernate.cfg.xml
-D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Clases\Mappings\indicador.hbm.xml
-D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Clases\Mappings\objetivo.hbm.xml
-D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Clases\Mappings\perspectiva.hbm.xml
-D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Clases\Mappings\medicion.hbm.xml
-D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Clases\Mappings\frecuencia.hbm.xml
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\TableroComando.exe
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\TableroComando.pdb
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Iesi.Collections.dll
@@ -132,3 +127,10 @@ D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Principa
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Properties.Resources.resources
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\frecuencia.hbm.xml
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\indicador.hbm.xml
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\medicion.hbm.xml
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\objetivo.hbm.xml
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\perspectiva.hbm.xml
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Dominio.dll
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Dominio.pdb

@@ -1,0 +1,14 @@
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\frecuencia.hbm.xml
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\indicador.hbm.xml
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\medicion.hbm.xml
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\objetivo.hbm.xml
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\perspectiva.hbm.xml
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Dominio.dll
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Dominio.pdb
+D:\proyectos\flexit\tab-com\Dominio\obj\Debug\ResolveAssemblyReference.cache
+D:\proyectos\flexit\tab-com\Dominio\obj\Debug\Dominio.dll
+D:\proyectos\flexit\tab-com\Dominio\obj\Debug\Dominio.pdb
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Iesi.Collections.dll
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\NHibernate.dll
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Iesi.Collections.xml
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\NHibernate.xml

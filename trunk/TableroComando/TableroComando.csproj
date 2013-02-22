@@ -62,12 +62,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Models\Frecuencia.cs" />
-    <Compile Include="Clases\Models\Medicion.cs" />
-    <Compile Include="Clases\Models\Indicador.cs" />
-    <Compile Include="Clases\Models\Modelo.cs" />
-    <Compile Include="Clases\Models\Objetivo.cs" />
-    <Compile Include="Clases\Models\Perspectiva.cs" />
     <Compile Include="Fachadas\Fachada.cs" />
     <Compile Include="Fachadas\IndicadorFachada.cs" />
     <Compile Include="Fachadas\ObjetivoFachada.cs" />
@@ -215,22 +209,6 @@
     <None Include="Resources\amarillo1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Clases\Mappings\indicador.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Clases\Mappings\objetivo.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Clases\Mappings\perspectiva.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Clases\Mappings\medicion.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Clases\Mappings\frecuencia.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -238,7 +216,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{28BA173A-5F1C-48D3-BB3C-8ACF4D85DFEF}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
