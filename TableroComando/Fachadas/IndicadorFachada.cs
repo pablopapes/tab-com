@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TableroComando.Clases.Models;
+using Dominio;
 using TableroComando.Fachadas;
 using NHibernate.Criterion;
 
@@ -19,6 +19,11 @@ namespace TableroComando.Fachadas
         {
             Db.Session.Save(o);
             Db.Session.Flush();
+        }
+
+        public void SaveOrUpdate(Indicador i)
+        {
+            Db.Session.SaveOrUpdate(i);
         }
 
         public Indicador FindById(int indicadorId)

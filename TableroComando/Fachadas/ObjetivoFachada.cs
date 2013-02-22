@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TableroComando.Fachadas;
-using TableroComando.Clases.Models;
 using NHibernate.Criterion;
+using Dominio;
 
 namespace TableroComando.Fachadas
 {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using TableroComando.Clases.Models;
+using Dominio;
 using TableroComando.Fachadas;
 
 namespace TableroComando

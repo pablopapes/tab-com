@@ -6,8 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TableroComando.Clases.Models;
 using TableroComando.Fachadas;
+using Dominio;
 
 
 namespace TableroComando.Formularios

@@ -6,8 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TableroComando.Clases.Models;
 using TableroComando.Fachadas;
+using Dominio;
 
 namespace TableroComando.Formularios
 {
@@ -31,11 +31,12 @@ namespace TableroComando.Formularios
             MenorRB.Checked = true; // Por defecto, el radio buton de "tendencia menor" está seleccionado.
             CargarPropiedadesIndicador();
             CargarMediciones();
+            MedicionesGridView.Columns["Fecha"].DefaultCellStyle.Format = "dd/mm/yyyy";
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
-            IndicadorFachada.Save(Indicador);
+            IndicadorFachada.SaveOrUpdate(Indicador);
         }
 
         private void CargarPropiedadesIndicador()
@@ -60,9 +61,9 @@ namespace TableroComando.Formularios
         private void CargarMediciones()
         {
             BindingSource source = new BindingSource();
-            source.DataSource = Indicador.Mediciones;
+            List<Medicion> l = Indicador.Mediciones.ToList<Medicion>();
+            source.DataSource = l;
             MedicionesGridView.DataSource = source;
-            Console.WriteLine("Pepe!");
         }
     }
 }

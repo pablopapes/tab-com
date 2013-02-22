@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using TableroComando.Formularios;
 using TableroComando.Fachadas;
-using TableroComando.Clases.Models;
+using Dominio;
 
 namespace TableroComando
 {
