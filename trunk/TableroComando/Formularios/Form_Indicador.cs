@@ -17,6 +17,7 @@ namespace TableroComando.Formularios
         private IndicadorFachada IndicadorFachada = IndicadorFachada.Instance;
         public Indicador Indicador { get; set; }
 
+
         public Form_Indicador(string textButton = "Agregar")
         {
             InitializeComponent();
@@ -30,8 +31,11 @@ namespace TableroComando.Formularios
             ObjetivosCB.DisplayMember = "Nombre";
             MenorRB.Checked = true; // Por defecto, el radio buton de "tendencia menor" está seleccionado.
             CargarPropiedadesIndicador();
-            CargarMediciones();
-            MedicionesGridView.Columns["Fecha"].DefaultCellStyle.Format = "dd/mm/yyyy";
+            MedicionesGridView.DataSource = new BindingList<Medicion>(Indicador.Mediciones);
+
+
+            MedicionesGridView.Columns["Fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)
@@ -56,14 +60,6 @@ namespace TableroComando.Formularios
 
             PrioridadUD.DataBindings.Add("Value", Indicador, "Prioridad");
 
-        }
-
-        private void CargarMediciones()
-        {
-            BindingSource source = new BindingSource();
-            List<Medicion> l = Indicador.Mediciones.ToList<Medicion>();
-            source.DataSource = l;
-            MedicionesGridView.DataSource = source;
         }
     }
 }

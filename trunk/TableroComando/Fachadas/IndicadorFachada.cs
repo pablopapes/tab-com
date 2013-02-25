@@ -24,6 +24,7 @@ namespace TableroComando.Fachadas
         public void SaveOrUpdate(Indicador i)
         {
             Db.Session.SaveOrUpdate(i);
+            Db.Session.Flush();
         }
 
         public Indicador FindById(int indicadorId)
