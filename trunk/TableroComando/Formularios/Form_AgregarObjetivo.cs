@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using TableroComando.Fachadas;
 using Dominio;
+using TableroComando.GUIWrapper;
 
 
 namespace TableroComando.Formularios
@@ -16,100 +17,74 @@ namespace TableroComando.Formularios
     {
         private PerspectivaFachada PerspectivaFachada = PerspectivaFachada.Instance;
         private ObjetivoFachada ObjetivoFachada = ObjetivoFachada.Instance;
-        Objetivo objetivo = new Objetivo();
+        public Objetivo Objetivo {get; set; }
 
-        public Form_AgregarObjetivo()
+        public Form_AgregarObjetivo(string textButton = "Agregar")
         {
             InitializeComponent();
+            BTNGuardar.Text = textButton;
         }
 
         private void Form_AgregarObjetivo_Load(object sender, EventArgs e)
+        {  
+            LoadObjetivo();
+
+            // Cargo las perspectivas
+            IList<Perspectiva> perspectivas = PerspectivaFachada.All();
+                
+            CBPerspectiva.DataSource = perspectivas;
+            CBPerspectiva.ValueMember = "Id";
+            CBPerspectiva.DisplayMember = "Nombre";
+
+            CargarObjetivosDataGrid();
+
+        }
+
+        private void CargarObjetivosDataGrid()
         {
-            try
+            ObjetivoFachada objFachada = ObjetivoFachada.Instance;
+            List<ObjetivoDataGridViewWrapper> lista = new List<ObjetivoDataGridViewWrapper>();
+            foreach(Objetivo o in objFachada.All())
             {
-                // Cargo las perspectivas
-                IList<Perspectiva> perspectivas = PerspectivaFachada.All();
-
-                CBPerspectiva.DataSource = perspectivas;
-                CBPerspectiva.ValueMember = "Id";
-                CBPerspectiva.DisplayMember = "Nombre";
-
-                // Cargo los objetivos
-              /*  ObjetivoFachada objFachada = ObjetivoFachada.Instance;
-                IList<Objetivo> Objetivos = objFachada.All();
-
-                while (Objetivos.Read())
-                {
-                    string[] FilaObjetivos = { Objetivos.GetString("idobjetivo"), Objetivos.GetString("numero"), Objetivos.GetString("titulo"), Objetivos.GetString("nombreperspectiva"),"0" };
-                    DGVObjetivosDepende.Rows.Add(FilaObjetivos);
-                }
-
-                ObjetivoObject.cerrar();*/
+                ObjetivoDataGridViewWrapper wrapper = new ObjetivoDataGridViewWrapper(o);
+                wrapper.Check(Objetivo);
+                lista.Add(wrapper);
             }
+                 
+            BindingList<ObjetivoDataGridViewWrapper> objetivos = new BindingList<ObjetivoDataGridViewWrapper>(lista);
+            ObjetivosDataGrid.DataSource = objetivos;
 
-            catch
-            {
-            }
+            ObjetivosDataGrid.Columns["Pertenece"].HeaderText = "Objetivo Hijo";
+            ObjetivosDataGrid.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void LoadObjetivo()
+        {
+            if (Objetivo == null)
+                Objetivo = new Objetivo();
+
+            TXTTitulo.DataBindings.Add("Text", Objetivo, "Nombre");
+            RTBDescripcion.DataBindings.Add("Text", Objetivo, "Descripcion");
+            CBPerspectiva.DataBindings.Add("SelectedItem", Objetivo, "Perspectiva");   
         }
 
         private void BTNGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Objetivo objetivo = new Objetivo();
-                objetivo.Nombre = TXTTitulo.Text;
-                objetivo.Codigo = TXTNumero.Text;
-                objetivo.Descripcion = RTBDescripcion.Text;
-                objetivo.Perspectiva = (Perspectiva)CBPerspectiva.SelectedItem;
-                ObjetivoFachada.Save(objetivo);
-            }
-            catch
-            { }
-        }
-
-
-
-        private void CBPerspectiva_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           /*try
-            {
-                DGVObjetivosDepende.Rows.Clear();
-
-                string consulta = "select idperspectiva, nombreperspectiva from perspectivas;";
-                Clases.Herramientas.ejecutar ConsultaObject = new Clases.Herramientas.ejecutar();
-                MySqlDataAdapter responsabilidad = ConsultaObject.AdaptadorSQL(consulta);
-                DataSet DSConsulta = new DataSet();
-                responsabilidad.Fill(DSConsulta);
-                CBPerspectiva.ValueMember = "idperspectiva";
-                CBPerspectiva.DisplayMember = "nombreperspectiva";
-
-                string objetivos = "select o.idobjetivo, o.numero, o.titulo, p.nombreperspectiva from perspectivas p, objetivos o where o.empresa=" + "1" + " and o.perspectiva=p.idperspectiva and p.idperspectiva >=" + CBPerspectiva.SelectedValue;
-                Clases.Herramientas.ejecutar ObjetivoObject = new Clases.Herramientas.ejecutar();
-                MySqlDataReader Objetivos = ObjetivoObject.EjecutarSQL(objetivos);
-
-                while (Objetivos.Read())
-                {
-                    string[] FilaObjetivos = { Objetivos.GetString("idobjetivo"), Objetivos.GetString("numero"), Objetivos.GetString("titulo"), Objetivos.GetString("nombreperspectiva") };
-                    DGVObjetivosDepende.Rows.Add(FilaObjetivos);
-                }
-
-                ObjetivoObject.cerrar();
-            }
-
-            catch
-            {
-            }
-            */
-        }
-
-        private void BTNLimpiar_Click(object sender, EventArgs e)
-        {
-            DGVObjetivosDepende.ClearSelection();
+            Objetivo.ObjetivosHijos = GetCheckedObjetivos();
+            ObjetivoFachada.SaveOrUpdate(Objetivo);
         }
 
         private void BTNCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private List<Objetivo> GetCheckedObjetivos()
+        {
+            return ((BindingList<ObjetivoDataGridViewWrapper>)ObjetivosDataGrid.DataSource)
+                .Where(o => o.Pertenece)
+                .Select(o => o.GetObjetivo())
+                .ToList();
         }
     }
 }

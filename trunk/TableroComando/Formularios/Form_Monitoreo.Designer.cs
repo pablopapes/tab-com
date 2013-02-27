@@ -40,18 +40,14 @@
             this.ProcesosGridView = new System.Windows.Forms.DataGridView();
             this.AprendizajeGridView = new System.Windows.Forms.DataGridView();
             this.IndicadoresFinancierosGridView = new System.Windows.Forms.DataGridView();
-            this.Tendencia = new System.Windows.Forms.DataGridViewImageColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.IndicadoresClientesGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.IndicadoresProcesosGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.IndicadoresAprendizajesGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.FinanzasGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClientesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcesosGridView)).BeginInit();
@@ -70,7 +66,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(86, 23);
+            this.label1.Location = new System.Drawing.Point(86, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 25);
             this.label1.TabIndex = 0;
@@ -80,7 +76,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(76, 194);
+            this.label2.Location = new System.Drawing.Point(76, 181);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(158, 20);
             this.label2.TabIndex = 2;
@@ -90,7 +86,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(76, 369);
+            this.label3.Location = new System.Drawing.Point(76, 353);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 20);
             this.label3.TabIndex = 4;
@@ -100,7 +96,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 695);
+            this.label4.Location = new System.Drawing.Point(12, 679);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(291, 20);
             this.label4.TabIndex = 8;
@@ -110,7 +106,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(43, 523);
+            this.label5.Location = new System.Drawing.Point(43, 507);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(225, 20);
             this.label5.TabIndex = 6;
@@ -122,20 +118,21 @@
             this.FinanzasGridView.AllowUserToDeleteRows = false;
             this.FinanzasGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.FinanzasGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.FinanzasGridView.Location = new System.Drawing.Point(302, 64);
+            this.FinanzasGridView.Location = new System.Drawing.Point(302, 49);
             this.FinanzasGridView.Name = "FinanzasGridView";
             this.FinanzasGridView.ReadOnly = true;
             this.FinanzasGridView.RowHeadersVisible = false;
             this.FinanzasGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.FinanzasGridView.Size = new System.Drawing.Size(286, 149);
             this.FinanzasGridView.TabIndex = 10;
+            this.FinanzasGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FinanzasGridView_CellContentDoubleClick);
             this.FinanzasGridView.SelectionChanged += new System.EventHandler(this.FinanzasGridView_SelectionChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(368, 23);
+            this.label6.Location = new System.Drawing.Point(395, 8);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 25);
             this.label6.TabIndex = 11;
@@ -147,13 +144,14 @@
             this.ClientesGridView.AllowUserToDeleteRows = false;
             this.ClientesGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.ClientesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ClientesGridView.Location = new System.Drawing.Point(302, 231);
+            this.ClientesGridView.Location = new System.Drawing.Point(302, 216);
             this.ClientesGridView.Name = "ClientesGridView";
             this.ClientesGridView.ReadOnly = true;
             this.ClientesGridView.RowHeadersVisible = false;
             this.ClientesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ClientesGridView.Size = new System.Drawing.Size(286, 149);
             this.ClientesGridView.TabIndex = 12;
+            this.ClientesGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClientesGridView_CellContentDoubleClick);
             this.ClientesGridView.SelectionChanged += new System.EventHandler(this.ClientesGridView_SelectionChanged);
             // 
             // ProcesosGridView
@@ -162,13 +160,14 @@
             this.ProcesosGridView.AllowUserToDeleteRows = false;
             this.ProcesosGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.ProcesosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ProcesosGridView.Location = new System.Drawing.Point(302, 396);
+            this.ProcesosGridView.Location = new System.Drawing.Point(302, 381);
             this.ProcesosGridView.Name = "ProcesosGridView";
             this.ProcesosGridView.ReadOnly = true;
             this.ProcesosGridView.RowHeadersVisible = false;
             this.ProcesosGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ProcesosGridView.Size = new System.Drawing.Size(286, 149);
             this.ProcesosGridView.TabIndex = 13;
+            this.ProcesosGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProcesosGridView_CellContentDoubleClick);
             this.ProcesosGridView.SelectionChanged += new System.EventHandler(this.ProcesosGridView_SelectionChanged);
             // 
             // AprendizajeGridView
@@ -177,13 +176,14 @@
             this.AprendizajeGridView.AllowUserToDeleteRows = false;
             this.AprendizajeGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AprendizajeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AprendizajeGridView.Location = new System.Drawing.Point(302, 559);
+            this.AprendizajeGridView.Location = new System.Drawing.Point(302, 544);
             this.AprendizajeGridView.Name = "AprendizajeGridView";
             this.AprendizajeGridView.ReadOnly = true;
             this.AprendizajeGridView.RowHeadersVisible = false;
             this.AprendizajeGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AprendizajeGridView.Size = new System.Drawing.Size(286, 149);
             this.AprendizajeGridView.TabIndex = 14;
+            this.AprendizajeGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AprendizajeGridView_CellContentDoubleClick);
             this.AprendizajeGridView.SelectionChanged += new System.EventHandler(this.AprendizajeGridView_SelectionChanged);
             // 
             // IndicadoresFinancierosGridView
@@ -192,9 +192,7 @@
             this.IndicadoresFinancierosGridView.AllowUserToDeleteRows = false;
             this.IndicadoresFinancierosGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.IndicadoresFinancierosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.IndicadoresFinancierosGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tendencia});
-            this.IndicadoresFinancierosGridView.Location = new System.Drawing.Point(611, 64);
+            this.IndicadoresFinancierosGridView.Location = new System.Drawing.Point(611, 49);
             this.IndicadoresFinancierosGridView.Name = "IndicadoresFinancierosGridView";
             this.IndicadoresFinancierosGridView.ReadOnly = true;
             this.IndicadoresFinancierosGridView.RowHeadersVisible = false;
@@ -203,19 +201,11 @@
             this.IndicadoresFinancierosGridView.TabIndex = 15;
             this.IndicadoresFinancierosGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.IndicadoresFinancierosGridView_CellDoubleClick);
             // 
-            // Tendencia
-            // 
-            this.Tendencia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Tendencia.HeaderText = "Tendencia";
-            this.Tendencia.Name = "Tendencia";
-            this.Tendencia.ReadOnly = true;
-            this.Tendencia.Width = 64;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(694, 23);
+            this.label7.Location = new System.Drawing.Point(694, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(123, 25);
             this.label7.TabIndex = 19;
@@ -224,7 +214,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::TableroComando.Properties.Resources.rojo;
-            this.pictureBox3.Location = new System.Drawing.Point(43, 557);
+            this.pictureBox3.Location = new System.Drawing.Point(43, 542);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(225, 135);
             this.pictureBox3.TabIndex = 7;
@@ -233,7 +223,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::TableroComando.Properties.Resources.verde;
-            this.pictureBox4.Location = new System.Drawing.Point(43, 396);
+            this.pictureBox4.Location = new System.Drawing.Point(43, 381);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(225, 124);
             this.pictureBox4.TabIndex = 5;
@@ -243,7 +233,7 @@
             // 
             this.pictureBox2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.ErrorImage")));
             this.pictureBox2.Image = global::TableroComando.Properties.Resources.rojo1;
-            this.pictureBox2.Location = new System.Drawing.Point(43, 231);
+            this.pictureBox2.Location = new System.Drawing.Point(43, 216);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(225, 135);
             this.pictureBox2.TabIndex = 3;
@@ -252,7 +242,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TableroComando.Properties.Resources.amarillo;
-            this.pictureBox1.Location = new System.Drawing.Point(43, 70);
+            this.pictureBox1.Location = new System.Drawing.Point(43, 55);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(225, 124);
             this.pictureBox1.TabIndex = 1;
@@ -264,9 +254,7 @@
             this.IndicadoresClientesGridView.AllowUserToDeleteRows = false;
             this.IndicadoresClientesGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.IndicadoresClientesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.IndicadoresClientesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn1});
-            this.IndicadoresClientesGridView.Location = new System.Drawing.Point(611, 231);
+            this.IndicadoresClientesGridView.Location = new System.Drawing.Point(611, 216);
             this.IndicadoresClientesGridView.Name = "IndicadoresClientesGridView";
             this.IndicadoresClientesGridView.ReadOnly = true;
             this.IndicadoresClientesGridView.RowHeadersVisible = false;
@@ -275,23 +263,13 @@
             this.IndicadoresClientesGridView.TabIndex = 20;
             this.IndicadoresClientesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.IndicadoresClientesGridView_CellDoubleClick);
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn1.HeaderText = "Tendencia";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 64;
-            // 
             // IndicadoresProcesosGridView
             // 
             this.IndicadoresProcesosGridView.AllowUserToAddRows = false;
             this.IndicadoresProcesosGridView.AllowUserToDeleteRows = false;
             this.IndicadoresProcesosGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.IndicadoresProcesosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.IndicadoresProcesosGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn2});
-            this.IndicadoresProcesosGridView.Location = new System.Drawing.Point(611, 394);
+            this.IndicadoresProcesosGridView.Location = new System.Drawing.Point(611, 379);
             this.IndicadoresProcesosGridView.Name = "IndicadoresProcesosGridView";
             this.IndicadoresProcesosGridView.ReadOnly = true;
             this.IndicadoresProcesosGridView.RowHeadersVisible = false;
@@ -300,23 +278,13 @@
             this.IndicadoresProcesosGridView.TabIndex = 21;
             this.IndicadoresProcesosGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.IndicadoresProcesosGridView_CellDoubleClick);
             // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn2.HeaderText = "Tendencia";
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Width = 64;
-            // 
             // IndicadoresAprendizajesGridView
             // 
             this.IndicadoresAprendizajesGridView.AllowUserToAddRows = false;
             this.IndicadoresAprendizajesGridView.AllowUserToDeleteRows = false;
             this.IndicadoresAprendizajesGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.IndicadoresAprendizajesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.IndicadoresAprendizajesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn3});
-            this.IndicadoresAprendizajesGridView.Location = new System.Drawing.Point(611, 559);
+            this.IndicadoresAprendizajesGridView.Location = new System.Drawing.Point(611, 544);
             this.IndicadoresAprendizajesGridView.Name = "IndicadoresAprendizajesGridView";
             this.IndicadoresAprendizajesGridView.ReadOnly = true;
             this.IndicadoresAprendizajesGridView.RowHeadersVisible = false;
@@ -325,15 +293,7 @@
             this.IndicadoresAprendizajesGridView.TabIndex = 22;
             this.IndicadoresAprendizajesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.IndicadoresAprendizajesGridView_CellDoubleClick);
             // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn3.HeaderText = "Tendencia";
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.ReadOnly = true;
-            this.dataGridViewImageColumn3.Width = 64;
-            // 
-            // Form_Indicadores
+            // Form_Monitoreo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -357,7 +317,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Name = "Form_Indicadores";
+            this.Name = "Form_Monitoreo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Indicadores";
             this.Load += new System.EventHandler(this.Form_Indicadores_Load);
@@ -404,9 +364,5 @@
         private System.Windows.Forms.DataGridView IndicadoresClientesGridView;
         private System.Windows.Forms.DataGridView IndicadoresProcesosGridView;
         private System.Windows.Forms.DataGridView IndicadoresAprendizajesGridView;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.DataGridViewImageColumn Tendencia;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
     }
 }

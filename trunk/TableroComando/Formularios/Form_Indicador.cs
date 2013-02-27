@@ -33,7 +33,6 @@ namespace TableroComando.Formularios
             CargarPropiedadesIndicador();
             MedicionesGridView.DataSource = new BindingList<Medicion>(Indicador.Mediciones);
 
-
             MedicionesGridView.Columns["Fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
             
         }

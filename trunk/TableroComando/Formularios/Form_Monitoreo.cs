@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using TableroComando.Fachadas;
 using Dominio;
+using TableroComando.GUIWrapper;
 
 namespace TableroComando.Formularios
 {
@@ -23,16 +24,16 @@ namespace TableroComando.Formularios
         private void Form_Indicadores_Load(object sender, EventArgs e)
         {
             // Finanzas
-            CargarObjetivos(FinanzasGridView, ObjetivoFachada.FindByPerspectiva(4));
+            CargarObjetivosDataGridView(FinanzasGridView, ObjetivoFachada.FindByPerspectiva(4));
             
             // Clientes
-            CargarObjetivos(ClientesGridView, ObjetivoFachada.FindByPerspectiva(3));
+            CargarObjetivosDataGridView(ClientesGridView, ObjetivoFachada.FindByPerspectiva(3));
 
             // Procesos Internos
-            CargarObjetivos(ProcesosGridView, ObjetivoFachada.FindByPerspectiva(2));
+            CargarObjetivosDataGridView(ProcesosGridView, ObjetivoFachada.FindByPerspectiva(2));
            
             // Aprendizaje y Crecimiento
-            CargarObjetivos(AprendizajeGridView, ObjetivoFachada.FindByPerspectiva(1));
+            CargarObjetivosDataGridView(AprendizajeGridView, ObjetivoFachada.FindByPerspectiva(1));
         }
 
         private void DgvObjFinanzas_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -45,48 +46,70 @@ namespace TableroComando.Formularios
 
         private void FinanzasGridView_SelectionChanged(object sender, EventArgs e)
         {
-            Objetivo objetivo = GetObjetoSeleccionado<Objetivo>(FinanzasGridView);
-            CargarIndicadores(objetivo, IndicadoresFinancierosGridView);
+            Objetivo objetivo = GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(FinanzasGridView).GetObjetivo();
+            CargarIndicadoresDataGridView(objetivo, IndicadoresFinancierosGridView);
         }
 
         private void ProcesosGridView_SelectionChanged(object sender, EventArgs e)
         {
-            Objetivo objetivo = GetObjetoSeleccionado<Objetivo>(ProcesosGridView);
-            CargarIndicadores(objetivo, IndicadoresProcesosGridView);
+            Objetivo objetivo = GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(ProcesosGridView).GetObjetivo();
+            CargarIndicadoresDataGridView(objetivo, IndicadoresProcesosGridView);
         }
 
         private void ClientesGridView_SelectionChanged(object sender, EventArgs e)
         {
-            Objetivo objetivo = GetObjetoSeleccionado<Objetivo>(ClientesGridView);
-            CargarIndicadores(objetivo, IndicadoresClientesGridView);
+            Objetivo objetivo = GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(ClientesGridView).GetObjetivo();
+            CargarIndicadoresDataGridView(objetivo, IndicadoresClientesGridView);
         }
 
         private void AprendizajeGridView_SelectionChanged(object sender, EventArgs e)
         {
-            Objetivo objetivo = GetObjetoSeleccionado<Objetivo>(AprendizajeGridView);
-            CargarIndicadores(objetivo, IndicadoresAprendizajesGridView);
+            Objetivo objetivo = GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(AprendizajeGridView).GetObjetivo();
+            CargarIndicadoresDataGridView(objetivo, IndicadoresAprendizajesGridView);
         }
 
         /* Eventos para los grid view de indicadores */
         private void IndicadoresClientesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            AbrirFormularioIndicador(GetObjetoSeleccionado<Indicador>(IndicadoresClientesGridView));
+            AbrirFormularioIndicador(GetObjetoSeleccionado<IndicadorDataGridViewWrapper>(IndicadoresClientesGridView));
         }
 
         private void IndicadoresProcesosGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            AbrirFormularioIndicador(GetObjetoSeleccionado<Indicador>(IndicadoresProcesosGridView));
+            AbrirFormularioIndicador(GetObjetoSeleccionado<IndicadorDataGridViewWrapper>(IndicadoresProcesosGridView));
         }
 
         private void IndicadoresAprendizajesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            AbrirFormularioIndicador(GetObjetoSeleccionado<Indicador>(IndicadoresAprendizajesGridView));
+            AbrirFormularioIndicador(GetObjetoSeleccionado<IndicadorDataGridViewWrapper>(IndicadoresAprendizajesGridView));
         }
 
         private void IndicadoresFinancierosGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            AbrirFormularioIndicador(GetObjetoSeleccionado<Indicador>(IndicadoresFinancierosGridView));
+            AbrirFormularioIndicador(GetObjetoSeleccionado<IndicadorDataGridViewWrapper>(IndicadoresFinancierosGridView));
         }
+
+        /* Eventos para los grid view de objetivos */
+        private void ProcesosGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AbrirFormularioObjetivo(GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(ProcesosGridView));
+        }
+
+        private void FinanzasGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AbrirFormularioObjetivo(GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(FinanzasGridView));
+        }
+
+        private void ClientesGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AbrirFormularioObjetivo(GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(ClientesGridView));
+        }
+
+        private void AprendizajeGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AbrirFormularioObjetivo(GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(AprendizajeGridView));
+        }
+
 
         /* Métodos complementarios */
         private T GetObjetoSeleccionado<T>(DataGridView grid)
@@ -95,26 +118,35 @@ namespace TableroComando.Formularios
             return (T)source.Current;
         }
 
-        private void AbrirFormularioIndicador(Indicador indicador)
+        private void AbrirFormularioIndicador(IndicadorDataGridViewWrapper wrapper)
         {
             Form_Indicador f = new Form_Indicador("Actualizar");
-            f.Indicador = indicador;
+            f.Indicador = wrapper.GetIndicador();
             f.ShowDialog();
         }
 
-        private void CargarIndicadores(Objetivo objetivo, DataGridView grid)
+        private void CargarIndicadoresDataGridView(Objetivo objetivo, DataGridView grid)
         {
             BindingSource source = new BindingSource();
-            source.DataSource = objetivo.Indicadores;
+            source.DataSource = objetivo.Indicadores.Select(i => new IndicadorDataGridViewWrapper(i)).ToList();
             grid.DataSource = source;
         }
 
-        private void CargarObjetivos(DataGridView grid, IList<Objetivo> objetivos)
+        private void CargarObjetivosDataGridView(DataGridView grid, IList<Objetivo> objetivos)
         {
             BindingSource source = new BindingSource();
-            source.DataSource = objetivos;
+            source.DataSource = objetivos.Select(o => new ObjetivoDataGridViewWrapper(o)).ToList();
             grid.DataSource = source;
+
+            grid.Columns["Pertenece"].Visible = false;
+            grid.Columns["Perspectiva"].Visible = false;
         }
 
+        private void AbrirFormularioObjetivo(ObjetivoDataGridViewWrapper wrapper)
+        {
+            Form_AgregarObjetivo f = new Form_AgregarObjetivo("Actualizar");
+            f.Objetivo = wrapper.GetObjetivo();
+            f.ShowDialog();
+        }
     }
 }
