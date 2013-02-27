@@ -19,5 +19,18 @@ namespace Dominio
             protected set { indicadores = value; } 
         }
 
+        private IList<Objetivo> objetivosHijos = new List<Objetivo>();
+        public virtual IList<Objetivo> ObjetivosHijos 
+        {
+            get { return objetivosHijos; }
+            set { objetivosHijos = value; }
+        }
+
+        /* Retorna true si contiene el objetivo pasado por parámetro, sino retorna false */
+        public virtual bool ContieneObjetivo(Objetivo o)
+        {
+            if(ObjetivosHijos.Contains(o)) return true;
+            return false;
+        }
     }
 }

@@ -13,6 +13,8 @@ namespace TableroComando.Fachadas
         public IList<Objetivo> All()
         {
             return Db.Session.CreateCriteria<Objetivo>().List<Objetivo>();
+           //     .OrderBy(o => o.Perspectiva.Nombre)
+           //     .ToList();
         }
 
         public IList<Objetivo> FindByPerspectiva(int IdPerspectiva)
@@ -31,6 +33,12 @@ namespace TableroComando.Fachadas
         public Objetivo FindById(int indicadorId)
         {
             return Db.Session.CreateCriteria<Objetivo>().Add(Restrictions.Eq("Id", indicadorId)).List<Objetivo>().First();
+        }
+
+        public void SaveOrUpdate(Objetivo o)
+        {
+            Db.Session.SaveOrUpdate(o);
+            Db.Session.Flush();
         }
     }
 }

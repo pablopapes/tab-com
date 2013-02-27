@@ -129,7 +129,7 @@
             // 
             this.NombreTxt.Location = new System.Drawing.Point(203, 31);
             this.NombreTxt.Name = "NombreTxt";
-            this.NombreTxt.Size = new System.Drawing.Size(164, 22);
+            this.NombreTxt.Size = new System.Drawing.Size(187, 22);
             this.NombreTxt.TabIndex = 7;
             // 
             // label2
@@ -184,7 +184,7 @@
             this.ObjetivosCB.FormattingEnabled = true;
             this.ObjetivosCB.Location = new System.Drawing.Point(203, 110);
             this.ObjetivosCB.Name = "ObjetivosCB";
-            this.ObjetivosCB.Size = new System.Drawing.Size(164, 24);
+            this.ObjetivosCB.Size = new System.Drawing.Size(187, 24);
             this.ObjetivosCB.TabIndex = 14;
             // 
             // label5
@@ -195,13 +195,13 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 16);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Codigo";
+            this.label5.Text = "Código";
             // 
             // CodigoTxt
             // 
             this.CodigoTxt.Location = new System.Drawing.Point(203, 58);
             this.CodigoTxt.Name = "CodigoTxt";
-            this.CodigoTxt.Size = new System.Drawing.Size(164, 22);
+            this.CodigoTxt.Size = new System.Drawing.Size(187, 22);
             this.CodigoTxt.TabIndex = 16;
             // 
             // label3

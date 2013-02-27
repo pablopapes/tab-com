@@ -17,10 +17,12 @@
       <one-to-many class="Indicador" />
     </bag>
 
-    <!--  <bag name="Objetivos" cascade="all-delete-orphan">
-      <key column="objetivo_id" />
-      <one-to-many class="objetivo_id" />
-    </bag>
-  -->
+    <idbag name="ObjetivosHijos" table="relaciones_objetivos">
+      <collection-id column="id" type="int">
+        <generator class="increment" />
+      </collection-id>
+      <key column="objetivo_padre" />
+      <many-to-many column="objetivo_hijo" class="Objetivo" />
+    </idbag> 
   </class>
 </hibernate-mapping>
