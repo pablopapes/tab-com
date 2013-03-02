@@ -13,8 +13,26 @@ namespace TableroComando.Fachadas
         public IList<Objetivo> All()
         {
             return Db.Session.CreateCriteria<Objetivo>().List<Objetivo>();
-           //     .OrderBy(o => o.Perspectiva.Nombre)
-           //     .ToList();
+        }
+
+        public IList<Objetivo> All(Dictionary<string, bool> orderBy)
+        {
+            var criteria = Db.Session.CreateCriteria<Objetivo>();
+            if (orderBy != null)
+            {
+                OrderBy(criteria, orderBy);
+            }
+
+            return criteria.List<Objetivo>();
+        }
+
+        public IList<Objetivo> All(KeyValuePair<string, bool> orderBy)
+        {
+            var criteria = Db.Session.CreateCriteria<Objetivo>();
+            OrderBy(criteria, orderBy);
+            
+            return criteria.List<Objetivo>();
+
         }
 
         public IList<Objetivo> FindByPerspectiva(int IdPerspectiva)

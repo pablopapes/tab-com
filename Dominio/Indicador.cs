@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections;
 
 namespace Dominio
 {
@@ -20,8 +21,22 @@ namespace Dominio
         public virtual Objetivo Objetivo { get; set; }
         public virtual Frecuencia Frecuencia { get; set; }
         
-        private IList<Medicion> mediciones = new List<Medicion>();
-        public virtual IList<Medicion> Mediciones { get { return mediciones; } protected set { mediciones = value; } }
+        private IList<Medicion> _mediciones = new List<Medicion>();
+        public virtual IList<Medicion> Mediciones { get { return _mediciones; } set { _mediciones = value; } }
 
+        public virtual void AddMediciones(List<Medicion> TodasMediciones)
+        {
+            int i = 0;
+            foreach (Medicion m in TodasMediciones)
+            {
+                Console.WriteLine(Mediciones.Contains(m));
+                Console.WriteLine(m.Valor);
+                Console.WriteLine("-------------------------------------------");
+                if (!Mediciones.Contains(m))
+                {
+                    Mediciones.Add(m);
+                }
+            }
+        }
     }
 } 

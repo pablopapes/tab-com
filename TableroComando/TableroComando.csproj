@@ -91,6 +91,7 @@
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIWrapper\IndicadorDataGridViewWrapper.cs" />
+    <Compile Include="GUIWrapper\MedicionDataGridViewWrapper.cs" />
     <Compile Include="GUIWrapper\ObjetivoDataGridViewWrapper.cs" />
     <Compile Include="Modelo.Designer.cs">
       <AutoGen>True</AutoGen>

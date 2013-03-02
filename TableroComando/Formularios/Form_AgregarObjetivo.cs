@@ -27,32 +27,44 @@ namespace TableroComando.Formularios
 
         private void Form_AgregarObjetivo_Load(object sender, EventArgs e)
         {  
+            // Cargo las perspectivas y setear ciertas propiedades
+            ConfigurarCBPerspectiva();
+
             LoadObjetivo();
 
-            // Cargo las perspectivas
-            IList<Perspectiva> perspectivas = PerspectivaFachada.All();
-                
-            CBPerspectiva.DataSource = perspectivas;
-            CBPerspectiva.ValueMember = "Id";
-            CBPerspectiva.DisplayMember = "Nombre";
-
-            CargarObjetivosDataGrid();
-
+            // Se cargan los objetivos y se setean ciertas propiedades
+            ConfigurarObjetivosDataGrid();
+            
         }
 
-        private void CargarObjetivosDataGrid()
+        private void ConfigurarCBPerspectiva()
+        {
+            IList<Perspectiva> perspectivas = PerspectivaFachada.All();
+
+            CBPerspectiva.DataSource = perspectivas;
+            CBPerspectiva.DisplayMember = "Nombre";
+            CBPerspectiva.SelectedIndex = -1;
+        }
+
+        private void ConfigurarObjetivosDataGrid()
         {
             ObjetivoFachada objFachada = ObjetivoFachada.Instance;
             List<ObjetivoDataGridViewWrapper> lista = new List<ObjetivoDataGridViewWrapper>();
-            foreach(Objetivo o in objFachada.All())
+            var objetivos = objFachada.All(new Dictionary<string, bool>
+            {
+                {"Perspectiva.Nombre", true},
+                {"Nombre", true}
+            });
+
+            foreach(Objetivo o in objetivos)
             {
                 ObjetivoDataGridViewWrapper wrapper = new ObjetivoDataGridViewWrapper(o);
                 wrapper.Check(Objetivo);
                 lista.Add(wrapper);
             }
                  
-            BindingList<ObjetivoDataGridViewWrapper> objetivos = new BindingList<ObjetivoDataGridViewWrapper>(lista);
-            ObjetivosDataGrid.DataSource = objetivos;
+            BindingList<ObjetivoDataGridViewWrapper> objetivosWrapper = new BindingList<ObjetivoDataGridViewWrapper>(lista);
+            ObjetivosDataGrid.DataSource = objetivosWrapper;
 
             ObjetivosDataGrid.Columns["Pertenece"].HeaderText = "Objetivo Hijo";
             ObjetivosDataGrid.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -61,8 +73,10 @@ namespace TableroComando.Formularios
         private void LoadObjetivo()
         {
             if (Objetivo == null)
+            {
+                
                 Objetivo = new Objetivo();
-
+            }
             TXTTitulo.DataBindings.Add("Text", Objetivo, "Nombre");
             RTBDescripcion.DataBindings.Add("Text", Objetivo, "Descripcion");
             CBPerspectiva.DataBindings.Add("SelectedItem", Objetivo, "Perspectiva");   
