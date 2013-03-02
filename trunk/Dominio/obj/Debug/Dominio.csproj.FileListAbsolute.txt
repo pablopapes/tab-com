@@ -12,3 +12,17 @@ D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Iesi.Collections.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\NHibernate.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Iesi.Collections.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\NHibernate.xml
+D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\Mappings\frecuencia.hbm.xml
+D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\Mappings\indicador.hbm.xml
+D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\Mappings\medicion.hbm.xml
+D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\Mappings\objetivo.hbm.xml
+D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\Mappings\perspectiva.hbm.xml
+D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\Dominio.dll
+D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\Dominio.pdb
+D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\Iesi.Collections.dll
+D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\NHibernate.dll
+D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\Iesi.Collections.xml
+D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\NHibernate.xml
+D:\Proyectos\Tablero de Comando\Dominio\obj\Debug\ResolveAssemblyReference.cache
+D:\Proyectos\Tablero de Comando\Dominio\obj\Debug\Dominio.dll
+D:\Proyectos\Tablero de Comando\Dominio\obj\Debug\Dominio.pdb

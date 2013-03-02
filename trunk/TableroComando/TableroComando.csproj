@@ -11,7 +11,8 @@
     <RootNamespace>TableroComando</RootNamespace>
     <AssemblyName>TableroComando</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -34,6 +35,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dataweb.NShape, Version=1.0.8.0, Culture=neutral, PublicKeyToken=1512080cd664963c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Dataweb.NShape.dll</HintPath>
+    </Reference>
+    <Reference Include="Dataweb.NShape.GeneralShapes, Version=1.0.8.0, Culture=neutral, PublicKeyToken=1512080cd664963c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Dataweb.NShape.GeneralShapes.dll</HintPath>
+    </Reference>
+    <Reference Include="Dataweb.NShape.WinFormsUI, Version=1.0.8.0, Culture=neutral, PublicKeyToken=1512080cd664963c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Dataweb.NShape.WinFormsUI.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -66,6 +79,12 @@
     <Compile Include="Fachadas\IndicadorFachada.cs" />
     <Compile Include="Fachadas\ObjetivoFachada.cs" />
     <Compile Include="Fachadas\PerspectivaFachada.cs" />
+    <Compile Include="Formularios\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Form_Indicador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +120,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
+    <EmbeddedResource Include="Formularios\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_Indicador.resx">
       <DependentUpon>Form_Indicador.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +153,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Modelo.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
