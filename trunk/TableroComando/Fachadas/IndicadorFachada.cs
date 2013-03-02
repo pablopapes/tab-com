@@ -31,5 +31,10 @@ namespace TableroComando.Fachadas
         {
             return Db.Session.CreateCriteria<Indicador>().Add(Restrictions.Eq("Id", indicadorId)).List<Indicador>().First() ;
         }
+
+        public IList<Frecuencia> AllFrecuencias()
+        {
+            return Db.Session.CreateCriteria<Frecuencia>().List<Frecuencia>();
+        }
     }
 }

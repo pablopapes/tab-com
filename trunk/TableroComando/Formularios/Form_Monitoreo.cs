@@ -48,24 +48,40 @@ namespace TableroComando.Formularios
         {
             Objetivo objetivo = GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(FinanzasGridView).GetObjetivo();
             CargarIndicadoresDataGridView(objetivo, IndicadoresFinancierosGridView);
+            foreach (Indicador i in objetivo.Indicadores)
+            {
+                Console.WriteLine(i.Nombre);
+            }
         }
 
         private void ProcesosGridView_SelectionChanged(object sender, EventArgs e)
         {
             Objetivo objetivo = GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(ProcesosGridView).GetObjetivo();
             CargarIndicadoresDataGridView(objetivo, IndicadoresProcesosGridView);
+            /*foreach (Indicador i in objetivo.Indicadores)
+            {
+                Console.WriteLine(i.Nombre);
+            }*/
         }
 
         private void ClientesGridView_SelectionChanged(object sender, EventArgs e)
         {
             Objetivo objetivo = GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(ClientesGridView).GetObjetivo();
             CargarIndicadoresDataGridView(objetivo, IndicadoresClientesGridView);
+            /*foreach (Indicador i in objetivo.Indicadores)
+            {
+                Console.WriteLine(i.Nombre);
+            }*/
         }
 
         private void AprendizajeGridView_SelectionChanged(object sender, EventArgs e)
         {
             Objetivo objetivo = GetObjetoSeleccionado<ObjetivoDataGridViewWrapper>(AprendizajeGridView).GetObjetivo();
             CargarIndicadoresDataGridView(objetivo, IndicadoresAprendizajesGridView);
+            /*foreach (Indicador i in objetivo.Indicadores)
+            {
+                Console.WriteLine(i.Nombre);
+            }*/
         }
 
         /* Eventos para los grid view de indicadores */
@@ -111,7 +127,7 @@ namespace TableroComando.Formularios
         }
 
 
-        /* Métodos complementarios */
+        /************ Métodos complementarios **************/
         private T GetObjetoSeleccionado<T>(DataGridView grid)
         {
             BindingSource source = (BindingSource)grid.DataSource;
@@ -140,6 +156,8 @@ namespace TableroComando.Formularios
 
             grid.Columns["Pertenece"].Visible = false;
             grid.Columns["Perspectiva"].Visible = false;
+
+
         }
 
         private void AbrirFormularioObjetivo(ObjetivoDataGridViewWrapper wrapper)

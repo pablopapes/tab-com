@@ -26,6 +26,8 @@ namespace Dominio
             set { objetivosHijos = value; }
         }
 
+        public virtual string NombreCompleto { get { return Perspectiva.Nombre + " - " + Nombre; } }
+
         /* Retorna true si contiene el objetivo pasado por parámetro, sino retorna false */
         public virtual bool ContieneObjetivo(Objetivo o)
         {
