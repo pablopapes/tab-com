@@ -52,8 +52,8 @@ namespace TableroComando
         // Mapa estratégico
         private void verMapaEstratégicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          //  Form ventana = new Formularios.Form_Mapa();
-          //  ventana.Show();
+            Form ventana = new TableroComando.Formularios.Form1();
+            ventana.Show();
         }
 
         // Objetivos
