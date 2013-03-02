@@ -166,3 +166,6 @@ D:\Proyectos\Tablero de Comando\TableroComando\bin\Debug\Dataweb.NShape.xml
 D:\Proyectos\Tablero de Comando\TableroComando\bin\Debug\TableroComando.exe.config
 D:\Proyectos\Tablero de Comando\TableroComando\bin\Debug\Dataweb.NShape.WinFormsUI.xml
 D:\Proyectos\Tablero de Comando\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form1.resources
+D:\Proyectos\Tablero de Comando\TableroComando\bin\Debug\Dataweb.NShape.dll
+D:\Proyectos\Tablero de Comando\TableroComando\bin\Debug\Dataweb.NShape.GeneralShapes.dll
+D:\Proyectos\Tablero de Comando\TableroComando\bin\Debug\Dataweb.NShape.WinFormsUI.dll

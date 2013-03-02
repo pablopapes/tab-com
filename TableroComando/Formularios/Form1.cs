@@ -8,6 +8,8 @@ using Dataweb.NShape;
 using Dataweb.NShape.Advanced;
 using Dataweb.NShape.GeneralShapes;
 using Dataweb.NShape.Layouters;
+using TableroComando.Fachadas;
+using Dominio;
 
 
 namespace TableroComando.Formularios
@@ -32,23 +34,17 @@ namespace TableroComando.Formularios
 
 
 		private void Form1_Load(object sender, EventArgs e) {
-			// Open the NShape project
-			string sharedDocumentsDir = GetSharedDocumentsPath();
-			sharedDocumentsDir = sharedDocumentsDir.Trim();
-			// Path to the NShape sample diagrams
-			xmlStore1.DirectoryName = Path.Combine(sharedDocumentsDir, Path.Combine("NShape", "Demo Projects"));
-			project1.Name = "Circles";
-			// Path to the NShape shape library assemblies
-			string programFilesDir = Environment.GetEnvironmentVariable(string.Format("ProgramFiles{0}", (IntPtr.Size == sizeof(long)) ? "(x86)" : ""));
-			project1.LibrarySearchPaths.Add(Path.Combine(programFilesDir, string.Format("dataweb{0}NShape{0}bin", Path.DirectorySeparatorChar)));
-			project1.Open();
+            // Open the NShape project
+        
+            // Path to the NShape sample diagrams
+            xmlStore1.DirectoryName = AppDomain.CurrentDomain.BaseDirectory;
+            project1.Name = "Circles";
+            // Path to the NShape shape library assemblies
+            project1.LibrarySearchPaths.Add(AppDomain.CurrentDomain.BaseDirectory);
+            project1.Open();
 
-			((CapStyle)project1.Design.CapStyles.Arrow).CapSize = 20;
-			((CapStyle)project1.Design.CapStyles.Arrow).CapShape = CapShape.ArrowClosed;
-			((CapStyle)project1.Design.CapStyles.Arrow).ColorStyle = project1.Design.ColorStyles.Green;
-			
-			// Display a diagram and enable editing
-			display1.LoadDiagram("Diagram 1");
+            Diagrama();
+
 		}
 
 
@@ -58,68 +54,142 @@ namespace TableroComando.Formularios
 
 
 		private void fileLoadStatisticsToolStripMenuItem_Click(object sender, EventArgs e) {
-			string appDir = Path.GetDirectoryName(Path.GetDirectoryName(Application.StartupPath));
-			string statisticsFilePath = Path.GetFullPath(Path.Combine(appDir, @"Demo Programs\Tutorials\Basic\Sample Data\Small.txt"));
-
-			Dictionary<string, RectangleBase> shapeDict = new Dictionary<string, RectangleBase>(1000);
-			Diagram diagram = new Diagram("D1");
-
-			int x = 10;
-			int y = 500;
-			TextReader reader = new StreamReader(statisticsFilePath);
-			string line = reader.ReadLine();
-			while (line != null) {
-				int idx1 = line.IndexOf(';');
-				int idx2 = line.IndexOf(';', idx1 + 1);
-				string url = line.Substring(0, idx1);
-				RectangleBase referringShape;
-				if (!shapeDict.TryGetValue(url, out referringShape)) {
-					referringShape = (RectangleBase)project1.ShapeTypes["Ellipse"].CreateInstance();
-					referringShape.Width = 100;
-					referringShape.Height = 60;
-					referringShape.X = x + 50;
-					referringShape.Y = y + 50;
-					x += 120;
-					if (x > 1200) {
-						x = 10;
-						y += 70;
-					}
-					referringShape.SetCaptionText(0, Path.GetFileNameWithoutExtension(url));
-					shapeDict.Add(url, referringShape);
-					diagram.Shapes.Add(referringShape);
-				}
-				url = line.Substring(idx1 + 1, idx2 - idx1 - 1);
-				RectangleBase referredShape;
-				if (!shapeDict.TryGetValue(url, out referredShape)) {
-					referredShape = (RectangleBase)project1.ShapeTypes["Ellipse"].CreateInstance();
-					referredShape.Width = 100;
-					referredShape.Height = 60;
-					referredShape.X = x + 50;
-					referredShape.Y = y + 50;
-					x += 120;
-					if (x > 1200) {
-						x = 10;
-						y += 70;
-					}
-					referredShape.SetCaptionText(0, Path.GetFileNameWithoutExtension(url));
-					shapeDict.Add(url, referredShape);
-					diagram.Shapes.Add(referredShape);
-				}
-				// Add the connection
-				Polyline arrow = (Polyline)project1.ShapeTypes["Polyline"].CreateInstance();
-				diagram.Shapes.Add(arrow);
-				arrow.EndCapStyle = project1.Design.CapStyles.Arrow; 
-				arrow.Connect(ControlPointId.FirstVertex, referringShape, ControlPointId.Reference);
-				arrow.Connect(ControlPointId.LastVertex, referredShape, ControlPointId.Reference);
-				//
-				// Next line
-				line = reader.ReadLine();
-			}
-			reader.Close();
-			cachedRepository1.InsertDiagram(diagram);
-			display1.Diagram = diagram;
+			
+			
 		}
 
+        private void Diagrama()
+        {
+            Dictionary<string, RectangleBase> shapeDict = new Dictionary<string, RectangleBase>(1000);
+            Diagram diagram = new Diagram("D1");
+
+            int x1 = 0;
+            int x2 = 0;
+            int x3 = 0;
+            int x4 = 0;
+
+            diagram.Shapes.Add(TextoPerspectiva("Aprendizaje y Crecimiento",20,1010));
+            diagram.Shapes.Add(TextoPerspectiva("Procesos Internos", 20, 750));
+            diagram.Shapes.Add(TextoPerspectiva("Cliente", 20, 450));
+            diagram.Shapes.Add(TextoPerspectiva("Financiera", 20, 150));
+
+            LineaDePerspectiva(diagram,900);
+            LineaDePerspectiva(diagram, 600);
+            LineaDePerspectiva(diagram, 300);
+
+            IList<Objetivo> ListaObj = ObjetivoFachada.Instance.All();
+
+
+            foreach (Objetivo Objetivo in ListaObj)
+            {
+
+                RectangleBase referringShape;
+                if (!shapeDict.TryGetValue(Objetivo.Nombre, out referringShape))
+                {
+                    referringShape = (RectangleBase)project1.ShapeTypes["Ellipse"].CreateInstance();
+                    referringShape.Width = 120;
+                    referringShape.Height = 70;
+                    switch (Objetivo.Perspectiva.Id)
+                    {
+                        // Aprendizaje y crecimiento
+                        case 1:
+                            CoordenadasPersp(x1, 1000, referringShape);
+                            x1 += 150;
+                            break;
+                        // Procesos internos
+                        case 2:
+                            CoordenadasPersp(x2, 700, referringShape);
+                            x2 += 150;
+                            break;
+                        // Clientes
+                        case 3:
+                            CoordenadasPersp(x3, 400, referringShape);
+                            x3 += 150;
+                            break;
+                        // Financiera
+                        case 4:
+                            CoordenadasPersp(x4, 100, referringShape);
+                            x4 += 150;
+                            break;
+                    }
+
+                    referringShape.SetCaptionText(0, Objetivo.Nombre);
+                    shapeDict.Add(Objetivo.Nombre, referringShape);
+                    diagram.Shapes.Add(referringShape);
+                }
+                foreach (Objetivo objetivoHijo in Objetivo.ObjetivosHijos)
+                {
+                    RectangleBase referredShape;
+                    if (!shapeDict.TryGetValue(objetivoHijo.Nombre, out referredShape))
+                    {
+                        referredShape = (RectangleBase)project1.ShapeTypes["Ellipse"].CreateInstance();
+                        referredShape.Width = 120;
+                        referredShape.Height = 70;
+                        switch (objetivoHijo.Perspectiva.Id)
+                        {
+                            // Aprendizaje y crecimiento
+                            case 1:
+                                CoordenadasPersp(x1, 1000, referredShape);
+                                x1 += 150;
+                                break;
+                            // Procesos internos
+                            case 2:
+                                CoordenadasPersp(x2, 700, referredShape);
+                                x2 += 150;
+                                break;
+                            // Clientes
+                            case 3:
+                                CoordenadasPersp(x3, 400, referredShape);
+                                x3 += 150;
+                                break;
+                            // Financiera
+                            case 4:
+                                CoordenadasPersp(x4, 100, referredShape);
+                                x4 += 150;
+                                break;
+                        }
+                        referredShape.SetCaptionText(0, objetivoHijo.Nombre);
+                        shapeDict.Add(objetivoHijo.Nombre, referredShape);
+                        diagram.Shapes.Add(referredShape);
+                    }
+                    // Add the connection
+
+                    Polyline arrow = (Polyline)project1.ShapeTypes["Polyline"].CreateInstance();
+                    diagram.Shapes.Add(arrow);
+                    // arrow.EndCapStyle = project1.Design.CapStyles.Arrow;
+                    arrow.Connect(ControlPointId.FirstVertex, referringShape, ControlPointId.Reference);
+                    arrow.Connect(ControlPointId.LastVertex, referredShape, ControlPointId.Reference);
+                    //
+                }
+            }
+            cachedRepository1.InsertDiagram(diagram);
+            display1.Diagram = diagram;
+        }
+
+        private void LineaDePerspectiva(Diagram diagram,int y)
+        {
+            Polyline shape = (Polyline)project1.ShapeTypes["Polyline"].CreateInstance();
+            shape.MoveControlPointTo(ControlPointId.FirstVertex, 0, y, ResizeModifiers.None);
+            shape.MoveControlPointTo(ControlPointId.LastVertex, 794, y, ResizeModifiers.None);
+            diagram.Shapes.Add(shape);
+        }
+
+
+        private static void CoordenadasPersp(int x, int y, RectangleBase Shape)
+        {
+            Shape.X = x + 100;
+            Shape.Y = y;
+        }
+
+        private RectangleBase TextoPerspectiva(string texto, int x, int y)
+        {
+            RectangleBase shape = (RectangleBase)project1.ShapeTypes["Text"].CreateInstance();
+            shape.X = x;
+            shape.Y = y;
+            shape.SetCaptionText(0, texto);
+            shape.Rotate(2700, x, y);
+            return shape;
+        }
 
 		private void fileLayoutToolStripMenuItem_Click(object sender, EventArgs e) {
 			foreach (Shape s in display1.Diagram.Shapes) {
