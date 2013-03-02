@@ -17,6 +17,7 @@ namespace TableroComando.Formularios
         private ObjetivoFachada _objetivoFachada = ObjetivoFachada.Instance;
         //private IndicadorFachada IndicadorFachada = IndicadorFachada.Instance;
         private BindingList<MedicionDataGridViewWrapper> _bindingMediciones;
+        private BindingSource _sourceMediciones;
         public Indicador Indicador { get; set; }
 
 
@@ -41,7 +42,12 @@ namespace TableroComando.Formularios
             _bindingMediciones = new BindingList<MedicionDataGridViewWrapper>(Indicador.Mediciones
                 .Select(m => new MedicionDataGridViewWrapper(m))
                 .ToList());
-            MedicionesGridView.DataSource = _bindingMediciones;
+
+            _sourceMediciones = new BindingSource();
+            _sourceMediciones.DataSource = Indicador.Mediciones
+                .Select(m => new MedicionDataGridViewWrapper(m))
+                .ToList();
+            MedicionesGridView.DataSource = _sourceMediciones;
             MedicionesGridView.Columns["Fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
@@ -62,7 +68,12 @@ namespace TableroComando.Formularios
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
             var lista = _bindingMediciones.Select(m => m.GetMedicion()).ToList<Medicion>();
-            Indicador.AddMediciones(_bindingMediciones.Select(m => m.GetMedicion()).ToList<Medicion>());
+            foreach(var element in _bindingMediciones)
+            {
+                Console.WriteLine(element.Fecha);
+            }
+            //Indicador.AddMediciones(_bindingMediciones.Select(m => m.GetMedicion()).ToList<Medicion>());
+            Indicador.AddMediciones(((List<MedicionDataGridViewWrapper>)_sourceMediciones.DataSource).Select(m => m.GetMedicion()).ToList<Medicion>());
             //Console.WriteLine(_bindingMediciones.Select(m => m.GetMedicion()).ToList<Medicion>());
             Objetivo o = (Objetivo)ObjetivosCB.SelectedItem;
             o.Indicadores.Add(Indicador);
@@ -86,5 +97,6 @@ namespace TableroComando.Formularios
 
             PrioridadUD.DataBindings.Add("Value", Indicador, "Prioridad");
         }
+
     }
 }

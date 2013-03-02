@@ -11,7 +11,7 @@ namespace TableroComando.GUIWrapper
         private Medicion _medicion;
         public DateTime Fecha 
         { 
-            get { return (_medicion.Fecha.Year == 1) ? DateTime.Now : _medicion.Fecha; } 
+            get { return _medicion.Fecha; } 
             set { _medicion.Fecha = value; } 
         }
 
@@ -30,6 +30,7 @@ namespace TableroComando.GUIWrapper
         public MedicionDataGridViewWrapper()
         {
             _medicion = new Medicion();
+            Fecha = DateTime.Now;
         }
 
         public Medicion GetMedicion()

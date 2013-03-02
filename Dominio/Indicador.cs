@@ -26,16 +26,10 @@ namespace Dominio
 
         public virtual void AddMediciones(List<Medicion> TodasMediciones)
         {
-            int i = 0;
-            foreach (Medicion m in TodasMediciones)
+            List<Medicion> nuevasMediciones = TodasMediciones.Except(Mediciones).ToList(); // Obtengo solo las nuevas mediciones que no están guardadas aún
+            foreach (Medicion m in nuevasMediciones)
             {
-                Console.WriteLine(Mediciones.Contains(m));
-                Console.WriteLine(m.Valor);
-                Console.WriteLine("-------------------------------------------");
-                if (!Mediciones.Contains(m))
-                {
-                    Mediciones.Add(m);
-                }
+                Mediciones.Add(m);
             }
         }
     }
