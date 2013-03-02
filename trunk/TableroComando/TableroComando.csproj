@@ -35,17 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dataweb.NShape, Version=1.0.8.0, Culture=neutral, PublicKeyToken=1512080cd664963c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Dataweb.NShape.dll</HintPath>
+    <Reference Include="Dataweb.NShape">
+      <HintPath>..\nshape\Dataweb.NShape.dll</HintPath>
     </Reference>
-    <Reference Include="Dataweb.NShape.GeneralShapes, Version=1.0.8.0, Culture=neutral, PublicKeyToken=1512080cd664963c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Dataweb.NShape.GeneralShapes.dll</HintPath>
+    <Reference Include="Dataweb.NShape.GeneralShapes">
+      <HintPath>..\nshape\Dataweb.NShape.GeneralShapes.dll</HintPath>
     </Reference>
-    <Reference Include="Dataweb.NShape.WinFormsUI, Version=1.0.8.0, Culture=neutral, PublicKeyToken=1512080cd664963c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Dataweb.NShape.WinFormsUI.dll</HintPath>
+    <Reference Include="Dataweb.NShape.WinFormsUI">
+      <HintPath>..\nshape\Dataweb.NShape.WinFormsUI.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
