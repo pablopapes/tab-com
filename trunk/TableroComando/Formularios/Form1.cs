@@ -62,11 +62,13 @@ namespace TableroComando.Formularios
         {
             Dictionary<string, RectangleBase> shapeDict = new Dictionary<string, RectangleBase>(1000);
             Diagram diagram = new Diagram("D1");
+            diagram.Height = 1123;
+            diagram.Width = 1200;
 
-            int x1 = 0;
-            int x2 = 0;
-            int x3 = 0;
-            int x4 = 0;
+            int x1 = 50;
+            int x2 = 50;
+            int x3 = 50;
+            int x4 = 50;
 
             diagram.Shapes.Add(TextoPerspectiva("Aprendizaje y Crecimiento",20,1010));
             diagram.Shapes.Add(TextoPerspectiva("Procesos Internos", 20, 750));
@@ -154,9 +156,9 @@ namespace TableroComando.Formularios
                     }
                     // Add the connection
 
-                    Polyline arrow = (Polyline)project1.ShapeTypes["Polyline"].CreateInstance();
+                    CircularArc arrow = (CircularArc)project1.ShapeTypes["CircularArc"].CreateInstance();
+                    arrow.AddVertex((referringShape.X + referredShape.X ) / 2 , (referringShape.Y + referredShape.Y ) / 2 - 50 );
                     diagram.Shapes.Add(arrow);
-                    // arrow.EndCapStyle = project1.Design.CapStyles.Arrow;
                     arrow.Connect(ControlPointId.FirstVertex, referringShape, ControlPointId.Reference);
                     arrow.Connect(ControlPointId.LastVertex, referredShape, ControlPointId.Reference);
                     //
@@ -170,7 +172,7 @@ namespace TableroComando.Formularios
         {
             Polyline shape = (Polyline)project1.ShapeTypes["Polyline"].CreateInstance();
             shape.MoveControlPointTo(ControlPointId.FirstVertex, 0, y, ResizeModifiers.None);
-            shape.MoveControlPointTo(ControlPointId.LastVertex, 794, y, ResizeModifiers.None);
+            shape.MoveControlPointTo(ControlPointId.LastVertex, 1200, y, ResizeModifiers.None);
             diagram.Shapes.Add(shape);
         }
 
