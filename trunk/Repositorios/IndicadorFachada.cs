@@ -17,8 +17,7 @@ namespace TableroComando.Fachadas
 
         public void Save(Indicador o)
         {
-            Db.Session.Save(o);
-            Db.Session.Flush();
+            base.Save<Indicador>(o);
         }
 
         public void SaveOrUpdate(Indicador i)

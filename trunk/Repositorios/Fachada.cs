@@ -44,7 +44,12 @@ namespace TableroComando.Fachadas
                 criteria.AddOrder(order);
             }
         }
-        //abstract public IList<T> All();
+
+        protected void Save<T>(T o)
+        {
+            Db.Session.Save(o);
+            Db.Session.Flush();
+        }
 
     }
 }

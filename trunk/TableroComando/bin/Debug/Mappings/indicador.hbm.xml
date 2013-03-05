@@ -15,10 +15,11 @@
     <property name="Calculo" />
     <property name="Caracteristica" />
     <property name="Observacion" />
-    <property name="OrigenDatos" />
+    <property name="ValorEsperado" />
     
     <many-to-one name="Objetivo" column="objetivo_id" />
     <many-to-one name="Frecuencia" column="frecuencia_id" />
+    <many-to-one name="Responsable" column="responsable_id" />
     
     <bag name="Mediciones" cascade="all-delete-orphan">
       <key column="indicador_id" />
