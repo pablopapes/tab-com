@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableroComando", "TableroCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{28BA173A-5F1C-48D3-BB3C-8ACF4D85DFEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorios", "Repositorios\Repositorios.csproj", "{96C84B32-C449-4830-B892-9B02B6A6873E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{28BA173A-5F1C-48D3-BB3C-8ACF4D85DFEF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{28BA173A-5F1C-48D3-BB3C-8ACF4D85DFEF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{28BA173A-5F1C-48D3-BB3C-8ACF4D85DFEF}.Release|x86.ActiveCfg = Release|Any CPU
+		{96C84B32-C449-4830-B892-9B02B6A6873E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96C84B32-C449-4830-B892-9B02B6A6873E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96C84B32-C449-4830-B892-9B02B6A6873E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{96C84B32-C449-4830-B892-9B02B6A6873E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{96C84B32-C449-4830-B892-9B02B6A6873E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{96C84B32-C449-4830-B892-9B02B6A6873E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96C84B32-C449-4830-B892-9B02B6A6873E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96C84B32-C449-4830-B892-9B02B6A6873E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{96C84B32-C449-4830-B892-9B02B6A6873E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{96C84B32-C449-4830-B892-9B02B6A6873E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

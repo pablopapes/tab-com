@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.MSPrincipal = new System.Windows.Forms.MenuStrip();
             this.empresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarDatosDeLaEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarLosValoresDeLaEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.objetivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarUnObjetivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +40,7 @@
             this.indicadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarIndicadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monitoreoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.responsablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MSPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,24 +60,17 @@
             // empresaToolStripMenuItem
             // 
             this.empresaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modificarDatosDeLaEmpresaToolStripMenuItem,
-            this.modificarLosValoresDeLaEmpresaToolStripMenuItem});
+            this.modificarLosValoresDeLaEmpresaToolStripMenuItem,
+            this.responsablesToolStripMenuItem});
             this.empresaToolStripMenuItem.Name = "empresaToolStripMenuItem";
             this.empresaToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.empresaToolStripMenuItem.Text = "Empresa";
             // 
-            // modificarDatosDeLaEmpresaToolStripMenuItem
-            // 
-            this.modificarDatosDeLaEmpresaToolStripMenuItem.Name = "modificarDatosDeLaEmpresaToolStripMenuItem";
-            this.modificarDatosDeLaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.modificarDatosDeLaEmpresaToolStripMenuItem.Text = "Modificar datos de la empresa";
-            this.modificarDatosDeLaEmpresaToolStripMenuItem.Click += new System.EventHandler(this.modificarDatosDeLaEmpresaToolStripMenuItem_Click);
-            // 
             // modificarLosValoresDeLaEmpresaToolStripMenuItem
             // 
             this.modificarLosValoresDeLaEmpresaToolStripMenuItem.Name = "modificarLosValoresDeLaEmpresaToolStripMenuItem";
-            this.modificarLosValoresDeLaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.modificarLosValoresDeLaEmpresaToolStripMenuItem.Text = "Modificar los valores de la empresa";
+            this.modificarLosValoresDeLaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.modificarLosValoresDeLaEmpresaToolStripMenuItem.Text = "Misión y Visión";
             this.modificarLosValoresDeLaEmpresaToolStripMenuItem.Click += new System.EventHandler(this.modificarLosValoresDeLaEmpresaToolStripMenuItem_Click);
             // 
             // objetivosToolStripMenuItem
@@ -141,6 +134,13 @@
             this.monitoreoToolStripMenuItem.Text = "Monitoreo";
             this.monitoreoToolStripMenuItem.Click += new System.EventHandler(this.monitoreoToolStripMenuItem_Click);
             // 
+            // responsablesToolStripMenuItem
+            // 
+            this.responsablesToolStripMenuItem.Name = "responsablesToolStripMenuItem";
+            this.responsablesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.responsablesToolStripMenuItem.Text = "Responsables";
+            this.responsablesToolStripMenuItem.Click += new System.EventHandler(this.responsablesToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,7 +166,6 @@
 
         private System.Windows.Forms.MenuStrip MSPrincipal;
         private System.Windows.Forms.ToolStripMenuItem empresaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarDatosDeLaEmpresaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarLosValoresDeLaEmpresaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mapaEstratégicoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verMapaEstratégicoToolStripMenuItem;
@@ -176,6 +175,7 @@
         private System.Windows.Forms.ToolStripMenuItem indicadoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarIndicadoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem monitoreoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem responsablesToolStripMenuItem;
     }
 }
 

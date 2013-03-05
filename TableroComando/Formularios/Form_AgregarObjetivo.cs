@@ -86,6 +86,11 @@ namespace TableroComando.Formularios
         {
             Objetivo.ObjetivosHijos = GetCheckedObjetivos();
             ObjetivoFachada.SaveOrUpdate(Objetivo);
+
+            DialogResult result = MessageBox.Show("Los datos se guardaron extosamente. ¿Desea cargar otro objetivo?", "", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes) OpenNewForm();
+            this.Close();
+            
         }
 
         private void BTNCancelar_Click(object sender, EventArgs e)
@@ -99,6 +104,12 @@ namespace TableroComando.Formularios
                 .Where(o => o.Pertenece)
                 .Select(o => o.GetObjetivo())
                 .ToList();
+        }
+
+        private void OpenNewForm()
+        {
+            Form_AgregarObjetivo f = new Form_AgregarObjetivo();
+            f.Show();
         }
     }
 }

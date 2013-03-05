@@ -8,6 +8,7 @@
     </id>
     <property name="Fecha" />
     <property name="Valor" />
+    <property name="Detalle" />
     <many-to-one name="Indicador" column="indicador_id" />
   </class>
 </hibernate-mapping>

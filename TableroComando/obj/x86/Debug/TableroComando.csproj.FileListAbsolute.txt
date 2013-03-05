@@ -169,3 +169,15 @@ D:\Proyectos\Tablero de Comando\TableroComando\obj\x86\Debug\TableroComando.Form
 D:\Proyectos\Tablero de Comando\TableroComando\bin\Debug\Dataweb.NShape.dll
 D:\Proyectos\Tablero de Comando\TableroComando\bin\Debug\Dataweb.NShape.GeneralShapes.dll
 D:\Proyectos\Tablero de Comando\TableroComando\bin\Debug\Dataweb.NShape.WinFormsUI.dll
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\TableroComando.exe.config
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Dataweb.NShape.dll
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Dataweb.NShape.GeneralShapes.dll
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Dataweb.NShape.WinFormsUI.dll
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Dataweb.NShape.xml
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Dataweb.NShape.WinFormsUI.xml
+D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\GenerateResource.read.2713.tlog
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\responsable.hbm.xml
+D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_Responsable.resources
+D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_MapaEstrategico.resources
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Repositorios.dll
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Repositorios.pdb

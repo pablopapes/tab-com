@@ -53,6 +53,7 @@
     <Compile Include="Objetivo.cs" />
     <Compile Include="Perspectiva.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responsable.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\frecuencia.hbm.xml">
@@ -68,6 +69,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Mappings\medicion.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\responsable.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
