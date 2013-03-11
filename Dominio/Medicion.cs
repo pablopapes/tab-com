@@ -11,6 +11,7 @@ namespace Dominio
         public virtual decimal Valor { get; set; }
         public virtual Indicador Indicador { get; set; }
         public virtual string Detalle { get; set; }
+        public virtual Frecuencia Frecuencia { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -6,50 +6,33 @@ using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using NHibernate;
 using Dominio;
+using NHibernate.Criterion;
+using Repositorios;
 
 namespace TableroComando
 {
-    public class Repository
+    public class Repository<T> where T : Repository<T>, new()
     {
         /* Properties */
-        private static Repository instance;
-        private ISession _Session;
-        public static Repository Instance
+        protected static T instance;
+        protected ISession _session;
+        public static T Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new Repository();
+                    instance = new T();
                 }
                 return instance;
             }
 
         }
 
-        public ISession Session
-        {
-            get { return this._Session; }
-        }
-
         /* Constructor */
-        private Repository()
+        protected Repository()
         {
-            try
-            {
-                var cfg = new Configuration();
-                cfg.Configure();
-                cfg.AddAssembly(typeof(Objetivo).Assembly);
-                var schema = new SchemaUpdate(cfg);
-                schema.Execute(true, true);
-                // Get ourselves an NHibernate Session
-                var sessions = cfg.BuildSessionFactory();
-                this._Session = sessions.OpenSession();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            this._session = SingletonSession.Session;
         }
 
         public void SaveAll<T>(IEnumerable<T> objects)
@@ -57,9 +40,54 @@ namespace TableroComando
             foreach (object obj in objects)
             {
                 T specificObject = (T)obj;
-                Session.Save(specificObject);
+                _session.Save(specificObject);
             }
-            Session.Flush();
+            _session.Flush();
+        }
+
+        protected void OrderBy(ICriteria criteria, KeyValuePair<string, bool> orderBy)
+        {
+            AddOrder(criteria, orderBy);
+        }
+
+        protected void OrderBy(ICriteria criteria, Dictionary<string, bool> orderBy)
+        {
+            foreach (var par in orderBy)
+            {
+                AddOrder(criteria, par);
+            }
+        }
+
+        private static void AddOrder(ICriteria criteria, KeyValuePair<string, bool> keyValuePair)
+        {
+            if (keyValuePair.Key.Contains("."))
+            {
+                Order order = new Order(keyValuePair.Key.Split('.').Last(), keyValuePair.Value);
+                criteria.CreateCriteria(keyValuePair.Key.Split('.').First()).AddOrder(order);
+            }
+
+            else
+            {
+                Order order = new Order(keyValuePair.Key, keyValuePair.Value);
+                criteria.AddOrder(order);
+            }
+        }
+
+        protected void Save<Type>(Type o)
+        {
+            _session.Save(o);
+            _session.Flush();
+        }
+
+        protected void Delete<Type>(Type o)
+        {
+            _session.Delete(o);
+            _session.Flush();
+        }
+
+        protected IList<Type> All<Type>() where Type : class
+        {
+            return _session.CreateCriteria<Type>().List<Type>();
         }
     }
 }

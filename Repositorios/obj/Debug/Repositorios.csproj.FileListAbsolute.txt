@@ -15,3 +15,5 @@ D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Iesi.Collections.xml
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\NHibernate.xml
 D:\proyectos\flexit\tab-com\Repositorios\obj\Debug\Repositorios.dll
 D:\proyectos\flexit\tab-com\Repositorios\obj\Debug\Repositorios.pdb
+D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\FrecuenciaStrategy.dll
+D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\FrecuenciaStrategy.pdb

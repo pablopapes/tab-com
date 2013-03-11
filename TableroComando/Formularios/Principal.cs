@@ -9,13 +9,14 @@ using System.Windows.Forms;
 using TableroComando.Formularios;
 using TableroComando.Fachadas;
 using Dominio;
+using NHibernate.Proxy;
 
 namespace TableroComando
 {
     public partial class Principal : Form
     {
-        private ObjetivoFachada ObjetivoFachada = ObjetivoFachada.Instance;
-        private IndicadorFachada IndicadorFachada = IndicadorFachada.Instance;
+        private ObjetivoRepository ObjetivoFachada = ObjetivoRepository.Instance;
+        //private IndicadorRepository IndicadorFachada = IndicadorRepository.Instance;
 
         public Principal()
         {
@@ -65,8 +66,8 @@ namespace TableroComando
 
         private void modificarObjetivosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-     //       Form ventana = new Formularios.Form_ModificarObjetivos();
-     //       ventana.Show();
+            Form ventana = new Form_ListaObjetivos();
+            ventana.Show();
         }
 
  /*       private void indicadoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,18 +85,11 @@ namespace TableroComando
             ventana.Show();
         }
 
-        private void monitoreoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form_Monitoreo ventana = new Formularios.Form_Monitoreo();
-            ventana.ObjetivoFachada = ObjetivoFachada;
-            ventana.Show();
-        }
-
         private void responsablesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new Form_ListaResponsables().Show();
         }
-
+        /*
         private void createData()
         {
             Perspectiva p = new Perspectiva { Nombre = "Finanzas" };
@@ -112,14 +106,14 @@ namespace TableroComando
             Indicador i2 = new Indicador { Nombre = "Indicador 2", Objetivo = o1, Proposito = "Mejorar 2", Prioridad = 2 };
             Indicador i3 = new Indicador { Nombre = "Indicador 3", Objetivo = o2, Proposito = "Mejorar 3", Prioridad = 3 };
             Indicador i4 = new Indicador { Nombre = "Indicador 4", Objetivo = o3, Proposito = "Mejorar 4", Prioridad = 4 };
-            
+            /*
             Repository.Instance.Session.Save(p);
             Repository.Instance.Session.Save(p1);
             Repository.Instance.Session.Save(p2);
             Repository.Instance.Session.Save(p3);
             
             Repository.Instance.Session.Flush();
-
+            
             ObjetivoFachada.Save(o);
             ObjetivoFachada.Save(o1);
             ObjetivoFachada.Save(o2);
@@ -129,6 +123,30 @@ namespace TableroComando
             IndicadorFachada.Save(i2);
             IndicadorFachada.Save(i3);
             IndicadorFachada.Save(i4);
+        }*/
+    
+        private void objetivosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void monitoreoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form_Monitoreo ventana = new Formularios.Form_Monitoreo();
+            ventana.ObjetivoFachada = ObjetivoFachada;
+            ventana.Show();
+        }
+
+        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_ListaIndicadores f = new Form_ListaIndicadores();
+            f.ShowDialog();
+        }
+
+        private void agendaDeMedicionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Agenda f = new Form_Agenda();
+            f.ShowDialog();
         }
 
     }

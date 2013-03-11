@@ -79,7 +79,7 @@ namespace TableroComando.Formularios
             LineaDePerspectiva(diagram, 600);
             LineaDePerspectiva(diagram, 300);
 
-            IList<Objetivo> ListaObj = ObjetivoFachada.Instance.All();
+            IList<Objetivo> ListaObj = ObjetivoRepository.Instance.All();
 
 
             foreach (Objetivo Objetivo in ListaObj)

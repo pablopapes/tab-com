@@ -10,5 +10,6 @@
     <property name="Valor" />
     <property name="Detalle" />
     <many-to-one name="Indicador" column="indicador_id" />
+    <many-to-one name="Frecuencia" column="frecuencia_id" />
   </class>
 </hibernate-mapping>

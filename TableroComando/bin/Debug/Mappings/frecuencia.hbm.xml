@@ -9,6 +9,7 @@
 
     <property name="Periodo" />
     <property name="CantidadDias" />
+    <property name="FrecuenciaEspecifica" />
 
     <bag name="Indicadores">
       <key column="frecuencia_id" />

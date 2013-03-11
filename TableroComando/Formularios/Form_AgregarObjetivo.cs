@@ -15,8 +15,8 @@ namespace TableroComando.Formularios
 {
     public partial class Form_AgregarObjetivo : Form
     {
-        private PerspectivaFachada PerspectivaFachada = PerspectivaFachada.Instance;
-        private ObjetivoFachada ObjetivoFachada = ObjetivoFachada.Instance;
+        private PerspectivaRepository PerspectivaFachada = PerspectivaRepository.Instance;
+        private ObjetivoRepository ObjetivoFachada = ObjetivoRepository.Instance;
         public Objetivo Objetivo {get; set; }
 
         public Form_AgregarObjetivo(string textButton = "Agregar")
@@ -48,7 +48,7 @@ namespace TableroComando.Formularios
 
         private void ConfigurarObjetivosDataGrid()
         {
-            ObjetivoFachada objFachada = ObjetivoFachada.Instance;
+            ObjetivoRepository objFachada = ObjetivoRepository.Instance;
             List<ObjetivoDataGridViewWrapper> lista = new List<ObjetivoDataGridViewWrapper>();
             var objetivos = objFachada.All(new Dictionary<string, bool>
             {
