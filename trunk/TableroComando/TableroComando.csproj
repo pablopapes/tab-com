@@ -72,6 +72,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularios\Form_Agenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_Agenda.Designer.cs">
+      <DependentUpon>Form_Agenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form_ListaIndicadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_ListaIndicadores.Designer.cs">
+      <DependentUpon>Form_ListaIndicadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form_ListaObjetivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_ListaObjetivos.Designer.cs">
+      <DependentUpon>Form_ListaObjetivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form_ListaResponsables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_ListaResponsables.Designer.cs">
+      <DependentUpon>Form_ListaResponsables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Form_Responsable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,8 +135,21 @@
     <Compile Include="GUIWrapper\IndicadorDataGridViewWrapper.cs" />
     <Compile Include="GUIWrapper\MedicionDataGridViewWrapper.cs" />
     <Compile Include="GUIWrapper\ObjetivoDataGridViewWrapper.cs" />
+    <Compile Include="GUIWrapper\ResponsableDataGridViewWrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\Form_Agenda.resx">
+      <DependentUpon>Form_Agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_ListaIndicadores.resx">
+      <DependentUpon>Form_ListaIndicadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_ListaObjetivos.resx">
+      <DependentUpon>Form_ListaObjetivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_ListaResponsables.resx">
+      <DependentUpon>Form_ListaResponsables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_Responsable.resx">
       <DependentUpon>Form_Responsable.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +264,7 @@
     <None Include="Resources\amarillo1.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Delete.png" />
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

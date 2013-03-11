@@ -7,15 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Dominio;
+using TableroComando.Fachadas;
+using TableroComando.GUIWrapper;
 
 namespace TableroComando.Formularios
 {
     public partial class Form_Responsable : Form
     {
         public Responsable Responsable { get; set; }
-        public Form_Responsable()
+        private BindingSource _sourceResponsables;
+
+        public Form_Responsable(BindingSource responsables)
         {
             InitializeComponent();
+            _sourceResponsables = responsables;
         }
 
         private void Form_Responsable_Load(object sender, EventArgs e)
@@ -35,7 +40,8 @@ namespace TableroComando.Formularios
 
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
-
+            ResponsableRepository.Instance.Save(Responsable);
+            _sourceResponsables.Add(new ResponsableDataGridViewWrapper(Responsable));
         }
     }
 }

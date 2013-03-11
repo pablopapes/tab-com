@@ -8,6 +8,8 @@ namespace Dominio
 {
     public class Indicador : Modelo<Indicador>
     {
+        /*********** Definición de propiedades **************/
+
         public virtual string Nombre { get; set;}
         public virtual string Codigo { get; set;}
         public virtual string Proposito { get; set; }
@@ -18,6 +20,16 @@ namespace Dominio
         public virtual int Prioridad { get; set; }
         public virtual string Observacion { get; set; }
         public virtual decimal? ValorEsperado { get; set; }
+        public virtual DateTime FechaCreacion { get; protected set; }
+        public virtual bool RequiereMedicion 
+        {
+            get 
+            {
+                DateTime ultimaFechaMedicion = (Mediciones.Count == 0) ? FechaCreacion : Mediciones.Last().Fecha;
+                Console.WriteLine(Frecuencia.Periodo);
+                return Frecuencia.RequiereMedicion(ultimaFechaMedicion);
+            }
+        }
 
         public virtual Objetivo Objetivo { get; set; }
         public virtual Frecuencia Frecuencia { get; set; }
@@ -29,6 +41,19 @@ namespace Dominio
             protected set { _mediciones = value; } 
         }
 
+        /************* Constructor *************/
+
+        public Indicador()
+        {
+            if (FechaCreacion == null) // Fecha de creación será null si el indicador es nuevo, es ese caso, se le asigna la fecha actual.
+            {
+                FechaCreacion = DateTime.Now;
+            }
+            
+        }
+
+        /************* Métodos *****************/
+
         public virtual void AddMediciones(List<Medicion> TodasMediciones)
         {
             // Obtengo solo las nuevas mediciones que no están guardadas aún
@@ -38,5 +63,6 @@ namespace Dominio
                 Mediciones.Add(m);
             }
         }
+
     }
 } 

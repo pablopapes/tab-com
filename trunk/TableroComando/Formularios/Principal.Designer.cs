@@ -32,15 +32,15 @@
             this.MSPrincipal = new System.Windows.Forms.MenuStrip();
             this.empresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarLosValoresDeLaEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.objetivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarUnObjetivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarObjetivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListaResponsablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ObjetivosIndicadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ObjetivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.indicadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agendaDeMedicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapaEstratégicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verMapaEstratégicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.indicadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarIndicadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.monitoreoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.responsablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monitoreoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MSPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,9 +48,9 @@
             // 
             this.MSPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.empresaToolStripMenuItem,
-            this.objetivosToolStripMenuItem,
+            this.ObjetivosIndicadoresToolStripMenuItem,
             this.mapaEstratégicoToolStripMenuItem,
-            this.indicadoresToolStripMenuItem});
+            this.monitoreoToolStripMenuItem1});
             this.MSPrincipal.Location = new System.Drawing.Point(0, 0);
             this.MSPrincipal.Name = "MSPrincipal";
             this.MSPrincipal.Size = new System.Drawing.Size(805, 24);
@@ -61,7 +61,7 @@
             // 
             this.empresaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modificarLosValoresDeLaEmpresaToolStripMenuItem,
-            this.responsablesToolStripMenuItem});
+            this.ListaResponsablesToolStripMenuItem});
             this.empresaToolStripMenuItem.Name = "empresaToolStripMenuItem";
             this.empresaToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.empresaToolStripMenuItem.Text = "Empresa";
@@ -73,28 +73,52 @@
             this.modificarLosValoresDeLaEmpresaToolStripMenuItem.Text = "Misión y Visión";
             this.modificarLosValoresDeLaEmpresaToolStripMenuItem.Click += new System.EventHandler(this.modificarLosValoresDeLaEmpresaToolStripMenuItem_Click);
             // 
-            // objetivosToolStripMenuItem
+            // ListaResponsablesToolStripMenuItem
             // 
-            this.objetivosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarUnObjetivoToolStripMenuItem,
-            this.modificarObjetivosToolStripMenuItem});
-            this.objetivosToolStripMenuItem.Name = "objetivosToolStripMenuItem";
-            this.objetivosToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.objetivosToolStripMenuItem.Text = "Objetivos";
+            this.ListaResponsablesToolStripMenuItem.Name = "ListaResponsablesToolStripMenuItem";
+            this.ListaResponsablesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.ListaResponsablesToolStripMenuItem.Text = "Responsables";
+            this.ListaResponsablesToolStripMenuItem.Click += new System.EventHandler(this.responsablesToolStripMenuItem_Click);
             // 
-            // agregarUnObjetivoToolStripMenuItem
+            // ObjetivosIndicadoresToolStripMenuItem
             // 
-            this.agregarUnObjetivoToolStripMenuItem.Name = "agregarUnObjetivoToolStripMenuItem";
-            this.agregarUnObjetivoToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.agregarUnObjetivoToolStripMenuItem.Text = "Agregar un objetivo";
-            this.agregarUnObjetivoToolStripMenuItem.Click += new System.EventHandler(this.agregarUnObjetivoToolStripMenuItem_Click);
+            this.ObjetivosIndicadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ObjetivosToolStripMenuItem,
+            this.indicadoresToolStripMenuItem1});
+            this.ObjetivosIndicadoresToolStripMenuItem.Name = "ObjetivosIndicadoresToolStripMenuItem";
+            this.ObjetivosIndicadoresToolStripMenuItem.Size = new System.Drawing.Size(142, 20);
+            this.ObjetivosIndicadoresToolStripMenuItem.Text = "Objetivos e Indicadores";
+            this.ObjetivosIndicadoresToolStripMenuItem.Click += new System.EventHandler(this.objetivosToolStripMenuItem_Click);
             // 
-            // modificarObjetivosToolStripMenuItem
+            // ObjetivosToolStripMenuItem
             // 
-            this.modificarObjetivosToolStripMenuItem.Name = "modificarObjetivosToolStripMenuItem";
-            this.modificarObjetivosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.modificarObjetivosToolStripMenuItem.Text = "Modificar objetivos";
-            this.modificarObjetivosToolStripMenuItem.Click += new System.EventHandler(this.modificarObjetivosToolStripMenuItem_Click);
+            this.ObjetivosToolStripMenuItem.Name = "ObjetivosToolStripMenuItem";
+            this.ObjetivosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ObjetivosToolStripMenuItem.Text = "Objetivos";
+            this.ObjetivosToolStripMenuItem.Click += new System.EventHandler(this.modificarObjetivosToolStripMenuItem_Click);
+            // 
+            // indicadoresToolStripMenuItem1
+            // 
+            this.indicadoresToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listarToolStripMenuItem,
+            this.agendaDeMedicionesToolStripMenuItem});
+            this.indicadoresToolStripMenuItem1.Name = "indicadoresToolStripMenuItem1";
+            this.indicadoresToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.indicadoresToolStripMenuItem1.Text = "Indicadores";
+            // 
+            // listarToolStripMenuItem
+            // 
+            this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.listarToolStripMenuItem.Text = "Gestión";
+            this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
+            // 
+            // agendaDeMedicionesToolStripMenuItem
+            // 
+            this.agendaDeMedicionesToolStripMenuItem.Name = "agendaDeMedicionesToolStripMenuItem";
+            this.agendaDeMedicionesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.agendaDeMedicionesToolStripMenuItem.Text = "Agenda de mediciones";
+            this.agendaDeMedicionesToolStripMenuItem.Click += new System.EventHandler(this.agendaDeMedicionesToolStripMenuItem_Click);
             // 
             // mapaEstratégicoToolStripMenuItem
             // 
@@ -111,35 +135,12 @@
             this.verMapaEstratégicoToolStripMenuItem.Text = "Ver mapa estratégico";
             this.verMapaEstratégicoToolStripMenuItem.Click += new System.EventHandler(this.verMapaEstratégicoToolStripMenuItem_Click);
             // 
-            // indicadoresToolStripMenuItem
+            // monitoreoToolStripMenuItem1
             // 
-            this.indicadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarIndicadoresToolStripMenuItem,
-            this.monitoreoToolStripMenuItem});
-            this.indicadoresToolStripMenuItem.Name = "indicadoresToolStripMenuItem";
-            this.indicadoresToolStripMenuItem.Size = new System.Drawing.Size(184, 20);
-            this.indicadoresToolStripMenuItem.Text = "Tabla de Factores e Indicadores";
-            // 
-            // agregarIndicadoresToolStripMenuItem
-            // 
-            this.agregarIndicadoresToolStripMenuItem.Name = "agregarIndicadoresToolStripMenuItem";
-            this.agregarIndicadoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.agregarIndicadoresToolStripMenuItem.Text = "Agregar indicadores";
-            this.agregarIndicadoresToolStripMenuItem.Click += new System.EventHandler(this.agregarIndicadoresToolStripMenuItem_Click);
-            // 
-            // monitoreoToolStripMenuItem
-            // 
-            this.monitoreoToolStripMenuItem.Name = "monitoreoToolStripMenuItem";
-            this.monitoreoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.monitoreoToolStripMenuItem.Text = "Monitoreo";
-            this.monitoreoToolStripMenuItem.Click += new System.EventHandler(this.monitoreoToolStripMenuItem_Click);
-            // 
-            // responsablesToolStripMenuItem
-            // 
-            this.responsablesToolStripMenuItem.Name = "responsablesToolStripMenuItem";
-            this.responsablesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.responsablesToolStripMenuItem.Text = "Responsables";
-            this.responsablesToolStripMenuItem.Click += new System.EventHandler(this.responsablesToolStripMenuItem_Click);
+            this.monitoreoToolStripMenuItem1.Name = "monitoreoToolStripMenuItem1";
+            this.monitoreoToolStripMenuItem1.Size = new System.Drawing.Size(75, 20);
+            this.monitoreoToolStripMenuItem1.Text = "Monitoreo";
+            this.monitoreoToolStripMenuItem1.Click += new System.EventHandler(this.monitoreoToolStripMenuItem1_Click);
             // 
             // Principal
             // 
@@ -169,13 +170,13 @@
         private System.Windows.Forms.ToolStripMenuItem modificarLosValoresDeLaEmpresaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mapaEstratégicoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verMapaEstratégicoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem objetivosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarUnObjetivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarObjetivosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem indicadoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarIndicadoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem monitoreoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem responsablesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ObjetivosIndicadoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ObjetivosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ListaResponsablesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem indicadoresToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem monitoreoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agendaDeMedicionesToolStripMenuItem;
     }
 }
 

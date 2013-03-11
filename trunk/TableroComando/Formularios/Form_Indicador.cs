@@ -14,7 +14,7 @@ namespace TableroComando.Formularios
 {
     public partial class Form_Indicador : Form
     {
-        private ObjetivoFachada _objetivoFachada = ObjetivoFachada.Instance;
+        private ObjetivoRepository _objetivoFachada = ObjetivoRepository.Instance;
         //private IndicadorFachada IndicadorFachada = IndicadorFachada.Instance;
         //private BindingList<MedicionDataGridViewWrapper> _bindingMediciones;
         private BindingSource _sourceMediciones;
@@ -64,7 +64,7 @@ namespace TableroComando.Formularios
 
         private void ConfigurarFrecuenciasCB()
         {
-            FrecuenciasCB.DataSource = IndicadorFachada.Instance.AllFrecuencias();
+            FrecuenciasCB.DataSource = IndicadorRepository.Instance.AllFrecuencias();
             FrecuenciasCB.DisplayMember = "Periodo";
             FrecuenciasCB.SelectedIndex = -1;   
         }
