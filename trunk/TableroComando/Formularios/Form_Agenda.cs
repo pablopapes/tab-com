@@ -15,6 +15,7 @@ namespace TableroComando.Formularios
     public partial class Form_Agenda : Form
     {
         BindingSource _sourceIndicadores = new BindingSource();
+        public IndicadorRepository Repo;
 
         public Form_Agenda()
         {
@@ -28,15 +29,18 @@ namespace TableroComando.Formularios
 
         private void ConfigurarIndicadoresDataGrid()
         {
-            _sourceIndicadores.DataSource = IndicadorRepository.Instance.FindByRequiereMedicion();
+            
+            _sourceIndicadores.DataSource = Repo.FindByRequiereMedicion().Select( i => new IndicadorDataGridViewWrapper(i));
             IndicadoresDataGrid.DataSource = _sourceIndicadores;
+
+            IndicadoresDataGrid.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void IndicadoresDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Frecuencia f = ((Indicador)_sourceIndicadores.Current).Frecuencia;
-            Console.WriteLine(f.FrecuenciaEspecifica);
-        }
+            //Frecuencia f = ((Indicador)_sourceIndicadores.Current).Frecuencia;
+            
+        }   
 
     }
 }

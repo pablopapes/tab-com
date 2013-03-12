@@ -11,15 +11,26 @@ namespace Dominio
         public virtual string Periodo { get; set; }
         public virtual int CantidadDias { get; set; }
         public virtual IList<Indicador> Indicadores { get; protected set; }
-        public virtual string FrecuenciaEspecifica { get; set; }
-        protected FrecuenciaEspecifica _frecuenciaEspecifica;
+        public virtual string NombreFrecuenciaEspecifica { get; set; }
 
-        public Frecuencia()
+        protected FrecuenciaEspecifica _frecuenciaEspecifica;
+        protected FrecuenciaEspecifica FrecuenciaEspecifica
         {
-            Console.WriteLine("Frecuencia {0}", this is NHibernate.Proxy.INHibernateProxy);
-            if (this is NHibernate.Proxy.INHibernateProxy && Id != 0) 
-                _frecuenciaEspecifica = GetFrecuenciaEspecifica();
-        }
+            get
+            {
+                if(_frecuenciaEspecifica == null)
+                {
+                    Type type = Type.GetType("FrecuenciaStrategy." + NombreFrecuenciaEspecifica + ",FrecuenciaStrategy");
+
+                    if (type == null) throw new ArgumentException("No such type: " + type);
+                    if (!typeof(FrecuenciaEspecifica).IsAssignableFrom(type)) throw new ArgumentException("Type " + type +" is not compatible with FooParent.");
+                    _frecuenciaEspecifica = (FrecuenciaEspecifica) Activator.CreateInstance(type);
+                }
+  
+                return _frecuenciaEspecifica;
+            }
+         }
+        
         
         public virtual DateTime ProximaFechaMedicion(DateTime fecha)
         {
@@ -28,29 +39,13 @@ namespace Dominio
 
         public virtual DateTime ProximaMedicion(DateTime ultimaMedicion)
         {
-            return _frecuenciaEspecifica.ProximaMedicion(ultimaMedicion);
+            return FrecuenciaEspecifica.ProximaMedicion(ultimaMedicion);
         }
 
         public virtual bool RequiereMedicion(DateTime ultimaMedicion)
         {
-            return _frecuenciaEspecifica.RequiereMedicion(ultimaMedicion);
+            return FrecuenciaEspecifica.RequiereMedicion(ultimaMedicion);
         }
 
-        protected virtual FrecuenciaEspecifica GetFrecuenciaEspecifica()
-        {
-            Console.WriteLine(Id);
-            Type type = Type.GetType("FrecuenciaStrategy." + FrecuenciaEspecifica + ",FrecuenciaStrategy");
-
-            if (type == null)
-            {
-                throw new ArgumentException("No such type: " + type);
-            }
-            if (!typeof(FrecuenciaEspecifica).IsAssignableFrom(type))
-            {
-                throw new ArgumentException("Type " + type +
-                                    " is not compatible with FooParent.");
-    }
-            return (FrecuenciaEspecifica) Activator.CreateInstance(type);
-        }
     }
 }

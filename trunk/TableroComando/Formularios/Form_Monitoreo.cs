@@ -15,7 +15,6 @@ namespace TableroComando.Formularios
     public partial class Form_Monitoreo : Form
     {
         public ObjetivoRepository ObjetivoFachada;
-        private int anchoColumnaNombreObjetivo;
             
         public Form_Monitoreo()
         {
