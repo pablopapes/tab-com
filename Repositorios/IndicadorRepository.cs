@@ -34,7 +34,7 @@ namespace TableroComando.Fachadas
 
         public IList<Indicador> FindByRequiereMedicion()
         {
-            return All().Where(i => i.RequiereMedicion).ToList<Indicador>();
+            return All().Where(i => i.RequiereMedicion).ToList();
         }
 
         public IList<Frecuencia> AllFrecuencias()
@@ -44,7 +44,7 @@ namespace TableroComando.Fachadas
 
         public void Delete(Indicador i)
         {
-            Delete<Indicador>(i);            
+            Delete<Indicador>(i);    
         }
     }
 }

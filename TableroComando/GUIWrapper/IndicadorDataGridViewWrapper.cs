@@ -9,7 +9,6 @@ namespace TableroComando.GUIWrapper
     class IndicadorDataGridViewWrapper
     {
         private Indicador indicador;
-        private Indicador i;
         public string Codigo
         {
             get { return indicador.Codigo; }
@@ -18,6 +17,16 @@ namespace TableroComando.GUIWrapper
         public string Nombre
         {
             get { return indicador.Nombre; }
+        }
+
+        public DateTime? UltimaMedicion
+        {
+            get 
+            {
+                if (indicador.Mediciones.Count != 0)
+                    return indicador.Mediciones.Last().Fecha; 
+                return null;
+            }
         }
 
         /* Constructor */

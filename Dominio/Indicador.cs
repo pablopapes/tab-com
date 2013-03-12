@@ -30,7 +30,7 @@ namespace Dominio
                 return Frecuencia.RequiereMedicion(ultimaFechaMedicion);
             }
         }
-
+        
         public virtual Objetivo Objetivo { get; set; }
         public virtual Frecuencia Frecuencia { get; set; }
         
@@ -63,6 +63,5 @@ namespace Dominio
                 Mediciones.Add(m);
             }
         }
-
     }
 } 

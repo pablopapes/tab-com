@@ -15,7 +15,7 @@ namespace TableroComando
     {
         /* Properties */
         protected static T instance;
-        protected ISession _session;
+        public ISession _session;
         public static T Instance
         {
             get

@@ -11,6 +11,7 @@ namespace Dominio
         public virtual string Persona {get; set;}
         public virtual string Email { get; set; }
         public virtual string Telefono { get; set; }
+        public virtual string Codigo { get; set; }
 
         private IList<Indicador> _indicadores = new List<Indicador>();
         public virtual IList<Indicador> Indicadores 
