@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Monitoreo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,25 +40,25 @@
             this.AprendizajeGridView = new System.Windows.Forms.DataGridView();
             this.IndicadoresFinancierosGridView = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
+            this.IndicadoresClientesGridView = new System.Windows.Forms.DataGridView();
+            this.IndicadoresProcesosGridView = new System.Windows.Forms.DataGridView();
+            this.IndicadoresAprendizajesGridView = new System.Windows.Forms.DataGridView();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.IndicadoresClientesGridView = new System.Windows.Forms.DataGridView();
-            this.IndicadoresProcesosGridView = new System.Windows.Forms.DataGridView();
-            this.IndicadoresAprendizajesGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.FinanzasGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClientesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcesosGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AprendizajeGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IndicadoresFinancierosGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresClientesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresProcesosGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresAprendizajesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresClientesGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresProcesosGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresAprendizajesGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -211,43 +210,6 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Indicadores";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::TableroComando.Properties.Resources.rojo;
-            this.pictureBox3.Location = new System.Drawing.Point(43, 538);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(237, 116);
-            this.pictureBox3.TabIndex = 7;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::TableroComando.Properties.Resources.verde;
-            this.pictureBox4.Location = new System.Drawing.Point(43, 381);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(225, 124);
-            this.pictureBox4.TabIndex = 5;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.ErrorImage")));
-            this.pictureBox2.Image = global::TableroComando.Properties.Resources.rojo1;
-            this.pictureBox2.Location = new System.Drawing.Point(43, 209);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(225, 135);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TableroComando.Properties.Resources.amarillo;
-            this.pictureBox1.Location = new System.Drawing.Point(43, 42);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 124);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // IndicadoresClientesGridView
             // 
             this.IndicadoresClientesGridView.AllowUserToAddRows = false;
@@ -293,6 +255,42 @@
             this.IndicadoresAprendizajesGridView.TabIndex = 22;
             this.IndicadoresAprendizajesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.IndicadoresAprendizajesGridView_CellDoubleClick);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::TableroComando.Properties.Resources.verde;
+            this.pictureBox3.Location = new System.Drawing.Point(91, 530);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(125, 124);
+            this.pictureBox3.TabIndex = 7;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::TableroComando.Properties.Resources.rojo;
+            this.pictureBox4.Location = new System.Drawing.Point(91, 380);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(128, 124);
+            this.pictureBox4.TabIndex = 5;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TableroComando.Properties.Resources.verde;
+            this.pictureBox2.Location = new System.Drawing.Point(91, 208);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(125, 135);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TableroComando.Properties.Resources.amarillo2;
+            this.pictureBox1.Location = new System.Drawing.Point(91, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(137, 124);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form_Monitoreo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,13 +324,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProcesosGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AprendizajeGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IndicadoresFinancierosGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresClientesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresProcesosGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresAprendizajesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresClientesGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresProcesosGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IndicadoresAprendizajesGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
