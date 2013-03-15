@@ -19,6 +19,11 @@ namespace TableroComando.GUIWrapper
             get { return indicador.Nombre; }
         }
 
+        public string Frecuencia
+        {
+            get { return indicador.Frecuencia.Periodo;  }
+        }
+
         public DateTime? UltimaMedicion
         {
             get 
@@ -27,6 +32,11 @@ namespace TableroComando.GUIWrapper
                     return indicador.Mediciones.Last().Fecha; 
                 return null;
             }
+        }
+
+        public DateTime ProximaFechaMedicion
+        {
+            get { return indicador.ProximaFechaMedicion; }
         }
 
         /* Constructor */

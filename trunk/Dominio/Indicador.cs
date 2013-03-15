@@ -19,26 +19,41 @@ namespace Dominio
         public virtual string Espectativa { get; set; }
         public virtual int Prioridad { get; set; }
         public virtual string Observacion { get; set; }
-        public virtual decimal? ValorEsperado { get; set; }
-        public virtual DateTime FechaCreacion { get; protected set; }
+        public virtual decimal ValorEsperado { get; set; }
+        protected virtual DateTime FechaCreacion { get; set; }
+        
+        public virtual DateTime UltimaFechaMedicion
+        {
+            get { return (Mediciones.Count == 0) ? FechaCreacion : Mediciones.Last().Fecha; }
+        }
+
         public virtual bool RequiereMedicion 
         {
-            get 
-            {
-                DateTime ultimaFechaMedicion = (Mediciones.Count == 0) ? FechaCreacion : Mediciones.Last().Fecha;
-                Console.WriteLine(Frecuencia.Periodo);
-                return Frecuencia.RequiereMedicion(ultimaFechaMedicion);
-            }
+            get { return Frecuencia.RequiereMedicion(UltimaFechaMedicion); }
+        }
+
+        public virtual DateTime ProximaFechaMedicion
+        {
+            get { return Frecuencia.ProximaFechaMedicion(UltimaFechaMedicion); }
         }
         
         public virtual Objetivo Objetivo { get; set; }
         public virtual Frecuencia Frecuencia { get; set; }
         
+        /* Mediciones */
         private IList<Medicion> _mediciones = new List<Medicion>();
         public virtual IList<Medicion> Mediciones 
         { 
             get { return _mediciones; } 
             protected set { _mediciones = value; } 
+        }
+
+        /* Restricciones */
+        private IList<Restriccion> _restricciones = new List<Restriccion>();
+        protected virtual IList<Restriccion> Restricciones
+        {
+            get { return _restricciones; }
+            set { _restricciones = value; }
         }
 
         /************* Constructor *************/
@@ -62,6 +77,20 @@ namespace Dominio
             {
                 Mediciones.Add(m);
             }
+        }
+
+        public override string ToString()
+        {
+            return Codigo + " - " + Nombre;
+        }
+
+        public virtual void AddMedicion(DateTime fechaMedicion, decimal valor, string detalle = "")
+        {
+            Mediciones.Add(new Medicion{ Fecha = fechaMedicion, Valor = valor, Detalle = detalle, Indicador = this } );
+        }
+
+        public virtual void AddRestriccion(string nombreRestriccion, decimal valorMenor = default(decimal), decimal valorMayor = default(decimal))
+        {
         }
     }
 } 

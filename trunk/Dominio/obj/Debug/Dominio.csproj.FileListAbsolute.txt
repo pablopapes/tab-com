@@ -12,20 +12,19 @@ D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\NHibernate.xml
 D:\Proyectos\Tablero de Comando\Dominio\obj\Debug\ResolveAssemblyReference.cache
 D:\Proyectos\Tablero de Comando\Dominio\obj\Debug\Dominio.dll
 D:\Proyectos\Tablero de Comando\Dominio\obj\Debug\Dominio.pdb
-D:\proyectos\flexit\tab-com\Dominio\obj\Debug\ResolveAssemblyReference.cache
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\frecuencia.hbm.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\indicador.hbm.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\medicion.hbm.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\objetivo.hbm.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\perspectiva.hbm.xml
-D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\responsable.hbm.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Dominio.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Dominio.pdb
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\FrecuenciaStrategy.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Iesi.Collections.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\NHibernate.dll
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\FrecuenciaStrategy.pdb
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Iesi.Collections.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\NHibernate.xml
+D:\proyectos\flexit\tab-com\Dominio\obj\Debug\ResolveAssemblyReference.cache
 D:\proyectos\flexit\tab-com\Dominio\obj\Debug\Dominio.dll
 D:\proyectos\flexit\tab-com\Dominio\obj\Debug\Dominio.pdb
-D:\proyectos\flexit\tab-com\Dominio\bin\Debug\FrecuenciaStrategy.dll
-D:\proyectos\flexit\tab-com\Dominio\bin\Debug\FrecuenciaStrategy.pdb

@@ -9,14 +9,13 @@ using System.Windows.Forms;
 using TableroComando.Fachadas;
 using Dominio;
 using TableroComando.GUIWrapper;
+using System.Globalization;
 
 namespace TableroComando.Formularios
 {
     public partial class Form_Indicador : Form
     {
         private ObjetivoRepository _objetivoFachada = ObjetivoRepository.Instance;
-        //private IndicadorFachada IndicadorFachada = IndicadorFachada.Instance;
-        //private BindingList<MedicionDataGridViewWrapper> _bindingMediciones;
         private BindingSource _sourceMediciones;
         public Indicador Indicador { get; set; }
 
@@ -29,31 +28,22 @@ namespace TableroComando.Formularios
 
         private void Form_AgregarIndicador_Load(object sender, EventArgs e)
         {
+            /* Si no se seteó ningún indicador, se crea uno nuevo */
+            if (Indicador == null)
+                Indicador = new Indicador();
+
             /* Se cargan los objetivos en un combobox y se setean algunas propiedades */
             ConfigurarObjetivosCB();
             ConfigurarFrecuenciasCB();
             ConfigurarResponsablesCB();
-            
-            /* Si no se seteó ningún indicador, se crea uno nuevo */
-            if (Indicador == null)
-                Indicador = new Indicador();
             
             CargarPropiedadesIndicador();
             
             ConfigurarMedicioinesGridView(); // Se cargan las mediciones en el datagrid y se setean algunas propiedades
         }
 
-        private void ConfigurarResponsablesCB()
-        {
-            
-        }
-
         private void ConfigurarMedicioinesGridView()
         {
-            /*_bindingMediciones = new BindingList<MedicionDataGridViewWrapper>(Indicador.Mediciones
-                .Select(m => new MedicionDataGridViewWrapper(m))
-                .ToList());*/
-
             _sourceMediciones = new BindingSource();
             _sourceMediciones.DataSource = Indicador.Mediciones
                 .Select(m => new MedicionDataGridViewWrapper(m))
@@ -62,27 +52,32 @@ namespace TableroComando.Formularios
             MedicionesGridView.Columns["Fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
-        private void ConfigurarFrecuenciasCB()
+        private void ConfigurarResponsablesCB()
         {
-            FrecuenciasCB.DataSource = IndicadorRepository.Instance.AllFrecuencias();
+            ResponsableCB.DataSource = ResponsableRepository.Instance.All();
+            ResponsableCB.DisplayMember = "Area";
+            if (Indicador.Responsable == null) 
+                ResponsableCB.SelectedIndex = -1;
+        }
+
+        private void ConfigurarFrecuenciasCB()
+        {           
             FrecuenciasCB.DisplayMember = "Periodo";
-            FrecuenciasCB.SelectedIndex = -1;   
+            FrecuenciasCB.DataSource = IndicadorRepository.Instance.AllFrecuencias();       
+            if (Indicador.Frecuencia == null) 
+                FrecuenciasCB.SelectedIndex = -1;   
         }
 
         private void ConfigurarObjetivosCB()
         {
             ObjetivosCB.DataSource = _objetivoFachada.All();
             ObjetivosCB.DisplayMember = "Nombre";
-            ObjetivosCB.SelectedIndex = -1;
+            if (Indicador.Objetivo == null) ObjetivosCB.SelectedIndex = -1;
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
-            //var lista = _bindingMediciones.Select(m => m.GetMedicion()).ToList<Medicion>();
-            //Indicador.AddMediciones(_bindingMediciones.Select(m => m.GetMedicion()).ToList<Medicion>());
             Indicador.AddMediciones(((List<MedicionDataGridViewWrapper>)_sourceMediciones.DataSource).Select(m => m.GetMedicion()).ToList<Medicion>());
-            //Console.WriteLine(_bindingMediciones.Select(m => m.GetMedicion()).ToList<Medicion>());
-            //Indicador.Frecuencia = (Frecuencia)FrecuenciasCB.SelectedItem;
             Objetivo o = (Objetivo)ObjetivosCB.SelectedItem;
             o.Indicadores.Add(Indicador);
             _objetivoFachada.SaveOrUpdate(o);
@@ -97,6 +92,7 @@ namespace TableroComando.Formularios
             Form_Indicador f = new Form_Indicador();
             f.Show();
         }
+
         private void CargarPropiedadesIndicador()
         {            
             NombreTxt.DataBindings.Add("Text", Indicador, "Nombre");
@@ -104,19 +100,39 @@ namespace TableroComando.Formularios
             FormulaTxt.DataBindings.Add("Text", Indicador, "Calculo");
             CaracteristicaTxt.DataBindings.Add("Text", Indicador, "Caracteristica");
             PropositoTxt.DataBindings.Add("Text", Indicador, "Proposito");
-            ValorEsperadoTxt.DataBindings.Add("Text", Indicador, "ValorEsperado");
-            FrecuenciasCB.DataBindings.Add("SelectedItem", Indicador, "Frecuencia");
+
+            Binding binding = new Binding("Text", Indicador, "ValorEsperado");
+            binding.Format +=new ConvertEventHandler(DecimalToString);
+            binding.Parse += new ConvertEventHandler(StringToDecimal);
+            ValorEsperadoTxt.DataBindings.Add(binding);
+
+
             ObjetivosCB.DataBindings.Add("SelectedItem", Indicador, "Objetivo");
-            ResponsableCB.DataBindings.Add("Text", Indicador, "Responsable");
-            
-            //FrecuenciasCB.SelectedItem = Indicador.Frecuencia;
-
-
-            //if(Indicador.Espectativa == "mayor") MayorRB.DataBindings.Add("Checked", true, ;
-            //else MenorRB.Checked = true;
-
-            //PrioridadUD.DataBindings.Add("Value", Indicador, "Prioridad");
+            ResponsableCB.DataBindings.Add("SelectedItem", Indicador, "Responsable");
+            FrecuenciasCB.DataBindings.Add("SelectedItem", Indicador, "Frecuencia");
         }
 
+        private void MedicionesGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DetalleTxt.Text = ((MedicionDataGridViewWrapper)_sourceMediciones.Current).GetMedicion().Detalle;
+        }
+
+        private void DecimalToString(object sender, ConvertEventArgs cevent)
+        {
+            // The method converts only to string type. Test this using the DesiredType. 
+            if (cevent.DesiredType != typeof(string)) return;
+
+            // Use the ToString method to format the value as currency ("c").
+            cevent.Value = (cevent.Value != null) ? ((decimal)cevent.Value).ToString() : "";
+        }
+
+        private void StringToDecimal(object sender, ConvertEventArgs cevent)
+        {
+            // The method converts back to decimal type only.
+            if (cevent.DesiredType != typeof(decimal)) return;
+
+            // Converts the string back to decimal using the static Parse method.
+            cevent.Value = Decimal.Parse(cevent.Value.ToString(), NumberStyles.Currency, null);
+        }
     }
 }
