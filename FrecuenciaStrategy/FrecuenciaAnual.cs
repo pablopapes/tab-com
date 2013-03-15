@@ -17,8 +17,8 @@ namespace FrecuenciaStrategy
             // Obtengo el número de la semana actual del año
             int currentWeekNumber = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(DateTime.Now, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
 
+            // Si falta falta una semana o menos para terminar el año, devuelve true
             return (lastWeekNumber - currentWeekNumber) <= 1;
-
         }
 
         public override DateTime ProximaMedicion(DateTime ultimaMedicion)

@@ -49,6 +49,7 @@
     <Compile Include="Frecuencia.cs" />
     <Compile Include="Indicador.cs" />
     <Compile Include="Medicion.cs" />
+    <Compile Include="Restriccion.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="Objetivo.cs" />
     <Compile Include="Perspectiva.cs" />
@@ -58,6 +59,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Mappings\frecuencia.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\responsable.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
@@ -88,16 +92,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\responsable.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\FrecuenciaStrategy\FrecuenciaStrategy.csproj">
       <Project>{422A4FAC-0355-4EFA-804D-8DD2E03E54C6}</Project>
       <Name>FrecuenciaStrategy</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mappings\restriccion.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

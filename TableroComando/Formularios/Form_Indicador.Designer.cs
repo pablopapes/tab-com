@@ -40,16 +40,18 @@
             this.CaracteristicaTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ValorEsperadoTxt = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ResponsableCB = new System.Windows.Forms.ComboBox();
             this.FrecuenciasCB = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.MedicionesGridView = new System.Windows.Forms.DataGridView();
-            this.ResponsableCB = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.CodigoTxt = new System.Windows.Forms.TextBox();
-            this.ValorEsperadoTxt = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.DetalleTxt = new System.Windows.Forms.TextBox();
+            this.MedicionesGridView = new System.Windows.Forms.DataGridView();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MedicionesGridView)).BeginInit();
@@ -186,6 +188,33 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos";
             // 
+            // ValorEsperadoTxt
+            // 
+            this.ValorEsperadoTxt.Location = new System.Drawing.Point(213, 77);
+            this.ValorEsperadoTxt.Name = "ValorEsperadoTxt";
+            this.ValorEsperadoTxt.Size = new System.Drawing.Size(272, 22);
+            this.ValorEsperadoTxt.TabIndex = 27;
+            this.ValorEsperadoTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(13, 78);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 16);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Valor Esperado";
+            // 
+            // ResponsableCB
+            // 
+            this.ResponsableCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ResponsableCB.FormattingEnabled = true;
+            this.ResponsableCB.Location = new System.Drawing.Point(213, 164);
+            this.ResponsableCB.Name = "ResponsableCB";
+            this.ResponsableCB.Size = new System.Drawing.Size(272, 24);
+            this.ResponsableCB.TabIndex = 25;
+            // 
             // FrecuenciasCB
             // 
             this.FrecuenciasCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -215,37 +244,12 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Responsable";
             // 
-            // groupBox3
+            // CodigoTxt
             // 
-            this.groupBox3.Controls.Add(this.MedicionesGridView);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(502, 6);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(218, 344);
-            this.groupBox3.TabIndex = 24;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Mediciones";
-            // 
-            // MedicionesGridView
-            // 
-            this.MedicionesGridView.AllowUserToResizeColumns = false;
-            this.MedicionesGridView.AllowUserToResizeRows = false;
-            this.MedicionesGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MedicionesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MedicionesGridView.Location = new System.Drawing.Point(6, 21);
-            this.MedicionesGridView.Name = "MedicionesGridView";
-            this.MedicionesGridView.RowHeadersVisible = false;
-            this.MedicionesGridView.Size = new System.Drawing.Size(206, 317);
-            this.MedicionesGridView.TabIndex = 0;
-            // 
-            // ResponsableCB
-            // 
-            this.ResponsableCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ResponsableCB.FormattingEnabled = true;
-            this.ResponsableCB.Location = new System.Drawing.Point(213, 164);
-            this.ResponsableCB.Name = "ResponsableCB";
-            this.ResponsableCB.Size = new System.Drawing.Size(272, 24);
-            this.ResponsableCB.TabIndex = 25;
+            this.CodigoTxt.Location = new System.Drawing.Point(213, 49);
+            this.CodigoTxt.Name = "CodigoTxt";
+            this.CodigoTxt.Size = new System.Drawing.Size(272, 22);
+            this.CodigoTxt.TabIndex = 16;
             // 
             // label5
             // 
@@ -257,30 +261,55 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Código";
             // 
-            // CodigoTxt
+            // groupBox3
             // 
-            this.CodigoTxt.Location = new System.Drawing.Point(213, 49);
-            this.CodigoTxt.Name = "CodigoTxt";
-            this.CodigoTxt.Size = new System.Drawing.Size(272, 22);
-            this.CodigoTxt.TabIndex = 16;
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.DetalleTxt);
+            this.groupBox3.Controls.Add(this.MedicionesGridView);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(502, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(218, 543);
+            this.groupBox3.TabIndex = 24;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Mediciones";
             // 
-            // ValorEsperadoTxt
+            // label10
             // 
-            this.ValorEsperadoTxt.Location = new System.Drawing.Point(213, 77);
-            this.ValorEsperadoTxt.Name = "ValorEsperadoTxt";
-            this.ValorEsperadoTxt.Size = new System.Drawing.Size(272, 22);
-            this.ValorEsperadoTxt.TabIndex = 27;
-            this.ValorEsperadoTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 359);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 16);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Detalle";
             // 
-            // label9
+            // DetalleTxt
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(13, 78);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 16);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Valor Esperado";
+            this.DetalleTxt.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DetalleTxt.Location = new System.Drawing.Point(6, 378);
+            this.DetalleTxt.Multiline = true;
+            this.DetalleTxt.Name = "DetalleTxt";
+            this.DetalleTxt.ReadOnly = true;
+            this.DetalleTxt.Size = new System.Drawing.Size(206, 159);
+            this.DetalleTxt.TabIndex = 25;
+            // 
+            // MedicionesGridView
+            // 
+            this.MedicionesGridView.AllowUserToAddRows = false;
+            this.MedicionesGridView.AllowUserToDeleteRows = false;
+            this.MedicionesGridView.AllowUserToResizeColumns = false;
+            this.MedicionesGridView.AllowUserToResizeRows = false;
+            this.MedicionesGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MedicionesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MedicionesGridView.Location = new System.Drawing.Point(6, 21);
+            this.MedicionesGridView.MultiSelect = false;
+            this.MedicionesGridView.Name = "MedicionesGridView";
+            this.MedicionesGridView.ReadOnly = true;
+            this.MedicionesGridView.RowHeadersVisible = false;
+            this.MedicionesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MedicionesGridView.Size = new System.Drawing.Size(206, 317);
+            this.MedicionesGridView.TabIndex = 0;
+            this.MedicionesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MedicionesGridView_CellClick);
             // 
             // Form_Indicador
             // 
@@ -297,6 +326,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MedicionesGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -326,5 +356,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox CodigoTxt;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox DetalleTxt;
     }
 }

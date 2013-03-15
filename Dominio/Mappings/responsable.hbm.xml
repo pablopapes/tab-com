@@ -9,6 +9,7 @@
 
     <property name="Area" />
     <property name="Persona" />
+    <property name="Codigo" />
     
     <bag name="Indicadores" inverse="true">
       <key column="responsable_id"/>

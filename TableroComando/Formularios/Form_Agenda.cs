@@ -15,8 +15,14 @@ namespace TableroComando.Formularios
     public partial class Form_Agenda : Form
     {
         BindingSource _sourceIndicadores = new BindingSource();
-        public IndicadorRepository Repo;
-
+        Indicador IndicadorSeleccionado
+        {
+            get
+            {
+                return ((IndicadorDataGridViewWrapper)_sourceIndicadores.Current).GetIndicador();
+            }
+        }
+        
         public Form_Agenda()
         {
             InitializeComponent();
@@ -29,18 +35,31 @@ namespace TableroComando.Formularios
 
         private void ConfigurarIndicadoresDataGrid()
         {
-            
-            _sourceIndicadores.DataSource = Repo.FindByRequiereMedicion().Select( i => new IndicadorDataGridViewWrapper(i));
+            _sourceIndicadores.DataSource = IndicadorRepository.Instance.FindByRequiereMedicion().Select( i => new IndicadorDataGridViewWrapper(i));
             IndicadoresDataGrid.DataSource = _sourceIndicadores;
 
             IndicadoresDataGrid.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            IndicadoresDataGrid.Columns["UltimaMedicion"].HeaderText = "Última Medición";
+            IndicadoresDataGrid.Columns["UltimaMedicion"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            IndicadoresDataGrid.Columns["ProximaFechaMedicion"].HeaderText = "Fecha de Medición";
+            IndicadoresDataGrid.Columns["ProximaFechaMedicion"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
-        private void IndicadoresDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void IndicadoresDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Frecuencia f = ((Indicador)_sourceIndicadores.Current).Frecuencia;
-            
-        }   
+            CamposMedicionGroup.Text = IndicadorSeleccionado.ToString();
+        }
 
+        private void AgregarBtn_Click(object sender, EventArgs e)
+        {
+            decimal valor;
+            if (decimal.TryParse(ValorTxt.Text, out valor))
+            {
+                IndicadorSeleccionado.AddMedicion(FechaMedicionDtp.Value, valor, DetalleTxt.Text);
+            }
+
+            IndicadorRepository.Instance.Save(IndicadorSeleccionado);
+            _sourceIndicadores.RemoveCurrent();
+        }
     }
 }

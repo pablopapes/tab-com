@@ -34,9 +34,6 @@ namespace TableroComando.Formularios
            
             // Aprendizaje y Crecimiento
             CargarObjetivosDataGridView(AprendizajeGridView, ObjetivoFachada.FindByPerspectiva(1));
-
-            
-
         }
 
         private void DgvObjFinanzas_CellClick(object sender, DataGridViewCellEventArgs e)

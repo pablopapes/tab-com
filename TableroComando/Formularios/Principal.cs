@@ -146,7 +146,6 @@ namespace TableroComando
         private void agendaDeMedicionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_Agenda f = new Form_Agenda();
-            f.Repo = IndicadorFachada;
             f.ShowDialog();
         }
 

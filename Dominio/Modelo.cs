@@ -11,13 +11,18 @@ namespace Dominio
 
         public override bool Equals(object obj)
         {
-            if (obj == null || obj.GetType() != this.GetType())
-            {
-                return false;
-            }
+            Type objType = obj.GetType();
+            Type thisType = this.GetType();
+            if (obj == null) return false;
 
-            Modelo<T> specificOject = (Modelo<T>)obj;
-            return (this == obj || this.Id == specificOject.Id);
+
+            Modelo<T> specificObject = obj as Modelo<T>;
+            if (specificObject == null) return false;
+
+            if (Id != specificObject.Id) return false;
+
+            return true;
+
         }
 
         public override int GetHashCode()
