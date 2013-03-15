@@ -149,5 +149,11 @@ namespace TableroComando
             f.ShowDialog();
         }
 
+        private void graficosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_graficos ventana = new Form_graficos();
+            ventana.Show();
+        }
+
     }
 }
