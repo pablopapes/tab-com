@@ -100,12 +100,8 @@ namespace TableroComando.Formularios
             FormulaTxt.DataBindings.Add("Text", Indicador, "Calculo");
             CaracteristicaTxt.DataBindings.Add("Text", Indicador, "Caracteristica");
             PropositoTxt.DataBindings.Add("Text", Indicador, "Proposito");
-
-            Binding binding = new Binding("Text", Indicador, "ValorEsperado");
-            binding.Format +=new ConvertEventHandler(DecimalToString);
-            binding.Parse += new ConvertEventHandler(StringToDecimal);
-            ValorEsperadoTxt.DataBindings.Add(binding);
-
+            
+            ValorEsperadoTxt.DataBindings.Add(DataBindingConverter.BuildBindingDecimalString<Indicador>("Text", Indicador, "ValorEsperado"));
 
             ObjetivosCB.DataBindings.Add("SelectedItem", Indicador, "Objetivo");
             ResponsableCB.DataBindings.Add("SelectedItem", Indicador, "Responsable");
@@ -117,22 +113,24 @@ namespace TableroComando.Formularios
             DetalleTxt.Text = ((MedicionDataGridViewWrapper)_sourceMediciones.Current).GetMedicion().Detalle;
         }
 
-        private void DecimalToString(object sender, ConvertEventArgs cevent)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            // The method converts only to string type. Test this using the DesiredType. 
-            if (cevent.DesiredType != typeof(string)) return;
-
-            // Use the ToString method to format the value as currency ("c").
-            cevent.Value = (cevent.Value != null) ? ((decimal)cevent.Value).ToString() : "";
+            Form_graficos f = new Form_graficos();
+            f.Indicador = Indicador;
+            f.ShowDialog();
         }
 
-        private void StringToDecimal(object sender, ConvertEventArgs cevent)
+        private void toolStripMetaBtn_Click(object sender, EventArgs e)
         {
-            // The method converts back to decimal type only.
-            if (cevent.DesiredType != typeof(decimal)) return;
-
-            // Converts the string back to decimal using the static Parse method.
-            cevent.Value = Decimal.Parse(cevent.Value.ToString(), NumberStyles.Currency, null);
+            Form_Meta f = new Form_Meta(Indicador);
+            //f.Indicador = Indicador;
+            f.ShowDialog();
         }
+
+        private void toolStripAcciones_Click(object sender, EventArgs e)
+        {
+            new Form_AccionesCorrectivas(Indicador).Show();
+        }
+
     }
 }

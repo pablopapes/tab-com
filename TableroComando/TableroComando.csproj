@@ -74,6 +74,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Herramientas.cs" />
+    <Compile Include="Clases\DataBindingConverter.cs" />
+    <Compile Include="Clases\VisualHelper.cs" />
+    <Compile Include="Formularios\Form_AccionesCorrectivas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_AccionesCorrectivas.Designer.cs">
+      <DependentUpon>Form_AccionesCorrectivas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Form_Agenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +93,12 @@
     </Compile>
     <Compile Include="Formularios\Form_graficos.Designer.cs">
       <DependentUpon>Form_graficos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form_ListaAcciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_ListaAcciones.Designer.cs">
+      <DependentUpon>Form_ListaAcciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Form_ListaIndicadores.cs">
       <SubType>Form</SubType>
@@ -103,6 +117,12 @@
     </Compile>
     <Compile Include="Formularios\Form_ListaResponsables.Designer.cs">
       <DependentUpon>Form_ListaResponsables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form_Meta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_Meta.Designer.cs">
+      <DependentUpon>Form_Meta.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Form_Responsable.cs">
       <SubType>Form</SubType>
@@ -140,23 +160,42 @@
     <Compile Include="Formularios\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIWrapper\AccionDataGridViewWrapper.cs" />
     <Compile Include="GUIWrapper\IndicadorDataGridViewWrapper.cs" />
     <Compile Include="GUIWrapper\MedicionDataGridViewWrapper.cs" />
     <Compile Include="GUIWrapper\ObjetivoDataGridViewWrapper.cs" />
     <Compile Include="GUIWrapper\ResponsableDataGridViewWrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RangosUserControls\UserControl1.cs">
+    <Compile Include="RangosUserControls\RestriccionMayorUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RangosUserControls\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="RangosUserControls\RestriccionMayorUserControl.Designer.cs">
+      <DependentUpon>RestriccionMayorUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="RangosUserControls\RestriccionMenorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RangosUserControls\RestriccionMenorUserControl.Designer.cs">
+      <DependentUpon>RestriccionMenorUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RangosUserControls\RestriccionRangoUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RangosUserControls\RestriccionRangoUserControl.Designer.cs">
+      <DependentUpon>RestriccionRangoUserControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Formularios\Form_AccionesCorrectivas.resx">
+      <DependentUpon>Form_AccionesCorrectivas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_Agenda.resx">
       <DependentUpon>Form_Agenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_graficos.resx">
       <DependentUpon>Form_graficos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_ListaAcciones.resx">
+      <DependentUpon>Form_ListaAcciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_ListaIndicadores.resx">
       <DependentUpon>Form_ListaIndicadores.cs</DependentUpon>
@@ -166,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_ListaResponsables.resx">
       <DependentUpon>Form_ListaResponsables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_Meta.resx">
+      <DependentUpon>Form_Meta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_Responsable.resx">
       <DependentUpon>Form_Responsable.cs</DependentUpon>
@@ -199,8 +241,14 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="RangosUserControls\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="RangosUserControls\RestriccionMayorUserControl.resx">
+      <DependentUpon>RestriccionMayorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RangosUserControls\RestriccionMenorUserControl.resx">
+      <DependentUpon>RestriccionMenorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RangosUserControls\RestriccionRangoUserControl.resx">
+      <DependentUpon>RestriccionRangoUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
@@ -289,6 +337,7 @@
       <Name>Repositorios</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

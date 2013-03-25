@@ -17,10 +17,14 @@ namespace TableroComando.Formularios
         public Responsable Responsable { get; set; }
         private BindingSource _sourceResponsables;
 
-        public Form_Responsable(BindingSource responsables)
+        /** 
+         * El BindingSource se pasa por parámetro para agregar a la lista el nuevo responsable creado.
+         **/
+        public Form_Responsable(BindingSource responsables, string textButton = "Guardar")
         {
             InitializeComponent();
             _sourceResponsables = responsables;
+            GuardarBtn.Text = textButton;
         }
 
         private void Form_Responsable_Load(object sender, EventArgs e)

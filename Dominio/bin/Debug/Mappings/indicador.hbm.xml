@@ -26,11 +26,11 @@
       <key column="indicador_id" />
       <one-to-many class="Medicion" />
     </bag>
-<!--
-    <bag name="Restricciones" cascade="all-delete-orphan">
+
+    <list name="Restricciones" cascade="all-delete-orphan">
       <key column="indicador_id" />
+      <index column="ordern" />
       <one-to-many class="Restriccion" />
-    </bag>
-    -->
+    </list>
   </class>
 </hibernate-mapping>

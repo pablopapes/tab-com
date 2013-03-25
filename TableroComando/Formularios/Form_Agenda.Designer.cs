@@ -34,9 +34,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CamposMedicionGroup = new System.Windows.Forms.GroupBox();
-            this.AgregarBtn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.DetalleTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.AgregarBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IndicadoresDataGrid)).BeginInit();
             this.CamposMedicionGroup.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +53,7 @@
             this.IndicadoresDataGrid.Name = "IndicadoresDataGrid";
             this.IndicadoresDataGrid.RowHeadersVisible = false;
             this.IndicadoresDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.IndicadoresDataGrid.Size = new System.Drawing.Size(383, 438);
+            this.IndicadoresDataGrid.Size = new System.Drawing.Size(443, 438);
             this.IndicadoresDataGrid.TabIndex = 0;
             this.IndicadoresDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.IndicadoresDataGrid_CellClick);
             // 
@@ -99,12 +99,29 @@
             this.CamposMedicionGroup.Controls.Add(this.label2);
             this.CamposMedicionGroup.Controls.Add(this.ValorTxt);
             this.CamposMedicionGroup.Controls.Add(this.label1);
-            this.CamposMedicionGroup.Location = new System.Drawing.Point(405, 57);
+            this.CamposMedicionGroup.Location = new System.Drawing.Point(461, 57);
             this.CamposMedicionGroup.Name = "CamposMedicionGroup";
             this.CamposMedicionGroup.Size = new System.Drawing.Size(327, 348);
             this.CamposMedicionGroup.TabIndex = 6;
             this.CamposMedicionGroup.TabStop = false;
-            this.CamposMedicionGroup.Text = "groupBox1";
+            this.CamposMedicionGroup.Text = "Datos de la medición";
+            // 
+            // DetalleTxt
+            // 
+            this.DetalleTxt.Location = new System.Drawing.Point(107, 123);
+            this.DetalleTxt.Multiline = true;
+            this.DetalleTxt.Name = "DetalleTxt";
+            this.DetalleTxt.Size = new System.Drawing.Size(200, 138);
+            this.DetalleTxt.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 126);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Detalle";
             // 
             // AgregarBtn
             // 
@@ -119,28 +136,11 @@
             this.AgregarBtn.UseVisualStyleBackColor = true;
             this.AgregarBtn.Click += new System.EventHandler(this.AgregarBtn_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 126);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Detalle";
-            // 
-            // DetalleTxt
-            // 
-            this.DetalleTxt.Location = new System.Drawing.Point(107, 123);
-            this.DetalleTxt.Multiline = true;
-            this.DetalleTxt.Name = "DetalleTxt";
-            this.DetalleTxt.Size = new System.Drawing.Size(200, 138);
-            this.DetalleTxt.TabIndex = 20;
-            // 
             // Form_Agenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 462);
+            this.ClientSize = new System.Drawing.Size(801, 462);
             this.Controls.Add(this.CamposMedicionGroup);
             this.Controls.Add(this.IndicadoresDataGrid);
             this.Name = "Form_Agenda";

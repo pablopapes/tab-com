@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                  assembly="Dominio"
+                  namespace="Dominio">
+  <class name="AccionCorrectiva" table="acciones_correctivas">
+    <id name="Id">
+      <generator class="increment" />
+    </id>
+
+    <property name="Hallazgo" />
+    <property name="Descripcion" />
+    <property name="Objetivo" />
+    <property name="FechaFin" />
+    <property name="NumEstado" />
+    
+    <many-to-one name="Responsable" column="responsable_id" />
+    <many-to-one name="Indicador" column="indicador_id" />
+    
+  </class>
+</hibernate-mapping>

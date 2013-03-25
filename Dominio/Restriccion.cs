@@ -6,73 +6,54 @@ using System.Reflection;
 
 namespace Dominio
 {
-    public class Restriccion
+
+    public enum TipoRestriccion { Mayor, Menor, Rango };
+
+    public class Restriccion : Modelo<Restriccion>
     {
-        public enum Tipo { Malo, Regular, Bueno};
         public virtual decimal ValorMenor { get; set; }
         public virtual decimal ValorMayor { get; set; }
-        protected int Definicion { get; set; } // Define si es Malo = 0, Regular = 1 o Bueno = 2
-        public Tipo TipoDefinicion // retorna o setea la propiedad Definicion pero con enum
+        public virtual Indicador Indicador { get; set; }
+
+        protected virtual int NumTipoRestriccion { get; set; }
+        public virtual TipoRestriccion Tipo
         {
-            get { return (Tipo)Definicion; }
-            set { Definicion = (int)value; }
+            get { return (TipoRestriccion)NumTipoRestriccion; }
+            set { NumTipoRestriccion = (int)value; }
         }
-        protected virtual string NombreRestriccion{get; set;}
-        protected RestriccionEspecifica RestriccionEspec
+
+        protected virtual int NumEstadoRestriccion { get; set; }
+        public virtual EstadoIndicador Estado
         {
-            get
+            get { return (EstadoIndicador)NumEstadoRestriccion; }
+            set { NumEstadoRestriccion = (int)value; }
+        }
+
+        public virtual int Orden { get; protected set; }
+
+        /* Constructor */
+        public Restriccion(TipoRestriccion tipo, int orden)
+        {
+            NumTipoRestriccion = (int)tipo;
+            Orden = orden;
+        }
+
+        /* Constructor para nhibernate */
+        protected Restriccion() { }
+
+        public virtual bool Evaluar(decimal valor2)
+        { 
+            switch(Tipo)
             {
-                Type tipoRestriccion = Type.GetType(string.Format("Dominio.Restriccion+{0}", NombreRestriccion));
-                return (RestriccionEspecifica)Activator.CreateInstance(tipoRestriccion, this);
+                case(TipoRestriccion.Mayor):
+                    return valor2 > ValorMayor;
+                case(TipoRestriccion.Menor):
+                    return valor2 < ValorMenor;
+                case(TipoRestriccion.Rango):
+                    return ValorMenor <= valor2 && valor2 <= ValorMayor;
             }
+            return default(bool);
         }
 
-        public Restriccion(RestriccionEspecifica restriccion)
-        {
-            NombreRestriccion = restriccion.GetType().Name;
-        }
-
-        public bool Evaluar(decimal Valor2)
-        {
-            
-            return true;
-                /*(bool)tipoRestriccion.InvokeMember("Evaluar",
-                BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.Static,
-                null,
-                null,
-                new object[] { this, Valor2 });*/
-        }
-
-
-        protected abstract class RestriccionEspecifica
-        {
-            
-            public abstract bool Evaluar(Restriccion restriccion, decimal Valor);
-        }
-
-        /* Clases anidadas */
-        protected class Menor : RestriccionEspecifica
-        {
-            public override bool Evaluar(Restriccion restriccion, decimal ValorMenor)
-            {
-                return ValorMenor <= restriccion.ValorMenor;
-            }
-        }
-
-        protected class Mayor : RestriccionEspecifica
-        {
-            public override bool Evaluar(Restriccion restriccion, decimal valorMayor)
-            {
-                return valorMayor > restriccion.ValorMenor;
-            }
-        }
-
-        protected class Rango : RestriccionEspecifica 
-        {
-            public override bool Evaluar(Restriccion restriccion, decimal valorMedio)
-            {
-                return true; // Menor.Evaluar(restriccion, valorMedio) && Mayor.Evaluar(restriccion, valorMedio);
-            }
-        }
     }
 }

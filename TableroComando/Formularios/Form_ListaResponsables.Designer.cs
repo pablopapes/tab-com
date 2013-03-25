@@ -37,14 +37,19 @@
             // ResponsablesDataGrid
             // 
             this.ResponsablesDataGrid.AllowUserToAddRows = false;
+            this.ResponsablesDataGrid.AllowUserToDeleteRows = false;
+            this.ResponsablesDataGrid.AllowUserToResizeColumns = false;
+            this.ResponsablesDataGrid.AllowUserToResizeRows = false;
             this.ResponsablesDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.ResponsablesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ResponsablesDataGrid.Location = new System.Drawing.Point(12, 12);
             this.ResponsablesDataGrid.Name = "ResponsablesDataGrid";
+            this.ResponsablesDataGrid.ReadOnly = true;
             this.ResponsablesDataGrid.RowHeadersVisible = false;
             this.ResponsablesDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ResponsablesDataGrid.Size = new System.Drawing.Size(594, 518);
             this.ResponsablesDataGrid.TabIndex = 0;
+            this.ResponsablesDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResponsablesDataGrid_CellDoubleClick);
             // 
             // BorrarBtn
             // 

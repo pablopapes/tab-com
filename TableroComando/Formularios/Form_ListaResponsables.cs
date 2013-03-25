@@ -51,5 +51,12 @@ namespace TableroComando.Formularios
             }
 
         }
+
+        private void ResponsablesDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Form_Responsable f = new Form_Responsable(_sourceResponsables, "Actualizar");
+            f.Responsable = ((ResponsableDataGridViewWrapper)_sourceResponsables.Current).GetResponsable();
+            f.Show();
+        }
     }
 }
