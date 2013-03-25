@@ -9,13 +9,13 @@ using Dominio;
 using NHibernate.Criterion;
 using Repositorios;
 
-namespace TableroComando
+namespace Repositorios
 {
     public class Repository<T> where T : Repository<T>, new()
     {
         /* Properties */
         protected static T instance;
-        public ISession _session;
+        protected ISession _session;
         public static T Instance
         {
             get

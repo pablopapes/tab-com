@@ -5,6 +5,7 @@ using System.Text;
 using TableroComando.Fachadas;
 using NHibernate.Criterion;
 using Dominio;
+using Repositorios;
 
 namespace TableroComando.Fachadas
 {
@@ -50,9 +51,9 @@ namespace TableroComando.Fachadas
             _session.Flush();
         }
 
-        public Objetivo FindById(int indicadorId)
+        public Objetivo FindById(int objetivoId)
         {
-            return _session.CreateCriteria<Objetivo>().Add(Restrictions.Eq("Id", indicadorId)).List<Objetivo>().First();
+            return _session.Get<Objetivo>(objetivoId);
         }
 
         public void SaveOrUpdate(Objetivo o)

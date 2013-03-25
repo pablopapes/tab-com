@@ -15,8 +15,6 @@ namespace TableroComando.Formularios
 {
     public partial class Form_graficos : Form
     {
-        private ObjetivoRepository _objetivoFachada = ObjetivoRepository.Instance;
-        private BindingSource _sourceMediciones;
         public Indicador Indicador { get; set; }
 
         public Form_graficos()
@@ -35,7 +33,7 @@ namespace TableroComando.Formularios
 
                 chart1.Series["Series1"].Points.Add((double)medicion.Valor);
                 chart1.Series["Series1"].Points[i].AxisLabel = medicion.Fecha.ToShortDateString();
-                chart1.Series["Series2"].Points.Add(230000/*(double)Indicador.ValorEsperado*/);
+                chart1.Series["Series2"].Points.Add((double)Indicador.ValorEsperado);
                 i++;
             }
         }
@@ -44,8 +42,6 @@ namespace TableroComando.Formularios
         {
             chart1.Printing.PrintDocument.DefaultPageSettings.Landscape = true;
             chart1.Printing.Print(true);
-          
-
         }
 
     }

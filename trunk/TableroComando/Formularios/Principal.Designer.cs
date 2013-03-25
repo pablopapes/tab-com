@@ -42,6 +42,7 @@
             this.verMapaEstratégicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monitoreoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.graficosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accionesCorrectivasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MSPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,12 +91,11 @@
             this.ObjetivosIndicadoresToolStripMenuItem.Name = "ObjetivosIndicadoresToolStripMenuItem";
             this.ObjetivosIndicadoresToolStripMenuItem.Size = new System.Drawing.Size(142, 20);
             this.ObjetivosIndicadoresToolStripMenuItem.Text = "Objetivos e Indicadores";
-            this.ObjetivosIndicadoresToolStripMenuItem.Click += new System.EventHandler(this.objetivosToolStripMenuItem_Click);
             // 
             // ObjetivosToolStripMenuItem
             // 
             this.ObjetivosToolStripMenuItem.Name = "ObjetivosToolStripMenuItem";
-            this.ObjetivosToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.ObjetivosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ObjetivosToolStripMenuItem.Text = "Objetivos";
             this.ObjetivosToolStripMenuItem.Click += new System.EventHandler(this.modificarObjetivosToolStripMenuItem_Click);
             // 
@@ -103,9 +103,10 @@
             // 
             this.indicadoresToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listarToolStripMenuItem,
-            this.agendaDeMedicionesToolStripMenuItem});
+            this.agendaDeMedicionesToolStripMenuItem,
+            this.accionesCorrectivasToolStripMenuItem});
             this.indicadoresToolStripMenuItem1.Name = "indicadoresToolStripMenuItem1";
-            this.indicadoresToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
+            this.indicadoresToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.indicadoresToolStripMenuItem1.Text = "Indicadores";
             // 
             // listarToolStripMenuItem
@@ -119,7 +120,7 @@
             // 
             this.agendaDeMedicionesToolStripMenuItem.Name = "agendaDeMedicionesToolStripMenuItem";
             this.agendaDeMedicionesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.agendaDeMedicionesToolStripMenuItem.Text = "Agenda de mediciones";
+            this.agendaDeMedicionesToolStripMenuItem.Text = "Agenda de Mediciones";
             this.agendaDeMedicionesToolStripMenuItem.Click += new System.EventHandler(this.agendaDeMedicionesToolStripMenuItem_Click);
             // 
             // mapaEstratégicoToolStripMenuItem
@@ -150,6 +151,13 @@
             this.graficosToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.graficosToolStripMenuItem.Text = "Graficos";
             this.graficosToolStripMenuItem.Click += new System.EventHandler(this.graficosToolStripMenuItem_Click);
+            // 
+            // accionesCorrectivasToolStripMenuItem
+            // 
+            this.accionesCorrectivasToolStripMenuItem.Name = "accionesCorrectivasToolStripMenuItem";
+            this.accionesCorrectivasToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.accionesCorrectivasToolStripMenuItem.Text = "Acciones Correctivas";
+            this.accionesCorrectivasToolStripMenuItem.Click += new System.EventHandler(this.accionesCorrectivasToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -187,6 +195,7 @@
         private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agendaDeMedicionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem graficosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem accionesCorrectivasToolStripMenuItem;
     }
 }
 

@@ -71,11 +71,13 @@
             // 
             // BtnImprimir
             // 
-            this.BtnImprimir.Location = new System.Drawing.Point(735, 488);
+            this.BtnImprimir.Image = global::TableroComando.Properties.Resources.Printer;
+            this.BtnImprimir.Location = new System.Drawing.Point(781, 488);
             this.BtnImprimir.Name = "BtnImprimir";
-            this.BtnImprimir.Size = new System.Drawing.Size(144, 32);
+            this.BtnImprimir.Size = new System.Drawing.Size(144, 36);
             this.BtnImprimir.TabIndex = 1;
-            this.BtnImprimir.Text = "button1";
+            this.BtnImprimir.Text = "Imprimir";
+            this.BtnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnImprimir.UseVisualStyleBackColor = true;
             this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
@@ -83,7 +85,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 526);
+            this.ClientSize = new System.Drawing.Size(937, 534);
             this.Controls.Add(this.BtnImprimir);
             this.Controls.Add(this.chart1);
             this.MaximizeBox = false;

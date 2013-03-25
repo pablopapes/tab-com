@@ -39,7 +39,7 @@ namespace TableroComando.Formularios
             IndicadoresDataGrid.DataSource = _sourceIndicadores;
 
             IndicadoresDataGrid.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            IndicadoresDataGrid.Columns["UltimaMedicion"].HeaderText = "Última Medición";
+            IndicadoresDataGrid.Columns["UltimaMedicion"].Visible = false;
             IndicadoresDataGrid.Columns["UltimaMedicion"].DefaultCellStyle.Format = "dd/MM/yyyy";
             IndicadoresDataGrid.Columns["ProximaFechaMedicion"].HeaderText = "Fecha de Medición";
             IndicadoresDataGrid.Columns["ProximaFechaMedicion"].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -60,6 +60,8 @@ namespace TableroComando.Formularios
 
             IndicadorRepository.Instance.Save(IndicadorSeleccionado);
             _sourceIndicadores.RemoveCurrent();
+            ValorTxt.Text = "";
+            FechaMedicionDtp.Value = DateTime.Now;
         }
     }
 }

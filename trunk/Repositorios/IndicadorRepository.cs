@@ -5,6 +5,7 @@ using System.Text;
 using Dominio;
 using TableroComando.Fachadas;
 using NHibernate.Criterion;
+using Repositorios;
 
 namespace TableroComando.Fachadas
 {
