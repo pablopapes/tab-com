@@ -35,8 +35,15 @@ namespace Dominio
         {
             get
             {
-                decimal sumaEstadoIndicadores = Indicadores.Sum( i => (int)i.Estado);
-                return sumaEstadoIndicadores / ((int)EstadoIndicador.Bien * Indicadores.Count);                
+                if (indicadores.Count > 0)
+                {
+                    decimal sumaEstadoIndicadores = Indicadores.Sum(i => (int)i.Estado);
+                    return sumaEstadoIndicadores / ((int)EstadoIndicador.Bien * Indicadores.Count);
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
         
