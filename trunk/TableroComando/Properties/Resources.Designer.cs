@@ -67,6 +67,13 @@ namespace TableroComando.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap AmarilloNuevo {
+            get {
+                object obj = ResourceManager.GetObject("AmarilloNuevo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Button_Add {
             get {
                 object obj = ResourceManager.GetObject("Button Add", resourceCulture);
@@ -98,6 +105,13 @@ namespace TableroComando.Properties {
         internal static System.Drawing.Bitmap Delete {
             get {
                 object obj = ResourceManager.GetObject("Delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Document_2 {
+            get {
+                object obj = ResourceManager.GetObject("Document 2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -179,6 +193,13 @@ namespace TableroComando.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap rojoNuevo {
+            get {
+                object obj = ResourceManager.GetObject("rojoNuevo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Stop {
             get {
                 object obj = ResourceManager.GetObject("Stop", resourceCulture);
@@ -189,6 +210,13 @@ namespace TableroComando.Properties {
         internal static System.Drawing.Bitmap verde {
             get {
                 object obj = ResourceManager.GetObject("verde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap VerdeNuevo {
+            get {
+                object obj = ResourceManager.GetObject("VerdeNuevo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

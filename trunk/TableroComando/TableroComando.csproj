@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Dataweb.NShape">
       <HintPath>..\nshape\Dataweb.NShape.dll</HintPath>
     </Reference>
@@ -44,9 +48,12 @@
     <Reference Include="Dataweb.NShape.WinFormsUI">
       <HintPath>..\nshape\Dataweb.NShape.WinFormsUI.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
@@ -62,6 +69,8 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -88,11 +97,23 @@
     <Compile Include="Formularios\Form_Agenda.Designer.cs">
       <DependentUpon>Form_Agenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Form_FechaDelInforme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_FechaDelInforme.Designer.cs">
+      <DependentUpon>Form_FechaDelInforme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Form_graficos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Form_graficos.Designer.cs">
       <DependentUpon>Form_graficos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form_InformeGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_InformeGeneral.Designer.cs">
+      <DependentUpon>Form_InformeGeneral.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Form_ListaAcciones.cs">
       <SubType>Form</SubType>
@@ -191,14 +212,42 @@
     <Compile Include="RangosUserControls\RestriccionRangoUserControl.Designer.cs">
       <DependentUpon>RestriccionRangoUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\CrIndicadores.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrIndicadores.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\CRInformeGeneral.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRInformeGeneral.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\DsIndicador.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsIndicador.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DSPerspectiva.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPerspectiva.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Formularios\Form_AccionesCorrectivas.resx">
       <DependentUpon>Form_AccionesCorrectivas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_Agenda.resx">
       <DependentUpon>Form_Agenda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_FechaDelInforme.resx">
+      <DependentUpon>Form_FechaDelInforme.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_graficos.resx">
       <DependentUpon>Form_graficos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_InformeGeneral.resx">
+      <DependentUpon>Form_InformeGeneral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_ListaAcciones.resx">
       <DependentUpon>Form_ListaAcciones.cs</DependentUpon>
@@ -259,6 +308,14 @@
     <EmbeddedResource Include="RangosUserControls\RestriccionRangoUserControl.resx">
       <DependentUpon>RestriccionRangoUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CrIndicadores.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrIndicadores.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CRInformeGeneral.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRInformeGeneral.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -272,6 +329,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reportes\DsIndicador.xsc">
+      <DependentUpon>DsIndicador.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DsIndicador.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsIndicador.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DsIndicador.xss">
+      <DependentUpon>DsIndicador.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DSPerspectiva.xsc">
+      <DependentUpon>DSPerspectiva.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DSPerspectiva.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPerspectiva.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DSPerspectiva.xss">
+      <DependentUpon>DSPerspectiva.xsd</DependentUpon>
+    </None>
     <None Include="Resources\Button Add.png" />
   </ItemGroup>
   <ItemGroup>
@@ -329,6 +408,10 @@
     <None Include="Resources\amarillo.png" />
     <None Include="Resources\verde.png" />
     <None Include="Resources\rojo.png" />
+    <None Include="Resources\VerdeNuevo.png" />
+    <None Include="Resources\rojoNuevo.png" />
+    <None Include="Resources\AmarilloNuevo.png" />
+    <None Include="Resources\Document 2.png" />
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -346,7 +429,9 @@
       <Name>Repositorios</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
