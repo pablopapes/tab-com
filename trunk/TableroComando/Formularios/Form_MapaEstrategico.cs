@@ -10,12 +10,19 @@ using Dataweb.NShape.GeneralShapes;
 using Dataweb.NShape.Layouters;
 using TableroComando.Fachadas;
 using Dominio;
+using TableroComando.Clases;
+using TableroComando.GUIWrapper;
+using Repositorios;
 
 
 namespace TableroComando.Formularios
 {
 
 	public partial class Form_MapaEstrategico : Form {
+
+        Template Verde;
+        Template Amarillo;
+        Template Rojo;
 
 		[DllImport("shfolder.dll", CharSet = CharSet.Auto)]
 		private static extern int SHGetFolderPath(IntPtr hwndOwner, int nFolder, IntPtr hToken, int dwFlags, StringBuilder lpszPath);
@@ -25,6 +32,7 @@ namespace TableroComando.Formularios
 			StringBuilder sb = new StringBuilder(260);
 			SHGetFolderPath(IntPtr.Zero, 46, IntPtr.Zero, 0, sb);
 			return sb.ToString();
+
 		}
 
 
@@ -42,6 +50,21 @@ namespace TableroComando.Formularios
             // Path to the NShape shape library assemblies
             project1.LibrarySearchPaths.Add(AppDomain.CurrentDomain.BaseDirectory);
             project1.Open();
+
+            // Template Verde
+            Template Verde = new Template("Verde", project1.ShapeTypes["Ellipse"].CreateInstance());
+            ((IPlanarShape)Verde.Shape).FillStyle = project1.Design.FillStyles.Green;
+            project1.Repository.InsertTemplate(Verde);
+
+            // Template Amarillo
+            Template Amarillo = new Template("Amarillo", project1.ShapeTypes["Ellipse"].CreateInstance());
+            ((IPlanarShape)Amarillo.Shape).FillStyle = project1.Design.FillStyles.Yellow;
+            project1.Repository.InsertTemplate(Amarillo);
+
+            // Template Rojo
+            Template Rojo = new Template("Rojo", project1.ShapeTypes["Ellipse"].CreateInstance());
+            ((IPlanarShape)Rojo.Shape).FillStyle = project1.Design.FillStyles.Red;
+            project1.Repository.InsertTemplate(Rojo);
 
             Diagrama();
 
@@ -81,6 +104,11 @@ namespace TableroComando.Formularios
 
             IList<Objetivo> ListaObj = ObjetivoRepository.Instance.All();
 
+             Verde = project1.Repository.GetTemplate("Verde");
+             Amarillo = project1.Repository.GetTemplate("Amarillo");
+             Rojo = project1.Repository.GetTemplate("Rojo");
+
+             IList<RestriccionObjetivo> restricciones = RestriccionGeneralRepository.Instance.All<RestriccionObjetivo>();
 
             foreach (Objetivo Objetivo in ListaObj)
             {
@@ -88,7 +116,14 @@ namespace TableroComando.Formularios
                 RectangleBase referringShape;
                 if (!shapeDict.TryGetValue(Objetivo.Nombre, out referringShape))
                 {
-                    referringShape = (RectangleBase)project1.ShapeTypes["Ellipse"].CreateInstance();
+
+                  
+                    
+                   System.Drawing.Color Color =  VisualHelper.GetColor(Objetivo.Estado(restricciones));
+
+                  Template TColorObejtivo = SetColor(Color);
+                   
+                    referringShape = (RectangleBase)TColorObejtivo.CreateShape();
                     referringShape.Width = 120;
                     referringShape.Height = 70;
                     switch (Objetivo.Perspectiva.Id)
@@ -124,7 +159,11 @@ namespace TableroComando.Formularios
                     RectangleBase referredShape;
                     if (!shapeDict.TryGetValue(objetivoHijo.Nombre, out referredShape))
                     {
-                        referredShape = (RectangleBase)project1.ShapeTypes["Ellipse"].CreateInstance();
+                        System.Drawing.Color Color = VisualHelper.GetColor(objetivoHijo.Estado(restricciones));
+
+                        Template TColorObejtivo = SetColor(Color);
+                        
+                        referredShape = (RectangleBase)TColorObejtivo.CreateShape();
                         referredShape.Width = 120;
                         referredShape.Height = 70;
                         switch (objetivoHijo.Perspectiva.Id)
@@ -192,6 +231,28 @@ namespace TableroComando.Formularios
             return shape;
         }
 
+        private Template SetColor(System.Drawing.Color Color)
+        {
+            // Compruebo el color del objetivo 
+            Template TColor = null;
+
+            if (Color == System.Drawing.Color.Green)
+            {
+                TColor = Verde;
+            }
+            if (Color == System.Drawing.Color.Yellow)
+            {
+                TColor = Amarillo;
+            }
+            if (Color == System.Drawing.Color.Red)
+            {
+                TColor = Rojo;
+            }
+
+            return TColor;
+            
+            
+        }
 		private void fileLayoutToolStripMenuItem_Click(object sender, EventArgs e) {
 			foreach (Shape s in display1.Diagram.Shapes) {
 				s.X = 100;
