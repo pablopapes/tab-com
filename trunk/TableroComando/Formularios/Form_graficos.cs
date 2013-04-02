@@ -12,6 +12,7 @@ using TableroComando.GUIWrapper;
 using System.Windows.Forms.DataVisualization.Charting;
 using TableroComando.Clases;
 using System.Globalization;
+using System.Threading;
 
 namespace TableroComando.Formularios
 {
@@ -77,14 +78,10 @@ namespace TableroComando.Formularios
                 case "Semanal": return "Sem " + GetWeekNumber(medicion.Fecha).ToString();
                     break;
                 case "Mensual": 
-                    System.Globalization.DateTimeFormatInfo mes = new 
-                    System.Globalization.DateTimeFormatInfo();
-                    return mes.GetAbbreviatedMonthName(medicion.Fecha.Month).ToString();  
+                    return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(medicion.Fecha.Month).ToString();  
                     break;
                 case "Trimestral": 
-                    System.Globalization.DateTimeFormatInfo trimestre = new
-                   System.Globalization.DateTimeFormatInfo();
-                    return trimestre.GetAbbreviatedMonthName(medicion.Fecha.Month).ToString();  
+                    return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(medicion.Fecha.Month).ToString();  
                     break;
                 case "Anual": return medicion.Fecha.Year.ToString();
                     break;
