@@ -20,10 +20,17 @@ namespace TableroComando.Formularios
         {
             InitializeComponent();
             _indicador = indicador;
+            AccionesDataGrid.AutoGenerateColumns = false;
         }
 
         private void Form_AccionesCorrectivas_Load(object sender, EventArgs e)
         {
+            DataGridViewComboBoxColumn c = new DataGridViewComboBoxColumn();
+            c.DataSource = Enum.GetValues(typeof(EstadoTarea));
+            c.Name = "clmColumn1";
+            c.HeaderText = "Dosage";
+            c.DataPropertyName = "Dosage";
+            AccionesDataGrid.Columns.Add(c);
             _accionesSource.DataSource = _indicador.Acciones.Select(a => new AccionDataGridViewWrapper(a)).ToList();
             AccionesDataGrid.DataSource = _accionesSource;
         }

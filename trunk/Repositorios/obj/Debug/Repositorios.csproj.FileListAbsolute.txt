@@ -1,10 +1,10 @@
-D:\proyectos\flexit\tab-com\Repositorios\obj\Debug\ResolveAssemblyReference.cache
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Mappings\frecuencia.hbm.xml
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Mappings\indicador.hbm.xml
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Mappings\medicion.hbm.xml
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Mappings\objetivo.hbm.xml
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Mappings\perspectiva.hbm.xml
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Mappings\restriccion.hbm.xml
+D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Mappings\accionCorrectiva.hbm.xml
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Repositorios.dll
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Repositorios.pdb
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Dominio.dll
@@ -15,6 +15,6 @@ D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Dominio.pdb
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Iesi.Collections.xml
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\NHibernate.xml
 D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\FrecuenciaStrategy.pdb
+D:\proyectos\flexit\tab-com\Repositorios\obj\Debug\ResolveAssemblyReference.cache
 D:\proyectos\flexit\tab-com\Repositorios\obj\Debug\Repositorios.dll
 D:\proyectos\flexit\tab-com\Repositorios\obj\Debug\Repositorios.pdb
-D:\proyectos\flexit\tab-com\Repositorios\bin\Debug\Mappings\accionCorrectiva.hbm.xml

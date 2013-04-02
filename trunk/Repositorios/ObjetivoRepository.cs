@@ -9,13 +9,8 @@ using Repositorios;
 
 namespace TableroComando.Fachadas
 {
-    public class ObjetivoRepository : Repository<ObjetivoRepository>
+    public class ObjetivoRepository : Repository<ObjetivoRepository, Objetivo>
     {
-        public IList<Objetivo> All()
-        {
-            return _session.CreateCriteria<Objetivo>().List<Objetivo>();
-        }
-
         /* Traer todos los objetivos ordenados por un solo campo */
         public IList<Objetivo> All(Dictionary<string, bool> orderBy)
         {
@@ -43,28 +38,6 @@ namespace TableroComando.Fachadas
            return 
                _session.CreateCriteria<Objetivo>()
                .CreateCriteria("Perspectiva").Add(Restrictions.Eq("Id", IdPerspectiva)).List<Objetivo>();
-        }
-
-        public void Save(Objetivo o)
-        {
-            _session.Save(o);
-            _session.Flush();
-        }
-
-        public Objetivo FindById(int objetivoId)
-        {
-            return _session.Get<Objetivo>(objetivoId);
-        }
-
-        public void SaveOrUpdate(Objetivo o)
-        {
-            _session.SaveOrUpdate(o);
-            _session.Flush();
-        }
-
-        public void Delete(Objetivo o)
-        {
-            Delete<Objetivo>(o);
         }
     }
 }

@@ -15,7 +15,9 @@ namespace TableroComando.RangosUserControls
     public partial class RestriccionMenorUserControl : UserControl
     {
         private Form_Meta _formParent;
-        public Restriccion Restriccion { get; set; }
+        private string stringToShow;
+        private RestriccionObjetivo restriccion;
+        public RestriccionGeneral Restriccion { get; set; }
 
         public decimal Valor
         {
@@ -30,11 +32,20 @@ namespace TableroComando.RangosUserControls
             Restriccion = r;
         }
 
+        public RestriccionMenorUserControl(string codigo, RestriccionObjetivo r = null)
+        {
+            InitializeComponent();
+            label1.Text = codigo;
+            Restriccion = r;
+            EstadoCB.Enabled = false;
+            EliminarBtn.Visible = false;
+        }
+
         private void RestriccionMenor_Load(object sender, EventArgs e)
         {
             EstadoCB.DataSource = Enum.GetValues(typeof(EstadoIndicador));
-            ValorTxt.DataBindings.Add(DataBindingConverter.BuildBindingDecimalString<Restriccion>("Text", Restriccion, "ValorMenor"));
-            if (Restriccion.Estado == null) EstadoCB.SelectedIndex = -1;
+            ValorTxt.DataBindings.Add(DataBindingConverter.BuildBindingDecimalString<RestriccionGeneral>("Text", Restriccion, "ValorMenor"));
+            //EstadoCB.SelectedIndex = -1;
             EstadoCB.DataBindings.Add("SelectedItem", Restriccion, "Estado");
         }
 

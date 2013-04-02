@@ -15,13 +15,23 @@ namespace TableroComando.RangosUserControls
     public partial class RestriccionRangoUserControl : UserControl
     {
         private Form_Meta _formParent;
-        public Restriccion Restriccion { get; set; }
+        private string stringToShow;
+        public RestriccionGeneral Restriccion { get; set; }
         public RestriccionRangoUserControl(Form_Meta form, string codigo, Restriccion r)
         {
             InitializeComponent();
             label1.Text = codigo;
             _formParent = form;
             Restriccion = r;
+        }
+
+        public RestriccionRangoUserControl(string stringToShow, RestriccionObjetivo restriccion)
+        {
+            InitializeComponent();
+            label1.Text = stringToShow;
+            Restriccion = restriccion;
+            EstadoCB.Enabled = false;
+            EliminarBtn.Visible = false;
         }
 
         private void EliminarBtn_Click(object sender, EventArgs e)
@@ -33,10 +43,10 @@ namespace TableroComando.RangosUserControls
         {
             EstadoCB.DataSource = Enum.GetValues(typeof(EstadoIndicador));
 
-            ValorMenorTxt.DataBindings.Add(DataBindingConverter.BuildBindingDecimalString<Restriccion>("Text", Restriccion, "ValorMenor"));
-            ValorMayorTxt.DataBindings.Add(DataBindingConverter.BuildBindingDecimalString<Restriccion>("Text", Restriccion, "ValorMayor"));
+            ValorMenorTxt.DataBindings.Add(DataBindingConverter.BuildBindingDecimalString<RestriccionGeneral>("Text", Restriccion, "ValorMenor"));
+            ValorMayorTxt.DataBindings.Add(DataBindingConverter.BuildBindingDecimalString<RestriccionGeneral>("Text", Restriccion, "ValorMayor"));
 
-            if (Restriccion.Estado == null) EstadoCB.SelectedIndex = -1;
+            //EstadoCB.SelectedIndex = -1;
             EstadoCB.DataBindings.Add("SelectedItem", Restriccion, "Estado");
         }
 

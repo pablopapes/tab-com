@@ -18,6 +18,7 @@ D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\medicion.hbm.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\objetivo.hbm.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\perspectiva.hbm.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\restriccion.hbm.xml
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\accionCorrectiva.hbm.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Dominio.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Dominio.pdb
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\FrecuenciaStrategy.dll
@@ -29,4 +30,3 @@ D:\proyectos\flexit\tab-com\Dominio\bin\Debug\NHibernate.xml
 D:\proyectos\flexit\tab-com\Dominio\obj\Debug\ResolveAssemblyReference.cache
 D:\proyectos\flexit\tab-com\Dominio\obj\Debug\Dominio.dll
 D:\proyectos\flexit\tab-com\Dominio\obj\Debug\Dominio.pdb
-D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\accionCorrectiva.hbm.xml

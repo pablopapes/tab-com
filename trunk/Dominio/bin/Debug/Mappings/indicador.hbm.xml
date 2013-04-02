@@ -29,8 +29,14 @@
 
     <list name="Restricciones" cascade="all-delete-orphan">
       <key column="indicador_id" />
-      <index column="ordern" />
+      <index column="orden" />
       <one-to-many class="Restriccion" />
     </list>
+
+    <bag name="Acciones" cascade="all-delete-orphan">
+      <key column="indicador_id" />
+      <one-to-many class="AccionCorrectiva" />
+    </bag>
+    
   </class>
 </hibernate-mapping>

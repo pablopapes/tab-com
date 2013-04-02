@@ -48,6 +48,7 @@ namespace TableroComando.Formularios
 
         private void ConfigurarObjetivosDataGrid()
         {
+            IList<Objetivo> l = ObjetivoRepository.Instance.All();
             _sourceObjetivos.DataSource = ObjetivoRepository.Instance.All().Select( o => new ObjetivoDataGridViewWrapper(o));
             ObjetivosDataGrid.DataSource = _sourceObjetivos;
 

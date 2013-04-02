@@ -34,6 +34,8 @@
             // 
             // AccionesDataGrid
             // 
+            this.AccionesDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.AccionesDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AccionesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AccionesDataGrid.Location = new System.Drawing.Point(12, 12);
             this.AccionesDataGrid.Name = "AccionesDataGrid";

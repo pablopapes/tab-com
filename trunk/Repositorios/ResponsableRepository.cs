@@ -7,21 +7,6 @@ using Repositorios;
 
 namespace TableroComando.Fachadas
 {
-    public class ResponsableRepository : Repository<ResponsableRepository>
-    {
-        public void Save(Responsable r)
-        {
-            base.Save<Responsable>(r);
-        }
-
-        public IList<Responsable> All()
-        {
-            return All<Responsable>();
-        }
-
-        public void Delete(Responsable r)
-        {
-            Delete<Responsable>(r);
-        }
-    }
+    public class ResponsableRepository : Repository<ResponsableRepository, Responsable>
+    { }
 }

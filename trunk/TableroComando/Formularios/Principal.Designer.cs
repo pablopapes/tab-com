@@ -38,11 +38,13 @@
             this.indicadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendaDeMedicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accionesCorrectivasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapaEstratégicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verMapaEstratégicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monitoreoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.graficosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accionesCorrectivasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configurarIntervalosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MSPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,10 +96,12 @@
             // 
             // ObjetivosToolStripMenuItem
             // 
+            this.ObjetivosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestiónToolStripMenuItem,
+            this.configurarIntervalosToolStripMenuItem});
             this.ObjetivosToolStripMenuItem.Name = "ObjetivosToolStripMenuItem";
             this.ObjetivosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ObjetivosToolStripMenuItem.Text = "Objetivos";
-            this.ObjetivosToolStripMenuItem.Click += new System.EventHandler(this.modificarObjetivosToolStripMenuItem_Click);
             // 
             // indicadoresToolStripMenuItem1
             // 
@@ -122,6 +126,13 @@
             this.agendaDeMedicionesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.agendaDeMedicionesToolStripMenuItem.Text = "Agenda de Mediciones";
             this.agendaDeMedicionesToolStripMenuItem.Click += new System.EventHandler(this.agendaDeMedicionesToolStripMenuItem_Click);
+            // 
+            // accionesCorrectivasToolStripMenuItem
+            // 
+            this.accionesCorrectivasToolStripMenuItem.Name = "accionesCorrectivasToolStripMenuItem";
+            this.accionesCorrectivasToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.accionesCorrectivasToolStripMenuItem.Text = "Acciones Correctivas";
+            this.accionesCorrectivasToolStripMenuItem.Click += new System.EventHandler(this.accionesCorrectivasToolStripMenuItem_Click);
             // 
             // mapaEstratégicoToolStripMenuItem
             // 
@@ -152,12 +163,19 @@
             this.graficosToolStripMenuItem.Text = "Graficos";
             this.graficosToolStripMenuItem.Click += new System.EventHandler(this.graficosToolStripMenuItem_Click);
             // 
-            // accionesCorrectivasToolStripMenuItem
+            // configurarIntervalosToolStripMenuItem
             // 
-            this.accionesCorrectivasToolStripMenuItem.Name = "accionesCorrectivasToolStripMenuItem";
-            this.accionesCorrectivasToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.accionesCorrectivasToolStripMenuItem.Text = "Acciones Correctivas";
-            this.accionesCorrectivasToolStripMenuItem.Click += new System.EventHandler(this.accionesCorrectivasToolStripMenuItem_Click);
+            this.configurarIntervalosToolStripMenuItem.Name = "configurarIntervalosToolStripMenuItem";
+            this.configurarIntervalosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.configurarIntervalosToolStripMenuItem.Text = "Configurar Intervalos";
+            this.configurarIntervalosToolStripMenuItem.Click += new System.EventHandler(this.configurarIntervalosToolStripMenuItem_Click);
+            // 
+            // gestiónToolStripMenuItem
+            // 
+            this.gestiónToolStripMenuItem.Name = "gestiónToolStripMenuItem";
+            this.gestiónToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.gestiónToolStripMenuItem.Text = "Gestión";
+            this.gestiónToolStripMenuItem.Click += new System.EventHandler(this.gestiónToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -196,6 +214,8 @@
         private System.Windows.Forms.ToolStripMenuItem agendaDeMedicionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem graficosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accionesCorrectivasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configurarIntervalosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestiónToolStripMenuItem;
     }
 }
 
