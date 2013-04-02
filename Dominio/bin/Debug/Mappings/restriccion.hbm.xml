@@ -2,17 +2,30 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
                   assembly="Dominio"
                   namespace="Dominio">
-  <class name="Restriccion" table="restricciones">
+  <class name="RestriccionGeneral" table="restricciones" abstract="true">
     <id name="Id">
       <generator class="increment" />
     </id>
 
+    <discriminator column="Subclass"/>
+    
     <property name="ValorMenor"/>
     <property name="ValorMayor" />
     <property name="NumTipoRestriccion" />
     <property name="NumEstadoRestriccion" />
     <property name="Orden" />
-    
-    <many-to-one name="Indicador" column="indicador_id" />
+
+    <subclass name="Restriccion" discriminator-value="restriccion-indicador">
+      <many-to-one name="Indicador" column="indicador_id" />
+    </subclass>
+
+    <subclass name="RestriccionObjetivo" discriminator-value="restriccion-objetivo">
+      
+    </subclass>
+
+    <subclass name="RestriccionPerspectiva" discriminator-value="restriccion-perspectiva">
+      
+    </subclass>
+
   </class>
 </hibernate-mapping>

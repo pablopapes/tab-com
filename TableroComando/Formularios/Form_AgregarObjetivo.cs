@@ -34,7 +34,10 @@ namespace TableroComando.Formularios
 
             // Se cargan los objetivos y se setean ciertas propiedades
             ConfigurarObjetivosDataGrid();
-            
+
+            string textAyuda = "Este número define en qué porcentaje el objetivo contribuye a la perspectiva. \nLa suma de los porcentajes de todos los objetivos pertenecientes a una perspectiva, debe ser menor o igual a 100.";
+            toolTip1.SetToolTip(RelevanciaNum, textAyuda);
+            toolTip1.SetToolTip(label3, textAyuda);
         }
 
         private void ConfigurarCBPerspectiva()
@@ -79,7 +82,9 @@ namespace TableroComando.Formularios
             }
             TXTTitulo.DataBindings.Add("Text", Objetivo, "Nombre");
             RTBDescripcion.DataBindings.Add("Text", Objetivo, "Descripcion");
-            CBPerspectiva.DataBindings.Add("SelectedItem", Objetivo, "Perspectiva");   
+            CBPerspectiva.DataBindings.Add("SelectedItem", Objetivo, "Perspectiva");
+
+            RelevanciaNum.DataBindings.Add("Value", Objetivo, "PorcentajeRelevancia");
         }
 
         private void BTNGuardar_Click(object sender, EventArgs e)

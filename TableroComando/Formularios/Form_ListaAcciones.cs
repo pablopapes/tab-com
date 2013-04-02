@@ -29,7 +29,7 @@ namespace TableroComando.Formularios
 
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
-            AccionCorrectivaRepository.Instance.SaveAll<AccionCorrectiva>((List<AccionCorrectiva>)_acciones.DataSource);
+            //  AccionCorrectivaRepository.Instance.SaveAll<AccionCorrectiva>((List<AccionCorrectiva>)_acciones.DataSource);
         }
     }
 }

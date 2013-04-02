@@ -22,14 +22,7 @@ namespace TableroComando
         public Principal()
         {
             InitializeComponent();
-            try
-            {
-                AccionCorrectivaRepository.Instance.Save(new AccionCorrectiva());
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            RestriccionGeneralRepository.Instance.CrearRestriccionesObjetivos();
         }
 
         // Empresa
@@ -55,11 +48,6 @@ namespace TableroComando
         private void agregarUnObjetivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(new Formularios.Form_AgregarObjetivo());
-        }
-
-        private void modificarObjetivosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowForm(new Form_ListaObjetivos());
         }
 
         private void agregarIndicadoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -101,6 +89,16 @@ namespace TableroComando
         private void accionesCorrectivasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(new Form_ListaAcciones());
+        }
+
+        private void configurarIntervalosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(new Form_RestriccionesObjetivo());
+        }
+
+        private void gestiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(new Form_ListaObjetivos());
         }
 
     }

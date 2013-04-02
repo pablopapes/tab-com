@@ -51,9 +51,9 @@
             this.EstadoCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.EstadoCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.EstadoCB.FormattingEnabled = true;
-            this.EstadoCB.Location = new System.Drawing.Point(424, 13);
+            this.EstadoCB.Location = new System.Drawing.Point(408, 14);
             this.EstadoCB.Name = "EstadoCB";
-            this.EstadoCB.Size = new System.Drawing.Size(87, 21);
+            this.EstadoCB.Size = new System.Drawing.Size(103, 21);
             this.EstadoCB.TabIndex = 10;
             this.EstadoCB.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.EstadoCB_DrawItem);
             // 

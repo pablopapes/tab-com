@@ -15,7 +15,7 @@ namespace TableroComando.RangosUserControls
     public partial class RestriccionMayorUserControl : UserControl
     {
         private Form_Meta _formParent;
-        public Restriccion Restriccion { get; protected set; }
+        public RestriccionGeneral Restriccion { get; protected set; }
         public decimal Valor
         {
             get { return Decimal.Parse(ValorTxt.Text); }
@@ -29,6 +29,15 @@ namespace TableroComando.RangosUserControls
             Restriccion = r;
         }
 
+        public RestriccionMayorUserControl(string codigo, RestriccionObjetivo r = null)
+        {
+            InitializeComponent();
+            label1.Text = codigo;
+            Restriccion = r;
+            EstadoCB.Enabled = false;
+            EliminarBtn.Hide();
+        }
+
         private void EliminarBtn_Click(object sender, EventArgs e)
         {
             _formParent.EliminarRestriccion(this);
@@ -36,9 +45,9 @@ namespace TableroComando.RangosUserControls
 
         private void RestriccionMayor_Load(object sender, EventArgs e)
         {
-            ValorTxt.DataBindings.Add(DataBindingConverter.BuildBindingDecimalString<Restriccion>("Text", Restriccion, "ValorMayor"));
+            ValorTxt.DataBindings.Add(DataBindingConverter.BuildBindingDecimalString<RestriccionGeneral>("Text", Restriccion, "ValorMayor"));
             EstadoCB.DataSource = Enum.GetValues(typeof(EstadoIndicador));
-            if (Restriccion.Estado == default(EstadoIndicador)) EstadoCB.SelectedIndex = -1;
+            //EstadoCB.SelectedIndex = -1;
             EstadoCB.DataBindings.Add("SelectedItem", Restriccion, "Estado");
         }
 
@@ -79,6 +88,8 @@ namespace TableroComando.RangosUserControls
             forePen.Dispose();
             foreBrush.Dispose();
         }
+
+        
 
     } 
 }

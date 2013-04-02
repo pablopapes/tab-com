@@ -126,7 +126,7 @@ namespace Dominio
 
         public virtual Restriccion CrearRestriccion(TipoRestriccion tipo)
         {
-            Restriccion restriccion = new Restriccion(tipo, Restricciones.Count + 1);
+            Restriccion restriccion = new Restriccion(tipo, Restricciones.Count);
             Restricciones.Add(restriccion);
             return restriccion;
         }    

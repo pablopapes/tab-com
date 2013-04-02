@@ -9,6 +9,7 @@
     <property name="Nombre" />
     <property name="Codigo" />
     <property name="Descripcion" />
+    <property name="PorcentajeRelevancia" />
     
     <many-to-one name="Perspectiva" column="perspectiva_id" />
     

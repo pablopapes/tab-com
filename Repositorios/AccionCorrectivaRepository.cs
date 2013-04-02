@@ -7,16 +7,6 @@ using Dominio;
 
 namespace Repositorios
 {
-    public class AccionCorrectivaRepository : Repository<AccionCorrectivaRepository>
-    {
-        public IList<AccionCorrectiva> All()
-        {
-            return All<AccionCorrectiva>();
-        }
-
-        public void Save(AccionCorrectiva accionCorrectiva)
-        {
-            Save<AccionCorrectiva>(accionCorrectiva);
-        }
-    }
+    public class AccionCorrectivaRepository : Repository<AccionCorrectivaRepository, AccionCorrectiva>
+    { }
 }

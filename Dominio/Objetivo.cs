@@ -5,12 +5,16 @@ using System.Text;
 
 namespace Dominio
 {
+
+    public enum EstadoObjetivo { Malo, Regular, Bueno };
+
     public class Objetivo : Modelo<Objetivo>
     {
-        //public virtual int Id { get; protected set; }
         public virtual string Nombre { get; set; }
         public virtual string Codigo { get; set; }
         public virtual string Descripcion { get; set; }
+        public virtual int PorcentajeRelevancia { get; set; }
+
         public virtual Perspectiva Perspectiva { get; set; }
 
         private IList<Indicador> indicadores = new List<Indicador>();
@@ -26,13 +30,41 @@ namespace Dominio
             set { objetivosHijos = value; }
         }
 
-        public virtual string NombreCompleto { get { return Perspectiva.Nombre + " - " + Nombre; } }
+        /* Retorna el número que representa en qué grado se ha cumplido el objetivo entre 0 y 1 */
+        public virtual decimal EstadoRelativo
+        {
+            get
+            {
+                decimal sumaEstadoIndicadores = Indicadores.Sum( i => (int)i.Estado);
+                return sumaEstadoIndicadores / ((int)EstadoIndicador.Bien * Indicadores.Count);                
+            }
+        }
+        
+        /* Retorna en qué estado se encuentra el objetivo respecto de la relevacia que tiene en la perspectiva */
+        public virtual decimal EstadoPorcentual
+        {
+            get 
+            {
+                return (EstadoRelativo * PorcentajeRelevancia);
+            }
+        }
+
+        /* Devuelve un EstadoObjetivo que representa si su estado es Bien, Mal, Regular */
+        public virtual EstadoIndicador Estado(IEnumerable<RestriccionObjetivo> restricciones)
+        {
+            foreach (RestriccionObjetivo restriccion in restricciones)
+            {
+                if (restriccion.Evaluar(EstadoPorcentual)) return restriccion.Estado;
+            }
+            return default(EstadoIndicador);
+        }
+       
 
         /* Retorna true si contiene el objetivo pasado por parámetro, sino retorna false */
         public virtual bool ContieneObjetivo(Objetivo o)
         {
-            if(ObjetivosHijos.Contains(o)) return true;
-            return false;
+            return ObjetivosHijos.Contains(o);
         }
+
     }
 }

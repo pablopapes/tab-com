@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="ResponsableRepository.cs" />
+    <Compile Include="RestriccionGeneralRepository.cs" />
     <Compile Include="SingletonSession.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AgregarObjetivo));
             this.label1 = new System.Windows.Forms.Label();
             this.TXTTitulo = new System.Windows.Forms.TextBox();
@@ -39,7 +40,11 @@
             this.CBPerspectiva = new System.Windows.Forms.ComboBox();
             this.BTNCancelar = new System.Windows.Forms.Button();
             this.ObjetivosDataGrid = new System.Windows.Forms.DataGridView();
+            this.RelevanciaNum = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ObjetivosDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RelevanciaNum)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +87,7 @@
             // 
             this.LBLDepende.AutoSize = true;
             this.LBLDepende.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBLDepende.Location = new System.Drawing.Point(12, 177);
+            this.LBLDepende.Location = new System.Drawing.Point(12, 202);
             this.LBLDepende.Name = "LBLDepende";
             this.LBLDepende.Size = new System.Drawing.Size(99, 16);
             this.LBLDepende.TabIndex = 8;
@@ -94,7 +99,7 @@
             this.BTNGuardar.Image = global::TableroComando.Properties.Resources.Button_Add;
             this.BTNGuardar.Location = new System.Drawing.Point(112, 367);
             this.BTNGuardar.Name = "BTNGuardar";
-            this.BTNGuardar.Size = new System.Drawing.Size(172, 54);
+            this.BTNGuardar.Size = new System.Drawing.Size(144, 54);
             this.BTNGuardar.TabIndex = 6;
             this.BTNGuardar.Text = "Agregar";
             this.BTNGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -105,7 +110,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 138);
+            this.label5.Location = new System.Drawing.Point(9, 163);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 16);
             this.label5.TabIndex = 10;
@@ -116,7 +121,7 @@
             this.CBPerspectiva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBPerspectiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBPerspectiva.FormattingEnabled = true;
-            this.CBPerspectiva.Location = new System.Drawing.Point(117, 135);
+            this.CBPerspectiva.Location = new System.Drawing.Point(117, 160);
             this.CBPerspectiva.Name = "CBPerspectiva";
             this.CBPerspectiva.Size = new System.Drawing.Size(288, 24);
             this.CBPerspectiva.TabIndex = 14;
@@ -142,18 +147,37 @@
             this.ObjetivosDataGrid.AllowUserToResizeRows = false;
             this.ObjetivosDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.ObjetivosDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ObjetivosDataGrid.Location = new System.Drawing.Point(117, 177);
+            this.ObjetivosDataGrid.Location = new System.Drawing.Point(117, 202);
             this.ObjetivosDataGrid.Name = "ObjetivosDataGrid";
             this.ObjetivosDataGrid.RowHeadersVisible = false;
             this.ObjetivosDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ObjetivosDataGrid.Size = new System.Drawing.Size(397, 150);
             this.ObjetivosDataGrid.TabIndex = 20;
             // 
+            // RelevanciaNum
+            // 
+            this.RelevanciaNum.Location = new System.Drawing.Point(117, 129);
+            this.RelevanciaNum.Name = "RelevanciaNum";
+            this.RelevanciaNum.Size = new System.Drawing.Size(51, 20);
+            this.RelevanciaNum.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(9, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 16);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Relevancia (%)";
+            // 
             // Form_AgregarObjetivo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 435);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.RelevanciaNum);
             this.Controls.Add(this.ObjetivosDataGrid);
             this.Controls.Add(this.BTNCancelar);
             this.Controls.Add(this.CBPerspectiva);
@@ -170,6 +194,7 @@
             this.Text = "Agregar un Objetivo";
             this.Load += new System.EventHandler(this.Form_AgregarObjetivo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ObjetivosDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RelevanciaNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,5 +212,8 @@
         private System.Windows.Forms.ComboBox CBPerspectiva;
         private System.Windows.Forms.Button BTNCancelar;
         private System.Windows.Forms.DataGridView ObjetivosDataGrid;
+        private System.Windows.Forms.NumericUpDown RelevanciaNum;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

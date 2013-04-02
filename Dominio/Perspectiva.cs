@@ -16,5 +16,14 @@ namespace Dominio
             get{ return objetivos; }
             protected set { objetivos = value; } 
         }
+
+        public virtual decimal Estado
+        {
+            get
+            {
+                return Objetivos.Sum(o => o.EstadoPorcentual);
+            }
+        }
+
     }
 }

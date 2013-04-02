@@ -11,18 +11,19 @@ using Repositorios;
 
 namespace Repositorios
 {
-    public class Repository<T> where T : Repository<T>, new()
+    public class Repository<RepositoryClass, ModelClass> where RepositoryClass : Repository<RepositoryClass, ModelClass>, new()
+                                                            where ModelClass: class
     {
         /* Properties */
-        protected static T instance;
+        protected static RepositoryClass instance;
         protected ISession _session;
-        public static T Instance
+        public static RepositoryClass Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new T();
+                    instance = new RepositoryClass();
                 }
                 return instance;
             }
@@ -35,11 +36,11 @@ namespace Repositorios
             this._session = SingletonSession.Session;
         }
 
-        public void SaveAll<T>(IEnumerable<T> objects)
+        public void SaveAll(IEnumerable<ModelClass> objects)
         {
             foreach (object obj in objects)
             {
-                T specificObject = (T)obj;
+                ModelClass specificObject = (ModelClass)obj;
                 _session.Save(specificObject);
             }
             _session.Flush();
@@ -73,21 +74,34 @@ namespace Repositorios
             }
         }
 
-        protected void Save<Type>(Type o)
+        public void Save(ModelClass o)
         {
             _session.Save(o);
             _session.Flush();
         }
 
-        protected void Delete<Type>(Type o)
+        public void Delete(ModelClass o)
         {
             _session.Delete(o);
             _session.Flush();
         }
 
-        protected IList<Type> All<Type>() where Type : class
+        public IList<ModelClass> All(params string[] args)
         {
-            return _session.CreateCriteria<Type>().List<Type>();
+            ICriteria criteria = _session.CreateCriteria<ModelClass>();
+            foreach (string orderBy in args) criteria.AddOrder(new Order(orderBy, true));
+            return criteria.List<ModelClass>();
+        }
+
+        public void SaveOrUpdate(ModelClass i)
+        {
+            _session.SaveOrUpdate(i);
+            _session.Flush();
+        }
+
+        public ModelClass FindById(int indicadorId)
+        {
+            return _session.Get<ModelClass>(indicadorId);
         }
     }
 }
