@@ -189,6 +189,8 @@
             // 
             this.IndicadoresFinancierosGridView.AllowUserToAddRows = false;
             this.IndicadoresFinancierosGridView.AllowUserToDeleteRows = false;
+            this.IndicadoresFinancierosGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.IndicadoresFinancierosGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.IndicadoresFinancierosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.IndicadoresFinancierosGridView.Location = new System.Drawing.Point(760, 39);
@@ -214,6 +216,8 @@
             // 
             this.IndicadoresClientesGridView.AllowUserToAddRows = false;
             this.IndicadoresClientesGridView.AllowUserToDeleteRows = false;
+            this.IndicadoresClientesGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.IndicadoresClientesGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.IndicadoresClientesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.IndicadoresClientesGridView.Location = new System.Drawing.Point(760, 205);
@@ -229,6 +233,8 @@
             // 
             this.IndicadoresProcesosGridView.AllowUserToAddRows = false;
             this.IndicadoresProcesosGridView.AllowUserToDeleteRows = false;
+            this.IndicadoresProcesosGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.IndicadoresProcesosGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.IndicadoresProcesosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.IndicadoresProcesosGridView.Location = new System.Drawing.Point(760, 368);
@@ -244,6 +250,8 @@
             // 
             this.IndicadoresAprendizajesGridView.AllowUserToAddRows = false;
             this.IndicadoresAprendizajesGridView.AllowUserToDeleteRows = false;
+            this.IndicadoresAprendizajesGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.IndicadoresAprendizajesGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.IndicadoresAprendizajesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.IndicadoresAprendizajesGridView.Location = new System.Drawing.Point(760, 533);
@@ -257,7 +265,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::TableroComando.Properties.Resources.verde;
+            this.pictureBox3.Image = global::TableroComando.Properties.Resources.VerdeNuevo;
             this.pictureBox3.Location = new System.Drawing.Point(91, 530);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(125, 124);
@@ -266,7 +274,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::TableroComando.Properties.Resources.rojo;
+            this.pictureBox4.Image = global::TableroComando.Properties.Resources.rojoNuevo;
             this.pictureBox4.Location = new System.Drawing.Point(91, 380);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(128, 124);
@@ -275,7 +283,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::TableroComando.Properties.Resources.verde;
+            this.pictureBox2.Image = global::TableroComando.Properties.Resources.VerdeNuevo;
             this.pictureBox2.Location = new System.Drawing.Point(91, 208);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(125, 135);
@@ -284,7 +292,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::TableroComando.Properties.Resources.amarillo2;
+            this.pictureBox1.Image = global::TableroComando.Properties.Resources.AmarilloNuevo;
             this.pictureBox1.Location = new System.Drawing.Point(91, 39);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(137, 124);

@@ -26,7 +26,7 @@
 		private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_MapaEstrategico));
-            Dataweb.NShape.RoleBasedSecurityManager roleBasedSecurityManager10 = new Dataweb.NShape.RoleBasedSecurityManager();
+            Dataweb.NShape.RoleBasedSecurityManager roleBasedSecurityManager1 = new Dataweb.NShape.RoleBasedSecurityManager();
             this.display1 = new Dataweb.NShape.WinFormsUI.Display();
             this.diagramSetController1 = new Dataweb.NShape.Controllers.DiagramSetController();
             this.project1 = new Dataweb.NShape.Project(this.components);
@@ -87,9 +87,9 @@
             this.project1.LibrarySearchPaths = ((System.Collections.Generic.IList<string>)(resources.GetObject("project1.LibrarySearchPaths")));
             this.project1.Name = null;
             this.project1.Repository = this.cachedRepository1;
-            roleBasedSecurityManager10.CurrentRole = Dataweb.NShape.StandardRole.Administrator;
-            roleBasedSecurityManager10.CurrentRoleName = "Administrator";
-            this.project1.SecurityManager = roleBasedSecurityManager10;
+            roleBasedSecurityManager1.CurrentRole = Dataweb.NShape.StandardRole.Administrator;
+            roleBasedSecurityManager1.CurrentRoleName = "Administrator";
+            this.project1.SecurityManager = roleBasedSecurityManager1;
             // 
             // cachedRepository1
             // 
@@ -111,18 +111,19 @@
             // toolSetListViewPresenter1
             // 
             this.toolSetListViewPresenter1.HideDeniedMenuItems = false;
+            this.toolSetListViewPresenter1.ListView = null;
             this.toolSetListViewPresenter1.ShowDefaultContextMenu = true;
             this.toolSetListViewPresenter1.ToolSetController = this.toolSetController1;
             // 
-            // Form1
+            // Form_MapaEstrategico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(830, 584);
             this.Controls.Add(this.display1);
-            this.Name = "Form1";
+            this.Name = "Form_MapaEstrategico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Basic Tutorial - Layout";
+            this.Text = "Mapa Estrategico";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 

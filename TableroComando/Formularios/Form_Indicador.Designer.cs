@@ -34,10 +34,6 @@
             this.DetalleTxt = new System.Windows.Forms.TextBox();
             this.MedicionesGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripGraficoBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripMetaBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripAcciones = new System.Windows.Forms.ToolStripButton();
-            this.GuardarBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.NombreTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,6 +53,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.ValorEsperadoTxt = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.toolStripGraficoBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripMetaBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripAcciones = new System.Windows.Forms.ToolStripButton();
+            this.toolStripInforme = new System.Windows.Forms.ToolStripButton();
+            this.GuardarBtn = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MedicionesGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -119,53 +120,14 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripGraficoBtn,
             this.toolStripMetaBtn,
-            this.toolStripAcciones});
+            this.toolStripAcciones,
+            this.toolStripInforme});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip1.Size = new System.Drawing.Size(732, 25);
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripGraficoBtn
-            // 
-            this.toolStripGraficoBtn.Image = global::TableroComando.Properties.Resources.Chart_Bar;
-            this.toolStripGraficoBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripGraficoBtn.Name = "toolStripGraficoBtn";
-            this.toolStripGraficoBtn.Size = new System.Drawing.Size(84, 22);
-            this.toolStripGraficoBtn.Text = "Ver gráfico";
-            this.toolStripGraficoBtn.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripMetaBtn
-            // 
-            this.toolStripMetaBtn.Image = global::TableroComando.Properties.Resources.gears2;
-            this.toolStripMetaBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMetaBtn.Name = "toolStripMetaBtn";
-            this.toolStripMetaBtn.Size = new System.Drawing.Size(92, 22);
-            this.toolStripMetaBtn.Text = "Definir Meta";
-            this.toolStripMetaBtn.Click += new System.EventHandler(this.toolStripMetaBtn_Click);
-            // 
-            // toolStripAcciones
-            // 
-            this.toolStripAcciones.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAcciones.Image")));
-            this.toolStripAcciones.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripAcciones.Name = "toolStripAcciones";
-            this.toolStripAcciones.Size = new System.Drawing.Size(137, 22);
-            this.toolStripAcciones.Text = "Acciones Correctivas";
-            this.toolStripAcciones.Click += new System.EventHandler(this.toolStripAcciones_Click);
-            // 
-            // GuardarBtn
-            // 
-            this.GuardarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuardarBtn.Image = global::TableroComando.Properties.Resources.Button_Check;
-            this.GuardarBtn.Location = new System.Drawing.Point(274, 555);
-            this.GuardarBtn.Name = "GuardarBtn";
-            this.GuardarBtn.Size = new System.Drawing.Size(131, 48);
-            this.GuardarBtn.TabIndex = 12;
-            this.GuardarBtn.Text = "Agregar";
-            this.GuardarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.GuardarBtn.UseVisualStyleBackColor = true;
-            this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
             // 
             // label1
             // 
@@ -358,6 +320,55 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos";
             // 
+            // toolStripGraficoBtn
+            // 
+            this.toolStripGraficoBtn.Image = global::TableroComando.Properties.Resources.Chart_Bar;
+            this.toolStripGraficoBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripGraficoBtn.Name = "toolStripGraficoBtn";
+            this.toolStripGraficoBtn.Size = new System.Drawing.Size(84, 22);
+            this.toolStripGraficoBtn.Text = "Ver gráfico";
+            this.toolStripGraficoBtn.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripMetaBtn
+            // 
+            this.toolStripMetaBtn.Image = global::TableroComando.Properties.Resources.gears2;
+            this.toolStripMetaBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMetaBtn.Name = "toolStripMetaBtn";
+            this.toolStripMetaBtn.Size = new System.Drawing.Size(92, 22);
+            this.toolStripMetaBtn.Text = "Definir Meta";
+            this.toolStripMetaBtn.Click += new System.EventHandler(this.toolStripMetaBtn_Click);
+            // 
+            // toolStripAcciones
+            // 
+            this.toolStripAcciones.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAcciones.Image")));
+            this.toolStripAcciones.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripAcciones.Name = "toolStripAcciones";
+            this.toolStripAcciones.Size = new System.Drawing.Size(137, 22);
+            this.toolStripAcciones.Text = "Acciones Correctivas";
+            this.toolStripAcciones.Click += new System.EventHandler(this.toolStripAcciones_Click);
+            // 
+            // toolStripInforme
+            // 
+            this.toolStripInforme.Image = ((System.Drawing.Image)(resources.GetObject("toolStripInforme.Image")));
+            this.toolStripInforme.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripInforme.Name = "toolStripInforme";
+            this.toolStripInforme.Size = new System.Drawing.Size(69, 22);
+            this.toolStripInforme.Text = "Informe";
+            this.toolStripInforme.Click += new System.EventHandler(this.toolStripInforme_Click);
+            // 
+            // GuardarBtn
+            // 
+            this.GuardarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GuardarBtn.Image = global::TableroComando.Properties.Resources.Button_Check;
+            this.GuardarBtn.Location = new System.Drawing.Point(274, 555);
+            this.GuardarBtn.Name = "GuardarBtn";
+            this.GuardarBtn.Size = new System.Drawing.Size(131, 48);
+            this.GuardarBtn.TabIndex = 12;
+            this.GuardarBtn.Text = "Agregar";
+            this.GuardarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.GuardarBtn.UseVisualStyleBackColor = true;
+            this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
+            // 
             // Form_Indicador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,5 +424,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox NombreTxt;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripButton toolStripInforme;
     }
 }

@@ -18,6 +18,8 @@ namespace TableroComando.Clases
             Grafico.BorderlineWidth = 3;
 
             Grafico.Series["Series1"].Points.Clear();
+            Grafico.Series["Series2"].Points.Clear();
+            Grafico.Titles.Clear();
             Grafico.Titles.Add(Titulo);
             Grafico.Titles[0].Text = Titulo;
             Grafico.Titles[0].Font = new Font("Calibri", 14, FontStyle.Bold);
@@ -35,6 +37,7 @@ namespace TableroComando.Clases
             Grafico.ChartAreas["ChartArea1"].AxisY.TitleFont = new Font("Calibri", 12, FontStyle.Bold);
             Grafico.ChartAreas["ChartArea1"].AxisX.Title = EjeX;
             Grafico.ChartAreas["ChartArea1"].AxisY.Title = EjeY;
+            Grafico.ChartAreas["ChartArea1"].AxisY.StripLines.Clear();
 
             return Grafico;
         }

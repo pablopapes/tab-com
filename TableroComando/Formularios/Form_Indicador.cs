@@ -132,5 +132,10 @@ namespace TableroComando.Formularios
             new Form_AccionesCorrectivas(Indicador).Show();
         }
 
+        private void toolStripInforme_Click(object sender, EventArgs e)
+        {
+            new Form_InformeIndicador(Indicador).ShowDialog();
+        }
+
     }
 }
