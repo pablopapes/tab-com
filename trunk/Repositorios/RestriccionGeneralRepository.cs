@@ -29,5 +29,14 @@ namespace Repositorios
                     RestriccionGeneralRepository.Instance.Save(new RestriccionObjetivo(tipo));
             }
         }
+
+        public void CrearRestriccionesPerspectiva()
+        {
+            foreach (TipoRestriccion tipo in Enum.GetValues(typeof(TipoRestriccion)))
+            {
+                if (All<RestriccionPerspectiva>().Where(r => r.Tipo == tipo).ToList().Count == 0)
+                    RestriccionGeneralRepository.Instance.Save(new RestriccionPerspectiva(tipo));
+            }
+        }
     }
 }

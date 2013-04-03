@@ -23,6 +23,7 @@ namespace TableroComando
         {
             InitializeComponent();
             RestriccionGeneralRepository.Instance.CrearRestriccionesObjetivos();
+            RestriccionGeneralRepository.Instance.CrearRestriccionesPerspectiva();
         }
 
         // Empresa
@@ -99,6 +100,11 @@ namespace TableroComando
         private void gestiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(new Form_ListaObjetivos());
+        }
+
+        private void configurarIntervalosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ShowForm(new Form_RestriccionesPerspectivas());
         }
 
     }

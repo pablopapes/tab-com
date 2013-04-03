@@ -15,7 +15,6 @@ namespace TableroComando.RangosUserControls
     public partial class RestriccionRangoUserControl : UserControl
     {
         private Form_Meta _formParent;
-        private string stringToShow;
         public RestriccionGeneral Restriccion { get; set; }
         public RestriccionRangoUserControl(Form_Meta form, string codigo, Restriccion r)
         {
@@ -32,6 +31,15 @@ namespace TableroComando.RangosUserControls
             Restriccion = restriccion;
             EstadoCB.Enabled = false;
             EliminarBtn.Visible = false;
+        }
+
+        public RestriccionRangoUserControl(string codigo, RestriccionPerspectiva r)
+        {
+            InitializeComponent();
+            label1.Text = codigo;
+            Restriccion = r;
+            EstadoCB.Enabled = false;
+            EliminarBtn.Hide();
         }
 
         private void EliminarBtn_Click(object sender, EventArgs e)

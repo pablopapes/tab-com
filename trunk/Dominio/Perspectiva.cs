@@ -17,13 +17,18 @@ namespace Dominio
             protected set { objetivos = value; } 
         }
 
-        public virtual decimal Estado
+        public virtual decimal EstadoPorcentual { get { return Objetivos.Sum(o => o.EstadoPorcentual); } }
+        
+        public virtual EstadoIndicador Estado(IEnumerable<RestriccionPerspectiva> restricciones)
         {
-            get
+            foreach (RestriccionPerspectiva restriccion in restricciones)
             {
-                return Objetivos.Sum(o => o.EstadoPorcentual);
+                if (restriccion.Evaluar(EstadoPorcentual)) return restriccion.Estado;
             }
+            return default(EstadoIndicador);
         }
 
+
+        
     }
 }

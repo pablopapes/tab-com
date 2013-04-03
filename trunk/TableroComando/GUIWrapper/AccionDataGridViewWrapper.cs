@@ -27,6 +27,26 @@ namespace TableroComando.GUIWrapper
             get { return _accionCorrectiva.Responsable; }
         }
 
+        public EstadoTarea Estado { get { return _accionCorrectiva.Estado; } set { _accionCorrectiva.Estado = value; } }
+
+        public string Hallazgo 
+        { 
+            get { return _accionCorrectiva.Hallazgo; } 
+            set { _accionCorrectiva.Hallazgo = value; } 
+        }
+
+        public string Descripcion
+        {
+            get { return _accionCorrectiva.Descripcion; }
+            set { _accionCorrectiva.Descripcion = value; }
+        }
+
+        public string Objetivo
+        {
+            get { return _accionCorrectiva.Objetivo; }
+            set { _accionCorrectiva.Objetivo = value; }
+        }
+
         public AccionDataGridViewWrapper(AccionCorrectiva a)
         {
             _accionCorrectiva = a;
