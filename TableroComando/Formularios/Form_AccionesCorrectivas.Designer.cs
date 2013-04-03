@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AccionesDataGrid = new System.Windows.Forms.DataGridView();
+            this.GuardarBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AccionesDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -37,16 +39,38 @@
             this.AccionesDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AccionesDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AccionesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AccionesDataGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.AccionesDataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.AccionesDataGrid.Location = new System.Drawing.Point(12, 12);
             this.AccionesDataGrid.Name = "AccionesDataGrid";
-            this.AccionesDataGrid.Size = new System.Drawing.Size(492, 396);
+            this.AccionesDataGrid.RowHeadersVisible = false;
+            this.AccionesDataGrid.Size = new System.Drawing.Size(1020, 396);
             this.AccionesDataGrid.TabIndex = 0;
+            this.AccionesDataGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.AccionesDataGrid_EditingControlShowing);
+            // 
+            // GuardarBtn
+            // 
+            this.GuardarBtn.Location = new System.Drawing.Point(438, 423);
+            this.GuardarBtn.Name = "GuardarBtn";
+            this.GuardarBtn.Size = new System.Drawing.Size(168, 43);
+            this.GuardarBtn.TabIndex = 1;
+            this.GuardarBtn.Text = "Guardar";
+            this.GuardarBtn.UseVisualStyleBackColor = true;
+            this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
             // 
             // Form_AccionesCorrectivas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 440);
+            this.ClientSize = new System.Drawing.Size(1044, 476);
+            this.Controls.Add(this.GuardarBtn);
             this.Controls.Add(this.AccionesDataGrid);
             this.Name = "Form_AccionesCorrectivas";
             this.Text = "Form_AccionesCorrectivas";
@@ -59,5 +83,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView AccionesDataGrid;
+        private System.Windows.Forms.Button GuardarBtn;
     }
 }

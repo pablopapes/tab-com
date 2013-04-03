@@ -10,6 +10,5 @@ namespace TableroComando.Fachadas
     public class PerspectivaRepository : Repository<PerspectivaRepository, Perspectiva>
     {
 
-        
     }
 }

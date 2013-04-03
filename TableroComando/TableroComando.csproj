@@ -181,6 +181,12 @@
     <Compile Include="Formularios\Form_RestriccionesObjetivo.Designer.cs">
       <DependentUpon>Form_RestriccionesObjetivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Form_RestriccionesPerspectivas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_RestriccionesPerspectivas.Designer.cs">
+      <DependentUpon>Form_RestriccionesPerspectivas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsIndicador.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DSPerspectiva.cs">
+      <DependentUpon>DSPerspectiva.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\DSPerspectiva.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -281,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_RestriccionesObjetivo.resx">
       <DependentUpon>Form_RestriccionesObjetivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_RestriccionesPerspectivas.resx">
+      <DependentUpon>Form_RestriccionesPerspectivas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

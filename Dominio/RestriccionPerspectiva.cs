@@ -7,13 +7,27 @@ namespace Dominio
 {
     public class RestriccionPerspectiva : RestriccionGeneral
     {
-        public virtual TipoRestriccion Tipo
+        new public virtual TipoRestriccion Tipo
         {
             get { return (TipoRestriccion)NumTipoRestriccion; }
-            set
+            protected set
             {
                 NumTipoRestriccion = (int)value;
-                NumEstadoRestriccion = (int)DefinirEstado(value);
+                switch (value)
+                {
+                    case (TipoRestriccion.Mayor):
+                        NumEstadoRestriccion = (int)EstadoIndicador.Bien;
+                        Orden = 2;
+                        break;
+                    case (TipoRestriccion.Rango):
+                        NumEstadoRestriccion = (int)EstadoIndicador.Regular;
+                        Orden = 1;
+                        break;
+                    case (TipoRestriccion.Menor):
+                        NumEstadoRestriccion = (int)EstadoIndicador.Mal;
+                        Orden = 0;
+                        break;
+                }
             }
         }
 
@@ -27,5 +41,8 @@ namespace Dominio
             }
             return default(EstadoIndicador);
         }
+
+        public RestriccionPerspectiva(TipoRestriccion tipo) { Tipo = tipo; }
+        public RestriccionPerspectiva() { }
     }
 }

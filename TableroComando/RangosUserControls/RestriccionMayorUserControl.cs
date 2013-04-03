@@ -38,6 +38,15 @@ namespace TableroComando.RangosUserControls
             EliminarBtn.Hide();
         }
 
+        public RestriccionMayorUserControl(string codigo, RestriccionPerspectiva r)
+        {
+            InitializeComponent();
+            label1.Text = codigo;
+            Restriccion = r;
+            EstadoCB.Enabled = false;
+            EliminarBtn.Hide();
+        }
+
         private void EliminarBtn_Click(object sender, EventArgs e)
         {
             _formParent.EliminarRestriccion(this);

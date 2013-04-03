@@ -35,7 +35,7 @@ namespace Dominio
         {
             get
             {
-                if (indicadores.Count > 0)
+                if (Indicadores.Count > 0)
                 {
                     decimal sumaEstadoIndicadores = Indicadores.Sum(i => (int)i.Estado);
                     return sumaEstadoIndicadores / ((int)EstadoIndicador.Bien * Indicadores.Count);
@@ -66,7 +66,6 @@ namespace Dominio
             return default(EstadoIndicador);
         }
        
-
         /* Retorna true si contiene el objetivo pasado por parámetro, sino retorna false */
         public virtual bool ContieneObjetivo(Objetivo o)
         {

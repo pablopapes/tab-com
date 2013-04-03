@@ -15,8 +15,6 @@ namespace TableroComando.RangosUserControls
     public partial class RestriccionMenorUserControl : UserControl
     {
         private Form_Meta _formParent;
-        private string stringToShow;
-        private RestriccionObjetivo restriccion;
         public RestriccionGeneral Restriccion { get; set; }
 
         public decimal Valor
@@ -40,6 +38,16 @@ namespace TableroComando.RangosUserControls
             EstadoCB.Enabled = false;
             EliminarBtn.Visible = false;
         }
+
+        public RestriccionMenorUserControl(string codigo, RestriccionPerspectiva r)
+        {
+            InitializeComponent();
+            label1.Text = codigo;
+            Restriccion = r;
+            EstadoCB.Enabled = false;
+            EliminarBtn.Visible = false;
+        }
+
 
         private void RestriccionMenor_Load(object sender, EventArgs e)
         {
