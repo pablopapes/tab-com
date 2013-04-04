@@ -92,6 +92,16 @@ namespace TableroComando
             ShowForm(new Form_ListaAcciones());
         }
 
+
+        private void informeGeneralToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           IList<Perspectiva> Lista =  PerspectivaRepository.Instance.All();
+           Form_InformeGeneral FInforme = new Form_InformeGeneral(Lista);
+           FInforme.WindowState = FormWindowState.Maximized;
+           ShowForm(FInforme);
+        }
+
+
         private void configurarIntervalosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(new Form_RestriccionesObjetivo());
