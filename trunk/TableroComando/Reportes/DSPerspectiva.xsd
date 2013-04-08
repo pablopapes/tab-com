@@ -475,6 +475,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -537,6 +538,7 @@
               <xs:element name="ValorEsperado" msprop:Generator_ColumnVarNameInTable="columnValorEsperado" msprop:Generator_ColumnPropNameInRow="ValorEsperado" msprop:Generator_ColumnPropNameInTable="ValorEsperadoColumn" msprop:Generator_UserColumnName="ValorEsperado" type="xs:decimal" minOccurs="0" />
               <xs:element name="responsable_id" msprop:Generator_ColumnVarNameInTable="columnresponsable_id" msprop:Generator_ColumnPropNameInRow="responsable_id" msprop:Generator_ColumnPropNameInTable="responsable_idColumn" msprop:Generator_UserColumnName="responsable_id" type="xs:int" minOccurs="0" />
               <xs:element name="FechaCreacion" msprop:Generator_ColumnVarNameInTable="columnFechaCreacion" msprop:Generator_ColumnPropNameInRow="FechaCreacion" msprop:Generator_ColumnPropNameInTable="FechaCreacionColumn" msprop:Generator_UserColumnName="FechaCreacion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -566,6 +568,7 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="perspectiva_id" msprop:Generator_ColumnVarNameInTable="columnperspectiva_id" msprop:Generator_ColumnPropNameInRow="perspectiva_id" msprop:Generator_ColumnPropNameInTable="perspectiva_idColumn" msprop:Generator_UserColumnName="perspectiva_id" type="xs:int" minOccurs="0" />
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -637,6 +640,13 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Mapa" msprop:Generator_TableClassName="MapaDataTable" msprop:Generator_TableVarName="tableMapa" msprop:Generator_TablePropName="Mapa" msprop:Generator_RowDeletingName="MapaRowDeleting" msprop:Generator_UserTableName="Mapa" msprop:Generator_RowChangingName="MapaRowChanging" msprop:Generator_RowEvHandlerName="MapaRowChangeEventHandler" msprop:Generator_RowDeletedName="MapaRowDeleted" msprop:Generator_RowEvArgName="MapaRowChangeEvent" msprop:Generator_RowChangedName="MapaRowChanged" msprop:Generator_RowClassName="MapaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Mapa" msprop:Generator_ColumnVarNameInTable="columnMapa" msprop:Generator_ColumnPropNameInRow="Mapa" msprop:Generator_ColumnPropNameInTable="MapaColumn" msprop:Generator_UserColumnName="Mapa" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -666,11 +676,11 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="perspectivas_objetivos" msdata:parent="perspectivas" msdata:child="objetivos" msdata:parentkey="Id" msdata:childkey="perspectiva_id" msprop:Generator_UserChildTable="objetivos" msprop:Generator_ChildPropName="GetobjetivosRows" msprop:Generator_ParentPropName="perspectivasRow" msprop:Generator_UserRelationName="perspectivas_objetivos" msprop:Generator_RelationVarName="relationperspectivas_objetivos" msprop:Generator_UserParentTable="perspectivas" />
-      <msdata:Relationship name="objetivos_indicadores" msdata:parent="objetivos" msdata:child="indicadores" msdata:parentkey="Id" msdata:childkey="objetivo_id" msprop:Generator_UserChildTable="indicadores" msprop:Generator_ChildPropName="GetindicadoresRows" msprop:Generator_ParentPropName="objetivosRow" msprop:Generator_UserRelationName="objetivos_indicadores" msprop:Generator_RelationVarName="relationobjetivos_indicadores" msprop:Generator_UserParentTable="objetivos" />
-      <msdata:Relationship name="indicadores_mediciones" msdata:parent="indicadores" msdata:child="mediciones" msdata:parentkey="Id" msdata:childkey="indicador_id" msprop:Generator_UserChildTable="mediciones" msprop:Generator_ChildPropName="GetmedicionesRows" msprop:Generator_ParentPropName="indicadoresRow" msprop:Generator_UserRelationName="indicadores_mediciones" msprop:Generator_RelationVarName="relationindicadores_mediciones" msprop:Generator_UserParentTable="indicadores" />
-      <msdata:Relationship name="frecuencias_indicadores" msdata:parent="frecuencias" msdata:child="indicadores" msdata:parentkey="Id" msdata:childkey="frecuencia_id" msprop:Generator_UserChildTable="indicadores" msprop:Generator_ChildPropName="GetindicadoresRows" msprop:Generator_ParentPropName="frecuenciasRow" msprop:Generator_UserRelationName="frecuencias_indicadores" msprop:Generator_RelationVarName="relationfrecuencias_indicadores" msprop:Generator_UserParentTable="frecuencias" />
-      <msdata:Relationship name="responsables_indicadores" msdata:parent="responsables" msdata:child="indicadores" msdata:parentkey="Id" msdata:childkey="responsable_id" msprop:Generator_UserChildTable="indicadores" msprop:Generator_ChildPropName="GetindicadoresRows" msprop:Generator_ParentPropName="responsablesRow" msprop:Generator_UserRelationName="responsables_indicadores" msprop:Generator_RelationVarName="relationresponsables_indicadores" msprop:Generator_UserParentTable="responsables" />
+      <msdata:Relationship name="perspectivas_objetivos" msdata:parent="perspectivas" msdata:child="objetivos" msdata:parentkey="Id" msdata:childkey="perspectiva_id" msprop:Generator_UserChildTable="objetivos" msprop:Generator_ChildPropName="GetobjetivosRows" msprop:Generator_UserParentTable="perspectivas" msprop:Generator_UserRelationName="perspectivas_objetivos" msprop:Generator_RelationVarName="relationperspectivas_objetivos" msprop:Generator_ParentPropName="perspectivasRow" />
+      <msdata:Relationship name="objetivos_indicadores" msdata:parent="objetivos" msdata:child="indicadores" msdata:parentkey="Id" msdata:childkey="objetivo_id" msprop:Generator_UserChildTable="indicadores" msprop:Generator_ChildPropName="GetindicadoresRows" msprop:Generator_UserParentTable="objetivos" msprop:Generator_UserRelationName="objetivos_indicadores" msprop:Generator_RelationVarName="relationobjetivos_indicadores" msprop:Generator_ParentPropName="objetivosRow" />
+      <msdata:Relationship name="indicadores_mediciones" msdata:parent="indicadores" msdata:child="mediciones" msdata:parentkey="Id" msdata:childkey="indicador_id" msprop:Generator_UserChildTable="mediciones" msprop:Generator_ChildPropName="GetmedicionesRows" msprop:Generator_UserParentTable="indicadores" msprop:Generator_UserRelationName="indicadores_mediciones" msprop:Generator_RelationVarName="relationindicadores_mediciones" msprop:Generator_ParentPropName="indicadoresRow" />
+      <msdata:Relationship name="frecuencias_indicadores" msdata:parent="frecuencias" msdata:child="indicadores" msdata:parentkey="Id" msdata:childkey="frecuencia_id" msprop:Generator_UserChildTable="indicadores" msprop:Generator_ChildPropName="GetindicadoresRows" msprop:Generator_UserParentTable="frecuencias" msprop:Generator_UserRelationName="frecuencias_indicadores" msprop:Generator_RelationVarName="relationfrecuencias_indicadores" msprop:Generator_ParentPropName="frecuenciasRow" />
+      <msdata:Relationship name="responsables_indicadores" msdata:parent="responsables" msdata:child="indicadores" msdata:parentkey="Id" msdata:childkey="responsable_id" msprop:Generator_UserChildTable="indicadores" msprop:Generator_ChildPropName="GetindicadoresRows" msprop:Generator_UserParentTable="responsables" msprop:Generator_UserRelationName="responsables_indicadores" msprop:Generator_RelationVarName="relationresponsables_indicadores" msprop:Generator_ParentPropName="responsablesRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

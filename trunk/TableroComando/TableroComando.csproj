@@ -82,8 +82,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\GraficoIndicador.cs" />
     <Compile Include="Clases\Herramientas.cs" />
     <Compile Include="Clases\DataBindingConverter.cs" />
+    <Compile Include="Clases\MapaEstrategico.cs" />
     <Compile Include="Clases\VisualHelper.cs" />
     <Compile Include="Formularios\Form_AccionesCorrectivas.cs">
       <SubType>Form</SubType>
@@ -237,6 +239,7 @@
     </Compile>
     <Compile Include="Reportes\DSPerspectiva.cs">
       <DependentUpon>DSPerspectiva.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\DSPerspectiva.Designer.cs">
       <AutoGen>True</AutoGen>

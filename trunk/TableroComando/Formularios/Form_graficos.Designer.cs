@@ -75,8 +75,7 @@
             this.chart1.Size = new System.Drawing.Size(913, 449);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-            this.chart1.GetToolTipText += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs>(this.chart1_GetToolTipText);
-            // 
+            //
             // BtnImprimir
             // 
             this.BtnImprimir.Image = global::TableroComando.Properties.Resources.Printer;

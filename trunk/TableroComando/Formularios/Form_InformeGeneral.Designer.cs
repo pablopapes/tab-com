@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_InformeGeneral));
+            Dataweb.NShape.RoleBasedSecurityManager roleBasedSecurityManager2 = new Dataweb.NShape.RoleBasedSecurityManager();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -35,6 +38,10 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.diagramSetController1 = new Dataweb.NShape.Controllers.DiagramSetController();
+            this.project1 = new Dataweb.NShape.Project(this.components);
+            this.cachedRepository1 = new Dataweb.NShape.Advanced.CachedRepository();
+            this.xmlStore1 = new Dataweb.NShape.XmlStore();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,7 +124,6 @@
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ShowCloseButton = false;
             this.crystalReportViewer1.ShowCopyButton = false;
-            this.crystalReportViewer1.ShowExportButton = false;
             this.crystalReportViewer1.ShowGotoPageButton = false;
             this.crystalReportViewer1.ShowGroupTreeButton = false;
             this.crystalReportViewer1.ShowParameterPanelButton = false;
@@ -126,6 +132,34 @@
             this.crystalReportViewer1.Size = new System.Drawing.Size(749, 423);
             this.crystalReportViewer1.TabIndex = 8;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // diagramSetController1
+            // 
+            this.diagramSetController1.ActiveTool = null;
+            this.diagramSetController1.Project = this.project1;
+            // 
+            // project1
+            // 
+            this.project1.AutoGenerateTemplates = true;
+            this.project1.LibrarySearchPaths = ((System.Collections.Generic.IList<string>)(resources.GetObject("project1.LibrarySearchPaths")));
+            this.project1.Name = null;
+            this.project1.Repository = this.cachedRepository1;
+            roleBasedSecurityManager2.CurrentRole = Dataweb.NShape.StandardRole.Administrator;
+            roleBasedSecurityManager2.CurrentRoleName = "Administrator";
+            this.project1.SecurityManager = roleBasedSecurityManager2;
+            // 
+            // cachedRepository1
+            // 
+            this.cachedRepository1.ProjectName = null;
+            this.cachedRepository1.Store = this.xmlStore1;
+            this.cachedRepository1.Version = 0;
+            // 
+            // xmlStore1
+            // 
+            this.xmlStore1.DesignFileName = "";
+            this.xmlStore1.DirectoryName = "";
+            this.xmlStore1.FileExtension = ".xml";
+            this.xmlStore1.ProjectName = "";
             // 
             // Form_InformeGeneral
             // 
@@ -153,5 +187,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label2;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private Dataweb.NShape.Controllers.DiagramSetController diagramSetController1;
+        private Dataweb.NShape.Project project1;
+        private Dataweb.NShape.Advanced.CachedRepository cachedRepository1;
+        private Dataweb.NShape.XmlStore xmlStore1;
     }
 }
