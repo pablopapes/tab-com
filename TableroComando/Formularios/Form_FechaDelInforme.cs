@@ -9,24 +9,39 @@ using System.Windows.Forms;
 using TableroComando.Fachadas;
 using Dominio;
 using TableroComando.GUIWrapper;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Globalization;
+using TableroComando.Clases;
+using System.IO;
 
 namespace TableroComando.Formularios
 {
     public partial class Form_InformeIndicador : Form
     {
         Indicador Indicador;
+        System.Windows.Forms.DataVisualization.Charting.Chart chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+        System.Windows.Forms.DataVisualization.Charting.Series Series1 = new Series();
+        Series Series2 = new Series();
+        ChartArea ChartArea1 = new ChartArea();
 
         public Form_InformeIndicador(Indicador indicador)
         {
             this.Indicador = indicador;
             InitializeComponent();
+
         }
 
         private void BtnGenerarReporte_Click(object sender, EventArgs e)
         {
 
             Reportes.DsIndicador DsIndicador = new Reportes.DsIndicador();
-            
+            // Cargo el grafico en la carpeta Temp
+            Chart chart1 = new Chart();
+            chart1.Width = 600;
+            chart1 = Clases.GraficoIndicador.Grafico(chart1, Indicador, dateTimePicker1.Value, dateTimePicker2.Value);
+            ChartImageFormat format = ChartImageFormat.Png;
+            chart1.SaveImage(Application.StartupPath + "\\TempGrafico.png", format);
+
             // Cargo el Indicador
                 DataRow Filaindicador = DsIndicador.Tables["indicadores"].NewRow();
                 Filaindicador["Id"] = Indicador.Id;
@@ -34,6 +49,17 @@ namespace TableroComando.Formularios
                 Filaindicador["codigo"] = Indicador.Codigo;
                 Filaindicador["responsable_id"] = Indicador.Responsable.Id;
                 Filaindicador["frecuencia_id"] = Indicador.Frecuencia.Id;
+                Filaindicador["Grafico"] =Clases.Herramientas.ConversionImagen(Application.StartupPath + "\\TempGrafico.png");
+               
+              // Cargo el color segun el estado
+                Color Color = VisualHelper.GetColor(Indicador.Estado);
+                int? ColorInd = null;
+                if (Color == System.Drawing.Color.Green) ColorInd = 1;
+                else
+                    if (Color == System.Drawing.Color.Yellow) ColorInd = 0;
+                    else
+                        if (Color == System.Drawing.Color.Red) ColorInd = -1;
+                Filaindicador["Color"] = ColorInd;
 
                 DsIndicador.Tables["indicadores"].Rows.Add(Filaindicador);
                 DsIndicador.Tables["indicadores"].AcceptChanges();
@@ -60,6 +86,8 @@ namespace TableroComando.Formularios
                  DsIndicador.Tables["frecuencias"].AcceptChanges();
 
             
+
+
             // Cargo Las mediciones
 
             foreach(Medicion medicion in Indicador.Mediciones)
@@ -72,7 +100,7 @@ namespace TableroComando.Formularios
                     FilaMedicion["Fecha"] = medicion.Fecha.Date;
                     FilaMedicion["Valor"] = medicion.Valor;
                     FilaMedicion["indicador_id"] = medicion.Indicador.Id;
-                    // FilaMedicion["frecuencia_id"] = medicion.Frecuencia.Id;
+                    //FilaMedicion["frecuencia_id"] = medicion.Frecuencia.Id;
 
                     DsIndicador.Tables["mediciones"].Rows.Add(FilaMedicion);
                 }
@@ -80,16 +108,30 @@ namespace TableroComando.Formularios
 
             DsIndicador.Tables["mediciones"].AcceptChanges();
 
+           
+            
             Reportes.CrIndicadores reporte = new Reportes.CrIndicadores();
             reporte.SetDataSource(DsIndicador);
 
             // Fecha de Medición
             reporte.SetParameterValue("FechaDesde", dateTimePicker1.Value.Date);
             reporte.SetParameterValue("FechaHasta", dateTimePicker2.Value.Date);
-
+            
+         
 
             crystalReportViewer1.ReportSource = reporte;
             crystalReportViewer1.Refresh();
+
         }
+
+        
+
+        
+
+        private void Form_InformeIndicador_Load(object sender, EventArgs e)
+        {
+           
+        }
+
     }
 }

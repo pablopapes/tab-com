@@ -433,6 +433,10 @@ namespace TableroComando.Reportes {
             
             private global::System.Data.DataColumn columnFechaCreacion;
             
+            private global::System.Data.DataColumn columnGrafico;
+            
+            private global::System.Data.DataColumn columnColor;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public indicadoresDataTable() {
@@ -580,6 +584,22 @@ namespace TableroComando.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GraficoColumn {
+                get {
+                    return this.columnGrafico;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ColorColumn {
+                get {
+                    return this.columnColor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -615,7 +635,23 @@ namespace TableroComando.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public indicadoresRow AddindicadoresRow(int Id, string Nombre, string Codigo, string Espectativa, int Prioridad, string Proposito, string Calculo, string Caracteristica, string Observacion, int objetivo_id, frecuenciasRow parentfrecuenciasRowByfrecuencias_indicadores, decimal ValorEsperado, responsablesRow parentresponsablesRowByresponsables_indicadores, System.DateTime FechaCreacion) {
+            public indicadoresRow AddindicadoresRow(
+                        int Id, 
+                        string Nombre, 
+                        string Codigo, 
+                        string Espectativa, 
+                        int Prioridad, 
+                        string Proposito, 
+                        string Calculo, 
+                        string Caracteristica, 
+                        string Observacion, 
+                        int objetivo_id, 
+                        frecuenciasRow parentfrecuenciasRowByfrecuencias_indicadores, 
+                        decimal ValorEsperado, 
+                        responsablesRow parentresponsablesRowByresponsables_indicadores, 
+                        System.DateTime FechaCreacion, 
+                        byte[] Grafico, 
+                        int Color) {
                 indicadoresRow rowindicadoresRow = ((indicadoresRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -631,7 +667,9 @@ namespace TableroComando.Reportes {
                         null,
                         ValorEsperado,
                         null,
-                        FechaCreacion};
+                        FechaCreacion,
+                        Grafico,
+                        Color};
                 if ((parentfrecuenciasRowByfrecuencias_indicadores != null)) {
                     columnValuesArray[10] = parentfrecuenciasRowByfrecuencias_indicadores[1];
                 }
@@ -681,6 +719,8 @@ namespace TableroComando.Reportes {
                 this.columnValorEsperado = base.Columns["ValorEsperado"];
                 this.columnresponsable_id = base.Columns["responsable_id"];
                 this.columnFechaCreacion = base.Columns["FechaCreacion"];
+                this.columnGrafico = base.Columns["Grafico"];
+                this.columnColor = base.Columns["Color"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -714,6 +754,10 @@ namespace TableroComando.Reportes {
                 base.Columns.Add(this.columnresponsable_id);
                 this.columnFechaCreacion = new global::System.Data.DataColumn("FechaCreacion", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaCreacion);
+                this.columnGrafico = new global::System.Data.DataColumn("Grafico", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGrafico);
+                this.columnColor = new global::System.Data.DataColumn("Color", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColor);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
@@ -2023,6 +2067,38 @@ namespace TableroComando.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public byte[] Grafico {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableindicadores.GraficoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Grafico\' in table \'indicadores\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableindicadores.GraficoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Color {
+                get {
+                    try {
+                        return ((int)(this[this.tableindicadores.ColorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Color\' in table \'indicadores\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableindicadores.ColorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public responsablesRow responsablesRow {
                 get {
                     return ((responsablesRow)(this.GetParentRow(this.Table.ParentRelations["responsables_indicadores"])));
@@ -2197,6 +2273,30 @@ namespace TableroComando.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFechaCreacionNull() {
                 this[this.tableindicadores.FechaCreacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGraficoNull() {
+                return this.IsNull(this.tableindicadores.GraficoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGraficoNull() {
+                this[this.tableindicadores.GraficoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsColorNull() {
+                return this.IsNull(this.tableindicadores.ColorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetColorNull() {
+                this[this.tableindicadores.ColorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -406,6 +406,8 @@
               <xs:element name="ValorEsperado" msprop:Generator_ColumnVarNameInTable="columnValorEsperado" msprop:Generator_ColumnPropNameInRow="ValorEsperado" msprop:Generator_ColumnPropNameInTable="ValorEsperadoColumn" msprop:Generator_UserColumnName="ValorEsperado" type="xs:decimal" minOccurs="0" />
               <xs:element name="responsable_id" msprop:Generator_ColumnVarNameInTable="columnresponsable_id" msprop:Generator_ColumnPropNameInRow="responsable_id" msprop:Generator_ColumnPropNameInTable="responsable_idColumn" msprop:Generator_UserColumnName="responsable_id" type="xs:int" minOccurs="0" />
               <xs:element name="FechaCreacion" msprop:Generator_ColumnVarNameInTable="columnFechaCreacion" msprop:Generator_ColumnPropNameInRow="FechaCreacion" msprop:Generator_ColumnPropNameInTable="FechaCreacionColumn" msprop:Generator_UserColumnName="FechaCreacion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Grafico" msprop:Generator_ColumnVarNameInTable="columnGrafico" msprop:Generator_ColumnPropNameInRow="Grafico" msprop:Generator_ColumnPropNameInTable="GraficoColumn" msprop:Generator_UserColumnName="Grafico" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

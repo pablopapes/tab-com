@@ -23,6 +23,7 @@ namespace TableroComando.Formularios
         Template Verde;
         Template Amarillo;
         Template Rojo;
+        Diagram diagram = new Diagram("D1");
 
 		[DllImport("shfolder.dll", CharSet = CharSet.Auto)]
 		private static extern int SHGetFolderPath(IntPtr hwndOwner, int nFolder, IntPtr hToken, int dwFlags, StringBuilder lpszPath);
@@ -42,7 +43,7 @@ namespace TableroComando.Formularios
 
 
 		private void Form1_Load(object sender, EventArgs e) {
-            // Open the NShape project
+            /* Open the NShape project
         
             // Path to the NShape sample diagrams
             xmlStore1.DirectoryName = AppDomain.CurrentDomain.BaseDirectory;
@@ -65,7 +66,7 @@ namespace TableroComando.Formularios
             Template Rojo = new Template("Rojo", project1.ShapeTypes["Ellipse"].CreateInstance());
             ((IPlanarShape)Rojo.Shape).FillStyle = project1.Design.FillStyles.Red;
             project1.Repository.InsertTemplate(Rojo);
-
+            */
             Diagrama();
 
 		}
@@ -83,125 +84,8 @@ namespace TableroComando.Formularios
 
         private void Diagrama()
         {
-            Dictionary<string, RectangleBase> shapeDict = new Dictionary<string, RectangleBase>(1000);
             Diagram diagram = new Diagram("D1");
-            diagram.Height = 1123;
-            diagram.Width = 1200;
-
-            int x1 = 50;
-            int x2 = 50;
-            int x3 = 50;
-            int x4 = 50;
-
-            diagram.Shapes.Add(TextoPerspectiva("Aprendizaje y Crecimiento",20,1010));
-            diagram.Shapes.Add(TextoPerspectiva("Procesos Internos", 20, 750));
-            diagram.Shapes.Add(TextoPerspectiva("Cliente", 20, 450));
-            diagram.Shapes.Add(TextoPerspectiva("Financiera", 20, 150));
-
-            LineaDePerspectiva(diagram,900);
-            LineaDePerspectiva(diagram, 600);
-            LineaDePerspectiva(diagram, 300);
-
-            IList<Objetivo> ListaObj = ObjetivoRepository.Instance.All();
-
-             Verde = project1.Repository.GetTemplate("Verde");
-             Amarillo = project1.Repository.GetTemplate("Amarillo");
-             Rojo = project1.Repository.GetTemplate("Rojo");
-
-             IList<RestriccionObjetivo> restricciones = RestriccionGeneralRepository.Instance.All<RestriccionObjetivo>();
-
-            foreach (Objetivo Objetivo in ListaObj)
-            {
-
-                RectangleBase referringShape;
-                if (!shapeDict.TryGetValue(Objetivo.Nombre, out referringShape))
-                {
-
-                  
-                    
-                   System.Drawing.Color Color =  VisualHelper.GetColor(Objetivo.Estado(restricciones));
-
-                  Template TColorObejtivo = SetColor(Color);
-                   
-                    referringShape = (RectangleBase)TColorObejtivo.CreateShape();
-                    referringShape.Width = 120;
-                    referringShape.Height = 70;
-                    switch (Objetivo.Perspectiva.Id)
-                    {
-                        // Aprendizaje y crecimiento
-                        case 1:
-                            CoordenadasPersp(x1, 1000, referringShape);
-                            x1 += 150;
-                            break;
-                        // Procesos internos
-                        case 2:
-                            CoordenadasPersp(x2, 700, referringShape);
-                            x2 += 150;
-                            break;
-                        // Clientes
-                        case 3:
-                            CoordenadasPersp(x3, 400, referringShape);
-                            x3 += 150;
-                            break;
-                        // Financiera
-                        case 4:
-                            CoordenadasPersp(x4, 100, referringShape);
-                            x4 += 150;
-                            break;
-                    }
-
-                    referringShape.SetCaptionText(0, Objetivo.Nombre);
-                    shapeDict.Add(Objetivo.Nombre, referringShape);
-                    diagram.Shapes.Add(referringShape);
-                }
-                foreach (Objetivo objetivoHijo in Objetivo.ObjetivosHijos)
-                {
-                    RectangleBase referredShape;
-                    if (!shapeDict.TryGetValue(objetivoHijo.Nombre, out referredShape))
-                    {
-                        System.Drawing.Color Color = VisualHelper.GetColor(objetivoHijo.Estado(restricciones));
-
-                        Template TColorObejtivo = SetColor(Color);
-                        
-                        referredShape = (RectangleBase)TColorObejtivo.CreateShape();
-                        referredShape.Width = 120;
-                        referredShape.Height = 70;
-                        switch (objetivoHijo.Perspectiva.Id)
-                        {
-                            // Aprendizaje y crecimiento
-                            case 1:
-                                CoordenadasPersp(x1, 1000, referredShape);
-                                x1 += 150;
-                                break;
-                            // Procesos internos
-                            case 2:
-                                CoordenadasPersp(x2, 700, referredShape);
-                                x2 += 150;
-                                break;
-                            // Clientes
-                            case 3:
-                                CoordenadasPersp(x3, 400, referredShape);
-                                x3 += 150;
-                                break;
-                            // Financiera
-                            case 4:
-                                CoordenadasPersp(x4, 100, referredShape);
-                                x4 += 150;
-                                break;
-                        }
-                        referredShape.SetCaptionText(0, objetivoHijo.Nombre);
-                        shapeDict.Add(objetivoHijo.Nombre, referredShape);
-                        diagram.Shapes.Add(referredShape);
-                    }
-                    // Add the connection
-
-                    Polyline arrow = (Polyline)project1.ShapeTypes["Polyline"].CreateInstance();
-                    diagram.Shapes.Add(arrow);
-                    arrow.Connect(ControlPointId.FirstVertex, referringShape, ControlPointId.Reference);
-                    arrow.Connect(ControlPointId.LastVertex, referredShape, ControlPointId.Reference);
-                    //
-                }
-            }
+            diagram = Clases.MapaEstrategico.CrearMapa(project1, diagram, xmlStore1);
             cachedRepository1.InsertDiagram(diagram);
             display1.Diagram = diagram;
         }
@@ -271,6 +155,11 @@ namespace TableroComando.Formularios
 			layouter.Execute(10);
 			layouter.Fit(50, 50, display1.Diagram.Width - 100, display1.Diagram.Height - 100);
 		}
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            diagram.CreateImage(ImageFileFormat.Png);
+        }
 
 	}
 
