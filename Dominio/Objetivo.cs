@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Dominio.Validations;
 
 namespace Dominio
 {
@@ -54,6 +55,11 @@ namespace Dominio
             {
                 return (EstadoRelativo * PorcentajeRelevancia);
             }
+        }
+
+        public Objetivo()
+        {
+            Validator = new ObjetivoValidator();
         }
 
         /* Devuelve un EstadoObjetivo que representa si su estado es Bien, Mal, Regular */

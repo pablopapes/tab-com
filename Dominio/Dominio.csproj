@@ -31,11 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.3.4.6.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="RulesEngine">
+      <HintPath>libs\RulesEngine.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,6 +56,15 @@
     <Compile Include="Frecuencia.cs" />
     <Compile Include="Indicador.cs" />
     <Compile Include="Medicion.cs" />
+    <Compile Include="Repositorios\AccionCorrectivaRepository.cs" />
+    <Compile Include="Repositorios\FrecuenciaRepository.cs" />
+    <Compile Include="Repositorios\IndicadorRepository.cs" />
+    <Compile Include="Repositorios\ObjetivoRepository.cs" />
+    <Compile Include="Repositorios\PerspectivaRepository.cs" />
+    <Compile Include="Repositorios\Repository.cs" />
+    <Compile Include="Repositorios\ResponsableRepository.cs" />
+    <Compile Include="Repositorios\RestriccionGeneralRepository.cs" />
+    <Compile Include="Repositorios\SingletonSession.cs" />
     <Compile Include="Restriccion.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="Objetivo.cs" />
@@ -59,6 +74,12 @@
     <Compile Include="RestriccionGeneral.cs" />
     <Compile Include="RestriccionObjetivo.cs" />
     <Compile Include="RestriccionPerspectiva.cs" />
+    <Compile Include="Validations\IndicadorValidator.cs" />
+    <Compile Include="Validations\MedicionValidator.cs" />
+    <Compile Include="Validations\ModelValidator.cs" />
+    <Compile Include="Validations\ObjetivoValidator.cs" />
+    <Compile Include="Validations\Results\ValidationFailure.cs" />
+    <Compile Include="Validations\Results\ValidationResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\frecuencia.hbm.xml">
@@ -113,6 +134,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

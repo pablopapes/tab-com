@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TableroComando.Fachadas;
+using TableroComando.Dominio;
 using Dominio;
 using TableroComando.GUIWrapper;
 
@@ -94,7 +94,7 @@ namespace TableroComando.Formularios
 
             DialogResult result = MessageBox.Show("Los datos se guardaron extosamente. ¿Desea cargar otro objetivo?", "", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes) OpenNewForm();
-            this.Close();
+            else this.Close();
             
         }
 

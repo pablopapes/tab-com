@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Dominio;
-using TableroComando.Fachadas;
+using TableroComando.Dominio;
 using TableroComando.GUIWrapper;
 
 namespace TableroComando.Formularios

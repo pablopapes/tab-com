@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Dominio;
-using TableroComando.Fachadas;
+using TableroComando.Dominio;
 
 namespace TableroComando
 {

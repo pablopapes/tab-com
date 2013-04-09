@@ -6,9 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TableroComando.Fachadas;
+using TableroComando.Dominio;
 using TableroComando.GUIWrapper;
 using Dominio;
+using Dominio.Validations.Results;
+using TableroComando.Clases;
 
 namespace TableroComando.Formularios
 {
@@ -35,14 +37,18 @@ namespace TableroComando.Formularios
 
         private void ConfigurarIndicadoresDataGrid()
         {
-            _sourceIndicadores.DataSource = IndicadorRepository.Instance.FindByRequiereMedicion().Select( i => new IndicadorDataGridViewWrapper(i));
-            IndicadoresDataGrid.DataSource = _sourceIndicadores;
+            IList<IndicadorDataGridViewWrapper> indicadores = IndicadorRepository.Instance.FindByRequiereMedicion().Select(i => new IndicadorDataGridViewWrapper(i)).ToList();
+            if ( indicadores.Count != 0)
+            {
+                _sourceIndicadores.DataSource = indicadores;
+                IndicadoresDataGrid.DataSource = _sourceIndicadores;
 
-            IndicadoresDataGrid.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            IndicadoresDataGrid.Columns["UltimaMedicion"].Visible = false;
-            IndicadoresDataGrid.Columns["UltimaMedicion"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            IndicadoresDataGrid.Columns["ProximaFechaMedicion"].HeaderText = "Fecha de Medición";
-            IndicadoresDataGrid.Columns["ProximaFechaMedicion"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                IndicadoresDataGrid.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                IndicadoresDataGrid.Columns["UltimaMedicion"].Visible = false;
+                IndicadoresDataGrid.Columns["UltimaMedicion"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                IndicadoresDataGrid.Columns["ProximaFechaMedicion"].HeaderText = "Fecha de Medición";
+                IndicadoresDataGrid.Columns["ProximaFechaMedicion"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
         }
 
         private void IndicadoresDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -55,13 +61,28 @@ namespace TableroComando.Formularios
             decimal valor;
             if (decimal.TryParse(ValorTxt.Text, out valor))
             {
-                IndicadorSeleccionado.AddMedicion(FechaMedicionDtp.Value, valor, DetalleTxt.Text);
+                Medicion medicion = IndicadorSeleccionado.CrearMedicion();
+                medicion.Valor = valor;
+                medicion.Fecha = FechaMedicionDtp.Value;
+                medicion.Detalle = DetalleTxt.Text;
+                ValidationResult result = medicion.Validate();
+                if (result.IsValid)
+                {
+                    IndicadorSeleccionado.Mediciones.Add(medicion);
+                    IndicadorRepository.Instance.Save(IndicadorSeleccionado);
+                    _sourceIndicadores.RemoveCurrent();
+                    ValorTxt.Text = "";
+                    FechaMedicionDtp.Value = DateTime.Now;
+                }
+                else
+                {
+                    MessageBoxHelper.ShowValidationFailure(result.Errors);
+                }
             }
-
-            IndicadorRepository.Instance.Save(IndicadorSeleccionado);
-            _sourceIndicadores.RemoveCurrent();
-            ValorTxt.Text = "";
-            FechaMedicionDtp.Value = DateTime.Now;
+            else
+            {
+                MessageBox.Show("El campo 'Valor' debe completarse", "Error", MessageBoxButtons.OK);
+            }
         }
     }
 }

@@ -6,10 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TableroComando.Fachadas;
+using TableroComando.Dominio;
 using Dominio;
 using TableroComando.GUIWrapper;
 using System.Globalization;
+using Dominio.Validations.Results;
+using TableroComando.Clases;
+using Repositorios;
 
 namespace TableroComando.Formularios
 {
@@ -17,6 +20,7 @@ namespace TableroComando.Formularios
     {
         private ObjetivoRepository _objetivoFachada = ObjetivoRepository.Instance;
         private BindingSource _sourceMediciones;
+        private List<ValidationFailure> errors = new List<ValidationFailure>();
         public Indicador Indicador { get; set; }
 
 
@@ -63,7 +67,7 @@ namespace TableroComando.Formularios
         private void ConfigurarFrecuenciasCB()
         {           
             FrecuenciasCB.DisplayMember = "Periodo";
-            FrecuenciasCB.DataSource = IndicadorRepository.Instance.AllFrecuencias();       
+            FrecuenciasCB.DataSource = FrecuenciaRepository.Instance.All();       
             if (Indicador.Frecuencia == null) 
                 FrecuenciasCB.SelectedIndex = -1;   
         }
@@ -77,14 +81,17 @@ namespace TableroComando.Formularios
 
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
-            Indicador.AddMediciones(((List<MedicionDataGridViewWrapper>)_sourceMediciones.DataSource).Select(m => m.GetMedicion()).ToList<Medicion>());
-            Objetivo o = (Objetivo)ObjetivosCB.SelectedItem;
-            o.Indicadores.Add(Indicador);
-            _objetivoFachada.SaveOrUpdate(o);
-
-            DialogResult result = MessageBox.Show("Los datos se guardaron extosamente. ¿Desea cargar otro indicador?", "", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes) OpenNewForm();
-            this.Close();            
+            ValidationResult result = IndicadorRepository.Instance.Save(Indicador);
+            if (result.IsValid)
+            {
+                DialogResult respuesta = MessageBox.Show("Los datos se guardaron extosamente. ¿Desea cargar otro indicador?", "", MessageBoxButtons.YesNo);
+                if (respuesta == DialogResult.Yes) OpenNewForm();
+                this.Close();
+            }
+            else
+            {
+                MessageBoxHelper.ShowValidationFailure(result.Errors);
+            }
         }
 
         private void OpenNewForm()
@@ -101,7 +108,7 @@ namespace TableroComando.Formularios
             CaracteristicaTxt.DataBindings.Add("Text", Indicador, "Caracteristica");
             PropositoTxt.DataBindings.Add("Text", Indicador, "Proposito");
             
-            ValorEsperadoTxt.DataBindings.Add(DataBindingConverter.BuildBindingDecimalString<Indicador>("Text", Indicador, "ValorEsperado"));
+            UnidadTxt.DataBindings.Add("Text", Indicador, "Unidad");
 
             ObjetivosCB.DataBindings.Add("SelectedItem", Indicador, "Objetivo");
             ResponsableCB.DataBindings.Add("SelectedItem", Indicador, "Responsable");
@@ -123,7 +130,6 @@ namespace TableroComando.Formularios
         private void toolStripMetaBtn_Click(object sender, EventArgs e)
         {
             Form_Meta f = new Form_Meta(Indicador);
-            //f.Indicador = Indicador;
             f.ShowDialog();
         }
 

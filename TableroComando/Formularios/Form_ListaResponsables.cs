@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TableroComando.Fachadas;
+using TableroComando.Dominio;
 using TableroComando.GUIWrapper;
 using Dominio;
 
@@ -28,9 +28,13 @@ namespace TableroComando.Formularios
 
         private void ConfigurarResponsablesDataGrid()
         {
-            _sourceResponsables.DataSource = ResponsableRepository.Instance.All().Select( r => new ResponsableDataGridViewWrapper(r));
-            ResponsablesDataGrid.DataSource = _sourceResponsables;
-            ResponsablesDataGrid.Columns["Persona"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            IList<Responsable> responsables = ResponsableRepository.Instance.All();
+            if(responsables.Count != 0)
+            {
+                _sourceResponsables.DataSource = responsables.Select(r => new ResponsableDataGridViewWrapper(r));
+                ResponsablesDataGrid.DataSource = _sourceResponsables;
+                ResponsablesDataGrid.Columns["Persona"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
 
         }
 

@@ -6,12 +6,12 @@ using Dataweb.NShape;
 using Dataweb.NShape.Advanced;
 using Dataweb.NShape.GeneralShapes;
 using Dataweb.NShape.Layouters;
-using TableroComando.Fachadas;
-using Dominio;
 using TableroComando.Clases;
 using TableroComando.GUIWrapper;
 using Repositorios;
 using System.Runtime.InteropServices;
+using TableroComando.Dominio;
+using Dominio;
 
 
 namespace TableroComando.Clases

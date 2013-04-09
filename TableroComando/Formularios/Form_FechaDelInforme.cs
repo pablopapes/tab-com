@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TableroComando.Fachadas;
+using TableroComando.Dominio;
 using Dominio;
 using TableroComando.GUIWrapper;
 using System.Windows.Forms.DataVisualization.Charting;

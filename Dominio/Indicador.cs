@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using Dominio.Validations;
 
 namespace Dominio
 {
@@ -31,7 +32,8 @@ namespace Dominio
         protected virtual DateTime FechaCreacion { get; set; }
         public virtual Objetivo Objetivo { get; set; }
         public virtual Frecuencia Frecuencia { get; set; }
-        
+        public virtual string Unidad { get; set; }
+
         public virtual EstadoIndicador Estado
         {
             get
@@ -56,7 +58,10 @@ namespace Dominio
         private IList<Medicion> _mediciones = new List<Medicion>();
         public virtual IList<Medicion> Mediciones 
         { 
-            get { return _mediciones; } 
+            get 
+            {
+                return _mediciones; 
+            } 
             protected set { _mediciones = value; } 
         }
 
@@ -64,7 +69,16 @@ namespace Dominio
         private IList<Restriccion> _restricciones = new List<Restriccion>();
         public virtual IList<Restriccion> Restricciones
         {
-            get { return _restricciones; }
+            get
+            {
+                if (_restricciones.Count == 0) // Si no hay restricciones definidas, por defecto se crean 3.
+                {
+                    CrearRestriccion(TipoRestriccion.Menor, 1);
+                    CrearRestriccion(TipoRestriccion.Rango, 2);
+                    CrearRestriccion(TipoRestriccion.Mayor, 5);
+                }
+                return _restricciones; 
+            }
             set { _restricciones = value; }
         }
 
@@ -96,7 +110,9 @@ namespace Dominio
 
         public Indicador()
         {
-            if (FechaCreacion == null) // Fecha de creación será null si el indicador es nuevo, es ese caso, se le asigna la fecha actual.
+            Validator = new IndicadorValidator();
+
+            if (FechaCreacion.Year == 1) // Fecha de creación será null si el indicador es nuevo, es ese caso, se le asigna la fecha actual.
             {
                 FechaCreacion = DateTime.Now;
             }    
@@ -119,16 +135,28 @@ namespace Dominio
             return Codigo + " - " + Nombre;
         }
 
-        public virtual void AddMedicion(DateTime fechaMedicion, decimal valor, string detalle = "")
+
+        public virtual Medicion CrearMedicion()
         {
-            Mediciones.Add(new Medicion{ Fecha = fechaMedicion, Valor = valor, Detalle = detalle, Indicador = this } );
+            return new Medicion { Indicador = this, Frecuencia = this.Frecuencia };
+        }
+        public virtual void AddMedicion(Medicion medicionActual)
+        {
+            Mediciones.Add(medicionActual);
         }
 
         public virtual Restriccion CrearRestriccion(TipoRestriccion tipo)
         {
-            Restriccion restriccion = new Restriccion(tipo, Restricciones.Count);
-            Restricciones.Add(restriccion);
+            return CrearRestriccion(tipo, Restricciones.Count);
+        }
+
+        protected virtual Restriccion CrearRestriccion(TipoRestriccion tipo, int orden)
+        {
+            Restriccion restriccion = new Restriccion(tipo, orden) { Indicador = this };
+            _restricciones.Add(restriccion);
             return restriccion;
-        }    
+        }
     }
+
+   
 } 

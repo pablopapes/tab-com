@@ -14,7 +14,7 @@ namespace TableroComando.Formularios
     public partial class Form_Meta : Form
     {
         int posicionX = 100;
-        int posicionY = 0;
+        int posicionY = 50;
         int espacioEntreRangos = 0;
         public Indicador Indicador;
         
@@ -29,6 +29,7 @@ namespace TableroComando.Formularios
 
         private void CargarRestriccionesForms()
         {
+
             if(Indicador.Restricciones.Count != 0)
             {
                 foreach (Restriccion r in Indicador.Restricciones)
@@ -51,9 +52,13 @@ namespace TableroComando.Formularios
 
         private void Form_Meta_Load(object sender, EventArgs e)
         {
-            MayorBtn.Text = "X < " + Indicador.Codigo;
-            MenorBtn.Text = Indicador.Codigo + " < X";
-            RangoBtn.Text = "X < " + Indicador.Codigo + " < Y";
+            Binding binding = DataBindingConverter.BuildBindingDecimalString<Indicador>("Text", Indicador, "ValorEsperado");
+            ValorEsperadoTxt.DataBindings.Add(binding);
+
+            string codigo = Indicador.Codigo ?? "Indicador";
+            MayorBtn.Text = "X < " + codigo;
+            MenorBtn.Text = codigo + " < X";
+            RangoBtn.Text = "X < " + codigo + " < Y";
         }
 
         private void MenorBtn_Click(object sender, EventArgs e)
