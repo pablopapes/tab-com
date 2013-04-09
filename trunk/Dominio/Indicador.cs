@@ -13,6 +13,7 @@ namespace Dominio
         Mal,
         Regular,
         Bien, // Bueno = 2 por lo tanto para promediar todos los indicadores habrá que dividir por 2
+        NoDefinido
     };
 
     public class Indicador : Modelo<Indicador>
@@ -38,19 +39,21 @@ namespace Dominio
         {
             get
             {
-                decimal ultimoValorMedicion = Mediciones.Last().Valor;
-                
-                /* 
-                 * Se evalúa cada restriccion para evaluar en en qué restriccion se encuentra ultimoValorMedicion 
-                 * y así conocer el estado del indicador en función de la última medicion
-                 * 
-                 */
-                foreach (Restriccion r in Restricciones)
+                if (Mediciones.Count != 0)
                 {
-                    if (r.Evaluar(ultimoValorMedicion)) return r.Estado;
+                    decimal ultimoValorMedicion = Mediciones.Last().Valor;
+
+                    /* 
+                     * Se evalúa cada restriccion para evaluar en en qué restriccion se encuentra ultimoValorMedicion 
+                     * y así conocer el estado del indicador en función de la última medicion
+                     * 
+                     */
+                    foreach (Restriccion r in Restricciones)
+                    {
+                        if (r.Evaluar(ultimoValorMedicion)) return r.Estado;
+                    }
                 }
-                
-                return default(EstadoIndicador);
+                return EstadoIndicador.NoDefinido;
             }
         }
 
