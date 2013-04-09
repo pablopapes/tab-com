@@ -20,6 +20,7 @@ namespace TableroComando.Clases
                     _estadoColor.Add(EstadoIndicador.Bien, Color.Green);
                     _estadoColor.Add(EstadoIndicador.Mal, Color.Red);
                     _estadoColor.Add(EstadoIndicador.Regular, Color.Yellow);
+                    _estadoColor.Add(EstadoIndicador.NoDefinido, Color.White);
                 }
                 return _estadoColor;
             }
