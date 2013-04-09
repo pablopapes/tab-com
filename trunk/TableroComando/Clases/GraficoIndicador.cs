@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms.DataVisualization.Charting;
-using TableroComando.Fachadas;
 using Dominio;
 using TableroComando.GUIWrapper;
 using TableroComando.Clases;

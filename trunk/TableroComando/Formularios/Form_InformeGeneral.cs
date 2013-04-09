@@ -6,9 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TableroComando.Fachadas;
+using TableroComando.Dominio;
 using Dominio;
 using TableroComando.GUIWrapper;
+using Repositorios;
 using TableroComando.Clases;
 using Repositorios;
 using Dataweb.NShape;
@@ -72,7 +73,7 @@ namespace TableroComando.Formularios
 
 
             // Cargo la Frecuencia
-            IList<Frecuencia> ListaFrecuencias = IndicadorRepository.Instance.AllFrecuencias();
+            IList<Frecuencia> ListaFrecuencias = FrecuenciaRepository.Instance.All();
             foreach (Frecuencia Frecuencia in ListaFrecuencias)
             {
                 DataRow FilaFrecuencia = DsPerspectiva.Tables["frecuencias"].NewRow();

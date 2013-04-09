@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TableroComando.Fachadas;
+using TableroComando.Dominio;
 using TableroComando.GUIWrapper;
 using Dominio;
 
@@ -48,12 +48,15 @@ namespace TableroComando.Formularios
 
         private void ConfigurarObjetivosDataGrid()
         {
-            IList<Objetivo> l = ObjetivoRepository.Instance.All();
-            _sourceObjetivos.DataSource = ObjetivoRepository.Instance.All().Select( o => new ObjetivoDataGridViewWrapper(o));
-            ObjetivosDataGrid.DataSource = _sourceObjetivos;
+            IList<Objetivo> objetivos = ObjetivoRepository.Instance.All();
+            if (objetivos.Count != 0)
+            {
+                _sourceObjetivos.DataSource = ObjetivoRepository.Instance.All().Select(o => new ObjetivoDataGridViewWrapper(o));
+                ObjetivosDataGrid.DataSource = _sourceObjetivos;
 
-            ObjetivosDataGrid.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ObjetivosDataGrid.Columns["Pertenece"].Visible = false;
+                ObjetivosDataGrid.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                ObjetivosDataGrid.Columns["Pertenece"].Visible = false;
+            }
         }
 
         private void ObjetivosDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

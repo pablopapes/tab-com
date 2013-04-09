@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TableroComando.Formularios;
-using TableroComando.Fachadas;
+using TableroComando.Dominio;
 using Dominio;
 using NHibernate.Proxy;
 using Repositorios;
@@ -24,6 +24,8 @@ namespace TableroComando
             InitializeComponent();
             RestriccionGeneralRepository.Instance.CrearRestriccionesObjetivos();
             RestriccionGeneralRepository.Instance.CrearRestriccionesPerspectiva();
+            PerspectivaRepository.Instance.CrearPerspectivas();
+            FrecuenciaRepository.Instance.CrearFrecuencias();
         }
 
         // Empresa

@@ -32,6 +32,8 @@
             this.RangoBtn = new System.Windows.Forms.Button();
             this.MayorBtn = new System.Windows.Forms.Button();
             this.GuardarBtn = new System.Windows.Forms.Button();
+            this.ValorEsperadoTxt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // MenorBtn
@@ -77,11 +79,29 @@
             this.GuardarBtn.UseVisualStyleBackColor = true;
             this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
             // 
+            // ValorEsperadoTxt
+            // 
+            this.ValorEsperadoTxt.Location = new System.Drawing.Point(97, 69);
+            this.ValorEsperadoTxt.Name = "ValorEsperadoTxt";
+            this.ValorEsperadoTxt.Size = new System.Drawing.Size(100, 20);
+            this.ValorEsperadoTxt.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Valor Esperado";
+            // 
             // Form_Meta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 396);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ValorEsperadoTxt);
             this.Controls.Add(this.GuardarBtn);
             this.Controls.Add(this.MayorBtn);
             this.Controls.Add(this.RangoBtn);
@@ -90,6 +110,7 @@
             this.Text = "Form_Meta";
             this.Load += new System.EventHandler(this.Form_Meta_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -99,5 +120,7 @@
         private System.Windows.Forms.Button RangoBtn;
         private System.Windows.Forms.Button MayorBtn;
         private System.Windows.Forms.Button GuardarBtn;
+        private System.Windows.Forms.TextBox ValorEsperadoTxt;
+        private System.Windows.Forms.Label label1;
     }
 }

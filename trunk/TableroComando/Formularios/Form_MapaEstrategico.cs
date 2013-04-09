@@ -8,7 +8,7 @@ using Dataweb.NShape;
 using Dataweb.NShape.Advanced;
 using Dataweb.NShape.GeneralShapes;
 using Dataweb.NShape.Layouters;
-using TableroComando.Fachadas;
+using TableroComando.Dominio;
 using Dominio;
 using TableroComando.Clases;
 using TableroComando.GUIWrapper;

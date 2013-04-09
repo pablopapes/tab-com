@@ -17,6 +17,7 @@
     <property name="Observacion" />
     <property name="ValorEsperado" />
     <property name="FechaCreacion" />
+    <property name="Unidad" />
     
     <many-to-one name="Objetivo" column="objetivo_id" />
     <many-to-one name="Frecuencia" column="frecuencia_id" />

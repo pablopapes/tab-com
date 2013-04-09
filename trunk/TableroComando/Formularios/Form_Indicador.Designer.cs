@@ -34,6 +34,10 @@
             this.DetalleTxt = new System.Windows.Forms.TextBox();
             this.MedicionesGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripGraficoBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripMetaBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripAcciones = new System.Windows.Forms.ToolStripButton();
+            this.toolStripInforme = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.NombreTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,12 +55,8 @@
             this.FrecuenciasCB = new System.Windows.Forms.ComboBox();
             this.ResponsableCB = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.ValorEsperadoTxt = new System.Windows.Forms.TextBox();
+            this.UnidadTxt = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.toolStripGraficoBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripMetaBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripAcciones = new System.Windows.Forms.ToolStripButton();
-            this.toolStripInforme = new System.Windows.Forms.ToolStripButton();
             this.GuardarBtn = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MedicionesGridView)).BeginInit();
@@ -128,6 +128,42 @@
             this.toolStrip1.Size = new System.Drawing.Size(732, 25);
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripGraficoBtn
+            // 
+            this.toolStripGraficoBtn.Image = global::TableroComando.Properties.Resources.Chart_Bar;
+            this.toolStripGraficoBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripGraficoBtn.Name = "toolStripGraficoBtn";
+            this.toolStripGraficoBtn.Size = new System.Drawing.Size(84, 22);
+            this.toolStripGraficoBtn.Text = "Ver gráfico";
+            this.toolStripGraficoBtn.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripMetaBtn
+            // 
+            this.toolStripMetaBtn.Image = global::TableroComando.Properties.Resources.gears2;
+            this.toolStripMetaBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMetaBtn.Name = "toolStripMetaBtn";
+            this.toolStripMetaBtn.Size = new System.Drawing.Size(92, 22);
+            this.toolStripMetaBtn.Text = "Definir Meta";
+            this.toolStripMetaBtn.Click += new System.EventHandler(this.toolStripMetaBtn_Click);
+            // 
+            // toolStripAcciones
+            // 
+            this.toolStripAcciones.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAcciones.Image")));
+            this.toolStripAcciones.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripAcciones.Name = "toolStripAcciones";
+            this.toolStripAcciones.Size = new System.Drawing.Size(137, 22);
+            this.toolStripAcciones.Text = "Acciones Correctivas";
+            this.toolStripAcciones.Click += new System.EventHandler(this.toolStripAcciones_Click);
+            // 
+            // toolStripInforme
+            // 
+            this.toolStripInforme.Image = ((System.Drawing.Image)(resources.GetObject("toolStripInforme.Image")));
+            this.toolStripInforme.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripInforme.Name = "toolStripInforme";
+            this.toolStripInforme.Size = new System.Drawing.Size(69, 22);
+            this.toolStripInforme.Text = "Informe";
+            this.toolStripInforme.Click += new System.EventHandler(this.toolStripInforme_Click);
             // 
             // label1
             // 
@@ -280,21 +316,22 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(13, 78);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 16);
+            this.label9.Size = new System.Drawing.Size(52, 16);
             this.label9.TabIndex = 26;
-            this.label9.Text = "Valor Esperado";
+            this.label9.Text = "Unidad";
             // 
-            // ValorEsperadoTxt
+            // UnidadTxt
             // 
-            this.ValorEsperadoTxt.Location = new System.Drawing.Point(213, 77);
-            this.ValorEsperadoTxt.Name = "ValorEsperadoTxt";
-            this.ValorEsperadoTxt.Size = new System.Drawing.Size(272, 22);
-            this.ValorEsperadoTxt.TabIndex = 27;
-            this.ValorEsperadoTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.UnidadTxt.Location = new System.Drawing.Point(213, 75);
+            this.UnidadTxt.MaxLength = 10;
+            this.UnidadTxt.Name = "UnidadTxt";
+            this.UnidadTxt.Size = new System.Drawing.Size(90, 22);
+            this.UnidadTxt.TabIndex = 27;
+            this.UnidadTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.ValorEsperadoTxt);
+            this.groupBox2.Controls.Add(this.UnidadTxt);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.ResponsableCB);
             this.groupBox2.Controls.Add(this.FrecuenciasCB);
@@ -319,42 +356,6 @@
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos";
-            // 
-            // toolStripGraficoBtn
-            // 
-            this.toolStripGraficoBtn.Image = global::TableroComando.Properties.Resources.Chart_Bar;
-            this.toolStripGraficoBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripGraficoBtn.Name = "toolStripGraficoBtn";
-            this.toolStripGraficoBtn.Size = new System.Drawing.Size(84, 22);
-            this.toolStripGraficoBtn.Text = "Ver gráfico";
-            this.toolStripGraficoBtn.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripMetaBtn
-            // 
-            this.toolStripMetaBtn.Image = global::TableroComando.Properties.Resources.gears2;
-            this.toolStripMetaBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMetaBtn.Name = "toolStripMetaBtn";
-            this.toolStripMetaBtn.Size = new System.Drawing.Size(92, 22);
-            this.toolStripMetaBtn.Text = "Definir Meta";
-            this.toolStripMetaBtn.Click += new System.EventHandler(this.toolStripMetaBtn_Click);
-            // 
-            // toolStripAcciones
-            // 
-            this.toolStripAcciones.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAcciones.Image")));
-            this.toolStripAcciones.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripAcciones.Name = "toolStripAcciones";
-            this.toolStripAcciones.Size = new System.Drawing.Size(137, 22);
-            this.toolStripAcciones.Text = "Acciones Correctivas";
-            this.toolStripAcciones.Click += new System.EventHandler(this.toolStripAcciones_Click);
-            // 
-            // toolStripInforme
-            // 
-            this.toolStripInforme.Image = ((System.Drawing.Image)(resources.GetObject("toolStripInforme.Image")));
-            this.toolStripInforme.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripInforme.Name = "toolStripInforme";
-            this.toolStripInforme.Size = new System.Drawing.Size(69, 22);
-            this.toolStripInforme.Text = "Informe";
-            this.toolStripInforme.Click += new System.EventHandler(this.toolStripInforme_Click);
             // 
             // GuardarBtn
             // 
@@ -406,7 +407,7 @@
         private System.Windows.Forms.ToolStripButton toolStripMetaBtn;
         private System.Windows.Forms.ToolStripButton toolStripAcciones;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox ValorEsperadoTxt;
+        private System.Windows.Forms.TextBox UnidadTxt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox ResponsableCB;
         private System.Windows.Forms.ComboBox FrecuenciasCB;

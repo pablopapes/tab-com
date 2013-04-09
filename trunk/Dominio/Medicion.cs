@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Dominio.Validations;
 
 namespace Dominio
 {
@@ -19,6 +20,11 @@ namespace Dominio
 
             Medicion specificOject = (Medicion)obj;
             return (this.Fecha == specificOject.Fecha && this.Indicador == specificOject.Indicador);
+        }
+
+        public Medicion()
+        {
+            Validator = new MedicionValidator();
         }
     }
 }

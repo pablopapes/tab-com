@@ -13,7 +13,7 @@
     
     <many-to-one name="Perspectiva" column="perspectiva_id" />
     
-    <bag name="Indicadores" cascade="all-delete-orphan">
+    <bag name="Indicadores" cascade="all-delete-orphan" inverse="true">
       <key column="objetivo_id" />
       <one-to-many class="Indicador" />
     </bag>
