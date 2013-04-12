@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Agenda));
             this.IndicadoresDataGrid = new System.Windows.Forms.DataGridView();
             this.ValorTxt = new System.Windows.Forms.TextBox();
             this.FechaMedicionDtp = new System.Windows.Forms.DateTimePicker();
@@ -143,8 +144,12 @@
             this.ClientSize = new System.Drawing.Size(801, 462);
             this.Controls.Add(this.CamposMedicionGroup);
             this.Controls.Add(this.IndicadoresDataGrid);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Agenda";
-            this.Text = "Form_Agenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Agenda de Carga";
             this.Load += new System.EventHandler(this.Form_Agenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IndicadoresDataGrid)).EndInit();
             this.CamposMedicionGroup.ResumeLayout(false);

@@ -58,6 +58,9 @@
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="ObjectListView">
+      <HintPath>..\packages\Unofficial.ObjectListView.2.6.0\lib\net20\ObjectListView.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -87,6 +90,7 @@
     <Compile Include="Clases\DataBindingConverter.cs" />
     <Compile Include="Clases\MessageBoxHelper.cs" />
     <Compile Include="Clases\MapaEstrategico.cs" />
+    <Compile Include="Clases\Modelo.cs" />
     <Compile Include="Clases\VisualHelper.cs" />
     <Compile Include="Formularios\Form_AccionesCorrectivas.cs">
       <SubType>Form</SubType>
@@ -148,6 +152,12 @@
     <Compile Include="Formularios\Form_Meta.Designer.cs">
       <DependentUpon>Form_Meta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Form_MonitoreoArbol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_MonitoreoArbol.Designer.cs">
+      <DependentUpon>Form_MonitoreoArbol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Form_Responsable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,12 +181,6 @@
     </Compile>
     <Compile Include="Formularios\Form_AgregarObjetivo.Designer.cs">
       <DependentUpon>Form_AgregarObjetivo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Form_Monitoreo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Form_Monitoreo.Designer.cs">
-      <DependentUpon>Form_Monitoreo.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Form_RestriccionesObjetivo.cs">
       <SubType>Form</SubType>
@@ -277,6 +281,9 @@
     <EmbeddedResource Include="Formularios\Form_Meta.resx">
       <DependentUpon>Form_Meta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_MonitoreoArbol.resx">
+      <DependentUpon>Form_MonitoreoArbol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_Responsable.resx">
       <DependentUpon>Form_Responsable.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,9 +295,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_AgregarObjetivo.resx">
       <DependentUpon>Form_AgregarObjetivo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Form_Monitoreo.resx">
-      <DependentUpon>Form_Monitoreo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_RestriccionesObjetivo.resx">
       <DependentUpon>Form_RestriccionesObjetivo.cs</DependentUpon>
@@ -428,6 +432,9 @@
     <None Include="Resources\rojoNuevo.png" />
     <None Include="Resources\AmarilloNuevo.png" />
     <None Include="Resources\Document 2.png" />
+    <None Include="Resources\Document Checklist.png" />
+    <None Include="Resources\chart_bar.png" />
+    <None Include="Resources\chart_bar2.png" />
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -65,7 +65,9 @@ namespace TableroComando
 
         private void monitoreoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ShowForm(new Formularios.Form_Monitoreo());
+            Form_MonitoreoArbol Monitor = new Form_MonitoreoArbol();
+            Monitor.WindowState = FormWindowState.Maximized;
+            ShowForm(Monitor);
         }
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)

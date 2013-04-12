@@ -31,7 +31,7 @@ namespace TableroComando.Clases
 
         }
 
-        private static Project configurarMapaEstrategico(Template Verde,Template Amarillo,Template Rojo,Project project1, XmlStore xmlStore1)
+        private static Project configurarMapaEstrategico(Template Blanco,Template Verde,Template Amarillo,Template Rojo,Project project1, XmlStore xmlStore1)
         {
             // Open the NShape project
 
@@ -41,6 +41,11 @@ namespace TableroComando.Clases
             // Path to the NShape shape library assemblies
             project1.LibrarySearchPaths.Add(AppDomain.CurrentDomain.BaseDirectory);
             project1.Open();
+
+            // Template Blanco
+            Blanco = new Template("Blanco", project1.ShapeTypes["Ellipse"].CreateInstance());
+            ((IPlanarShape)Blanco.Shape).FillStyle = project1.Design.FillStyles.White;
+            project1.Repository.InsertTemplate(Blanco);
 
             // Template Verde
              Verde = new Template("Verde", project1.ShapeTypes["Ellipse"].CreateInstance());
@@ -61,11 +66,12 @@ namespace TableroComando.Clases
         }
         public static Diagram CrearMapa(Project project1, Diagram diagram, XmlStore xmlStore1)
         {
+            Template Blanco = null;
             Template Verde = null;
             Template Amarillo = null;
             Template Rojo = null;
 
-            project1 = configurarMapaEstrategico(Verde,Amarillo,Rojo, project1, xmlStore1);
+            project1 = configurarMapaEstrategico(Blanco,Verde, Amarillo, Rojo, project1, xmlStore1);
 
             Dictionary<string, RectangleBase> shapeDict = new Dictionary<string, RectangleBase>(1000);
 
@@ -105,7 +111,7 @@ namespace TableroComando.Clases
 
                     System.Drawing.Color Color = VisualHelper.GetColor(Objetivo.Estado(restricciones));
 
-                    Template TColorObejtivo = SetColor(Verde,Amarillo,Rojo,Color);
+                    Template TColorObejtivo = SetColor(Blanco,Verde, Amarillo, Rojo, Color);
 
                     referringShape = (RectangleBase)TColorObejtivo.CreateShape();
                     referringShape.Width = 120;
@@ -145,7 +151,7 @@ namespace TableroComando.Clases
                     {
                         System.Drawing.Color Color = VisualHelper.GetColor(objetivoHijo.Estado(restricciones));
 
-                        Template TColorObejtivo = SetColor(Verde,Amarillo,Rojo,Color);
+                        Template TColorObejtivo = SetColor(Blanco,Verde, Amarillo, Rojo, Color);
 
                         referredShape = (RectangleBase)TColorObejtivo.CreateShape();
                         referredShape.Width = 120;
@@ -215,22 +221,35 @@ namespace TableroComando.Clases
             return shape;
         }
 
-        private static Template SetColor(Template Verde,Template Amarillo,Template Rojo,  System.Drawing.Color Color)
+        private static Template SetColor(Template Blanco,Template Verde,Template Amarillo,Template Rojo,  System.Drawing.Color Color)
         {
             // Compruebo el color del objetivo 
             Template TColor = null;
 
-            if (Color == System.Drawing.Color.Green)
+            if (Color == System.Drawing.Color.White)
             {
-                TColor = Verde;
+                TColor = Blanco;
             }
-            if (Color == System.Drawing.Color.Yellow)
+            else
             {
-                TColor = Amarillo;
-            }
-            if (Color == System.Drawing.Color.Red)
-            {
-                TColor = Rojo;
+                if (Color == System.Drawing.Color.Green)
+                {
+                    TColor = Verde;
+                }
+                else
+                {
+                    if (Color == System.Drawing.Color.Yellow)
+                    {
+                        TColor = Amarillo;
+                    }
+                    else
+                    {
+                        if (Color == System.Drawing.Color.Red)
+                        {
+                            TColor = Rojo;
+                        }
+                    }
+                }
             }
 
             return TColor;

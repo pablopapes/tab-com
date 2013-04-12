@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Indicador));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.DetalleTxt = new System.Windows.Forms.TextBox();
@@ -131,7 +130,7 @@
             // 
             // toolStripGraficoBtn
             // 
-            this.toolStripGraficoBtn.Image = global::TableroComando.Properties.Resources.Chart_Bar;
+            this.toolStripGraficoBtn.Image = global::TableroComando.Properties.Resources.chart_bar2;
             this.toolStripGraficoBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripGraficoBtn.Name = "toolStripGraficoBtn";
             this.toolStripGraficoBtn.Size = new System.Drawing.Size(84, 22);
@@ -149,7 +148,7 @@
             // 
             // toolStripAcciones
             // 
-            this.toolStripAcciones.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAcciones.Image")));
+            this.toolStripAcciones.Image = global::TableroComando.Properties.Resources.Document_2;
             this.toolStripAcciones.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripAcciones.Name = "toolStripAcciones";
             this.toolStripAcciones.Size = new System.Drawing.Size(137, 22);
@@ -158,7 +157,7 @@
             // 
             // toolStripInforme
             // 
-            this.toolStripInforme.Image = ((System.Drawing.Image)(resources.GetObject("toolStripInforme.Image")));
+            this.toolStripInforme.Image = global::TableroComando.Properties.Resources.Document_Checklist;
             this.toolStripInforme.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripInforme.Name = "toolStripInforme";
             this.toolStripInforme.Size = new System.Drawing.Size(69, 22);

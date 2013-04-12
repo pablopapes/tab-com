@@ -28,6 +28,11 @@ namespace Dominio
             return default(EstadoIndicador);
         }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
 
         
     }

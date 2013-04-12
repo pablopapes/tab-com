@@ -28,7 +28,7 @@ namespace TableroComando.Clases
             chart1.Series.Add(Series2);
             chart1.ChartAreas.Add(ChartArea1);
 
-            chart1 = Clases.Herramientas.PropiedadesDelGrafico(Indicador.Nombre, "Fechas", "Valores", chart1, SeriesChartType.Line);
+            chart1 = Clases.Herramientas.PropiedadesDelGrafico(Indicador.Nombre, "Fechas", "Valores (" + Indicador.Unidad + ")", chart1, SeriesChartType.Line);
 
             CalcularMetas(chart1,Indicador);
 
