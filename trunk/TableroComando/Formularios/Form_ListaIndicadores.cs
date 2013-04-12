@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using TableroComando.Dominio;
 using TableroComando.GUIWrapper;
 using Dominio;
+using TableroComando.Clases;
 
 namespace TableroComando.Formularios
 {
@@ -39,7 +40,13 @@ namespace TableroComando.Formularios
 
         private void AgregarBtn_Click(object sender, EventArgs e)
         {
-            new Form_Indicador().ShowDialog();
+            Form_Indicador f = new Form_Indicador(new CreateMode());
+            f.ShowDialog();
+            if (f.Guardado)
+            {
+                // Se agrega un wrapper del nuevo indicador que se acaba de crear.
+                _sourceIndicador.Add(new IndicadorDataGridViewWrapper(f.Indicador));
+            }
         }
 
         private void BorrarBtn_Click(object sender, EventArgs e)
@@ -51,9 +58,10 @@ namespace TableroComando.Formularios
 
         private void IndicadoresDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Form_Indicador f = new Form_Indicador();
+            Form_Indicador f = new Form_Indicador(new UpdateMode());
             f.Indicador = GetIndicadorSeleccionado();
             f.ShowDialog();
+            
         }
 
         private Indicador GetIndicadorSeleccionado()

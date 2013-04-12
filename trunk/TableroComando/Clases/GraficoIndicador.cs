@@ -37,7 +37,6 @@ namespace TableroComando.Clases
             {
                 if ((medicion.Fecha.Date >= Fecha1) & (medicion.Fecha.Date <= Fecha2))
                 {
-
                     chart1.Series["Series1"].Points.Add((double)medicion.Valor);
                     chart1.Series["Series1"].Points[i].AxisLabel = LabelGrafico(Indicador, medicion);
                     chart1.Series["Series2"].Points.Add((double)Indicador.ValorEsperado);
@@ -54,19 +53,13 @@ namespace TableroComando.Clases
             switch (indicador.Frecuencia.Periodo)
             {
                 case "Diaria": return medicion.Fecha.ToShortDateString();
-                    break;
                 case "Semanal": return "Sem " + GetWeekNumber(medicion.Fecha).ToString();
-                    break;
                 case "Mensual":
                     return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(medicion.Fecha.Month).ToString();
-                    break;
                 case "Trimestral":
                     return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(medicion.Fecha.Month).ToString();
-                    break;
                 case "Anual": return medicion.Fecha.Year.ToString();
-                    break;
                 default: return medicion.Fecha.ToShortDateString();
-                    break;
             }
 
         }

@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\FormMode.cs" />
     <Compile Include="Clases\GraficoIndicador.cs" />
     <Compile Include="Clases\Herramientas.cs" />
     <Compile Include="Clases\DataBindingConverter.cs" />

@@ -60,6 +60,8 @@ namespace Dominio
         public Objetivo()
         {
             Validator = new ObjetivoValidator();
+
+            PorcentajeRelevancia = 1; // Por defecto, el porcentaje de relevancia es 1%
         }
 
         /* Devuelve un EstadoObjetivo que representa si su estado es Bien, Mal, Regular */

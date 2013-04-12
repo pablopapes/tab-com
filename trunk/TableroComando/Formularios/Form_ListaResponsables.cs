@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using TableroComando.Dominio;
 using TableroComando.GUIWrapper;
 using Dominio;
+using TableroComando.Clases;
 
 namespace TableroComando.Formularios
 {
@@ -40,8 +41,13 @@ namespace TableroComando.Formularios
 
         private void AgregarBtn_Click(object sender, EventArgs e)
         {
-            Form_Responsable f = new Form_Responsable(_sourceResponsables);
-            f.Show();
+            Form_Responsable f = new Form_Responsable(new CreateMode());
+            f.ShowDialog();
+            if (f.Guardado)
+            {
+                // Se agrega al datagrid un wrapper del nuevo responsable creado
+                _sourceResponsables.Add(new ResponsableDataGridViewWrapper(f.Responsable));
+            } 
         }
 
         private void BorrarBtn_Click(object sender, EventArgs e)
@@ -58,9 +64,9 @@ namespace TableroComando.Formularios
 
         private void ResponsablesDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Form_Responsable f = new Form_Responsable(_sourceResponsables, "Actualizar");
+            Form_Responsable f = new Form_Responsable(new UpdateMode());
             f.Responsable = ((ResponsableDataGridViewWrapper)_sourceResponsables.Current).GetResponsable();
-            f.Show();
+            f.ShowDialog();
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using TableroComando.Dominio;
 using TableroComando.GUIWrapper;
 using Dominio;
+using TableroComando.Clases;
 
 namespace TableroComando.Formularios
 {
@@ -28,7 +29,12 @@ namespace TableroComando.Formularios
 
         private void AgregarBtn_Click(object sender, EventArgs e)
         {
-            new Form_AgregarObjetivo().ShowDialog();
+            Form_AgregarObjetivo f = new Form_AgregarObjetivo(new CreateMode());
+            f.ShowDialog();
+            if (f.Guardado)
+            {
+                _sourceObjetivos.Add(new ObjetivoDataGridViewWrapper(f.Objetivo));
+            }
         }
 
         private void BorrarBtn_Click(object sender, EventArgs e)
@@ -61,7 +67,7 @@ namespace TableroComando.Formularios
 
         private void ObjetivosDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Form_AgregarObjetivo f = new Form_AgregarObjetivo("Actualizar");
+            Form_AgregarObjetivo f = new Form_AgregarObjetivo(new UpdateMode());
             f.Objetivo = ((ObjetivoDataGridViewWrapper)_sourceObjetivos.Current).GetObjetivo();
             f.ShowDialog();
         }

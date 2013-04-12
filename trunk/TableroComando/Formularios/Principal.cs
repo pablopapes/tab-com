@@ -47,17 +47,6 @@ namespace TableroComando
             ShowForm(new Form_MapaEstrategico());
         }
 
-        // Objetivos
-        private void agregarUnObjetivoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowForm(new Formularios.Form_AgregarObjetivo());
-        }
-
-        private void agregarIndicadoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowForm(new Formularios.Form_Indicador());
-        }
-
         private void responsablesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(new Form_ListaResponsables());
@@ -93,7 +82,7 @@ namespace TableroComando
 
         private void accionesCorrectivasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new Form_ListaAcciones());
+            ShowForm(new Form_AccionesCorrectivas(AccionCorrectivaRepository.Instance.All()));
         }
 
 

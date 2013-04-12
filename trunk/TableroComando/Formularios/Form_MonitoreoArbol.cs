@@ -61,7 +61,7 @@ namespace TableroComando.Formularios
             {
                 if (((Modelo)e.Item.RowObject).Indicador != null)
                 {
-                    Form_Indicador f = new Form_Indicador();
+                    Form_Indicador f = new Form_Indicador(new UpdateMode());
                     f.Indicador = ((Modelo)e.Item.RowObject).Indicador;
                     f.ShowDialog();
                 }
@@ -69,7 +69,7 @@ namespace TableroComando.Formularios
                 {
                     if (((Modelo)e.Item.RowObject).isObjetive)
                     {
-                        Form_AgregarObjetivo f = new Form_AgregarObjetivo();
+                        Form_AgregarObjetivo f = new Form_AgregarObjetivo(new UpdateMode());
                         f.Objetivo = ((Modelo)e.Item.RowObject).Objetivo;
                         f.ShowDialog();
                     }

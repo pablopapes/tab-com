@@ -44,9 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FrecuenciaAnual.cs" />
+    <Compile Include="FrecuenciaDiaria.cs" />
     <Compile Include="FrecuenciaEspecifica.cs" />
     <Compile Include="FrecuenciaMensual.cs" />
     <Compile Include="FrecuenciaSemanal.cs" />
+    <Compile Include="FrecuenciaTrimestral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
