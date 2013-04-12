@@ -88,9 +88,9 @@ namespace TableroComando.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap Chart_Bar {
+        internal static System.Drawing.Bitmap chart_bar2 {
             get {
-                object obj = ResourceManager.GetObject("Chart Bar", resourceCulture);
+                object obj = ResourceManager.GetObject("chart_bar2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -112,6 +112,13 @@ namespace TableroComando.Properties {
         internal static System.Drawing.Bitmap Document_2 {
             get {
                 object obj = ResourceManager.GetObject("Document 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Document_Checklist {
+            get {
+                object obj = ResourceManager.GetObject("Document Checklist", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

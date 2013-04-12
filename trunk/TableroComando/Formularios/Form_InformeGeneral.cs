@@ -98,6 +98,9 @@ namespace TableroComando.Formularios
                     if (Color == System.Drawing.Color.Yellow) ColorPersp = 0;
                     else
                         if (Color == System.Drawing.Color.Red) ColorPersp = -1;
+                        else
+                            if (Color == System.Drawing.Color.White) ColorPersp = 2;
+
                 FilaPerspectiva["Color"] = ColorPersp;
 
                 DsPerspectiva.Tables["Perspectivas"].Rows.Add(FilaPerspectiva);
@@ -112,20 +115,26 @@ namespace TableroComando.Formularios
                     FilaObjetivo["Id"] = Objetivo.Id;
                     FilaObjetivo["Nombre"] = Objetivo.Nombre;
                     FilaObjetivo["perspectiva_id"] = Objetivo.Perspectiva.Id;
+                    
                     // Cargo el color segun el estado
                      Color = VisualHelper.GetColor(Objetivo.Estado(restriccionesObj));
+
                     int? ColorObj = null;
                     if (Color == System.Drawing.Color.Green) ColorObj = 1;
                     else
                         if (Color == System.Drawing.Color.Yellow) ColorObj = 0;
                         else
                             if (Color == System.Drawing.Color.Red) ColorObj = -1;
+                            else
+                                if (Color == System.Drawing.Color.White) ColorObj = 2;
+
                     FilaObjetivo["Color"] = ColorObj;
 
                     DsPerspectiva.Tables["Objetivos"].Rows.Add(FilaObjetivo);
                     DsPerspectiva.Tables["Objetivos"].AcceptChanges();
 
                     // Cargo el Indicador
+
                     foreach (Indicador Indicador in Objetivo.Indicadores)
                     {
                         DataRow Filaindicador = DsPerspectiva.Tables["indicadores"].NewRow();
@@ -136,6 +145,7 @@ namespace TableroComando.Formularios
                         Filaindicador["objetivo_id"] = Indicador.Objetivo.Id;
                         Filaindicador["responsable_id"] = Indicador.Responsable.Id;
                         Filaindicador["frecuencia_id"] = Indicador.Frecuencia.Id;
+
                          // Cargo el color segun el estado
                          Color =VisualHelper.GetColor(Indicador.Estado);
                         int? ColorInd = null;
@@ -143,6 +153,9 @@ namespace TableroComando.Formularios
                             if (Color == System.Drawing.Color.Yellow) ColorInd = 0;
                             else
                                 if (Color == System.Drawing.Color.Red) ColorInd = -1;
+                                else
+                                    if (Color == System.Drawing.Color.White) ColorInd = 2;
+
                         Filaindicador["Color"] = ColorInd;
 
                         DsPerspectiva.Tables["indicadores"].Rows.Add(Filaindicador);

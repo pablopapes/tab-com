@@ -59,6 +59,9 @@ namespace TableroComando.Formularios
                     if (Color == System.Drawing.Color.Yellow) ColorInd = 0;
                     else
                         if (Color == System.Drawing.Color.Red) ColorInd = -1;
+                        else
+                            if (Color == System.Drawing.Color.White) ColorInd = 2;
+
                 Filaindicador["Color"] = ColorInd;
 
                 DsIndicador.Tables["indicadores"].Rows.Add(Filaindicador);
@@ -104,9 +107,10 @@ namespace TableroComando.Formularios
 
                     DsIndicador.Tables["mediciones"].Rows.Add(FilaMedicion);
                 }
+                
             }
-
             DsIndicador.Tables["mediciones"].AcceptChanges();
+            
 
            
             

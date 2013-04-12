@@ -34,8 +34,6 @@
             this.xmlStore1 = new Dataweb.NShape.XmlStore();
             this.toolSetController1 = new Dataweb.NShape.Controllers.ToolSetController();
             this.toolSetListViewPresenter1 = new Dataweb.NShape.WinFormsUI.ToolSetListViewPresenter(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.display1.SuspendLayout();
             this.SuspendLayout();
             // 
             // display1
@@ -46,7 +44,6 @@
             this.display1.BackgroundGradientAngle = 45;
             this.display1.ConnectionPointShape = Dataweb.NShape.Controllers.ControlPointShape.Circle;
             this.display1.ControlPointAlpha = ((byte)(255));
-            this.display1.Controls.Add(this.button1);
             this.display1.DiagramSetController = this.diagramSetController1;
             this.display1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.display1.GridAlpha = ((byte)(255));
@@ -118,16 +115,6 @@
             this.toolSetListViewPresenter1.ShowDefaultContextMenu = true;
             this.toolSetListViewPresenter1.ToolSetController = this.toolSetController1;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(13, 549);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form_MapaEstrategico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,7 +125,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mapa Estrategico";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.display1.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -152,7 +138,6 @@
 		private Dataweb.NShape.XmlStore xmlStore1;
 		private Dataweb.NShape.Controllers.ToolSetController toolSetController1;
         private Dataweb.NShape.WinFormsUI.ToolSetListViewPresenter toolSetListViewPresenter1;
-        private System.Windows.Forms.Button button1;
 	}
 }
 
