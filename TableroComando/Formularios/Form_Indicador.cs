@@ -18,16 +18,17 @@ namespace TableroComando.Formularios
 {
     public partial class Form_Indicador : Form
     {
+        private FormMode _mode;
         private ObjetivoRepository _objetivoFachada = ObjetivoRepository.Instance;
         private BindingSource _sourceMediciones;
-        private List<ValidationFailure> errors = new List<ValidationFailure>();
         public Indicador Indicador { get; set; }
+        public bool Guardado { get; protected set; }
 
 
-        public Form_Indicador(string textButton = "Agregar")
+        public Form_Indicador(FormMode mode)
         {
             InitializeComponent();
-            GuardarBtn.Text = textButton;
+            _mode = mode;
         }
 
         private void Form_AgregarIndicador_Load(object sender, EventArgs e)
@@ -84,20 +85,13 @@ namespace TableroComando.Formularios
             ValidationResult result = IndicadorRepository.Instance.Save(Indicador);
             if (result.IsValid)
             {
-                DialogResult respuesta = MessageBox.Show("Los datos se guardaron extosamente. ¿Desea cargar otro indicador?", "", MessageBoxButtons.YesNo);
-                if (respuesta == DialogResult.Yes) OpenNewForm();
-                this.Close();
+                _mode.AfterSave<Form_Indicador>(this);
+                Guardado = true;
             }
             else
             {
                 MessageBoxHelper.ShowValidationFailure(result.Errors);
             }
-        }
-
-        private void OpenNewForm()
-        {
-            Form_Indicador f = new Form_Indicador();
-            f.Show();
         }
 
         private void CargarPropiedadesIndicador()

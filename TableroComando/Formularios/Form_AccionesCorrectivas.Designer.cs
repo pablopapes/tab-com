@@ -53,7 +53,8 @@
             this.AccionesDataGrid.RowHeadersVisible = false;
             this.AccionesDataGrid.Size = new System.Drawing.Size(1020, 396);
             this.AccionesDataGrid.TabIndex = 0;
-            this.AccionesDataGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.AccionesDataGrid_EditingControlShowing);
+            this.AccionesDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.AccionesDataGrid_CellFormatting);
+            this.AccionesDataGrid.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.AccionesDataGrid_CellParsing);
             // 
             // GuardarBtn
             // 

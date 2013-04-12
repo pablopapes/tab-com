@@ -98,6 +98,10 @@ namespace Dominio
             get { return (Mediciones.Count == 0) ? FechaCreacion : Mediciones.Last().Fecha; }
         }
 
+        /*
+         * El indicador requiere medición si no hay mediciones hechas aún 
+         * o si se excedió la fecha con respecto a la última medición. 
+         */
         public virtual bool RequiereMedicion
         {
             get { return Frecuencia.RequiereMedicion(UltimaFechaMedicion); }

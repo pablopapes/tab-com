@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using TableroComando.Dominio;
 using Dominio;
 using TableroComando.GUIWrapper;
+using TableroComando.Clases;
 
 namespace TableroComando.Formularios
 {
@@ -120,7 +121,7 @@ namespace TableroComando.Formularios
 
         private void AbrirFormularioIndicador(IndicadorDataGridViewWrapper wrapper)
         {
-            Form_Indicador f = new Form_Indicador("Actualizar");
+            Form_Indicador f = new Form_Indicador(new UpdateMode());
             f.Indicador = wrapper.GetIndicador();
             f.ShowDialog();
         }
@@ -148,7 +149,7 @@ namespace TableroComando.Formularios
 
         private void AbrirFormularioObjetivo(ObjetivoDataGridViewWrapper wrapper)
         {
-            Form_AgregarObjetivo f = new Form_AgregarObjetivo("Actualizar");
+            Form_AgregarObjetivo f = new Form_AgregarObjetivo(new UpdateMode());
             f.Objetivo = wrapper.GetObjetivo();
             f.ShowDialog();
         }

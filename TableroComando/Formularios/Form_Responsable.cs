@@ -9,26 +9,29 @@ using System.Windows.Forms;
 using Dominio;
 using TableroComando.Dominio;
 using TableroComando.GUIWrapper;
+using TableroComando.Clases;
+using Dominio.Validations.Results;
 
 namespace TableroComando.Formularios
 {
     public partial class Form_Responsable : Form
     {
         public Responsable Responsable { get; set; }
-        private BindingSource _sourceResponsables;
+        private FormMode _mode;
+        public bool Guardado { get; protected set; }
 
         /** 
          * El BindingSource se pasa por parámetro para agregar a la lista el nuevo responsable creado.
          **/
-        public Form_Responsable(BindingSource responsables, string textButton = "Guardar")
+        public Form_Responsable(FormMode mode)
         {
             InitializeComponent();
-            _sourceResponsables = responsables;
-            GuardarBtn.Text = textButton;
+            _mode = mode;
         }
 
         private void Form_Responsable_Load(object sender, EventArgs e)
         {
+            GuardarBtn.Text = _mode.GuardarBtnText;
             CargarResponsableProperties();
         }
 
@@ -44,8 +47,17 @@ namespace TableroComando.Formularios
 
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
-            ResponsableRepository.Instance.Save(Responsable);
-            _sourceResponsables.Add(new ResponsableDataGridViewWrapper(Responsable));
+            ValidationResult result = ResponsableRepository.Instance.Save(Responsable);
+            if (result.IsValid)
+            {
+                _mode.AfterSave<Form_Responsable>(this);
+                Guardado = true;
+            }
+            else
+            {
+                MessageBoxHelper.ShowValidationFailure(result.Errors);
+            }
+            
         }
     }
 }

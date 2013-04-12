@@ -27,6 +27,15 @@ namespace TableroComando.Dominio
         {
             return (_session.CreateCriteria<Indicador>().Add(Restrictions.Like("Codigo", codigo)).UniqueResult() != null) ? false : true;
         }
+
+        public bool ValidateCodigoUnico(Indicador indicadorToBeUpdate)
+        {
+            Indicador indicadorExistente = (Indicador)_session.CreateCriteria<Indicador>()
+                .Add(Restrictions.Like("Codigo", indicadorToBeUpdate.Codigo))
+                .UniqueResult();
+            if (indicadorExistente == null || indicadorToBeUpdate == indicadorExistente) return true;
+            return false;
+        }
     }
 }
 

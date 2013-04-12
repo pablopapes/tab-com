@@ -19,5 +19,11 @@ namespace Dominio
             get { return _indicadores; }
             protected set { _indicadores = value; }
         }
+
+        public override string ToString()
+        {
+            return Area;
+        }
+
     }
 }

@@ -9,25 +9,29 @@ using System.Windows.Forms;
 using TableroComando.Dominio;
 using Dominio;
 using TableroComando.GUIWrapper;
+using TableroComando.Clases;
+using Dominio.Validations.Results;
 
 
 namespace TableroComando.Formularios
 {
     public partial class Form_AgregarObjetivo : Form
     {
+        private FormMode _mode;
         private PerspectivaRepository PerspectivaFachada = PerspectivaRepository.Instance;
         private ObjetivoRepository ObjetivoFachada = ObjetivoRepository.Instance;
-        public Objetivo Objetivo {get; set; }
+        public Objetivo Objetivo { get; set; }
+        public bool Guardado { get; protected set; }
 
-        public Form_AgregarObjetivo(string textButton = "Agregar")
+        public Form_AgregarObjetivo(FormMode mode)
         {
             InitializeComponent();
-            BTNGuardar.Text = textButton;
+            _mode = mode;
         }
 
         private void Form_AgregarObjetivo_Load(object sender, EventArgs e)
-        {  
-            // Cargo las perspectivas y setear ciertas propiedades
+        {
+            BTNGuardar.Text = _mode.GuardarBtnText;
             ConfigurarCBPerspectiva();
 
             LoadObjetivo();
@@ -90,11 +94,13 @@ namespace TableroComando.Formularios
         private void BTNGuardar_Click(object sender, EventArgs e)
         {
             Objetivo.ObjetivosHijos = GetCheckedObjetivos();
-            ObjetivoFachada.SaveOrUpdate(Objetivo);
-
-            DialogResult result = MessageBox.Show("Los datos se guardaron extosamente. ¿Desea cargar otro objetivo?", "", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes) OpenNewForm();
-            else this.Close();
+            ValidationResult result = ObjetivoFachada.Save(Objetivo);
+            if (result.IsValid)
+            {
+                _mode.AfterSave<Form_AgregarObjetivo>(this);
+                Guardado = true;
+            }
+            else MessageBoxHelper.ShowValidationFailure(result.Errors); 
             
         }
 
@@ -111,10 +117,5 @@ namespace TableroComando.Formularios
                 .ToList();
         }
 
-        private void OpenNewForm()
-        {
-            Form_AgregarObjetivo f = new Form_AgregarObjetivo();
-            f.Show();
-        }
     }
 }

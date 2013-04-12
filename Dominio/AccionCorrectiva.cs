@@ -21,5 +21,10 @@ namespace Dominio
         }
         public virtual Responsable Responsable { get; set; }
         public virtual Indicador Indicador { get; set; }
+
+        public AccionCorrectiva()
+        {
+            FechaFin = DateTime.Now.AddDays(1); // Por defecto la fecha fin es el día siguiente.
+        }
     }
 }

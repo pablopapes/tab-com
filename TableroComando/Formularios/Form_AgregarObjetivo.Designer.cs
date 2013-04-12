@@ -157,9 +157,19 @@
             // RelevanciaNum
             // 
             this.RelevanciaNum.Location = new System.Drawing.Point(117, 129);
+            this.RelevanciaNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.RelevanciaNum.Name = "RelevanciaNum";
             this.RelevanciaNum.Size = new System.Drawing.Size(51, 20);
             this.RelevanciaNum.TabIndex = 21;
+            this.RelevanciaNum.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label3
             // 

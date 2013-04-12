@@ -25,6 +25,7 @@ D:\proyectos\flexit\tab-com\Dominio\bin\Debug\FluentValidation.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\FrecuenciaStrategy.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Iesi.Collections.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\NHibernate.dll
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\ObjectListView.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\FrecuenciaStrategy.pdb
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\FluentValidation.pdb
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\FluentValidation.xml

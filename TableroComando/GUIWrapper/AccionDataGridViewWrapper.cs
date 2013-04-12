@@ -18,12 +18,14 @@ namespace TableroComando.GUIWrapper
         }
 
         public DateTime FechaFin 
-        { 
+        {
+            set { _accionCorrectiva.FechaFin = value;  }
             get { return _accionCorrectiva.FechaFin; } 
         }
 
         public Responsable Responsable
         {
+            set { _accionCorrectiva.Responsable = value; }
             get { return _accionCorrectiva.Responsable; }
         }
 
