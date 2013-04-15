@@ -28,6 +28,12 @@ namespace TableroComando.Dominio
             return (_session.CreateCriteria<Indicador>().Add(Restrictions.Like("Codigo", codigo)).UniqueResult() != null) ? false : true;
         }
 
+        public IList<Indicador> FindByNombre(String Nombre)
+        {
+            return _session.CreateCriteria<Indicador>()
+                                             .Add(Restrictions.Like("Nombre", "%" + Nombre + "%")).List<Indicador>();
+        }
+
         public bool ValidateCodigoUnico(Indicador indicadorToBeUpdate)
         {
             Indicador indicadorExistente = (Indicador)_session.CreateCriteria<Indicador>()
