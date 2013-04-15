@@ -18,7 +18,9 @@ namespace TableroComando.Formularios
         BindingSource _accionesSource = new BindingSource();
         BindingList<EstadoTarea> _estadoTareasBinding = new BindingList<EstadoTarea>(Enum.GetValues(typeof(EstadoTarea)).Cast<EstadoTarea>().ToList());
         Indicador _indicador;
-        DataGridTextBoxColumn OptionlNombreIndicadorColumn;
+
+        // Esta columna contiene solo el código del indicador y solo se crea y muestra cuando se listan todas las acciones correctivas
+        DataGridViewTextBoxColumn CodigoIndicadorColumn; 
 
         /* Este contructor es usado para mostrar cualquier listado de acciones correctivas */
         public Form_AccionesCorrectivas(IList<AccionCorrectiva> acciones)
@@ -26,6 +28,10 @@ namespace TableroComando.Formularios
             InitializeComponent();
             _accionesSource.DataSource = acciones.Select(a => new AccionDataGridViewWrapper(a)).ToList();
             AccionesDataGrid.AllowUserToAddRows = false;
+            CodigoIndicadorColumn = new DataGridViewTextBoxColumn();
+            CodigoIndicadorColumn.Name = "Indicador";
+            CodigoIndicadorColumn.HeaderText = "Indicador";
+            CodigoIndicadorColumn.DataPropertyName = "Indicador";
         }
 
         /* Este contructor es usado para mostrar todas las acciones correctivas de un indicador en particular */
@@ -39,6 +45,8 @@ namespace TableroComando.Formularios
         private void Form_AccionesCorrectivas_Load(object sender, EventArgs e)
         {
             AccionesDataGrid.DataSource = _accionesSource;
+            if (CodigoIndicadorColumn != null) AccionesDataGrid.Columns.Add(CodigoIndicadorColumn);
+
             AccionesDataGrid.Columns.Remove("Responsable");
 
             // Se crea una nueva columna de Responsable de las acciones
@@ -85,6 +93,7 @@ namespace TableroComando.Formularios
             }
         }
 
+        // Estos eventos están para que retornen objetos cuando una opción es seleccionada.
         private void AccionesDataGrid_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
         {
             if (AccionesDataGrid.CurrentCell.OwningColumn is DataGridViewComboBoxColumn) {
@@ -100,8 +109,7 @@ namespace TableroComando.Formularios
             if (e.Value != null)
             {
                 e.Value = e.Value.ToString();
-            }
-           
+            }           
         }
     }
 }
