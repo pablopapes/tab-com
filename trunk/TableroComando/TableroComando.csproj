@@ -408,9 +408,6 @@
     <None Include="Resources\mail-new.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\wall.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\mayor.png" />
   </ItemGroup>
   <ItemGroup>
@@ -436,6 +433,12 @@
     <None Include="Resources\Document Checklist.png" />
     <None Include="Resources\chart_bar.png" />
     <None Include="Resources\chart_bar2.png" />
+    <None Include="Resources\options-edit.gif" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\gear_16.png" />
+    <None Include="Resources\Chart Bar1.png" />
+    <None Include="Resources\Search.png" />
+    <None Include="Resources\wall.bmp" />
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

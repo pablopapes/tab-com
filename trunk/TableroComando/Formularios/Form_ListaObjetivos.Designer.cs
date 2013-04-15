@@ -83,8 +83,11 @@
             this.Controls.Add(this.BorrarBtn);
             this.Controls.Add(this.AgregarBtn);
             this.Controls.Add(this.ObjetivosDataGrid);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_ListaObjetivos";
-            this.Text = "Form_ListaObjetivos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gestión de Objetivos";
             this.Load += new System.EventHandler(this.Form_ListaObjetivos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ObjetivosDataGrid)).EndInit();
             this.ResumeLayout(false);

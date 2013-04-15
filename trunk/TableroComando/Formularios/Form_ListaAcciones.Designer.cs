@@ -68,7 +68,7 @@
             this.Controls.Add(this.GuardarBtn);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form_ListaAcciones";
-            this.Text = "Form_ListaAcciones";
+            this.Text = "Acciones Correctivas";
             this.Load += new System.EventHandler(this.Form_ListaAcciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

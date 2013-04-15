@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Responsable));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.NombreAreaTxt = new System.Windows.Forms.TextBox();
@@ -130,8 +131,12 @@
             this.Controls.Add(this.NombreAreaTxt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Responsable";
-            this.Text = "Form_ListadoResponsables";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Responsable";
             this.Load += new System.EventHandler(this.Form_Responsable_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

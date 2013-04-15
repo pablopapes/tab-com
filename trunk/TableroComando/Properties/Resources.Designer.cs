@@ -88,6 +88,13 @@ namespace TableroComando.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Chart_Bar1 {
+            get {
+                object obj = ResourceManager.GetObject("Chart Bar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap chart_bar2 {
             get {
                 object obj = ResourceManager.GetObject("chart_bar2", resourceCulture);
@@ -126,6 +133,13 @@ namespace TableroComando.Properties {
         internal static System.Drawing.Bitmap edit_clear {
             get {
                 object obj = ResourceManager.GetObject("edit-clear", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap gear_16 {
+            get {
+                object obj = ResourceManager.GetObject("gear_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -172,6 +186,13 @@ namespace TableroComando.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap options_edit {
+            get {
+                object obj = ResourceManager.GetObject("options-edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap plus {
             get {
                 object obj = ResourceManager.GetObject("plus", resourceCulture);
@@ -193,6 +214,13 @@ namespace TableroComando.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap report {
+            get {
+                object obj = ResourceManager.GetObject("report", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap rojo {
             get {
                 object obj = ResourceManager.GetObject("rojo", resourceCulture);
@@ -203,6 +231,13 @@ namespace TableroComando.Properties {
         internal static System.Drawing.Bitmap rojoNuevo {
             get {
                 object obj = ResourceManager.GetObject("rojoNuevo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Search {
+            get {
+                object obj = ResourceManager.GetObject("Search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

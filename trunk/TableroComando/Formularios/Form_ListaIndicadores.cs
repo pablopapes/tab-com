@@ -23,12 +23,13 @@ namespace TableroComando.Formularios
 
         private void Form_ListaIndicadores_Load(object sender, EventArgs e)
         {
-            ConfigurarIndicadoresDataGrid();
+            IList<Indicador> indicadores = IndicadorRepository.Instance.All();
+            ConfigurarIndicadoresDataGrid(indicadores);
         }
 
-        private void ConfigurarIndicadoresDataGrid()
+        private void ConfigurarIndicadoresDataGrid(IList<Indicador> indicadores)
         {
-            IList<Indicador> indicadores = IndicadorRepository.Instance.All();
+
             if (indicadores.Count != 0)
             {
                 _sourceIndicador.DataSource = indicadores.Select(i => new IndicadorDataGridViewWrapper(i));
@@ -36,6 +37,7 @@ namespace TableroComando.Formularios
 
                 IndicadoresDataGrid.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
+           
         }
 
         private void AgregarBtn_Click(object sender, EventArgs e)
@@ -67,6 +69,19 @@ namespace TableroComando.Formularios
         private Indicador GetIndicadorSeleccionado()
         {
              return ((IndicadorDataGridViewWrapper)_sourceIndicador.Current).GetIndicador();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            /* Finding all products by name */
+            var Indicadores = IndicadorRepository.Instance.FindByNombre(searchTxt.Text);
+            ConfigurarIndicadoresDataGrid(Indicadores);
+        }
+
+        private void LoadIndicadores(IList<Indicador> Indicadores)
+        {
+            _sourceIndicador.DataSource = Indicadores;
+            IndicadoresDataGrid.DataSource = _sourceIndicador;
         }
 
     }

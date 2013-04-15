@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_ListaResponsables));
             this.ResponsablesDataGrid = new System.Windows.Forms.DataGridView();
             this.BorrarBtn = new System.Windows.Forms.Button();
             this.AgregarBtn = new System.Windows.Forms.Button();
@@ -85,8 +86,12 @@
             this.Controls.Add(this.BorrarBtn);
             this.Controls.Add(this.AgregarBtn);
             this.Controls.Add(this.ResponsablesDataGrid);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_ListaResponsables";
-            this.Text = "Form_ListaResponsables";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gestion Responsables";
             this.Load += new System.EventHandler(this.Form_ListaResponsables_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ResponsablesDataGrid)).EndInit();
             this.ResumeLayout(false);

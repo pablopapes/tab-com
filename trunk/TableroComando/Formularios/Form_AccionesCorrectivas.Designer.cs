@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AccionesCorrectivas));
             this.AccionesDataGrid = new System.Windows.Forms.DataGridView();
             this.GuardarBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AccionesDataGrid)).BeginInit();
@@ -58,11 +59,13 @@
             // 
             // GuardarBtn
             // 
+            this.GuardarBtn.Image = global::TableroComando.Properties.Resources.Button_Check;
             this.GuardarBtn.Location = new System.Drawing.Point(438, 423);
             this.GuardarBtn.Name = "GuardarBtn";
             this.GuardarBtn.Size = new System.Drawing.Size(168, 43);
             this.GuardarBtn.TabIndex = 1;
             this.GuardarBtn.Text = "Guardar";
+            this.GuardarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.GuardarBtn.UseVisualStyleBackColor = true;
             this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
             // 
@@ -73,8 +76,12 @@
             this.ClientSize = new System.Drawing.Size(1044, 476);
             this.Controls.Add(this.GuardarBtn);
             this.Controls.Add(this.AccionesDataGrid);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_AccionesCorrectivas";
-            this.Text = "Form_AccionesCorrectivas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Acciones Correctivas";
             this.Load += new System.EventHandler(this.Form_AccionesCorrectivas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AccionesDataGrid)).EndInit();
             this.ResumeLayout(false);

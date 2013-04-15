@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Meta));
             this.MenorBtn = new System.Windows.Forms.Button();
             this.RangoBtn = new System.Windows.Forms.Button();
             this.MayorBtn = new System.Windows.Forms.Button();
@@ -106,8 +107,12 @@
             this.Controls.Add(this.MayorBtn);
             this.Controls.Add(this.RangoBtn);
             this.Controls.Add(this.MenorBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Meta";
-            this.Text = "Form_Meta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gestión de Metas";
             this.Load += new System.EventHandler(this.Form_Meta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
