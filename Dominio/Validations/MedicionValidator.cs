@@ -14,10 +14,11 @@ namespace Dominio.Validations
                 .NotNull();
             RuleFor(m => m.Fecha)
                 .NotNull();
-            RuleFor(m => m.Indicador)
+            /*RuleFor(m => m.Indicador)
                 .NotNull()
                 .Must((medicion, indicador) => indicador.ProximaFechaMedicion <= medicion.Fecha)
                 .WithMessage("La fecha de medición debe ser mayor o igual a {0}", m => m.Indicador.ProximaFechaMedicion.ToShortDateString());
+            */
         }
 
     }
