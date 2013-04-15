@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_RestriccionesObjetivo));
             this.GuardarBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // GuardarBtn
             // 
+            this.GuardarBtn.Image = global::TableroComando.Properties.Resources.Button_Check;
             this.GuardarBtn.Location = new System.Drawing.Point(248, 213);
             this.GuardarBtn.Name = "GuardarBtn";
             this.GuardarBtn.Size = new System.Drawing.Size(141, 40);
             this.GuardarBtn.TabIndex = 0;
             this.GuardarBtn.Text = "Guardar";
+            this.GuardarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.GuardarBtn.UseVisualStyleBackColor = true;
             this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
             // 
@@ -47,8 +50,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 262);
             this.Controls.Add(this.GuardarBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_RestriccionesObjetivo";
-            this.Text = "Form_RestriccionesObjetivo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Restricciones Objetivos";
             this.Load += new System.EventHandler(this.Form_RestriccionesObjetivo_Load);
             this.ResumeLayout(false);
 

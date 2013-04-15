@@ -34,13 +34,13 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_graficos));
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.BtnImprimir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnGenerarGrafico = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
+            this.BtnImprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -76,18 +76,6 @@
             this.chart1.Size = new System.Drawing.Size(913, 449);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-            // 
-            // BtnImprimir
-            // 
-            this.BtnImprimir.Image = global::TableroComando.Properties.Resources.Printer;
-            this.BtnImprimir.Location = new System.Drawing.Point(781, 524);
-            this.BtnImprimir.Name = "BtnImprimir";
-            this.BtnImprimir.Size = new System.Drawing.Size(144, 36);
-            this.BtnImprimir.TabIndex = 1;
-            this.BtnImprimir.Text = "Imprimir";
-            this.BtnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnImprimir.UseVisualStyleBackColor = true;
-            this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
             // groupBox1
             // 
@@ -125,6 +113,9 @@
             // BtnGenerarGrafico
             // 
             this.BtnGenerarGrafico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            this.BtnGenerarGrafico.Image = global::TableroComando.Properties.Resources.Chart_Bar1;
+
             this.BtnGenerarGrafico.Location = new System.Drawing.Point(348, 11);
             this.BtnGenerarGrafico.Name = "BtnGenerarGrafico";
             this.BtnGenerarGrafico.Size = new System.Drawing.Size(160, 40);
@@ -152,6 +143,18 @@
             this.label2.Size = new System.Drawing.Size(47, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Hasta:";
+            // 
+            // BtnImprimir
+            // 
+            this.BtnImprimir.Image = global::TableroComando.Properties.Resources.Printer;
+            this.BtnImprimir.Location = new System.Drawing.Point(781, 524);
+            this.BtnImprimir.Name = "BtnImprimir";
+            this.BtnImprimir.Size = new System.Drawing.Size(144, 36);
+            this.BtnImprimir.TabIndex = 1;
+            this.BtnImprimir.Text = "Imprimir";
+            this.BtnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnImprimir.UseVisualStyleBackColor = true;
+            this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
             // Form_graficos
             // 

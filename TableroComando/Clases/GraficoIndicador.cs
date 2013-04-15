@@ -55,9 +55,9 @@ namespace TableroComando.Clases
                 case "Diaria": return medicion.Fecha.ToShortDateString();
                 case "Semanal": return "Sem " + GetWeekNumber(medicion.Fecha).ToString();
                 case "Mensual":
-                    return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(medicion.Fecha.Month).ToString();
+                    return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(medicion.Fecha.Month).ToString() + "/" + medicion.Fecha.Year;
                 case "Trimestral":
-                    return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(medicion.Fecha.Month).ToString();
+                    return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(medicion.Fecha.Month).ToString()+ "/" + medicion.Fecha.Year;
                 case "Anual": return medicion.Fecha.Year.ToString();
                 default: return medicion.Fecha.ToShortDateString();
             }

@@ -5,6 +5,7 @@ using System.Text;
 using Dominio;
 using System.Drawing;
 using Repositorios;
+using System.Globalization;
 
 namespace TableroComando.Clases
 {
@@ -94,7 +95,7 @@ namespace TableroComando.Clases
                     {
                         Medicion Med = Ind.Mediciones.Last();
 
-                        ListaIndicadores.Add(new Modelo { Nombre = Ind.Codigo + " - " + Ind.Nombre, Color = VisualHelper.GetColor(Ind.Estado), Unidad = Ind.Unidad, UltimaMed = Med.Valor.ToString(), FechaUltMed = Med.Fecha.Date.ToShortDateString(), Indicador = Ind });
+                        ListaIndicadores.Add(new Modelo { Nombre = Ind.Codigo + " - " + Ind.Nombre, Color = VisualHelper.GetColor(Ind.Estado), Unidad = Ind.Unidad, UltimaMed = Med.Valor.ToString(), FechaUltMed = GetFecha(Ind,Med) , Indicador = Ind });
                     }
                     else
                     {
@@ -106,5 +107,29 @@ namespace TableroComando.Clases
 
                 return ListaIndicadores;
             }
+
+            public static string GetFecha(Indicador indicador,Medicion medicion)
+            {
+                switch (indicador.Frecuencia.Periodo)
+                {
+                    case "Diaria": return medicion.Fecha.ToShortDateString();
+                    case "Semanal": return "Sem " + GetWeekNumber(medicion.Fecha).ToString();
+                    case "Mensual":
+                        return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(medicion.Fecha.Month).ToString() + "/" + medicion.Fecha.Year;
+                    case "Trimestral":
+                        return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(medicion.Fecha.Month).ToString() + "/" + medicion.Fecha.Year;
+                    case "Anual": return medicion.Fecha.Year.ToString();
+                    default: return medicion.Fecha.ToShortDateString();
+                }
+
+
+            }
+
+         public static int GetWeekNumber(DateTime dtPassed)
+        {
+            CultureInfo ciCurr = CultureInfo.CurrentCulture;
+            int weekNum = ciCurr.Calendar.GetWeekOfYear(dtPassed, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+            return weekNum;
+        }
     }
 }

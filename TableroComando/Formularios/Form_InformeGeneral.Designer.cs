@@ -30,11 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_InformeGeneral));
-            Dataweb.NShape.RoleBasedSecurityManager roleBasedSecurityManager2 = new Dataweb.NShape.RoleBasedSecurityManager();
+            Dataweb.NShape.RoleBasedSecurityManager roleBasedSecurityManager1 = new Dataweb.NShape.RoleBasedSecurityManager();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnGenerarReporte = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
@@ -42,6 +41,7 @@
             this.project1 = new Dataweb.NShape.Project(this.components);
             this.cachedRepository1 = new Dataweb.NShape.Advanced.CachedRepository();
             this.xmlStore1 = new Dataweb.NShape.XmlStore();
+            this.BtnGenerarReporte = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,19 +77,6 @@
             this.label1.Size = new System.Drawing.Size(52, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Desde:";
-            // 
-            // BtnGenerarReporte
-            // 
-            this.BtnGenerarReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGenerarReporte.Image = global::TableroComando.Properties.Resources.Document_2;
-            this.BtnGenerarReporte.Location = new System.Drawing.Point(348, 11);
-            this.BtnGenerarReporte.Name = "BtnGenerarReporte";
-            this.BtnGenerarReporte.Size = new System.Drawing.Size(160, 40);
-            this.BtnGenerarReporte.TabIndex = 4;
-            this.BtnGenerarReporte.Text = "Generar Informe";
-            this.BtnGenerarReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnGenerarReporte.UseVisualStyleBackColor = true;
-            this.BtnGenerarReporte.Click += new System.EventHandler(this.BtnGenerarReporte_Click);
             // 
             // dateTimePicker2
             // 
@@ -144,9 +131,9 @@
             this.project1.LibrarySearchPaths = ((System.Collections.Generic.IList<string>)(resources.GetObject("project1.LibrarySearchPaths")));
             this.project1.Name = null;
             this.project1.Repository = this.cachedRepository1;
-            roleBasedSecurityManager2.CurrentRole = Dataweb.NShape.StandardRole.Administrator;
-            roleBasedSecurityManager2.CurrentRoleName = "Administrator";
-            this.project1.SecurityManager = roleBasedSecurityManager2;
+            roleBasedSecurityManager1.CurrentRole = Dataweb.NShape.StandardRole.Administrator;
+            roleBasedSecurityManager1.CurrentRoleName = "Administrator";
+            this.project1.SecurityManager = roleBasedSecurityManager1;
             // 
             // cachedRepository1
             // 
@@ -161,6 +148,19 @@
             this.xmlStore1.FileExtension = ".xml";
             this.xmlStore1.ProjectName = "";
             // 
+            // BtnGenerarReporte
+            // 
+            this.BtnGenerarReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGenerarReporte.Image = global::TableroComando.Properties.Resources.Document_2;
+            this.BtnGenerarReporte.Location = new System.Drawing.Point(348, 11);
+            this.BtnGenerarReporte.Name = "BtnGenerarReporte";
+            this.BtnGenerarReporte.Size = new System.Drawing.Size(160, 40);
+            this.BtnGenerarReporte.TabIndex = 4;
+            this.BtnGenerarReporte.Text = "Generar Informe";
+            this.BtnGenerarReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnGenerarReporte.UseVisualStyleBackColor = true;
+            this.BtnGenerarReporte.Click += new System.EventHandler(this.BtnGenerarReporte_Click);
+            // 
             // Form_InformeGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,9 +168,10 @@
             this.ClientSize = new System.Drawing.Size(773, 510);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_InformeGeneral";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_InformeGeneral";
+            this.Text = "Informe General";
             this.Load += new System.EventHandler(this.Form_InformeGeneral_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
