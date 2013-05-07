@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using Dominio.Validations;
+using Iesi.Collections.Generic;
+using NHibernate.Collection.Generic;
 
 namespace Dominio
 {
@@ -69,8 +71,8 @@ namespace Dominio
         }
 
         /* Restricciones */
-        private IList<Restriccion> _restricciones = new List<Restriccion>();
-        public virtual IList<Restriccion> Restricciones
+        private PersistentGenericSet<Restriccion> _restricciones = new PersistentGenericSet<Restriccion>();
+        public virtual PersistentGenericSet<Restriccion> Restricciones
         {
             get
             {

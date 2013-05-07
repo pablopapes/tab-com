@@ -28,11 +28,10 @@
       <one-to-many class="Medicion" />
     </bag>
 
-    <list name="Restricciones" cascade="all-delete-orphan">
+    <set name="Restricciones" order-by="orden" cascade="all-delete-orphan">
       <key column="indicador_id" />
-      <index column="orden" />
       <one-to-many class="Restriccion" />
-    </list>
+    </set>
 
     <bag name="Acciones" cascade="all-delete-orphan"  inverse="true">
       <key column="indicador_id" />

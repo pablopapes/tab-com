@@ -86,6 +86,7 @@ namespace TableroComando.Formularios
         {
             Diagram diagram = new Diagram("D1");
             diagram = Clases.MapaEstrategico.CrearMapa(project1, diagram, xmlStore1);
+            if (!cachedRepository1.IsOpen) cachedRepository1.Open();
             cachedRepository1.InsertDiagram(diagram);
             display1.Diagram = diagram;
         }

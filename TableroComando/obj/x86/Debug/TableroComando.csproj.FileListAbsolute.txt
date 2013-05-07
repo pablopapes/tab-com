@@ -9,6 +9,7 @@ D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formular
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_ListaObjetivos.resources
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_ListaResponsables.resources
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_Meta.resources
+D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_MisionVision.resources
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_MonitoreoArbol.resources
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_Responsable.resources
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_MapaEstrategico.resources
@@ -30,6 +31,7 @@ D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\objetivo.hbm.xml
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\perspectiva.hbm.xml
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\restriccion.hbm.xml
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\accionCorrectiva.hbm.xml
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\declaracion.hbm.xml
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\x64\SQLite.Interop.dll
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\x86\SQLite.Interop.dll
 D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\hibernate.cfg.xml

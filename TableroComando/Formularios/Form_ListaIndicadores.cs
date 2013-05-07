@@ -16,6 +16,7 @@ namespace TableroComando.Formularios
     public partial class Form_ListaIndicadores : Form
     {
         BindingSource _sourceIndicador = new BindingSource();
+        
         public Form_ListaIndicadores()
         {
             InitializeComponent();
@@ -53,9 +54,17 @@ namespace TableroComando.Formularios
 
         private void BorrarBtn_Click(object sender, EventArgs e)
         {
-            Indicador indicador = GetIndicadorSeleccionado();
-            IndicadorRepository.Instance.Delete(indicador);
-            _sourceIndicador.RemoveCurrent();
+            DialogResult respuesta = MessageBox.Show("Si borra el indicador seleccionado se borrarán todas las mediciones asociadas" +
+                                            " ¿Desea borrar el indicador seleccionado?",
+                                            "Borrar indicador",
+                                            MessageBoxButtons.YesNo);
+            if (respuesta == System.Windows.Forms.DialogResult.Yes)
+            {
+                Indicador indicador = GetIndicadorSeleccionado();
+                IndicadorRepository.Instance.Delete(indicador); // Borrar de la base de datos   
+                _sourceIndicador.RemoveCurrent(); // Borrar del datagrid
+            }
+
         }
 
         private void IndicadoresDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
