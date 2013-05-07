@@ -11,6 +11,7 @@ using TableroComando.Dominio;
 using Dominio;
 using NHibernate.Proxy;
 using Repositorios;
+using Dominio.Repositorios;
 
 namespace TableroComando
 {
@@ -26,6 +27,7 @@ namespace TableroComando
             RestriccionGeneralRepository.Instance.CrearRestriccionesPerspectiva();
             PerspectivaRepository.Instance.CrearPerspectivas();
             FrecuenciaRepository.Instance.CrearFrecuencias();
+            DeclaracionRepository.Instance.CrearMisionVision();
         }
 
         // Empresa
@@ -37,8 +39,7 @@ namespace TableroComando
 
         private void modificarLosValoresDeLaEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // Form ventana = new Formularios.Form_Valores();
-           // ventana.Show();
+           ShowForm(new Form_MisionVision());
         }
 
         // Mapa estratégico

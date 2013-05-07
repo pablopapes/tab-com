@@ -119,22 +119,22 @@ namespace TableroComando.Clases
                     switch (Objetivo.Perspectiva.Id)
                     {
                         // Aprendizaje y crecimiento
-                        case 1:
+                        case 4:
                             CoordenadasPersp(x1, 1000, referringShape);
                             x1 += 150;
                             break;
                         // Procesos internos
-                        case 2:
+                        case 3:
                             CoordenadasPersp(x2, 700, referringShape);
                             x2 += 150;
                             break;
                         // Clientes
-                        case 3:
+                        case 2:
                             CoordenadasPersp(x3, 400, referringShape);
                             x3 += 150;
                             break;
                         // Financiera
-                        case 4:
+                        case 1:
                             CoordenadasPersp(x4, 100, referringShape);
                             x4 += 150;
                             break;
@@ -159,22 +159,22 @@ namespace TableroComando.Clases
                         switch (objetivoHijo.Perspectiva.Id)
                         {
                             // Aprendizaje y crecimiento
-                            case 1:
+                            case 4:
                                 CoordenadasPersp(x1, 1000, referredShape);
                                 x1 += 150;
                                 break;
                             // Procesos internos
-                            case 2:
+                            case 3:
                                 CoordenadasPersp(x2, 700, referredShape);
                                 x2 += 150;
                                 break;
                             // Clientes
-                            case 3:
+                            case 2:
                                 CoordenadasPersp(x3, 400, referredShape);
                                 x3 += 150;
                                 break;
                             // Financiera
-                            case 4:
+                            case 1:
                                 CoordenadasPersp(x4, 100, referredShape);
                                 x4 += 150;
                                 break;
@@ -192,7 +192,7 @@ namespace TableroComando.Clases
                     //
                 }
             }
-
+            project1.Close();
             return diagram;
         }
 

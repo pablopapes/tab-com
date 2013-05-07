@@ -60,6 +60,7 @@
     <Compile Include="Indicador.cs" />
     <Compile Include="Medicion.cs" />
     <Compile Include="Repositorios\AccionCorrectivaRepository.cs" />
+    <Compile Include="Repositorios\DeclaracionRepository.cs" />
     <Compile Include="Repositorios\FrecuenciaRepository.cs" />
     <Compile Include="Repositorios\IndicadorRepository.cs" />
     <Compile Include="Repositorios\ObjetivoRepository.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="RestriccionGeneral.cs" />
     <Compile Include="RestriccionObjetivo.cs" />
     <Compile Include="RestriccionPerspectiva.cs" />
+    <Compile Include="Declaracion.cs" />
     <Compile Include="Validations\IndicadorValidator.cs" />
     <Compile Include="Validations\MedicionValidator.cs" />
     <Compile Include="Validations\ModelValidator.cs" />
@@ -137,7 +139,11 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\declaracion.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -153,6 +153,12 @@
     <Compile Include="Formularios\Form_Meta.Designer.cs">
       <DependentUpon>Form_Meta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Form_MisionVision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_MisionVision.Designer.cs">
+      <DependentUpon>Form_MisionVision.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Form_MonitoreoArbol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_Meta.resx">
       <DependentUpon>Form_Meta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_MisionVision.resx">
+      <DependentUpon>Form_MisionVision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_MonitoreoArbol.resx">
       <DependentUpon>Form_MonitoreoArbol.cs</DependentUpon>
