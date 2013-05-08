@@ -19,7 +19,7 @@ namespace Dominio.Validations
                     .NotNull();
             RuleFor(i => i.Objetivo)
                 .NotNull();
-            RuleFor(i => i.Restricciones)
+           RuleFor(i => i.Restricciones)
                 .NotNull();
             RuleFor(i => i.Codigo)
                 .NotNull()

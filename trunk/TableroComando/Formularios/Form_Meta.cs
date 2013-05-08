@@ -16,7 +16,10 @@ namespace TableroComando.Formularios
         int posicionX = 100;
         int posicionY = 50;
         int espacioEntreRangos = 0;
-        public Indicador Indicador;
+        int CantidadRangos = 0;
+        string codigoLabel;
+
+        public Indicador Indicador { get; set; }
         
         public List<Restriccion> _restriccionForms;
 
@@ -55,25 +58,36 @@ namespace TableroComando.Formularios
             Binding binding = DataBindingConverter.BuildBindingDecimalString<Indicador>("Text", Indicador, "ValorEsperado");
             ValorEsperadoTxt.DataBindings.Add(binding);
 
-            string codigo = Indicador.Codigo ?? "Indicador";
-            MayorBtn.Text = "X < " + codigo;
-            MenorBtn.Text = codigo + " < X";
-            RangoBtn.Text = "X < " + codigo + " < Y";
+            codigoLabel = Indicador.Codigo ?? "Indicador";
+            MayorBtn.Text = "X < " + codigoLabel;
+            MenorBtn.Text = codigoLabel + " < X";
+            RangoBtn.Text = "X < " + codigoLabel + " < Y";
+
+            if (Indicador.Restricciones.Count != 0) MenorBtn.Enabled = false;
+            MayorBtn.Enabled = false;
+            RangoBtn.Enabled = false;
         }
 
         private void MenorBtn_Click(object sender, EventArgs e)
         {
-            AgregarRestriccion(new RestriccionMenorUserControl(this, Indicador.Codigo, Indicador.CrearRestriccion(TipoRestriccion.Menor)));
+            MenorBtn.Enabled = false;
+            RangoBtn.Enabled = true;
+            AgregarRestriccion(new RestriccionMenorUserControl(this, codigoLabel, Indicador.CrearRestriccion(TipoRestriccion.Menor)));
         }
 
         private void RangoBtn_Click(object sender, EventArgs e)
         {
-            AgregarRestriccion(new RestriccionRangoUserControl(this, Indicador.Codigo, Indicador.CrearRestriccion(TipoRestriccion.Rango)));
+            CantidadRangos += 1;
+            if (CantidadRangos == 3) RangoBtn.Enabled = false;
+            MayorBtn.Enabled = true;
+            AgregarRestriccion(new RestriccionRangoUserControl(this, codigoLabel, Indicador.CrearRestriccion(TipoRestriccion.Rango)));
         }
 
         private void MayorBtn_Click(object sender, EventArgs e)
         {
-            AgregarRestriccion(new RestriccionMayorUserControl(this, Indicador.Codigo, Indicador.CrearRestriccion(TipoRestriccion.Mayor)));
+            RangoBtn.Enabled = false;
+            MayorBtn.Enabled = false;
+            AgregarRestriccion(new RestriccionMayorUserControl(this, codigoLabel, Indicador.CrearRestriccion(TipoRestriccion.Mayor)));
         }
 
         private void AgregarRestriccion(UserControl userControl)

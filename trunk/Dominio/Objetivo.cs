@@ -38,13 +38,11 @@ namespace Dominio
             {
                 if (Indicadores.Count > 0)
                 {
-                    decimal sumaEstadoIndicadores = Indicadores.Sum(i => (int)i.Estado);
-                    return sumaEstadoIndicadores / ((int)EstadoIndicador.Bien * Indicadores.Count);
+                    IEnumerable<Indicador> indicadoresMedidos = Indicadores.Where(i => i.Estado != EstadoIndicador.NoDefinido);
+                    decimal sumaEstadoIndicadores = indicadoresMedidos.Sum(i => (int)i.Estado);
+                    return sumaEstadoIndicadores / ((int)EstadoIndicador.Bien * indicadoresMedidos.Count<Indicador>());
                 }
-                else
-                {
-                    return 0;
-                }
+                return -1;
             }
         }
         
@@ -53,7 +51,8 @@ namespace Dominio
         {
             get 
             {
-                return (EstadoRelativo * PorcentajeRelevancia);
+                //return (EstadoRelativo * PorcentajeRelevancia);
+                return EstadoRelativo * 100;
             }
         }
 

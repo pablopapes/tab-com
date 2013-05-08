@@ -71,17 +71,11 @@ namespace Dominio
         }
 
         /* Restricciones */
-        private PersistentGenericSet<Restriccion> _restricciones = new PersistentGenericSet<Restriccion>();
-        public virtual PersistentGenericSet<Restriccion> Restricciones
+        private IList<Restriccion> _restricciones = new List<Restriccion>();
+        public virtual IList<Restriccion> Restricciones
         {
             get
             {
-                if (_restricciones.Count == 0) // Si no hay restricciones definidas, por defecto se crean 3.
-                {
-                    CrearRestriccion(TipoRestriccion.Menor, 1);
-                    CrearRestriccion(TipoRestriccion.Rango, 2);
-                    CrearRestriccion(TipoRestriccion.Mayor, 5);
-                }
                 return _restricciones; 
             }
             set { _restricciones = value; }
@@ -106,7 +100,10 @@ namespace Dominio
          */
         public virtual bool RequiereMedicion
         {
-            get { return Frecuencia.RequiereMedicion(UltimaFechaMedicion); }
+            get 
+            {
+                return (Mediciones.Count == 0) ? true: Frecuencia.RequiereMedicion(UltimaFechaMedicion); 
+            }
         }
 
         public virtual DateTime ProximaFechaMedicion
