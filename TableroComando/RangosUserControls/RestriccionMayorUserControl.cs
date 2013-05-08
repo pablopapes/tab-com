@@ -35,7 +35,6 @@ namespace TableroComando.RangosUserControls
             label1.Text = codigo;
             Restriccion = r;
             EstadoCB.Enabled = false;
-            EliminarBtn.Hide();
         }
 
         public RestriccionMayorUserControl(string codigo, RestriccionPerspectiva r)
@@ -44,7 +43,6 @@ namespace TableroComando.RangosUserControls
             label1.Text = codigo;
             Restriccion = r;
             EstadoCB.Enabled = false;
-            EliminarBtn.Hide();
         }
 
         private void EliminarBtn_Click(object sender, EventArgs e)

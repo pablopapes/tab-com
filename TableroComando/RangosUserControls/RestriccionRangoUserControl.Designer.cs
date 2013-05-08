@@ -35,7 +35,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.EliminarBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,21 +104,10 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "<";
             // 
-            // EliminarBtn
-            // 
-            this.EliminarBtn.Image = global::TableroComando.Properties.Resources.minus;
-            this.EliminarBtn.Location = new System.Drawing.Point(0, 6);
-            this.EliminarBtn.Name = "EliminarBtn";
-            this.EliminarBtn.Size = new System.Drawing.Size(29, 32);
-            this.EliminarBtn.TabIndex = 13;
-            this.EliminarBtn.UseVisualStyleBackColor = true;
-            this.EliminarBtn.Click += new System.EventHandler(this.EliminarBtn_Click);
-            // 
             // RestriccionRangoUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.EliminarBtn);
             this.Controls.Add(this.groupBox1);
             this.Name = "RestriccionRangoUserControl";
             this.Size = new System.Drawing.Size(561, 49);
@@ -139,6 +127,5 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button EliminarBtn;
     }
 }

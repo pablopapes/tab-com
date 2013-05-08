@@ -82,7 +82,7 @@
             // 
             // ValorEsperadoTxt
             // 
-            this.ValorEsperadoTxt.Location = new System.Drawing.Point(97, 69);
+            this.ValorEsperadoTxt.Location = new System.Drawing.Point(275, 69);
             this.ValorEsperadoTxt.Name = "ValorEsperadoTxt";
             this.ValorEsperadoTxt.Size = new System.Drawing.Size(100, 20);
             this.ValorEsperadoTxt.TabIndex = 15;
@@ -90,7 +90,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 72);
+            this.label1.Location = new System.Drawing.Point(190, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 16;

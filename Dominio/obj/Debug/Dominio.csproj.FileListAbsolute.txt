@@ -12,7 +12,6 @@ D:\Proyectos\Tablero de Comando\Dominio\bin\Debug\NHibernate.xml
 D:\Proyectos\Tablero de Comando\Dominio\obj\Debug\ResolveAssemblyReference.cache
 D:\Proyectos\Tablero de Comando\Dominio\obj\Debug\Dominio.dll
 D:\Proyectos\Tablero de Comando\Dominio\obj\Debug\Dominio.pdb
-D:\proyectos\flexit\tab-com\Dominio\obj\Debug\ResolveAssemblyReference.cache
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\frecuencia.hbm.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\indicador.hbm.xml
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\medicion.hbm.xml
@@ -43,5 +42,6 @@ D:\proyectos\flexit\tab-com\Dominio\bin\Debug\pt\FluentValidation.resources.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\ru\FluentValidation.resources.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\sv\FluentValidation.resources.dll
 D:\proyectos\flexit\tab-com\Dominio\bin\Debug\tr\FluentValidation.resources.dll
+D:\proyectos\flexit\tab-com\Dominio\obj\Debug\ResolveAssemblyReference.cache
 D:\proyectos\flexit\tab-com\Dominio\obj\Debug\Dominio.dll
 D:\proyectos\flexit\tab-com\Dominio\obj\Debug\Dominio.pdb
