@@ -1,0 +1,15 @@
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\bin\Debug\x64\SQLite.Interop.dll
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\bin\Debug\x86\SQLite.Interop.dll
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\bin\Debug\VerificacionDeAutenticidad.exe.config
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\bin\Debug\VerificacionDeAutenticidad.exe
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\bin\Debug\VerificacionDeAutenticidad.pdb
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\bin\Debug\MySql.Data.dll
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\bin\Debug\System.Data.SQLite.dll
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\obj\x86\Debug\VerificacionDeAutenticidad.Serial.resources
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\obj\x86\Debug\VerificacionDeAutenticidad.Properties.Resources.resources
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\obj\x86\Debug\VerificacionDeAutenticidad.exe
+D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\obj\x86\Debug\VerificacionDeAutenticidad.pdb
