@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                  assembly="Dominio"
+                  namespace="Dominio">
+  <class name="Objetivo" table="objetivos">
+    <id name="Id"  type="int">
+      <generator class="increment" />
+    </id>
+    <property name="Nombre" />
+    <property name="Codigo" />
+    <property name="Descripcion" />
+    <property name="PorcentajeRelevancia" />
+    
+    <many-to-one name="Perspectiva" column="perspectiva_id" />
+    
+    <bag name="Indicadores" cascade="all-delete-orphan">
+      <key column="objetivo_id" />
+      <one-to-many class="Indicador" />
+    </bag>
+
+    <idbag name="ObjetivosHijos" table="relaciones_objetivos">
+      <collection-id column="id" type="int">
+        <generator class="increment" />
+      </collection-id>
+      <key column="objetivo_padre" />
+      <many-to-many column="objetivo_hijo" class="Objetivo" />
+    </idbag> 
+  </class>
+</hibernate-mapping>

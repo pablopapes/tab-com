@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                  assembly="Dominio"
+                  namespace="Dominio">
+  <class name="Indicador" table="indicadores">
+    <id name="Id">
+      <generator class="increment" />
+    </id>
+    
+    <property name="Nombre" />
+    <property name="Codigo" />
+    <property name="Espectativa" />
+    <property name="Prioridad" />
+    <property name="Proposito" />
+    <property name="Calculo" />
+    <property name="Caracteristica" />
+    <property name="Observacion" />
+    <property name="ValorEsperado" />
+    <property name="FechaCreacion" />
+    
+    <many-to-one name="Objetivo" column="objetivo_id" />
+    <many-to-one name="Frecuencia" column="frecuencia_id" />
+    <many-to-one name="Responsable" column="responsable_id" />
+    
+    <bag name="Mediciones" cascade="all-delete-orphan">
+      <key column="indicador_id" />
+      <one-to-many class="Medicion" />
+    </bag>
+
+    <list name="Restricciones" cascade="all-delete-orphan">
+      <key column="indicador_id" />
+      <index column="orden" />
+      <one-to-many class="Restriccion" />
+    </list>
+
+    <bag name="Acciones" cascade="all-delete-orphan">
+      <key column="indicador_id" />
+      <one-to-many class="AccionCorrectiva" />
+    </bag>
+    
+  </class>
+</hibernate-mapping>

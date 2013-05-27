@@ -12,6 +12,9 @@ using Dominio;
 using NHibernate.Proxy;
 using Repositorios;
 using Dominio.Repositorios;
+using VerificacionDeAutenticidad;
+using Microsoft.Win32;
+using System.Collections;
 
 namespace TableroComando
 {
@@ -19,16 +22,68 @@ namespace TableroComando
     {
         private ObjetivoRepository ObjetivoFachada = ObjetivoRepository.Instance;
         private IndicadorRepository IndicadorFachada = IndicadorRepository.Instance;
+        private bool Verificado;
 
         public Principal()
         {
+
+            if (ComprobarSerial())
+            {
+                Iniciar();
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("El Codigo de Activación Ingresado no es Valido. ¿ Desea Agregar un nuevo codigo de Activación?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    new VerificacionDeAutenticidad.Serial().ShowDialog();
+                    Iniciar();
+                }
+                else
+                {
+                    System.Environment.Exit(0);
+                }
+            }
+        }
+
+        private void Iniciar()
+        {
             InitializeComponent();
+
             RestriccionGeneralRepository.Instance.CrearRestriccionesObjetivos();
             RestriccionGeneralRepository.Instance.CrearRestriccionesPerspectiva();
             PerspectivaRepository.Instance.CrearPerspectivas();
             FrecuenciaRepository.Instance.CrearFrecuencias();
             DeclaracionRepository.Instance.CrearMisionVision();
         }
+        private bool ComprobarSerial()
+        {
+
+            ArrayList DatosNombreSerial = BaseDatos.LoadData();
+
+            String[] ListaNombreYSerial = (string[])DatosNombreSerial[0];
+            String Nombre = ListaNombreYSerial[0];
+            String Serial = ListaNombreYSerial[1];
+            //string Serial = (string)DatosNombreSerial[1];
+
+            if ((Nombre == "")  | (Serial == ""))
+            {
+                new VerificacionDeAutenticidad.Serial().ShowDialog();
+            }
+
+            RegistryKey registryAccess = Registry.Users;
+            registryAccess = registryAccess.OpenSubKey(".DEFAULT\\software\\FlexitTC", true);
+
+            if (registryAccess == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
 
         // Empresa
         private void modificarDatosDeLaEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
