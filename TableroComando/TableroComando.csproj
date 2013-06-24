@@ -107,6 +107,12 @@
     <Compile Include="Formularios\Form_Agenda.Designer.cs">
       <DependentUpon>Form_Agenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Form_Empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_Empresa.Designer.cs">
+      <DependentUpon>Form_Empresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Form_FechaDelInforme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_Agenda.resx">
       <DependentUpon>Form_Agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_Empresa.resx">
+      <DependentUpon>Form_Empresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_FechaDelInforme.resx">
       <DependentUpon>Form_FechaDelInforme.cs</DependentUpon>

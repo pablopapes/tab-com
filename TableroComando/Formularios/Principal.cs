@@ -55,6 +55,7 @@ namespace TableroComando
             PerspectivaRepository.Instance.CrearPerspectivas();
             FrecuenciaRepository.Instance.CrearFrecuencias();
             DeclaracionRepository.Instance.CrearMisionVision();
+            EmpresaRepository.Instance.CrearEmpresa();
         }
         private bool ComprobarSerial()
         {
@@ -64,24 +65,35 @@ namespace TableroComando
             String[] ListaNombreYSerial = (string[])DatosNombreSerial[0];
             String Nombre = ListaNombreYSerial[0];
             String Serial = ListaNombreYSerial[1];
-            //string Serial = (string)DatosNombreSerial[1];
 
-            if ((Nombre == "")  | (Serial == ""))
+
+            if ((Nombre == "") | (Serial == ""))
             {
                 new VerificacionDeAutenticidad.Serial().ShowDialog();
             }
 
-            RegistryKey registryAccess = Registry.Users;
-            registryAccess = registryAccess.OpenSubKey(".DEFAULT\\software\\FlexitTC", true);
+            // Compruebo la Fecha
+            string FechaSerialString = Encoding.UTF8.GetString(Convert.FromBase64String(Serial));
 
-            if (registryAccess == null)
+            DateTime FechaSerial = Convert.ToDateTime(FechaSerialString);
+            if (FechaSerial < DateTime.Today.Date)
             {
-                return false;
+                MessageBox.Show("Su periodo de prueba a finalizado, por favor Contactese con el proveedor de Software (info@flexitargentina.com.ar)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new VerificacionDeAutenticidad.Serial().ShowDialog();
             }
-            else
-            {
-                return true;
-            }
+
+                RegistryKey registryAccess = Registry.Users;
+                registryAccess = registryAccess.OpenSubKey(".DEFAULT\\software\\FlexitTC", true);
+
+                if (registryAccess == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            
         }
 
 
@@ -164,6 +176,11 @@ namespace TableroComando
         private void configurarIntervalosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ShowForm(new Form_RestriccionesPerspectivas());
+        }
+
+        private void datosDeLaEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(new Form_Empresa());
         }
 
     }

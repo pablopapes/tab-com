@@ -6,45 +6,58 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Dominio;
+using Repositorios;
 
 namespace TableroComando.Formularios
 {
     public partial class Form_Empresa : Form
     {
+        Empresa _empresa = EmpresaRepository.Instance.FindById(1);
 
-        Clases.Modelo.Empresa empresa = new Clases.Modelo.Empresa("1");
-
-        // INITIALIZE
         public Form_Empresa()
         {
             InitializeComponent();
         }
 
-        // LOAD
-        private void Empresa_Load(object sender, EventArgs e)
+        private void Form_Empresa_Load(object sender, EventArgs e)
         {
+            CargarEmpresa();            
+        }
+
+        private void CargarEmpresa()
+        {
+            txtDenominacion.Text = _empresa.Denominacion;
+            txtCuit.Text = _empresa.Cuit;
+            txtDireccion.Text = _empresa.Direccion;
+            txtTelefono.Text = _empresa.Telefono;
+            txtAutoridades.Text = _empresa.Autoridades;
+            txtMision.Text = _empresa.Mision;
+            txtVision.Text = _empresa.Vision;
+            txtValores.Text = _empresa.Valores;
+        }
+
+        private void CrearDatosEmpresa()
+        {
+
+            _empresa.Denominacion = txtDenominacion.Text;
+            _empresa.Cuit = txtCuit.Text;
+            _empresa.Direccion = txtDireccion.Text;
+            _empresa.Telefono = txtTelefono.Text;
+            _empresa.Autoridades = txtAutoridades.Text;
+            _empresa.Mision = txtMision.Text;
+            _empresa.Vision = txtVision.Text;
+            _empresa.Valores = txtValores.Text;
             
-            TXTEmpresa.Text = empresa.getnombreempresa();
-            TXTCUIT.Text = empresa.getcuit();
-            RTBMision.Text = empresa.getmision();
-            RTBVision.Text = empresa.getvision();
-
         }
 
-        private void BTNCancelar_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            this.Close();
+           
+                CrearDatosEmpresa();
+                EmpresaRepository.Instance.Save(_empresa);
+                MessageBox.Show("Los datos de su empresa se guardaron correctamente","Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            
         }
-
-        private void BTNGuardar_Click(object sender, EventArgs e)
-        {
-            empresa.setnombreempresa(TXTEmpresa.Text);
-            empresa.setcuit(TXTCUIT.Text);
-            empresa.setmision(RTBMision.Text);
-            empresa.setvision(RTBVision.Text);
-            empresa.guardar();
-        }
-
-
     }
 }
