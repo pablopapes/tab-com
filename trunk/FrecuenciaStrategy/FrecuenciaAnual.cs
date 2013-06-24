@@ -11,6 +11,7 @@ namespace FrecuenciaStrategy
         public override bool RequiereMedicion(DateTime ultimaMedicion)
         {
             DateTime lastDayYear = new DateTime(DateTime.Now.Year, 12, 31);
+
             // Obtengo el número de la última semana del año
             int lastWeekNumber = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(lastDayYear, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
 
@@ -18,7 +19,7 @@ namespace FrecuenciaStrategy
             int currentWeekNumber = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(DateTime.Now, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
 
             // Si falta falta una semana o menos para terminar el año, devuelve true
-            return (lastWeekNumber - currentWeekNumber) <= 1;
+            return ((lastWeekNumber - currentWeekNumber) <= 1) || (ProximaMedicion(ultimaMedicion).Year < DateTime.Now.Year);
         }
 
         public override DateTime ProximaMedicion(DateTime ultimaMedicion)

@@ -60,9 +60,9 @@
             // GuardarBtn
             // 
             this.GuardarBtn.Image = global::TableroComando.Properties.Resources.Button_Check;
-            this.GuardarBtn.Location = new System.Drawing.Point(438, 423);
+            this.GuardarBtn.Location = new System.Drawing.Point(459, 423);
             this.GuardarBtn.Name = "GuardarBtn";
-            this.GuardarBtn.Size = new System.Drawing.Size(168, 43);
+            this.GuardarBtn.Size = new System.Drawing.Size(127, 43);
             this.GuardarBtn.TabIndex = 1;
             this.GuardarBtn.Text = "Guardar";
             this.GuardarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

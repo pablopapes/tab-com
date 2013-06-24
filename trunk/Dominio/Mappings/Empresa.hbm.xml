@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                  assembly="Dominio"
+                  namespace="Dominio">
+  <class name="Empresa" table="Empresas">
+    <id name="Id">
+      <generator class="increment" />
+    </id>
+
+    <property name="Mision" />
+    <property name="Vision" />
+    <property name="Valores" />
+    <property name="Denominacion" />
+    <property name="Cuit" />
+    <property name="Direccion" />
+    <property name="Telefono" />
+    <property name="Autoridades"/>
+    
+  </class>
+  
+</hibernate-mapping> 

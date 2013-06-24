@@ -29,152 +29,206 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Empresa));
-            this.LBLEmpresa = new System.Windows.Forms.Label();
-            this.TXTEmpresa = new System.Windows.Forms.TextBox();
-            this.TXTCUIT = new System.Windows.Forms.TextBox();
-            this.LBLCUIT = new System.Windows.Forms.Label();
-            this.LBLMision = new System.Windows.Forms.Label();
-            this.RTBMision = new System.Windows.Forms.RichTextBox();
-            this.RTBVision = new System.Windows.Forms.RichTextBox();
-            this.LBLVision = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.BTNCancelar = new System.Windows.Forms.Button();
-            this.BTNGuardar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtDenominacion = new System.Windows.Forms.TextBox();
+            this.txtCuit = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtAutoridades = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtValores = new System.Windows.Forms.TextBox();
+            this.txtVision = new System.Windows.Forms.TextBox();
+            this.txtMision = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // LBLEmpresa
+            // label1
             // 
-            this.LBLEmpresa.AutoSize = true;
-            this.LBLEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBLEmpresa.Location = new System.Drawing.Point(13, 22);
-            this.LBLEmpresa.Name = "LBLEmpresa";
-            this.LBLEmpresa.Size = new System.Drawing.Size(153, 16);
-            this.LBLEmpresa.TabIndex = 0;
-            this.LBLEmpresa.Text = "Nombre de la empresa :";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Denominación:";
             // 
-            // TXTEmpresa
+            // label2
             // 
-            this.TXTEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TXTEmpresa.Location = new System.Drawing.Point(12, 41);
-            this.TXTEmpresa.Name = "TXTEmpresa";
-            this.TXTEmpresa.Size = new System.Drawing.Size(495, 22);
-            this.TXTEmpresa.TabIndex = 1;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(77, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Cuit:";
             // 
-            // TXTCUIT
+            // label3
             // 
-            this.TXTCUIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TXTCUIT.Location = new System.Drawing.Point(12, 96);
-            this.TXTCUIT.Name = "TXTCUIT";
-            this.TXTCUIT.Size = new System.Drawing.Size(177, 22);
-            this.TXTCUIT.TabIndex = 3;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(42, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Dirección:";
             // 
-            // LBLCUIT
+            // label4
             // 
-            this.LBLCUIT.AutoSize = true;
-            this.LBLCUIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBLCUIT.Location = new System.Drawing.Point(12, 77);
-            this.LBLCUIT.Name = "LBLCUIT";
-            this.LBLCUIT.Size = new System.Drawing.Size(45, 16);
-            this.LBLCUIT.TabIndex = 2;
-            this.LBLCUIT.Text = "CUIT :";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(45, 156);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 16);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Telefono:";
             // 
-            // LBLMision
+            // label5
             // 
-            this.LBLMision.AutoSize = true;
-            this.LBLMision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBLMision.Location = new System.Drawing.Point(11, 126);
-            this.LBLMision.Name = "LBLMision";
-            this.LBLMision.Size = new System.Drawing.Size(53, 16);
-            this.LBLMision.TabIndex = 4;
-            this.LBLMision.Text = "Misión :";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(26, 199);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 16);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Autoridades:";
             // 
-            // RTBMision
+            // label6
             // 
-            this.RTBMision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RTBMision.Location = new System.Drawing.Point(12, 145);
-            this.RTBMision.Name = "RTBMision";
-            this.RTBMision.Size = new System.Drawing.Size(710, 106);
-            this.RTBMision.TabIndex = 8;
-            this.RTBMision.Text = "";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(60, 242);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 16);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Misión:";
             // 
-            // RTBVision
+            // label7
             // 
-            this.RTBVision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RTBVision.Location = new System.Drawing.Point(12, 284);
-            this.RTBVision.Name = "RTBVision";
-            this.RTBVision.Size = new System.Drawing.Size(710, 175);
-            this.RTBVision.TabIndex = 10;
-            this.RTBVision.Text = "";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(62, 307);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 16);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Visión:";
             // 
-            // LBLVision
+            // label8
             // 
-            this.LBLVision.AutoSize = true;
-            this.LBLVision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBLVision.Location = new System.Drawing.Point(13, 264);
-            this.LBLVision.Name = "LBLVision";
-            this.LBLVision.Size = new System.Drawing.Size(51, 16);
-            this.LBLVision.TabIndex = 9;
-            this.LBLVision.Text = "Visión :";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(52, 378);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 16);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Valores:";
             // 
-            // button1
+            // txtDenominacion
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::TableroComando.Properties.Resources.Printer;
-            this.button1.Location = new System.Drawing.Point(188, 479);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 51);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Imprimir";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.txtDenominacion.Location = new System.Drawing.Point(117, 27);
+            this.txtDenominacion.Name = "txtDenominacion";
+            this.txtDenominacion.Size = new System.Drawing.Size(100, 20);
+            this.txtDenominacion.TabIndex = 8;
             // 
-            // BTNCancelar
+            // txtCuit
             // 
-            this.BTNCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNCancelar.Image = global::TableroComando.Properties.Resources.Stop;
-            this.BTNCancelar.Location = new System.Drawing.Point(359, 479);
-            this.BTNCancelar.Name = "BTNCancelar";
-            this.BTNCancelar.Size = new System.Drawing.Size(148, 51);
-            this.BTNCancelar.TabIndex = 14;
-            this.BTNCancelar.Text = "Cancelar";
-            this.BTNCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BTNCancelar.UseVisualStyleBackColor = true;
-            this.BTNCancelar.Click += new System.EventHandler(this.BTNCancelar_Click);
+            this.txtCuit.Location = new System.Drawing.Point(117, 66);
+            this.txtCuit.Name = "txtCuit";
+            this.txtCuit.Size = new System.Drawing.Size(100, 20);
+            this.txtCuit.TabIndex = 9;
             // 
-            // BTNGuardar
+            // txtDireccion
             // 
-            this.BTNGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNGuardar.Image = global::TableroComando.Properties.Resources.Button_Check;
-            this.BTNGuardar.Location = new System.Drawing.Point(12, 479);
-            this.BTNGuardar.Name = "BTNGuardar";
-            this.BTNGuardar.Size = new System.Drawing.Size(148, 51);
-            this.BTNGuardar.TabIndex = 13;
-            this.BTNGuardar.Text = "Guardar";
-            this.BTNGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BTNGuardar.UseVisualStyleBackColor = true;
-            this.BTNGuardar.Click += new System.EventHandler(this.BTNGuardar_Click);
+            this.txtDireccion.Location = new System.Drawing.Point(117, 113);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(100, 20);
+            this.txtDireccion.TabIndex = 10;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(117, 155);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(100, 20);
+            this.txtTelefono.TabIndex = 11;
+            // 
+            // txtAutoridades
+            // 
+            this.txtAutoridades.Location = new System.Drawing.Point(117, 198);
+            this.txtAutoridades.Name = "txtAutoridades";
+            this.txtAutoridades.Size = new System.Drawing.Size(100, 20);
+            this.txtAutoridades.TabIndex = 12;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::TableroComando.Properties.Resources.Button_Check;
+            this.btnGuardar.Location = new System.Drawing.Point(119, 453);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(111, 43);
+            this.btnGuardar.TabIndex = 16;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // txtValores
+            // 
+            this.txtValores.Location = new System.Drawing.Point(117, 377);
+            this.txtValores.Multiline = true;
+            this.txtValores.Name = "txtValores";
+            this.txtValores.Size = new System.Drawing.Size(219, 70);
+            this.txtValores.TabIndex = 15;
+            // 
+            // txtVision
+            // 
+            this.txtVision.Location = new System.Drawing.Point(117, 307);
+            this.txtVision.Multiline = true;
+            this.txtVision.Name = "txtVision";
+            this.txtVision.Size = new System.Drawing.Size(219, 64);
+            this.txtVision.TabIndex = 14;
+            // 
+            // txtMision
+            // 
+            this.txtMision.Location = new System.Drawing.Point(117, 237);
+            this.txtMision.Multiline = true;
+            this.txtMision.Name = "txtMision";
+            this.txtMision.Size = new System.Drawing.Size(219, 64);
+            this.txtMision.TabIndex = 13;
             // 
             // Form_Empresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 542);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.BTNCancelar);
-            this.Controls.Add(this.BTNGuardar);
-            this.Controls.Add(this.RTBVision);
-            this.Controls.Add(this.LBLVision);
-            this.Controls.Add(this.RTBMision);
-            this.Controls.Add(this.LBLMision);
-            this.Controls.Add(this.TXTCUIT);
-            this.Controls.Add(this.LBLCUIT);
-            this.Controls.Add(this.TXTEmpresa);
-            this.Controls.Add(this.LBLEmpresa);
+            this.ClientSize = new System.Drawing.Size(348, 508);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.txtValores);
+            this.Controls.Add(this.txtVision);
+            this.Controls.Add(this.txtMision);
+            this.Controls.Add(this.txtAutoridades);
+            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.txtDireccion);
+            this.Controls.Add(this.txtCuit);
+            this.Controls.Add(this.txtDenominacion);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Empresa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Datos de la empresa ";
-            this.Load += new System.EventHandler(this.Empresa_Load);
+            this.Text = "Datos de la Empresa";
+            this.Load += new System.EventHandler(this.Form_Empresa_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,16 +236,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Label LBLEmpresa;
-        private System.Windows.Forms.TextBox TXTEmpresa;
-        private System.Windows.Forms.TextBox TXTCUIT;
-        private System.Windows.Forms.Label LBLCUIT;
-        private System.Windows.Forms.Label LBLMision;
-        private System.Windows.Forms.RichTextBox RTBMision;
-        private System.Windows.Forms.RichTextBox RTBVision;
-        private System.Windows.Forms.Label LBLVision;
-        private System.Windows.Forms.Button BTNGuardar;
-        private System.Windows.Forms.Button BTNCancelar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtDenominacion;
+        private System.Windows.Forms.TextBox txtCuit;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtAutoridades;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.TextBox txtValores;
+        private System.Windows.Forms.TextBox txtVision;
+        private System.Windows.Forms.TextBox txtMision;
     }
 }

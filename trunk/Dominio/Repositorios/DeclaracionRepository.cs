@@ -28,6 +28,12 @@ namespace Dominio.Repositorios
                 Declaracion mision = new Declaracion { Tipo = "mision" };
                 Save(mision);
             }
+
+            if (FindByTipo("valor") == null)
+            {
+                Declaracion valor = new Declaracion { Tipo = "valor" };
+                Save(valor);
+            }
         }
     }
 }

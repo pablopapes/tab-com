@@ -56,11 +56,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccionCorrectiva.cs" />
+    <Compile Include="Empresa.cs" />
     <Compile Include="Frecuencia.cs" />
     <Compile Include="Indicador.cs" />
     <Compile Include="Medicion.cs" />
     <Compile Include="Repositorios\AccionCorrectivaRepository.cs" />
     <Compile Include="Repositorios\DeclaracionRepository.cs" />
+    <Compile Include="Repositorios\EmpresaRepository.cs" />
     <Compile Include="Repositorios\FrecuenciaRepository.cs" />
     <Compile Include="Repositorios\IndicadorRepository.cs" />
     <Compile Include="Repositorios\ObjetivoRepository.cs" />
@@ -141,6 +143,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\declaracion.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Empresa.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

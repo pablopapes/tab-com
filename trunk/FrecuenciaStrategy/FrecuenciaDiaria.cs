@@ -9,7 +9,8 @@ namespace FrecuenciaStrategy
     {
         public override bool RequiereMedicion(DateTime ultimaMedicion)
         {
-            return ProximaMedicion(ultimaMedicion) <= DateTime.Now;
+           return ProximaMedicion(ultimaMedicion.Date) <= DateTime.Now.Date;
+
         }
 
         public override DateTime ProximaMedicion(DateTime ultimaMedicion)

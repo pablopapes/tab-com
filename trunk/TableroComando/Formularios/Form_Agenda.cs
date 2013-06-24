@@ -38,7 +38,7 @@ namespace TableroComando.Formularios
         private void ConfigurarIndicadoresDataGrid()
         {
             IList<IndicadorDataGridViewWrapper> indicadores = IndicadorRepository.Instance.FindByRequiereMedicion().Select(i => new IndicadorDataGridViewWrapper(i)).ToList();
-            if ( indicadores.Count != 0)
+            if (indicadores.Count != 0)
             {
                 _sourceIndicadores.DataSource = indicadores;
                 IndicadoresDataGrid.DataSource = _sourceIndicadores;
@@ -49,11 +49,26 @@ namespace TableroComando.Formularios
                 IndicadoresDataGrid.Columns["ProximaFechaMedicion"].HeaderText = "Fecha de Medición";
                 IndicadoresDataGrid.Columns["ProximaFechaMedicion"].DefaultCellStyle.Format = "dd/MM/yyyy";
             }
+
+            try
+            {
+                IndicadorDataGridViewWrapper wrapper = (IndicadorDataGridViewWrapper)_sourceIndicadores.Current;
+                if (wrapper.GetIndicador().RequiereMedicion == false)
+                {
+                    _sourceIndicadores.RemoveCurrent();
+                }
+            }
+            catch
+            {
+
+            }
+           
         }
 
         private void IndicadoresDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             CamposMedicionGroup.Text = IndicadorSeleccionado.ToString();
+            FechaMedicionDtp.Value = IndicadorSeleccionado.ProximaFechaMedicion;
         }
 
         private void AgregarBtn_Click(object sender, EventArgs e)
@@ -70,9 +85,10 @@ namespace TableroComando.Formularios
                 {
                     IndicadorSeleccionado.Mediciones.Add(medicion);
                     IndicadorRepository.Instance.Save(IndicadorSeleccionado);
-                    _sourceIndicadores.RemoveCurrent();
                     ValorTxt.Text = "";
-                    FechaMedicionDtp.Value = DateTime.Now;
+                    DetalleTxt.Text = "";
+                    FechaMedicionDtp.Value = IndicadorSeleccionado.ProximaFechaMedicion;
+                    ConfigurarIndicadoresDataGrid();
                 }
                 else
                 {
