@@ -9,7 +9,6 @@ namespace Dominio
 
     public class AccionCorrectiva : Modelo<AccionCorrectiva>
     {
-        public virtual string Hallazgo { get; set; }
         public virtual string Descripcion { get; set; }
         public virtual string Objetivo { get; set; }    // ¿Cuál es el objetivo de una acción correctiva en particular?
         public virtual DateTime FechaFin { get; set; }

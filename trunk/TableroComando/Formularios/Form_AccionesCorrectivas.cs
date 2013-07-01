@@ -45,6 +45,7 @@ namespace TableroComando.Formularios
         private void Form_AccionesCorrectivas_Load(object sender, EventArgs e)
         {
             AccionesDataGrid.DataSource = _accionesSource;
+            AccionesDataGrid.Columns["FechaFin"].DefaultCellStyle.Format = "dd";
             if (CodigoIndicadorColumn != null) AccionesDataGrid.Columns.Add(CodigoIndicadorColumn);
 
             AccionesDataGrid.Columns.Remove("Responsable");
@@ -68,10 +69,13 @@ namespace TableroComando.Formularios
             AccionesDataGrid.Columns.Add(ColumnaEstado);
 
             AccionesDataGrid.Columns["Indicador"].Visible = false;
-            AccionesDataGrid.Columns["FechaFin"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            AccionesDataGrid.Columns["FechaFin"].DefaultCellStyle.Format = "dd";
+            AccionesDataGrid.Columns["FechaFin"].HeaderText = "Fecha límite";
             AccionesDataGrid.Columns["FechaFin"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             AccionesDataGrid.Columns["Responsable"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             AccionesDataGrid.Columns["Estado"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            AccionesDataGrid.Columns["Descripcion"].HeaderText = "Descripción del desvío";
+            AccionesDataGrid.Columns["Objetivo"].HeaderText = "Acción de mejora a implementar";
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)

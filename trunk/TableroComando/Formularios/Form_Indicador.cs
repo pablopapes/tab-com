@@ -111,7 +111,8 @@ namespace TableroComando.Formularios
 
         private void MedicionesGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DetalleTxt.Text = ((MedicionDataGridViewWrapper)_sourceMediciones.Current).GetMedicion().Detalle;
+            if (DetalleTxt.DataBindings.Count != 0) DetalleTxt.DataBindings.Clear();
+            DetalleTxt.DataBindings.Add("Text", ((MedicionDataGridViewWrapper)_sourceMediciones.Current).GetMedicion(), "Detalle");
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

@@ -34,6 +34,10 @@
             this.DetalleTxt = new System.Windows.Forms.TextBox();
             this.MedicionesGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripGraficoBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripMetaBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripAcciones = new System.Windows.Forms.ToolStripButton();
+            this.toolStripInforme = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.NombreTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,11 +57,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.UnidadTxt = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.toolStripGraficoBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripMetaBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripAcciones = new System.Windows.Forms.ToolStripButton();
-            this.toolStripInforme = new System.Windows.Forms.ToolStripButton();
             this.GuardarBtn = new System.Windows.Forms.Button();
+            this.cachedCRInformeGeneral1 = new TableroComando.Reportes.CachedCRInformeGeneral();
+            this.cachedCRInformeGeneral2 = new TableroComando.Reportes.CachedCRInformeGeneral();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MedicionesGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -92,7 +94,6 @@
             this.DetalleTxt.Location = new System.Drawing.Point(6, 378);
             this.DetalleTxt.Multiline = true;
             this.DetalleTxt.Name = "DetalleTxt";
-            this.DetalleTxt.ReadOnly = true;
             this.DetalleTxt.Size = new System.Drawing.Size(206, 139);
             this.DetalleTxt.TabIndex = 25;
             // 
@@ -104,10 +105,10 @@
             this.MedicionesGridView.AllowUserToResizeRows = false;
             this.MedicionesGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MedicionesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MedicionesGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.MedicionesGridView.Location = new System.Drawing.Point(6, 21);
             this.MedicionesGridView.MultiSelect = false;
             this.MedicionesGridView.Name = "MedicionesGridView";
-            this.MedicionesGridView.ReadOnly = true;
             this.MedicionesGridView.RowHeadersVisible = false;
             this.MedicionesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MedicionesGridView.Size = new System.Drawing.Size(206, 317);
@@ -128,6 +129,42 @@
             this.toolStrip1.Size = new System.Drawing.Size(732, 25);
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripGraficoBtn
+            // 
+            this.toolStripGraficoBtn.Image = global::TableroComando.Properties.Resources.chart_bar2;
+            this.toolStripGraficoBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripGraficoBtn.Name = "toolStripGraficoBtn";
+            this.toolStripGraficoBtn.Size = new System.Drawing.Size(84, 22);
+            this.toolStripGraficoBtn.Text = "Ver gráfico";
+            this.toolStripGraficoBtn.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripMetaBtn
+            // 
+            this.toolStripMetaBtn.Image = global::TableroComando.Properties.Resources.gear_16;
+            this.toolStripMetaBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMetaBtn.Name = "toolStripMetaBtn";
+            this.toolStripMetaBtn.Size = new System.Drawing.Size(92, 22);
+            this.toolStripMetaBtn.Text = "Definir Meta";
+            this.toolStripMetaBtn.Click += new System.EventHandler(this.toolStripMetaBtn_Click);
+            // 
+            // toolStripAcciones
+            // 
+            this.toolStripAcciones.Image = global::TableroComando.Properties.Resources.options_edit;
+            this.toolStripAcciones.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripAcciones.Name = "toolStripAcciones";
+            this.toolStripAcciones.Size = new System.Drawing.Size(137, 22);
+            this.toolStripAcciones.Text = "Acciones Correctivas";
+            this.toolStripAcciones.Click += new System.EventHandler(this.toolStripAcciones_Click);
+            // 
+            // toolStripInforme
+            // 
+            this.toolStripInforme.Image = global::TableroComando.Properties.Resources.report;
+            this.toolStripInforme.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripInforme.Name = "toolStripInforme";
+            this.toolStripInforme.Size = new System.Drawing.Size(69, 22);
+            this.toolStripInforme.Text = "Informe";
+            this.toolStripInforme.Click += new System.EventHandler(this.toolStripInforme_Click);
             // 
             // label1
             // 
@@ -321,42 +358,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos";
             // 
-            // toolStripGraficoBtn
-            // 
-            this.toolStripGraficoBtn.Image = global::TableroComando.Properties.Resources.chart_bar2;
-            this.toolStripGraficoBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripGraficoBtn.Name = "toolStripGraficoBtn";
-            this.toolStripGraficoBtn.Size = new System.Drawing.Size(84, 22);
-            this.toolStripGraficoBtn.Text = "Ver gráfico";
-            this.toolStripGraficoBtn.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripMetaBtn
-            // 
-            this.toolStripMetaBtn.Image = global::TableroComando.Properties.Resources.gear_16;
-            this.toolStripMetaBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMetaBtn.Name = "toolStripMetaBtn";
-            this.toolStripMetaBtn.Size = new System.Drawing.Size(92, 22);
-            this.toolStripMetaBtn.Text = "Definir Meta";
-            this.toolStripMetaBtn.Click += new System.EventHandler(this.toolStripMetaBtn_Click);
-            // 
-            // toolStripAcciones
-            // 
-            this.toolStripAcciones.Image = global::TableroComando.Properties.Resources.options_edit;
-            this.toolStripAcciones.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripAcciones.Name = "toolStripAcciones";
-            this.toolStripAcciones.Size = new System.Drawing.Size(137, 22);
-            this.toolStripAcciones.Text = "Acciones Correctivas";
-            this.toolStripAcciones.Click += new System.EventHandler(this.toolStripAcciones_Click);
-            // 
-            // toolStripInforme
-            // 
-            this.toolStripInforme.Image = global::TableroComando.Properties.Resources.report;
-            this.toolStripInforme.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripInforme.Name = "toolStripInforme";
-            this.toolStripInforme.Size = new System.Drawing.Size(69, 22);
-            this.toolStripInforme.Text = "Informe";
-            this.toolStripInforme.Click += new System.EventHandler(this.toolStripInforme_Click);
-            // 
             // GuardarBtn
             // 
             this.GuardarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -427,5 +428,7 @@
         private System.Windows.Forms.TextBox NombreTxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripButton toolStripInforme;
+        private Reportes.CachedCRInformeGeneral cachedCRInformeGeneral1;
+        private Reportes.CachedCRInformeGeneral cachedCRInformeGeneral2;
     }
 }

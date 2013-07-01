@@ -47,7 +47,6 @@ D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formular
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_InformeIndicador.resources
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_graficos.resources
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_InformeGeneral.resources
-D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_ListaAcciones.resources
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_ListaIndicadores.resources
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_ListaObjetivos.resources
 D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_ListaResponsables.resources
