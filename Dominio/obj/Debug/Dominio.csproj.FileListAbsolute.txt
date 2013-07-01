@@ -45,3 +45,4 @@ D:\proyectos\flexit\tab-com\Dominio\bin\Debug\tr\FluentValidation.resources.dll
 D:\proyectos\flexit\tab-com\Dominio\obj\Debug\ResolveAssemblyReference.cache
 D:\proyectos\flexit\tab-com\Dominio\obj\Debug\Dominio.dll
 D:\proyectos\flexit\tab-com\Dominio\obj\Debug\Dominio.pdb
+D:\proyectos\flexit\tab-com\Dominio\bin\Debug\Mappings\Empresa.hbm.xml

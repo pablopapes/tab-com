@@ -24,6 +24,11 @@ namespace VerificacionDeAutenticidad
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
+
+            string createTableQuery = "CREATE TABLE IF NOT EXISTS Registro(nombre VARCHAR(50), serial VARCHAR(50));";
+            SQLiteCommand createDBQuery = new SQLiteCommand(createTableQuery, sql_con);
+            createDBQuery.ExecuteNonQuery();
+
             string CommandText = "select * from Registro";
             DB = new SQLiteDataAdapter(CommandText, sql_con);
             DS.Reset();
@@ -70,8 +75,9 @@ namespace VerificacionDeAutenticidad
                 sql_cmd.Dispose();
                 sql_con.Dispose();
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine(e);
             }
         }
     }

@@ -13,3 +13,18 @@ D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\obj\x86\Debug\Generat
 D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\obj\x86\Debug\VerificacionDeAutenticidad.exe
 D:\Proyectos\Tablero de Comando\VerificacionDeAutenticidad\obj\x86\Debug\VerificacionDeAutenticidad.pdb
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\bin\Debug\x64\SQLite.Interop.dll
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\bin\Debug\x86\SQLite.Interop.dll
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\bin\Debug\VerificacionDeAutenticidad.exe.config
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\bin\Debug\VerificacionDeAutenticidad.exe
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\bin\Debug\VerificacionDeAutenticidad.pdb
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\bin\Debug\MySql.Data.dll
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\bin\Debug\System.Data.SQLite.dll
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\bin\Debug\System.Data.SQLite.Linq.dll
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\obj\x86\Debug\VerificacionDeAutenticidad.Serial.resources
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\obj\x86\Debug\VerificacionDeAutenticidad.Properties.Resources.resources
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\obj\x86\Debug\VerificacionDeAutenticidad.exe
+D:\proyectos\flexit\tab-com\VerificacionDeAutenticidad\obj\x86\Debug\VerificacionDeAutenticidad.pdb
