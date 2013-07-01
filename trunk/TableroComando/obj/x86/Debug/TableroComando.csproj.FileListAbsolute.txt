@@ -142,3 +142,8 @@ D:\Proyectos\Tablero de Comando\TableroComando\bin\Debug\sv\FluentValidation.res
 D:\Proyectos\Tablero de Comando\TableroComando\bin\Debug\tr\FluentValidation.resources.dll
 D:\Proyectos\Tablero de Comando\TableroComando\obj\x86\Debug\TableroComando.exe
 D:\Proyectos\Tablero de Comando\TableroComando\obj\x86\Debug\TableroComando.pdb
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\Mappings\Empresa.hbm.xml
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\VerificacionDeAutenticidad.exe
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\MySql.Data.dll
+D:\proyectos\flexit\tab-com\TableroComando\bin\Debug\VerificacionDeAutenticidad.pdb
+D:\proyectos\flexit\tab-com\TableroComando\obj\x86\Debug\TableroComando.Formularios.Form_Empresa.resources
