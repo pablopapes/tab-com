@@ -7,7 +7,6 @@
       <generator class="increment" />
     </id>
 
-    <property name="Hallazgo" />
     <property name="Descripcion" />
     <property name="Objetivo" />
     <property name="FechaFin" />

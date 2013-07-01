@@ -31,12 +31,6 @@ namespace TableroComando.GUIWrapper
 
         public EstadoTarea Estado { get { return _accionCorrectiva.Estado; } set { _accionCorrectiva.Estado = value; } }
 
-        public string Hallazgo 
-        { 
-            get { return _accionCorrectiva.Hallazgo; } 
-            set { _accionCorrectiva.Hallazgo = value; } 
-        }
-
         public string Descripcion
         {
             get { return _accionCorrectiva.Descripcion; }
