@@ -39,8 +39,11 @@ namespace Dominio
                 if (Indicadores.Count > 0)
                 {
                     IEnumerable<Indicador> indicadoresMedidos = Indicadores.Where(i => i.Estado != EstadoIndicador.NoDefinido);
-                    decimal sumaEstadoIndicadores = indicadoresMedidos.Sum(i => (int)i.Estado);
-                    return sumaEstadoIndicadores / ((int)EstadoIndicador.Bien * indicadoresMedidos.Count<Indicador>());
+                    if (indicadoresMedidos.ToList().Count > 0)
+                    {
+                        decimal sumaEstadoIndicadores = indicadoresMedidos.Sum(i => (int)i.Estado);
+                        return sumaEstadoIndicadores / ((int)EstadoIndicador.Bien * indicadoresMedidos.Count<Indicador>());
+                    }
                 }
                 return -1;
             }
