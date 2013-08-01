@@ -81,10 +81,10 @@ namespace TableroComando
                 MessageBox.Show("Su periodo de prueba a finalizado, por favor Contactese con el proveedor de Software (info@flexitargentina.com.ar)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 new VerificacionDeAutenticidad.Serial().ShowDialog();
             }
-
                 RegistryKey registryAccess = Registry.Users;
-                registryAccess = registryAccess.OpenSubKey(".DEFAULT\\software\\FlexitTC", true);
 
+                registryAccess = registryAccess.OpenSubKey(".DEFAULT\\software\\FlexitTC", true);
+                Console.WriteLine("hello");
                 if (registryAccess == null)
                 {
                     return false;
